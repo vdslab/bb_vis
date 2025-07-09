@@ -1,7 +1,18 @@
 import "./App.css";
+import "./styles/global.css";
+import "./styles/layout.css";
+import Header from "./components/common/Header";
+import Layout from "./components/layout/Layout";
 
 function App() {
-  return <>Hello World!</>;
+  return (
+    <div className="app-container">
+      <Header />
+      <main className="main-container">
+        <Layout />
+      </main>
+    </div>
+  );
 }
 
 export default App;
