@@ -1,0 +1,19 @@
+description: game_pk取得レスポンスオブジェクト
+type: object
+properties:
+  type: string
+  playdata:
+    type: string
+    description: プレイデータ
+  movies:
+    type: array
+    items:
+      type: string
+      description: コンテンツスラグ
+
+example:
+  playdata:
+    $ref: "../../schemas/data/playdata.json"
+  movies:
+    - "kevin-gausman-in-play-run-s-to-brandon-marsh-d9yyot"
+    - "erik-swanson-in-play-run-s-to-trea-turner-ju4qsb"

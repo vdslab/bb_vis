@@ -1,0 +1,5 @@
+description: 詳細取得レスポンス
+content:
+  application/json:
+    schema:
+      $ref: "../schemas/responseDataObject/GetGameDetailResponseObject.yml"

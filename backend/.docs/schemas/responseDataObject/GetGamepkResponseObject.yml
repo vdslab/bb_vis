@@ -1,0 +1,10 @@
+description: game_pk取得レスポンスオブジェクト
+type: array
+items:
+  type: string
+  description: 試合ID
+
+example:
+  - "2025070101"
+  - "2025070102"
+  - "2025070103"

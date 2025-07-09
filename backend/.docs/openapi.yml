@@ -1,0 +1,83 @@
+openapi: "3.0.3"
+info:
+  title: webapp API仕様
+  version: "1.0.0"
+  description: |
+
+    ## OpenAPI
+
+    OpenAPIはjson/yml形式で記述します。基本的にはymlで記述してください。
+
+    OpenAPIのコードは`backend/.docs`以下のディレクトリに格納されます。
+
+    ## モック
+
+    モックサーバーにはPrismを使用します。起動するには**"フロントエンドフォルダで"**以下のコマンドを実行します
+
+    ```
+    $ npm run mock-server
+    ```
+
+    このポートは4041ポートで起動します。起動には数分かかります。
+
+    ## VSCode拡張
+
+    OpenAPI関連のファイルを編集する際、以下の拡張機能を導入することをお勧めします。
+
+    - [OpenAPI (Swagger) Editor](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi)
+    - [Swagger Viewer](https://marketplace.visualstudio.com/items?itemName=Arjun.swagger-viewer)
+    - [Swagger Tools](https://marketplace.visualstudio.com/items?itemName=TheHolyCoder.swagger-tools)
+
+servers:
+  - url: http://localhost:4041/
+    description: モックサーバー
+  - url: http://localhost:8081/
+    description: ローカル開発サーバー
+
+paths:
+  /.netlify/functions/analisys:
+    $ref: "./endpoints/.netlify/functions/analisys.yml"
+  /.netlify/functions/getIdByAwayteamAndDate:
+    $ref: "./endpoints/.netlify/functions/getIdByAwayteamAndDate.yml"
+  /.netlify/functions/getIdByHometeamAndDate:
+    $ref: "./endpoints/.netlify/functions/getIdByHometeamAndDate.yml"
+  /.netlify/functions/getIdListByDate:
+    $ref: "./endpoints/.netlify/functions/getIdListByDate.yml"
+  /.netlify/functions/getDetailById:
+    $ref: "./endpoints/.netlify/functions/getDetailById.yml"
+
+components:
+  schemas:
+    # レスポンスオブジェクト
+    AnalisysGetResponseObject:
+      $ref: "./schemas/responseDataObject/GetAnalisysResponseObject.yml"
+    BlankResponseObject:
+      $ref: "./schemas/responseDataObject/BlankResponseObject.yml"
+    GetGamepkResponseObject:
+      $ref: "./schemas/responseDataObject/GetGamepkResponseObject.yml"
+    GetGameDetailResponseObject:
+      $ref: "./schemas/responseDataObject/GetGameDetailResponseObject.yml"
+
+    # ベースレスポンスオブジェクト
+    BaseResponseObject:
+      $ref: "./schemas/responseDataObject/base/BaseResponseObject.yml"
+    ResultObject:
+      $ref: "./schemas/responseDataObject/base/ResultObject.yml"
+
+    # データ
+    analisys:
+      $ref: "./schemas/data/analisys.json"
+
+    # others
+    settingCommon:
+      $ref: "./schemas/SettingCommon.yml"
+
+  responses:
+    BlankUnAuthResponse:
+      $ref: "./responses/BlankUnAuthResponse.yml"
+    AnalisysResponse:
+      $ref: "./responses/AnalisysResponse.yml"
+    GetIdByAwayteamAndDateResponse:
+      $ref: "./responses/GetGamepkResponse.yml"
+    GetGameDetailResponse:
+      $ref: "./responses/GetGameDetailResponse.yml"
