@@ -1,0 +1,109 @@
+/* パネル割合設定 */
+:root {
+  /* パネル全体の割合 */
+  --left-panel-ratio: 45%;
+  --right-panel-ratio: 55%;
+
+  /* 左パネル内の割合 */
+  --search-ratio: 40%;
+  --heatmap-ratio: 60%;
+
+  /* 右パネル内の割合 */
+  --movie-ratio: 25%;
+  --simulation-ratio: 75%;
+}
+
+/* レイアウトコンテナ */
+.layout-container {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* 左パネル（30%） */
+.left-panel {
+  flex: 0 0 var(--left-panel-ratio);
+  background-color: var(--left-panel-bg);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 右パネル（70%） */
+.right-panel {
+  flex: 0 0 var(--right-panel-ratio);
+  background-color: var(--right-panel-bg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 各パネルの画面エリア */
+.panel-screen {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.panel-screen:first-child {
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* 各パネルの個別サイズ設定 */
+.search-panel {
+  flex: 0 0 var(--search-ratio);
+}
+
+.heatmap-panel {
+  flex: 0 0 var(--heatmap-ratio);
+}
+
+.movie-panel {
+  flex: 0 0 var(--movie-ratio);
+}
+
+.simulation-panel {
+  flex: 0 0 var(--simulation-ratio);
+}
+
+/* パネル内のコンテンツエリア */
+.panel-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.panel-content h2 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--text-color);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .layout-container {
+    flex-direction: column;
+  }
+
+  .left-panel {
+    flex: 0 0 40%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .right-panel {
+    flex: 0 0 60%;
+  }
+
+  .panel-content {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .panel-content {
+    padding: 10px;
+  }
+}

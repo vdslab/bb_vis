@@ -1,0 +1,7 @@
+get:
+  description: 分析データを取得
+  tags:
+    - 分析データを取得API
+  responses:
+    "200":
+      $ref: "../../../responses/AnalisysResponse.yml"

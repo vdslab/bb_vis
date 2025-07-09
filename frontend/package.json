@@ -7,9 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "mock-server": "prism mock -p 4041 ../backend/.docs/openapi.yml",
+    "format": "prettier --write ."
   },
   "dependencies": {
+    "prettier": "^3.6.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

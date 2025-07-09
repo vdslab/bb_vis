@@ -1,0 +1,7 @@
+description: レスポンスリザルトベース
+type: object
+required:
+  - result
+properties:
+  result:
+    $ref: "./ResultObject.yml"

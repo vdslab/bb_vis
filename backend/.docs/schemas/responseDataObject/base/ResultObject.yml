@@ -1,0 +1,22 @@
+description: APIレスポンスのベース部分
+type: object
+required:
+  - resultFlg
+  - messages
+  - statusCode
+properties:
+  resultFlg:
+    description: 成功したかどうか
+    type: boolean
+  messages:
+    description: (エラーがある場合)何かしらのメッセージ
+    type: array
+    items:
+      type: string
+  statusCode:
+    description: HTTPステータスコード
+    type: integer
+example:
+  resultFlg: true
+  messages: []
+  statusCode: 200
