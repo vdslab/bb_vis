@@ -18,6 +18,10 @@ post:
             - awayteam
             - start_date
             - end_date
+          example:
+            awayteam: "Los Angeles Dodgers"
+            start_date: "2025-01-01"
+            end_date: "2025-01-07"
   responses:
     "200":
       $ref: "../../../responses/GetGamepkResponse.yml"

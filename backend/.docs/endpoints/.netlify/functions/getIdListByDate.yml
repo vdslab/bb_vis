@@ -12,6 +12,8 @@ post:
               type: string
           required:
             - date
+          example:
+            date: "2025-01-07"
   responses:
     "200":
       $ref: "../../../responses/GetGamepkResponse.yml"

@@ -7,7 +7,7 @@ export class GameDetailService {
    * @returns {Promise} - 試合詳細データ
    */
   static async getDetailById(gamepk) {
-    const endpoint = "api/gameDetail/getDetailById";
+    const endpoint = ".netlify/functions/getDetailById";
     return ApiService.callGetApi(endpoint, {
       gamepk: gamepk,
     });
