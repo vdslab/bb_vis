@@ -27,7 +27,7 @@ body {
 /* ヘッダー */
 .header {
   flex-shrink: 0;
-  height: 60px;
+  height: 7vh;
   background-color: var(--header-bg);
   border-bottom: 1px solid var(--border-color);
   display: flex;
