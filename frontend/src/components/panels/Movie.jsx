@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
 import { useState } from "react";
 import { useMovieData } from "@/hooks/useMovieData";
 import MovieList from "../organisms/movie/MovieList";
 
 const Movie = () => {
-  const { moviesIframeTags, loading, handleGetDetailById } = useMovieData();
+const gamepk = useSelector((state) => state.game.gamepk);
+
+  const { moviesIframeTags, loading } = useMovieData(gamepk);
   const [iframeWidth, setIframeWidth] = useState("30%");
   const [iframeHeight, setIframeHeight] = useState("100px");
 
