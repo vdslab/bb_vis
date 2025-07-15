@@ -35,8 +35,8 @@ servers:
     description: ローカル開発サーバー
 
 paths:
-  /.netlify/functions/analisys:
-    $ref: "./endpoints/.netlify/functions/analisys.yml"
+  /.netlify/functions/analysis:
+    $ref: "./endpoints/.netlify/functions/analysis.yml"
   /.netlify/functions/getIdByAwayteamAndDate:
     $ref: "./endpoints/.netlify/functions/getIdByAwayteamAndDate.yml"
   /.netlify/functions/getIdByHometeamAndDate:
@@ -49,8 +49,8 @@ paths:
 components:
   schemas:
     # レスポンスオブジェクト
-    AnalisysGetResponseObject:
-      $ref: "./schemas/responseDataObject/GetAnalisysResponseObject.yml"
+    AnalysisGetResponseObject:
+      $ref: "./schemas/responseDataObject/GetAnalysisResponseObject.yml"
     BlankResponseObject:
       $ref: "./schemas/responseDataObject/BlankResponseObject.yml"
     GetGamepkResponseObject:
@@ -65,8 +65,20 @@ components:
       $ref: "./schemas/responseDataObject/base/ResultObject.yml"
 
     # データ
-    analisys:
-      $ref: "./schemas/data/analisys.json"
+    777486_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777486_logistic_regression_analysis_data.json"
+    777504_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777504_logistic_regression_analysis_data.json"
+    777509_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777509_logistic_regression_analysis_data.json"
+    777537_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777537_logistic_regression_analysis_data.json"
+    777600_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777600_logistic_regression_analysis_data.json"
+    777630_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777630_logistic_regression_analysis_data.json"
+    777640_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777640_logistic_regression_analysis_data.json"
 
     # others
     settingCommon:
@@ -75,8 +87,8 @@ components:
   responses:
     BlankUnAuthResponse:
       $ref: "./responses/BlankUnAuthResponse.yml"
-    AnalisysResponse:
-      $ref: "./responses/AnalisysResponse.yml"
+    AnalysisResponse:
+      $ref: "./responses/AnalysisResponse.yml"
     GetIdByAwayteamAndDateResponse:
       $ref: "./responses/GetGamepkResponse.yml"
     GetGameDetailResponse:

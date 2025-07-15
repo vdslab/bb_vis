@@ -1,0 +1,17 @@
+description: 分析データ取得レスポンスオブジェクト
+type: array
+items:
+  type: object
+  description: 分析データ
+
+example:
+  - $ref: "../../schemas/data/analysis/777486_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/777504_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/777509_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/777537_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/777600_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/777630_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/777640_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/778163_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/778379_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/778544_logistic_regression_analysis_data.json"

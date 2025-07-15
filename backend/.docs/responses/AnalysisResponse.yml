@@ -2,4 +2,4 @@ description: 分析データ取得レスポンス
 content:
   application/json:
     schema:
-      $ref: "../schemas/responseDataObject/GetAnalisysResponseObject.yml"
+      $ref: "../schemas/responseDataObject/GetAnalysisResponseObject.yml"
