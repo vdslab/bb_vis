@@ -12,6 +12,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@nivo/heatmap": "^0.99.0",
     "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.10.0",
     "prettier": "^3.6.2",

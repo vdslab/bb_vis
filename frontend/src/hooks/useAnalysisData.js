@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { GameDetailService } from "@/service/GameDetailService";
 
 export const useAnalysisData = (gamepk) => {
-  const [analysisData, setAnalysisData] = useState([]);
+  const [analysisData, setAnalysisData] = useState(null);
   const [loading, setLoading] = useState(false);
 
   // gamepkListが変更されるたびに自動的にデータを取得
@@ -13,9 +13,11 @@ export const useAnalysisData = (gamepk) => {
       try {
         setLoading(true);
         const data = await GameDetailService.getAnalysisById(gamepk);
-        setAnalysisData(data.analysis_data);
+        console.log(data);
+        setAnalysisData(data);
       } catch (error) {
         console.error("Error fetching analysis data:", error);
+        setAnalysisData(null);
       } finally {
         setLoading(false);
       }
