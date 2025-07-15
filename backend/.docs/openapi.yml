@@ -65,20 +65,24 @@ components:
       $ref: "./schemas/responseDataObject/base/ResultObject.yml"
 
     # データ
-    777486_logistic_regression_analysis_data:
-      $ref: "./schemas/data/analysis/777486_logistic_regression_analysis_data.json"
-    777504_logistic_regression_analysis_data:
-      $ref: "./schemas/data/analysis/777504_logistic_regression_analysis_data.json"
-    777509_logistic_regression_analysis_data:
-      $ref: "./schemas/data/analysis/777509_logistic_regression_analysis_data.json"
-    777537_logistic_regression_analysis_data:
-      $ref: "./schemas/data/analysis/777537_logistic_regression_analysis_data.json"
-    777600_logistic_regression_analysis_data:
-      $ref: "./schemas/data/analysis/777600_logistic_regression_analysis_data.json"
-    777630_logistic_regression_analysis_data:
-      $ref: "./schemas/data/analysis/777630_logistic_regression_analysis_data.json"
-    777640_logistic_regression_analysis_data:
-      $ref: "./schemas/data/analysis/777640_logistic_regression_analysis_data.json"
+    777549_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777549_logistic_regression_analysis_data.json"
+    777555_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777555_logistic_regression_analysis_data.json"
+    777972_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777972_logistic_regression_analysis_data.json"
+    777979_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777979_logistic_regression_analysis_data.json"
+    778131_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778131_logistic_regression_analysis_data.json"
+    778329_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778329_logistic_regression_analysis_data.json"
+    778345_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778345_logistic_regression_analysis_data.json"
+    778434_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778434_logistic_regression_analysis_data.json"
+    778473_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778473_logistic_regression_analysis_data.json"
 
     # others
     settingCommon:

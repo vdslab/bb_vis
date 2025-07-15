@@ -30,4 +30,4 @@ example:
   paramSection: INIT
   paramKey1: ANALISYS_DATA
   paramValue1:
-    $ref: "../schemas/data/analysis/778544_logistic_regression_analysis_data.json"
+    $ref: "../schemas/data/analysis/777549_logistic_regression_analysis_data.json"

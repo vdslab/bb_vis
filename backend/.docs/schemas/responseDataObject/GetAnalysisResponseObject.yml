@@ -1,10 +1,18 @@
+# 実装上の都合で、一旦arrayで返すようにしておく
+
 description: 分析データ取得レスポンスオブジェクト
-type: object
-properties:
-  analysis_data:
-    type: string
-    description: 分析データ
+type: array
+items:
+  type: string
+  description: 分析データ
 
 example:
-  analysis_data:
-    $ref: "../../schemas/data/analysis/777486_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/777549_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/777555_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/777972_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/777979_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/778131_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/778329_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/778345_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/778434_logistic_regression_analysis_data.json"
+  - $ref: "../../schemas/data/analysis/778473_logistic_regression_analysis_data.json"
