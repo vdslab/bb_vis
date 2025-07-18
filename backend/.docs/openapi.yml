@@ -64,25 +64,45 @@ components:
     ResultObject:
       $ref: "./schemas/responseDataObject/base/ResultObject.yml"
 
-    # データ
+    # 通常データ
+    777115_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777115_logistic_regression_analysis_data.json"
+    777117_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777117_logistic_regression_analysis_data.json"
     777549_logistic_regression_analysis_data:
       $ref: "./schemas/data/analysis/777549_logistic_regression_analysis_data.json"
-    777555_logistic_regression_analysis_data:
-      $ref: "./schemas/data/analysis/777555_logistic_regression_analysis_data.json"
     777972_logistic_regression_analysis_data:
       $ref: "./schemas/data/analysis/777972_logistic_regression_analysis_data.json"
     777979_logistic_regression_analysis_data:
       $ref: "./schemas/data/analysis/777979_logistic_regression_analysis_data.json"
     778131_logistic_regression_analysis_data:
       $ref: "./schemas/data/analysis/778131_logistic_regression_analysis_data.json"
-    778329_logistic_regression_analysis_data:
-      $ref: "./schemas/data/analysis/778329_logistic_regression_analysis_data.json"
     778345_logistic_regression_analysis_data:
       $ref: "./schemas/data/analysis/778345_logistic_regression_analysis_data.json"
     778434_logistic_regression_analysis_data:
       $ref: "./schemas/data/analysis/778434_logistic_regression_analysis_data.json"
     778473_logistic_regression_analysis_data:
       $ref: "./schemas/data/analysis/778473_logistic_regression_analysis_data.json"
+
+    # スケールテスト用データ
+    777115_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777115_logistic_regression_analysis_data.json"
+    777117_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777117_logistic_regression_analysis_data.json"
+    777549_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777549_logistic_regression_analysis_data.json"
+    777972_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777972_logistic_regression_analysis_data.json"
+    777979_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777979_logistic_regression_analysis_data.json"
+    778131_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/778131_logistic_regression_analysis_data.json"
+    778345_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/778345_logistic_regression_analysis_data.json"
+    778434_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/778434_logistic_regression_analysis_data.json"
+    778473_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/778473_logistic_regression_analysis_data.json"
 
     # others
     settingCommon:
