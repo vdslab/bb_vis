@@ -6,10 +6,6 @@ import { useSelector } from "react-redux";
 import "@/styles/heatmap.css";
 
 const HeatMap = () => {
-  // const [gamepkList] = useState([
-  //   777486, 777504, 777509, 777537, 777600, 777630, 777640, 778163, 778379,
-  //   778544,
-  // ]);
   const gamepk = useSelector((state) => state.game.gamepk);
 
   const { analysisData, loading } = useAnalysisData(gamepk);
