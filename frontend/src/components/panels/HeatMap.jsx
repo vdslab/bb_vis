@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useAnalysisData } from "@/hooks/useAnalysisData";
 import HeatMapItem from "../organisms/heatmap/HeatMapItem";
+import HeatMapItemTest from "../organisms/heatmap/HeatMapItemTest";
 import { useSelector } from "react-redux";
 import "@/styles/heatmap.css";
 
@@ -35,6 +36,7 @@ const HeatMap = () => {
           {!loading && hasValidData && (
             <div className="heatmap-item">
               <HeatMapItem data={analysisData} />
+              {/* <HeatMapItemTest data={analysisData} /> */}
             </div>
           )}
         </div>
