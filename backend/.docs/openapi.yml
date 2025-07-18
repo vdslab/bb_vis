@@ -35,8 +35,8 @@ servers:
     description: ローカル開発サーバー
 
 paths:
-  /.netlify/functions/analisys:
-    $ref: "./endpoints/.netlify/functions/analisys.yml"
+  /.netlify/functions/getAnalysisById:
+    $ref: "./endpoints/.netlify/functions/getAnalysisById.yml"
   /.netlify/functions/getIdByAwayteamAndDate:
     $ref: "./endpoints/.netlify/functions/getIdByAwayteamAndDate.yml"
   /.netlify/functions/getIdByHometeamAndDate:
@@ -49,8 +49,8 @@ paths:
 components:
   schemas:
     # レスポンスオブジェクト
-    AnalisysGetResponseObject:
-      $ref: "./schemas/responseDataObject/GetAnalisysResponseObject.yml"
+    AnalysisGetResponseObject:
+      $ref: "./schemas/responseDataObject/GetAnalysisResponseObject.yml"
     BlankResponseObject:
       $ref: "./schemas/responseDataObject/BlankResponseObject.yml"
     GetGamepkResponseObject:
@@ -64,9 +64,45 @@ components:
     ResultObject:
       $ref: "./schemas/responseDataObject/base/ResultObject.yml"
 
-    # データ
-    analisys:
-      $ref: "./schemas/data/analisys.json"
+    # 通常データ
+    777115_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777115_logistic_regression_analysis_data.json"
+    777117_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777117_logistic_regression_analysis_data.json"
+    777549_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777549_logistic_regression_analysis_data.json"
+    777972_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777972_logistic_regression_analysis_data.json"
+    777979_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777979_logistic_regression_analysis_data.json"
+    778131_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778131_logistic_regression_analysis_data.json"
+    778345_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778345_logistic_regression_analysis_data.json"
+    778434_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778434_logistic_regression_analysis_data.json"
+    778473_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778473_logistic_regression_analysis_data.json"
+
+    # スケールテスト用データ
+    777115_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777115_logistic_regression_analysis_data.json"
+    777117_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777117_logistic_regression_analysis_data.json"
+    777549_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777549_logistic_regression_analysis_data.json"
+    777972_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777972_logistic_regression_analysis_data.json"
+    777979_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777979_logistic_regression_analysis_data.json"
+    778131_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/778131_logistic_regression_analysis_data.json"
+    778345_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/778345_logistic_regression_analysis_data.json"
+    778434_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/778434_logistic_regression_analysis_data.json"
+    778473_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/778473_logistic_regression_analysis_data.json"
 
     # others
     settingCommon:
@@ -75,9 +111,11 @@ components:
   responses:
     BlankUnAuthResponse:
       $ref: "./responses/BlankUnAuthResponse.yml"
-    AnalisysResponse:
-      $ref: "./responses/AnalisysResponse.yml"
+    GetAnalysisResponse:
+      $ref: "./responses/GetAnalysisResponse.yml"
     GetIdByAwayteamAndDateResponse:
       $ref: "./responses/GetGamepkResponse.yml"
     GetGameDetailResponse:
       $ref: "./responses/GetGameDetailResponse.yml"
+    GetGamepkResponse:
+      $ref: "./responses/GetGamepkResponse.yml"

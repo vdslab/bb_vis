@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setGamePk } from "@/store/gameStore";
+import { setGamePk } from "@/store/GameStore";
 
 const Header = () => {
   const dispatch = useDispatch();

@@ -20,7 +20,7 @@ properties:
     type: string
   paramValue1:
     description: 値１
-    type: string
+    type: object
   paramValue2:
     description: 値２
     type: string
@@ -30,4 +30,4 @@ example:
   paramSection: INIT
   paramKey1: ANALISYS_DATA
   paramValue1:
-    $ref: "./data/analisys.json"
+    $ref: "../schemas/data/analysis/777549_logistic_regression_analysis_data.json"

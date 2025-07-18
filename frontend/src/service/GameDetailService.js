@@ -12,4 +12,16 @@ export class GameDetailService {
       gamepk: gamepk,
     });
   }
+
+  /**
+   * 試合IDリストから分析データを取得
+   * @param {string} gamepk - 試合ID
+   * @returns {Promise} - 分析データ
+   */
+  static async getAnalysisById(gamepk) {
+    const endpoint = ".netlify/functions/getAnalysisById";
+    return ApiService.callGetApi(endpoint, {
+      gamepk: gamepk,
+    });
+  }
 }
