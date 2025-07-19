@@ -8,20 +8,30 @@ const GameList = ({ games = [] }) => {
       style={{
         display: "flex",
         flexWrap: "wrap",
-        gap: "20px",
-        padding: "20px",
+        gap: "16px",
+        padding: "12px",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
       }}
     >
       {games.map((game, index) => (
-        <GameListCard
+        <div
           key={index}
-          gamepk={game.gamepk}
-          hometeam={game.hometeam}
-          awayteam={game.awayteam}
-          hometeamscore={game.hometeamscore}
-          awayteamscore={game.awayteamscore}
-          date={game.date}
-        />
+          style={{
+            flex: "0 0 auto",
+            width: "32%",
+            height: "120px",
+          }}
+        >
+          <GameListCard
+            gamepk={game.gamepk}
+            hometeam={game.hometeam}
+            awayteam={game.awayteam}
+            hometeamscore={game.hometeamscore}
+            awayteamscore={game.awayteamscore}
+            status={game.status}
+          />
+        </div>
       ))}
     </div>
   );

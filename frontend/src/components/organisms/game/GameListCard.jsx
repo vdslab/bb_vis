@@ -18,6 +18,7 @@ const GameListCard = ({
   awayteam,
   hometeamscore,
   awayteamscore,
+  status,
 }) => {
   const dispatch = useDispatch();
 
@@ -31,54 +32,81 @@ const GameListCard = ({
         width: "100%",
         height: "100%",
         transition: "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
-        // boxShadow: "0 8px 25px rgba(0,0,0,0.15)",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.5)",
+        borderRadius: "8px",
       }}
     >
-      <CardActionArea
-        onClick={handleClick}
-        sx={{ height: "100%", display: "flex", flexDirection: "column" }}
-      >
-        <CardContent
-          sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}
-        >
-          <Box>
+      <CardActionArea onClick={handleClick}>
+        <CardContent>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: "5fr 2fr 5fr",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Typography
               gutterBottom
               variant="h6"
               component="div"
-              sx={{ fontWeight: "bold", mb: 1 }}
+              sx={{ fontWeight: "bold", textAlign: "center" }}
             >
-              {hometeam} vs {awayteam}
+              {hometeam}
+            </Typography>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ textAlign: "center" }}
+            >
+              vs
+            </Typography>
+            <Typography
+              gutterBottom
+              variant="h6"
+              component="div"
+              sx={{ fontWeight: "bold", textAlign: "center" }}
+            >
+              {awayteam}
             </Typography>
           </Box>
           <Box
             sx={{
-              display: "flex",
-              justifyContent: "center",
+              display: "grid",
+              gridTemplateColumns: "5fr 2fr 5fr",
               alignItems: "center",
-              mb: 2,
+              justifyContent: "center",
             }}
           >
             <Typography
               variant="h4"
               component="span"
-              sx={{ fontWeight: "bold", color: "primary.main" }}
+              sx={{ fontWeight: "bold", textAlign: "end" }}
             >
               {hometeamscore}
             </Typography>
             <Typography
               variant="h5"
               component="span"
-              sx={{ mx: 2, color: "text.secondary" }}
+              sx={{ textAlign: "center" }}
             >
               -
             </Typography>
             <Typography
               variant="h4"
               component="span"
-              sx={{ fontWeight: "bold", color: "primary.main" }}
+              sx={{ fontWeight: "bold", textAlign: "start" }}
             >
               {awayteamscore}
+            </Typography>
+          </Box>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Typography
+              variant="h7"
+              component="span"
+              sx={{ fontWeight: "bold", textAlign: "start" }}
+            >
+              {status}
             </Typography>
           </Box>
         </CardContent>
