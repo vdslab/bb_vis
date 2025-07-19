@@ -14,6 +14,7 @@
   /* 右パネル内の割合 */
   --movie-ratio: 22vh;
   --simulation-ratio: 71vh;
+  --game-ratio: 71vh;
 }
 
 /* レイアウトコンテナ */
@@ -53,6 +54,16 @@
   border-bottom: 1px solid var(--border-color);
 }
 
+.panel-header {
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.panel-header h2 {
+  margin-top: 0;
+  color: var(--text-color);
+}
+
 /* 各パネルの個別サイズ設定 */
 .search-panel {
   flex: 0 0 var(--search-ratio);
@@ -68,6 +79,10 @@
 
 .simulation-panel {
   flex: 0 0 var(--simulation-ratio);
+}
+
+.game-panel {
+  flex: 0 0 var(--game-ratio);
 }
 
 /* パネル内のコンテンツエリア */
