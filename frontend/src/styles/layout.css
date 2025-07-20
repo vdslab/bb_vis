@@ -14,6 +14,7 @@
   /* 右パネル内の割合 */
   --movie-ratio: 22vh;
   --simulation-ratio: 71vh;
+  --game-ratio: 71vh;
 }
 
 /* レイアウトコンテナ */
@@ -78,6 +79,10 @@
 
 .simulation-panel {
   flex: 0 0 var(--simulation-ratio);
+}
+
+.game-panel {
+  flex: 0 0 var(--game-ratio);
 }
 
 /* パネル内のコンテンツエリア */
