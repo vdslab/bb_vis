@@ -1,0 +1,97 @@
+.simulation-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+.game-score-board {
+  width: 100%;
+  height: 30%;
+  border-radius: 8px;
+}
+
+.game-field {
+  position: relative;
+  width: 100%;
+  height: 70%;
+  border-radius: 8px;
+  overflow: hidden;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.field-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.runners-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ランナーの配置位置 */
+.runner {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.runner-circle {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.runner-name {
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ベースの位置 */
+.first-base {
+  top: 60%;
+  left: 63%;
+}
+
+.second-base {
+  top: 52%;
+  left: 45%;
+}
+
+.third-base {
+  top: 72%;
+  left: 38%;
+}
+
+/* パルスアニメーション */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+}

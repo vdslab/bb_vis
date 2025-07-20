@@ -1,0 +1,5 @@
+description: 試合データ取得レスポンス
+content:
+  application/json:
+    schema:
+      $ref: "../schemas/responseDataObject/GetPlayDataResponseObject.yml"

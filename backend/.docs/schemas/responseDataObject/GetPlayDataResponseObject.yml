@@ -1,0 +1,5 @@
+description: 試合データ取得レスポンスオブジェクト
+type: string
+
+example:
+  $ref: "../../schemas/data/playdata.json"

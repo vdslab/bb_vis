@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { GameDetailService } from "@/service/GameDetailService";
 
-export const useMovieData = (gamepk) => {
-  const [moviesIframeTags, setMoviesIframeTags] = useState([]);
+export const usePlayData = (gamepk) => {
+  const [playData, setPlayData] = useState({});
   const [loading, setLoading] = useState(false);
 
   // gamepkが変更されるたびに自動的にデータを取得
@@ -12,10 +12,10 @@ export const useMovieData = (gamepk) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const res = await GameDetailService.getMoviesById(gamepk);
-        setMoviesIframeTags(res);
+        const res = await GameDetailService.getPlayDataById(gamepk);
+        setPlayData(res);
       } catch (error) {
-        console.error("Error fetching movie data:", error);
+        console.error("Error fetching play data:", error);
       } finally {
         setLoading(false);
       }
@@ -25,7 +25,7 @@ export const useMovieData = (gamepk) => {
   }, [gamepk]);
 
   return {
-    moviesIframeTags,
+    playData,
     loading,
   };
 };

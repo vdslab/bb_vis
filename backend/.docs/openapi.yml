@@ -43,8 +43,10 @@ paths:
     $ref: "./endpoints/.netlify/functions/getIdByHometeamAndDate.yml"
   /.netlify/functions/getIdListByDate:
     $ref: "./endpoints/.netlify/functions/getIdListByDate.yml"
-  /.netlify/functions/getDetailById:
-    $ref: "./endpoints/.netlify/functions/getDetailById.yml"
+  /.netlify/functions/getMoviesById:
+    $ref: "./endpoints/.netlify/functions/getMoviesById.yml"
+  /.netlify/functions/getPlayDataById:
+    $ref: "./endpoints/.netlify/functions/getPlayDataById.yml"
 
 components:
   schemas:
@@ -55,8 +57,10 @@ components:
       $ref: "./schemas/responseDataObject/BlankResponseObject.yml"
     GetGamepkResponseObject:
       $ref: "./schemas/responseDataObject/GetGamepkResponseObject.yml"
-    GetGameDetailResponseObject:
-      $ref: "./schemas/responseDataObject/GetGameDetailResponseObject.yml"
+    GetMoviesResponseObject:
+      $ref: "./schemas/responseDataObject/GetMoviesResponseObject.yml"
+    GetPlayDataResponseObject:
+      $ref: "./schemas/responseDataObject/GetPlayDataResponseObject.yml"
 
     # ベースレスポンスオブジェクト
     BaseResponseObject:
@@ -115,7 +119,9 @@ components:
       $ref: "./responses/GetAnalysisResponse.yml"
     GetIdByAwayteamAndDateResponse:
       $ref: "./responses/GetGamepkResponse.yml"
-    GetGameDetailResponse:
-      $ref: "./responses/GetGameDetailResponse.yml"
     GetGamepkResponse:
       $ref: "./responses/GetGamepkResponse.yml"
+    GetMoviesResponse:
+      $ref: "./responses/GetMoviesResponse.yml"
+    GetPlayDataResponse:
+      $ref: "./responses/GetPlayDataResponse.yml"

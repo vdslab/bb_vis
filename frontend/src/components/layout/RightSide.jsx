@@ -6,7 +6,8 @@ const RightPanel = () => {
   return (
     <div className="right-panel">
       <Movie />
-      <Game />
+      {/* <Game /> */}
+      <Simulation />
     </div>
   );
 };

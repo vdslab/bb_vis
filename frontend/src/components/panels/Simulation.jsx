@@ -1,9 +1,46 @@
+import React, { useState, useEffect } from "react";
+import "@/styles/simulation.css";
+import GameField from "../organisms/simulation/GameField";
+import GameScoreBoard from "../organisms/simulation/GameScoreBoard";
+import { useSelector } from "react-redux";
+import { usePlayData } from "@/hooks/usePlayData";
+
 const Simulation = () => {
+  // playDataを受け取る
+  const gamepk = useSelector((state) => state.game.gamepk);
+  const { playData, loading } = usePlayData(gamepk);
+
+  // p_id,e_idを受け取る
+  const p_id = useSelector((state) => state.game.id.p_id);
+  const e_id = useSelector((state) => state.game.id.e_id);
+
+  // playDataからp_id,e_idのデータを取得
+  const [eventData, setEventData] = useState("");
+
+  useEffect(() => {
+    if (
+      playData &&
+      p_id !== null &&
+      e_id !== null &&
+      playData[p_id][e_id] !== undefined
+    ) {
+      setEventData(playData[p_id][e_id]);
+    } else {
+      setEventData("");
+    }
+  }, [p_id, e_id, playData]);
+
   return (
     <div className="panel-screen simulation-panel">
-      <div className="panel-content">
+      <div className="panel-header">
         <h2>Simulation</h2>
-        <p>シミュレーション表示エリア</p>
+      </div>
+      <div className="panel-content">
+        {loading && <div className="loading">Loading...</div>}
+        <div className="simulation-container">
+          <GameScoreBoard />
+          <GameField eventData={eventData} />
+        </div>
       </div>
     </div>
   );
