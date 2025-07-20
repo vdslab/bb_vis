@@ -12,8 +12,8 @@ export const useMovieData = (gamepk) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const data = await GameDetailService.getDetailById(gamepk);
-        setMoviesIframeTags(data.movies);
+        const res = await GameDetailService.getMoviesById(gamepk);
+        setMoviesIframeTags(res);
       } catch (error) {
         console.error("Error fetching movie data:", error);
       } finally {
