@@ -4,9 +4,12 @@ import playData from "@/testdata/play_data.json";
 import GameField from "../organisms/simulation/GameField";
 import GameScoreBoard from "../organisms/simulation/GameScoreBoard";
 import { useSelector } from "react-redux";
+import { usePlayData } from "@/hooks/usePlayData";
 
 const Simulation = () => {
   // playDataを受け取る
+  const gamepk = useSelector((state) => state.game.gamepk);
+  const { playData, loading } = usePlayData(gamepk);
 
   // p_id,e_idを受け取る
   const { p_id, e_id } = useSelector((state) => ({
@@ -27,6 +30,7 @@ const Simulation = () => {
         <h2>Simulation</h2>
       </div>
       <div className="panel-content">
+        {loading && <div className="loading">Loading...</div>}
         <div className="simulation-container">
           <GameScoreBoard />
           <GameField eventData={eventData} />
