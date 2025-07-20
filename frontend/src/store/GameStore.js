@@ -3,8 +3,10 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 const initialState = {
   // TODO:実際のデータを取得する
   gamepk: 1000,
-  p_id: 0,
-  e_id: 0,
+  id: {
+    p_id: null,
+    e_id: null,
+  },
 };
 
 const gameSlice = createSlice({
@@ -14,11 +16,8 @@ const gameSlice = createSlice({
     setGamePk: (state, action) => {
       state.gamepk = action.payload;
     },
-    setPId: (state, action) => {
-      state.p_id = action.payload;
-    },
-    setEId: (state, action) => {
-      state.e_id = action.payload;
+    setId: (state, action) => {
+      state.id = action.payload;
     },
   },
 });
@@ -29,5 +28,5 @@ const GameStore = configureStore({
   },
 });
 
-export const { setGamePk, setPId, setEId } = gameSlice.actions;
+export const { setGamePk, setId } = gameSlice.actions;
 export default GameStore;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setGamePk, setPId, setEId } from "@/store/GameStore";
+import { setGamePk, setId } from "@/store/GameStore";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -15,8 +15,7 @@ const Header = () => {
   };
 
   const handleGetId = () => {
-    dispatch(setPId(Number(pId)));
-    dispatch(setEId(Number(eId)));
+    dispatch(setId({ p_id: Number(pId), e_id: Number(eId) }));
   };
 
   return (
