@@ -1,5 +1,8 @@
 /* 色の定数 */
 :root {
+  /* custom color */
+  --baseball-field-color: #fffdf6;
+
   --primary-color: #007bff;
   --secondary-color: #6c757d;
   --success-color: #28a745;

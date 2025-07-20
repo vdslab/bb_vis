@@ -37,7 +37,7 @@
 /* 右パネル（70%） */
 .right-panel {
   flex: 0 0 var(--right-panel-ratio);
-  background-color: var(--right-panel-bg);
+  background-color: var(--baseball-field-color);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -95,8 +95,6 @@
 .panel-content h2 {
   margin-top: 0;
   padding-bottom: 10px;
-  border-bottom: 2px solid var(--primary-color);
-  color: var(--text-color);
 }
 
 /* レスポンシブデザイン */
