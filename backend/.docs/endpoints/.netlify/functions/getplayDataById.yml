@@ -1,0 +1,13 @@
+get:
+  description: 試合IDから試合データを取得
+  tags:
+    - 試合データ取得API
+  parameters:
+    - name: gamepk
+      in: query
+      required: true
+      description: 試合ID
+
+  responses:
+    "200":
+      $ref: "../../../responses/GetPlayDataResponse.yml"
