@@ -53,6 +53,16 @@
   border-bottom: 1px solid var(--border-color);
 }
 
+.panel-header {
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.panel-header h2 {
+  margin-top: 0;
+  color: var(--text-color);
+}
+
 /* 各パネルの個別サイズ設定 */
 .search-panel {
   flex: 0 0 var(--search-ratio);
