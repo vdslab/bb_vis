@@ -3,13 +3,16 @@ import "@/styles/simulation.css";
 import playData from "@/testdata/play_data.json";
 import GameField from "../organisms/simulation/GameField";
 import GameScoreBoard from "../organisms/simulation/GameScoreBoard";
+import { useSelector } from "react-redux";
 
 const Simulation = () => {
   // playDataを受け取る
 
   // p_id,e_idを受け取る
-  const p_id = 55;
-  const e_id = 3;
+  const { p_id, e_id } = useSelector((state) => ({
+    p_id: state.game.p_id,
+    e_id: state.game.e_id,
+  }));
 
   // playDataからp_id,e_idのデータを取得
   const [eventData, setEventData] = useState(playData[p_id][e_id]);
