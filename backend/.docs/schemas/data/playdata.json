@@ -109,7 +109,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 0,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -136,7 +138,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": true,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -239,7 +245,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 0,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -266,7 +274,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -369,7 +381,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 0,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -396,7 +410,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": true,
@@ -499,7 +517,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 0,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -526,7 +546,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "7": {
         "is_away": true,
@@ -629,7 +653,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 0,
+          "e_id": 7
         },
         "score_board": {
           "away": {
@@ -656,7 +682,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "9": {
         "is_away": true,
@@ -759,7 +789,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 0,
+          "e_id": 9
         },
         "score_board": {
           "away": {
@@ -786,7 +818,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "1": {
@@ -891,7 +927,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 1,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -918,7 +956,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -1021,7 +1063,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 1,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -1048,7 +1092,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "2": {
@@ -1153,7 +1201,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 2,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -1180,7 +1230,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -1283,7 +1337,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 2,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -1310,7 +1366,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -1413,7 +1473,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 2,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -1440,7 +1502,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -1543,7 +1609,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 2,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -1570,7 +1638,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -1673,7 +1745,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 2,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -1700,7 +1774,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "3": {
@@ -1805,7 +1883,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 3,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -1832,7 +1912,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -1935,7 +2019,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 3,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -1962,7 +2048,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -2065,7 +2155,9 @@
                 "full_name": "Freddie Freeman"
               }
             }
-          }
+          },
+          "p_id": 3,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -2092,7 +2184,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "4": {
@@ -2197,7 +2293,9 @@
                 "full_name": "Freddie Freeman"
               }
             }
-          }
+          },
+          "p_id": 4,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -2224,7 +2322,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -2327,7 +2429,9 @@
                 "full_name": "Freddie Freeman"
               }
             }
-          }
+          },
+          "p_id": 4,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -2354,7 +2458,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -2457,7 +2565,9 @@
                 "full_name": "Freddie Freeman"
               }
             }
-          }
+          },
+          "p_id": 4,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -2484,7 +2594,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -2587,7 +2701,9 @@
                 "full_name": "Freddie Freeman"
               }
             }
-          }
+          },
+          "p_id": 4,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -2614,7 +2730,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -2717,7 +2837,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 4,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -2744,7 +2866,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "5": {
@@ -2849,7 +2975,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 5,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -2876,7 +3004,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -2979,7 +3111,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 5,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -3006,7 +3140,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -3109,7 +3247,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 5,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -3136,7 +3276,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -3239,7 +3383,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 5,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -3266,7 +3412,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -3369,7 +3519,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 5,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -3396,7 +3548,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -3499,7 +3655,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 5,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -3526,7 +3684,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "6": {
@@ -3631,7 +3793,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 6,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -3658,7 +3822,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -3761,7 +3929,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 6,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -3788,7 +3958,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -3891,7 +4065,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 6,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -3918,7 +4094,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -4021,7 +4201,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 6,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -4048,7 +4230,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": true,
@@ -4151,7 +4337,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 6,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -4178,7 +4366,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "7": {
@@ -4283,7 +4475,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 7,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -4310,7 +4504,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -4413,7 +4611,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 7,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -4440,7 +4640,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -4543,7 +4747,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 7,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -4570,7 +4776,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -4673,7 +4883,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 7,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -4700,7 +4912,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -4803,7 +5019,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 7,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -4830,7 +5048,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": false,
@@ -4933,7 +5155,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 7,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -4960,7 +5184,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "8": {
@@ -5065,7 +5293,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 8,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -5092,7 +5322,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -5195,7 +5429,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 8,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -5222,7 +5458,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -5325,7 +5565,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 8,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -5352,7 +5594,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -5455,7 +5701,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 8,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -5482,7 +5730,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -5585,7 +5837,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 8,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -5612,7 +5866,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "9": {
@@ -5717,7 +5975,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 9,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -5744,7 +6004,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -5847,7 +6111,9 @@
                 "full_name": "Luis Arraez"
               }
             }
-          }
+          },
+          "p_id": 9,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -5874,7 +6140,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "10": {
@@ -5979,7 +6249,9 @@
                 "full_name": "Luis Arraez"
               }
             }
-          }
+          },
+          "p_id": 10,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -6006,7 +6278,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -6109,7 +6385,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 10,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -6136,7 +6414,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "11": {
@@ -6241,7 +6523,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 11,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -6268,7 +6552,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -6371,7 +6659,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 11,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -6398,7 +6688,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -6501,7 +6795,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 11,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -6528,7 +6824,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -6631,7 +6931,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 11,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -6658,7 +6960,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -6761,7 +7067,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 11,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -6788,7 +7096,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "12": {
@@ -6893,7 +7205,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 12,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -6920,7 +7234,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -7023,7 +7341,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 12,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -7050,7 +7370,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -7153,7 +7477,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 12,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -7180,7 +7506,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -7283,7 +7613,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 12,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -7310,7 +7642,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -7413,7 +7749,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 12,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -7440,7 +7778,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "13": {
@@ -7545,7 +7887,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 13,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -7572,7 +7916,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -7675,7 +8023,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 13,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -7702,7 +8052,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "14": {
@@ -7807,7 +8161,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 14,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -7834,7 +8190,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -7937,7 +8297,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 14,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -7964,7 +8326,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -8067,7 +8433,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 14,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -8094,7 +8462,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -8197,7 +8569,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 14,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -8224,7 +8598,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -8327,7 +8705,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 14,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -8354,7 +8734,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "15": {
@@ -8459,7 +8843,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 15,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -8486,7 +8872,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -8589,7 +8979,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 15,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -8616,7 +9008,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -8719,7 +9115,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 15,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -8746,7 +9144,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -8849,7 +9251,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 15,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -8876,7 +9280,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -8979,7 +9387,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 15,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -9006,7 +9416,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "16": {
@@ -9111,7 +9525,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 16,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -9138,7 +9554,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -9241,7 +9661,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 16,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -9268,7 +9690,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -9371,7 +9797,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 16,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -9398,7 +9826,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -9501,7 +9933,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 16,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -9528,7 +9962,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -9631,7 +10069,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 16,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -9658,7 +10098,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "17": {
@@ -9763,7 +10207,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 17,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -9790,7 +10236,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -9893,7 +10343,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 17,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -9920,7 +10372,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "18": {
@@ -10025,7 +10481,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 18,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -10052,7 +10510,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -10155,7 +10617,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 18,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -10182,7 +10646,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -10285,7 +10753,9 @@
                 "full_name": "Jake Cronenworth"
               }
             }
-          }
+          },
+          "p_id": 18,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -10312,7 +10782,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "19": {
@@ -10417,7 +10891,9 @@
                 "full_name": "Jake Cronenworth"
               }
             }
-          }
+          },
+          "p_id": 19,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -10444,7 +10920,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -10547,7 +11027,9 @@
                 "full_name": "Jake Cronenworth"
               }
             }
-          }
+          },
+          "p_id": 19,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -10574,7 +11056,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -10677,7 +11163,9 @@
                 "full_name": "Jake Cronenworth"
               }
             }
-          }
+          },
+          "p_id": 19,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -10704,7 +11192,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -10807,7 +11299,9 @@
                 "full_name": "Jake Cronenworth"
               }
             }
-          }
+          },
+          "p_id": 19,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -10834,7 +11328,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -10937,7 +11435,9 @@
                 "full_name": "Jake Cronenworth"
               }
             }
-          }
+          },
+          "p_id": 19,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -10964,7 +11464,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": false,
@@ -11067,7 +11571,9 @@
                 "full_name": "Jake Cronenworth"
               }
             }
-          }
+          },
+          "p_id": 19,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -11094,7 +11600,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "20": {
@@ -11199,7 +11709,9 @@
                 "full_name": "Jake Cronenworth"
               }
             }
-          }
+          },
+          "p_id": 20,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -11226,7 +11738,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -11329,7 +11845,9 @@
                 "full_name": "Fernando Tatis Jr."
               }
             }
-          }
+          },
+          "p_id": 20,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -11356,7 +11874,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -11459,7 +11981,9 @@
                 "full_name": "Fernando Tatis Jr."
               }
             }
-          }
+          },
+          "p_id": 20,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -11486,7 +12010,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -11589,7 +12117,9 @@
                 "full_name": "Fernando Tatis Jr."
               }
             }
-          }
+          },
+          "p_id": 20,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -11616,7 +12146,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": false,
@@ -11719,7 +12253,9 @@
                 "full_name": "Fernando Tatis Jr."
               }
             }
-          }
+          },
+          "p_id": 20,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -11746,7 +12282,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "21": {
@@ -11851,7 +12391,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 21,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -11878,7 +12420,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": true
       }
     },
     "22": {
@@ -11983,7 +12529,9 @@
                 "full_name": "Mookie Betts"
               }
             }
-          }
+          },
+          "p_id": 22,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -12010,7 +12558,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": true
       }
     },
     "23": {
@@ -12115,7 +12667,9 @@
                 "full_name": "Mookie Betts"
               }
             }
-          }
+          },
+          "p_id": 23,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -12142,7 +12696,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -12245,7 +12803,9 @@
                 "full_name": "Mookie Betts"
               }
             }
-          }
+          },
+          "p_id": 23,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -12272,7 +12832,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -12375,7 +12939,9 @@
                 "full_name": "Mookie Betts"
               }
             }
-          }
+          },
+          "p_id": 23,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -12402,7 +12968,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -12505,7 +13075,9 @@
                 "full_name": "Mookie Betts"
               }
             }
-          }
+          },
+          "p_id": 23,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -12532,7 +13104,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -12635,7 +13211,9 @@
                 "full_name": "Freddie Freeman"
               }
             }
-          }
+          },
+          "p_id": 23,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -12662,7 +13240,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "24": {
@@ -12767,7 +13349,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 24,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -12794,7 +13378,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": true
       }
     },
     "25": {
@@ -12899,7 +13487,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 25,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -12926,7 +13516,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -13029,7 +13623,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 25,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -13056,7 +13652,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -13159,7 +13759,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 25,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -13186,7 +13788,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -13289,7 +13895,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 25,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -13316,7 +13924,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -13419,7 +14031,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 25,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -13446,7 +14060,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -13549,7 +14167,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 25,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -13576,7 +14196,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": true,
@@ -13679,7 +14303,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 25,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -13706,7 +14332,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "26": {
@@ -13811,7 +14441,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 26,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -13838,7 +14470,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -13941,7 +14577,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 26,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -13968,7 +14606,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -14071,7 +14713,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 26,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -14098,7 +14742,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -14201,7 +14849,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 26,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -14228,7 +14878,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -14331,7 +14985,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 26,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -14358,7 +15014,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": true,
@@ -14461,7 +15121,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 26,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -14488,7 +15150,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "27": {
@@ -14593,7 +15259,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 27,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -14620,7 +15288,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -14723,7 +15395,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 27,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -14750,7 +15424,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -14853,7 +15531,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 27,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -14880,7 +15560,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -14983,7 +15667,9 @@
                 "full_name": "Andy Pages"
               }
             }
-          }
+          },
+          "p_id": 27,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -15010,7 +15696,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "28": {
@@ -15115,7 +15805,9 @@
                 "full_name": "Andy Pages"
               }
             }
-          }
+          },
+          "p_id": 28,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -15142,7 +15834,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -15245,7 +15941,9 @@
                 "full_name": "Andy Pages"
               }
             }
-          }
+          },
+          "p_id": 28,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -15272,7 +15970,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -15375,7 +16077,9 @@
                 "full_name": "Andy Pages"
               }
             }
-          }
+          },
+          "p_id": 28,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -15402,7 +16106,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -15505,7 +16213,9 @@
                 "full_name": "Andy Pages"
               }
             }
-          }
+          },
+          "p_id": 28,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -15532,7 +16242,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "29": {
@@ -15637,7 +16351,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 29,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -15664,7 +16380,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": true
       }
     },
     "30": {
@@ -15769,7 +16489,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 30,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -15796,7 +16518,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -15899,7 +16625,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 30,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -15926,7 +16654,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -16029,7 +16761,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 30,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -16056,7 +16790,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -16159,7 +16897,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 30,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -16186,7 +16926,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "31": {
@@ -16291,7 +17035,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 31,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -16318,7 +17064,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -16421,7 +17171,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 31,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -16448,7 +17200,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -16551,7 +17307,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 31,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -16578,7 +17336,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "32": {
@@ -16683,7 +17445,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 32,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -16710,7 +17474,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -16813,7 +17581,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 32,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -16840,7 +17610,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -16943,7 +17717,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 32,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -16970,7 +17746,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -17073,7 +17853,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 32,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -17100,7 +17882,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -17203,7 +17989,9 @@
                 "full_name": "Manny Machado"
               }
             }
-          }
+          },
+          "p_id": 32,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -17230,7 +18018,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "33": {
@@ -17335,7 +18127,9 @@
                 "full_name": "Manny Machado"
               }
             }
-          }
+          },
+          "p_id": 33,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -17362,7 +18156,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -17465,7 +18263,9 @@
                 "full_name": "Manny Machado"
               }
             }
-          }
+          },
+          "p_id": 33,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -17492,7 +18292,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "34": {
@@ -17597,7 +18401,9 @@
                 "full_name": "Manny Machado"
               }
             }
-          }
+          },
+          "p_id": 34,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -17624,7 +18430,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -17727,7 +18537,9 @@
                 "full_name": "Manny Machado"
               }
             }
-          }
+          },
+          "p_id": 34,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -17754,7 +18566,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -17857,7 +18673,9 @@
                 "full_name": "Manny Machado"
               }
             }
-          }
+          },
+          "p_id": 34,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -17884,7 +18702,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -17987,7 +18809,9 @@
                 "full_name": "Tyler Wade"
               }
             }
-          }
+          },
+          "p_id": 34,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -18014,7 +18838,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "35": {
@@ -18119,7 +18947,9 @@
                 "full_name": "Tyler Wade"
               }
             }
-          }
+          },
+          "p_id": 35,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -18146,7 +18976,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -18249,7 +19083,9 @@
                 "full_name": "Tyler Wade"
               }
             }
-          }
+          },
+          "p_id": 35,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -18276,7 +19112,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -18379,7 +19219,9 @@
                 "full_name": "Tyler Wade"
               }
             }
-          }
+          },
+          "p_id": 35,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -18406,7 +19248,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "36": {
@@ -18511,7 +19357,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 36,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -18538,7 +19386,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -18641,7 +19493,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 36,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -18668,7 +19522,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -18771,7 +19629,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 36,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -18798,7 +19658,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -18901,7 +19765,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 36,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -18928,7 +19794,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -19031,7 +19901,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 36,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -19058,7 +19930,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": true,
@@ -19161,7 +20037,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 36,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -19188,7 +20066,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "7": {
         "is_away": true,
@@ -19291,7 +20173,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 36,
+          "e_id": 7
         },
         "score_board": {
           "away": {
@@ -19318,7 +20202,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "37": {
@@ -19423,7 +20311,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 37,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -19450,7 +20340,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": true
       }
     },
     "38": {
@@ -19555,7 +20449,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 38,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -19582,7 +20478,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -19685,7 +20585,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 38,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -19712,7 +20614,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -19815,7 +20721,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 38,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -19842,7 +20750,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -19945,7 +20857,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 38,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -19972,7 +20886,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -20075,7 +20993,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 38,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -20102,7 +21022,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "39": {
@@ -20207,7 +21131,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 39,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -20234,7 +21160,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -20337,7 +21267,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 39,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -20364,7 +21296,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -20475,7 +21411,9 @@
                 "full_name": "Freddie Freeman"
               }
             }
-          }
+          },
+          "p_id": 39,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -20502,7 +21440,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "40": {
@@ -20615,7 +21557,9 @@
                 "full_name": "Shohei Ohtani"
               }
             }
-          }
+          },
+          "p_id": 40,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -20642,7 +21586,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -20745,7 +21693,9 @@
                 "full_name": "Shohei Ohtani"
               }
             }
-          }
+          },
+          "p_id": 40,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -20772,7 +21722,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -20875,7 +21829,9 @@
                 "full_name": "Shohei Ohtani"
               }
             }
-          }
+          },
+          "p_id": 40,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -20902,7 +21858,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -21005,7 +21965,9 @@
                 "full_name": "Shohei Ohtani"
               }
             }
-          }
+          },
+          "p_id": 40,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -21032,7 +21994,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -21135,7 +22101,9 @@
                 "full_name": "Shohei Ohtani"
               }
             }
-          }
+          },
+          "p_id": 40,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -21162,7 +22130,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -21265,7 +22237,9 @@
                 "full_name": "Shohei Ohtani"
               }
             }
-          }
+          },
+          "p_id": 40,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -21292,7 +22266,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": true,
@@ -21395,7 +22373,9 @@
                 "full_name": "Shohei Ohtani"
               }
             }
-          }
+          },
+          "p_id": 40,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -21422,7 +22402,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "41": {
@@ -21527,7 +22511,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 41,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -21554,7 +22540,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -21657,7 +22647,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 41,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -21684,7 +22676,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -21787,7 +22783,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 41,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -21814,7 +22812,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "42": {
@@ -21919,7 +22921,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 42,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -21946,7 +22950,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -22049,7 +23057,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 42,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -22076,7 +23086,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "43": {
@@ -22181,7 +23195,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 43,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -22208,7 +23224,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": true
       }
     },
     "44": {
@@ -22313,7 +23333,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 44,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -22340,7 +23362,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -22443,7 +23469,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 44,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -22470,7 +23498,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -22573,7 +23605,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 44,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -22600,7 +23634,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -22703,7 +23741,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 44,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -22730,7 +23770,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -22833,7 +23877,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 44,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -22860,7 +23906,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": true,
@@ -22963,7 +24013,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 44,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -22990,7 +24042,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "7": {
         "is_away": true,
@@ -23093,7 +24149,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 44,
+          "e_id": 7
         },
         "score_board": {
           "away": {
@@ -23120,7 +24178,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "45": {
@@ -23225,7 +24287,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 45,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -23252,7 +24316,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -23355,7 +24423,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 45,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -23382,7 +24452,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -23485,7 +24559,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 45,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -23512,7 +24588,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -23615,7 +24695,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 45,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -23642,7 +24724,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "46": {
@@ -23747,7 +24833,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 46,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -23774,7 +24862,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -23877,7 +24969,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 46,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -23904,7 +24998,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -24007,7 +25105,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 46,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -24034,7 +25134,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -24137,7 +25241,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 46,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -24164,7 +25270,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "47": {
@@ -24269,7 +25379,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 47,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -24296,7 +25408,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -24399,7 +25515,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 47,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -24426,7 +25544,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "48": {
@@ -24531,7 +25653,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 48,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -24558,7 +25682,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -24661,7 +25789,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 48,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -24688,7 +25818,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -24791,7 +25925,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 48,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -24818,7 +25954,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "49": {
@@ -24923,7 +26063,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 49,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -24950,7 +26092,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -25053,7 +26199,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 49,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -25080,7 +26228,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -25183,7 +26335,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 49,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -25210,7 +26364,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "50": {
@@ -25315,7 +26473,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 50,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -25342,7 +26502,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -25445,7 +26609,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 50,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -25472,7 +26638,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -25575,7 +26745,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 50,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -25602,7 +26774,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -25705,7 +26881,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 50,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -25732,7 +26910,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -25835,7 +27017,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 50,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -25862,7 +27046,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": false,
@@ -25965,7 +27153,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 50,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -25992,7 +27182,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "51": {
@@ -26097,7 +27291,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 51,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -26124,7 +27320,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -26227,7 +27427,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 51,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -26254,7 +27456,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -26357,7 +27563,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 51,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -26384,7 +27592,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -26495,7 +27707,9 @@
                 "full_name": "Gavin Sheets"
               }
             }
-          }
+          },
+          "p_id": 51,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -26522,7 +27736,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "52": {
@@ -26635,7 +27853,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 52,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -26662,7 +27882,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -26765,7 +27989,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 52,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -26792,7 +28018,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -26895,7 +28125,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 52,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -26922,7 +28154,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -27025,7 +28261,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 52,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -27052,7 +28290,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -27155,7 +28397,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 52,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -27182,7 +28426,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "53": {
@@ -27287,7 +28535,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 53,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -27314,7 +28564,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -27417,7 +28671,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 53,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -27444,7 +28700,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -27547,7 +28807,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 53,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -27574,7 +28836,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -27677,7 +28943,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 53,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -27704,7 +28972,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "54": {
@@ -27809,7 +29081,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 54,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -27836,7 +29110,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -27939,7 +29217,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 54,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -27966,7 +29246,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -28069,7 +29353,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 54,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -28096,7 +29382,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -28199,7 +29489,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 54,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -28226,7 +29518,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -28329,7 +29625,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 54,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -28356,7 +29654,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -28459,7 +29761,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 54,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -28486,7 +29790,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": true,
@@ -28589,7 +29897,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 54,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -28616,7 +29926,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "7": {
         "is_away": true,
@@ -28719,7 +30033,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 54,
+          "e_id": 7
         },
         "score_board": {
           "away": {
@@ -28746,7 +30062,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "55": {
@@ -28851,7 +30171,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 55,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -28878,7 +30200,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -28981,7 +30307,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 55,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -29008,7 +30336,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -29111,7 +30443,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 55,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -29138,7 +30472,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -29241,7 +30579,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 55,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -29268,7 +30608,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -29371,7 +30715,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 55,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -29398,7 +30744,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": true,
@@ -29501,7 +30851,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 55,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -29528,7 +30880,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "56": {
@@ -29633,7 +30989,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 56,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -29660,7 +31018,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -29763,7 +31125,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 56,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -29790,7 +31154,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -29893,7 +31261,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 56,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -29920,7 +31290,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": false,
@@ -30023,7 +31397,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 56,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -30050,7 +31426,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": false,
@@ -30153,7 +31533,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 56,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -30180,7 +31562,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "7": {
         "is_away": false,
@@ -30283,7 +31669,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 56,
+          "e_id": 7
         },
         "score_board": {
           "away": {
@@ -30310,7 +31698,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "9": {
         "is_away": false,
@@ -30413,7 +31805,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 56,
+          "e_id": 9
         },
         "score_board": {
           "away": {
@@ -30440,7 +31834,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "57": {
@@ -30545,7 +31943,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 57,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -30572,7 +31972,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -30675,7 +32079,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 57,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -30702,7 +32108,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -30805,7 +32215,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 57,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -30832,7 +32244,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -30935,7 +32351,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 57,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -30962,7 +32380,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": false,
@@ -31065,7 +32487,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 57,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -31092,7 +32516,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "58": {
@@ -31197,7 +32625,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 58,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -31224,7 +32654,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -31327,7 +32761,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 58,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -31354,7 +32790,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -31457,7 +32897,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 58,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -31484,7 +32926,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "59": {
@@ -31589,7 +33035,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 59,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -31616,7 +33064,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -31719,7 +33171,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 59,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -31746,7 +33200,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "60": {
@@ -31851,7 +33309,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 60,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -31878,7 +33338,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -31981,7 +33445,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 60,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -32008,7 +33474,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -32111,7 +33581,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 60,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -32138,7 +33610,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -32241,7 +33717,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 60,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -32268,7 +33746,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "61": {
@@ -32373,7 +33855,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 61,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -32400,7 +33884,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": true
       }
     },
     "62": {
@@ -32505,7 +33993,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 62,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -32532,7 +34022,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -32635,7 +34129,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 62,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -32662,7 +34158,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -32765,7 +34265,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 62,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -32792,7 +34294,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "63": {
@@ -32897,7 +34403,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 63,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -32924,7 +34432,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": true
       }
     },
     "64": {
@@ -33029,7 +34541,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 64,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -33056,7 +34570,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -33159,7 +34677,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 64,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -33186,7 +34706,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -33289,7 +34813,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 64,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -33316,7 +34842,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -33419,7 +34949,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 64,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -33446,7 +34978,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "65": {
@@ -33551,7 +35087,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 65,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -33578,7 +35116,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -33681,7 +35223,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 65,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -33708,7 +35252,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -33811,7 +35359,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 65,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -33838,7 +35388,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "66": {
@@ -33943,7 +35497,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 66,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -33970,7 +35526,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -34073,7 +35633,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 66,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -34100,7 +35662,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -34203,7 +35769,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 66,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -34230,7 +35798,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": true,
@@ -34333,7 +35905,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 66,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -34360,7 +35934,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "67": {
@@ -34465,7 +36043,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 67,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -34492,7 +36072,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -34595,7 +36179,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 67,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -34622,7 +36208,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -34725,7 +36315,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 67,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -34752,7 +36344,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -34855,7 +36451,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 67,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -34882,7 +36480,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -34985,7 +36587,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 67,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -35012,7 +36616,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "68": {
@@ -35117,7 +36725,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 68,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -35144,7 +36754,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -35247,7 +36861,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 68,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -35274,7 +36890,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -35377,7 +36997,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 68,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -35404,7 +37026,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -35507,7 +37133,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 68,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -35534,7 +37162,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "69": {
@@ -35639,7 +37271,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 69,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -35666,7 +37300,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -35769,7 +37407,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 69,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -35796,7 +37436,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -35899,7 +37543,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 69,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -35926,7 +37572,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -36029,7 +37679,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 69,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -36056,7 +37708,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -36159,7 +37815,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 69,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -36186,7 +37844,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -36289,7 +37951,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 69,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -36316,7 +37980,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "70": {
@@ -36421,7 +38089,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 70,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -36448,7 +38118,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -36551,7 +38225,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 70,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -36578,7 +38254,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": false,
@@ -36681,7 +38361,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 70,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -36708,7 +38390,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "7": {
         "is_away": false,
@@ -36811,7 +38497,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 70,
+          "e_id": 7
         },
         "score_board": {
           "away": {
@@ -36838,7 +38526,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "8": {
         "is_away": false,
@@ -36941,7 +38633,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 70,
+          "e_id": 8
         },
         "score_board": {
           "away": {
@@ -36968,7 +38662,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "9": {
         "is_away": false,
@@ -37071,7 +38769,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 70,
+          "e_id": 9
         },
         "score_board": {
           "away": {
@@ -37098,7 +38798,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "10": {
         "is_away": false,
@@ -37201,7 +38905,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 70,
+          "e_id": 10
         },
         "score_board": {
           "away": {
@@ -37228,7 +38934,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "71": {
@@ -37333,7 +39043,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 71,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -37360,7 +39072,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -37463,7 +39179,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 71,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -37490,7 +39208,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -37593,7 +39315,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 71,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -37620,7 +39344,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -37723,7 +39451,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 71,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -37750,7 +39480,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "72": {
@@ -37855,7 +39589,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 72,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -37882,7 +39618,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -37985,7 +39725,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 72,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -38012,7 +39754,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -38115,7 +39861,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 72,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -38142,7 +39890,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -38245,7 +39997,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 72,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -38272,7 +40026,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -38375,7 +40133,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 72,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -38402,7 +40162,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": false,
@@ -38505,7 +40269,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 72,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -38532,7 +40298,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "73": {
@@ -38637,7 +40407,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 73,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -38664,7 +40436,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -38767,7 +40543,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 73,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -38794,7 +40572,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -38897,7 +40679,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 73,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -38924,7 +40708,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -39027,7 +40815,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 73,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -39054,7 +40844,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -39157,7 +40951,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 73,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -39184,7 +40980,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "74": {
@@ -39289,7 +41089,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 74,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -39316,7 +41118,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -39419,7 +41225,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 74,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -39446,7 +41254,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "75": {
@@ -39551,7 +41363,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 75,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -39578,7 +41392,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -39681,7 +41499,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 75,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -39708,7 +41528,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -39811,7 +41635,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 75,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -39838,7 +41664,11 @@
             "9": null,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "76": {
@@ -39943,7 +41773,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 76,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -39970,7 +41802,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -40073,7 +41909,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 76,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -40100,7 +41938,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -40203,7 +42045,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 76,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -40230,7 +42074,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -40333,7 +42181,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 76,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -40360,7 +42210,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": false,
@@ -40463,7 +42317,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 76,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -40490,7 +42346,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": false,
@@ -40593,7 +42453,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 76,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -40620,7 +42482,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "7": {
         "is_away": false,
@@ -40723,7 +42589,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 76,
+          "e_id": 7
         },
         "score_board": {
           "away": {
@@ -40750,7 +42618,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "77": {
@@ -40855,7 +42727,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 77,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -40882,7 +42756,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -40985,7 +42863,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 77,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -41012,7 +42892,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -41115,7 +42999,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 77,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -41142,7 +43028,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -41245,7 +43135,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 77,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -41272,7 +43164,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": false,
@@ -41375,7 +43271,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 77,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -41402,7 +43300,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": false,
@@ -41505,7 +43407,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 77,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -41532,7 +43436,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "78": {
@@ -41637,7 +43545,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 78,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -41664,7 +43574,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -41767,7 +43681,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 78,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -41794,7 +43710,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -41897,7 +43817,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 78,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -41924,7 +43846,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -42027,7 +43953,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 78,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -42054,7 +43982,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -42157,7 +44089,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 78,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -42184,7 +44118,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": false,
@@ -42287,7 +44225,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 78,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -42314,7 +44254,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "79": {
@@ -42419,7 +44363,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 79,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -42446,7 +44392,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -42549,7 +44499,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 79,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -42576,7 +44528,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "80": {
@@ -42681,7 +44637,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 80,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -42708,7 +44666,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -42811,7 +44773,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 80,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -42838,7 +44802,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -42941,7 +44909,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 80,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -42968,7 +44938,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "81": {
@@ -43073,7 +45047,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 81,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -43100,7 +45076,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -43203,7 +45183,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 81,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -43230,7 +45212,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -43333,7 +45319,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 81,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -43360,7 +45348,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "82": {
@@ -43465,7 +45457,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 82,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -43492,7 +45486,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": true
       }
     },
     "83": {
@@ -43597,7 +45595,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 83,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -43624,7 +45624,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -43727,7 +45731,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 83,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -43754,7 +45760,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -43857,7 +45867,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 83,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -43884,7 +45896,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -43987,7 +46003,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 83,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -44014,7 +46032,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -44117,7 +46139,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 83,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -44144,7 +46168,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": true,
@@ -44255,7 +46283,9 @@
                 "full_name": "Tommy Edman"
               }
             }
-          }
+          },
+          "p_id": 83,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -44282,7 +46312,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "84": {
@@ -44395,7 +46429,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 84,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -44422,7 +46458,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": true,
@@ -44525,7 +46565,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 84,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -44552,7 +46594,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": true,
@@ -44655,7 +46701,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 84,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -44682,7 +46730,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "3": {
         "is_away": true,
@@ -44785,7 +46837,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 84,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -44812,7 +46866,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": true,
@@ -44915,7 +46973,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 84,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -44942,7 +47002,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": true,
@@ -45045,7 +47109,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 84,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -45072,7 +47138,11 @@
             "9": 0,
             "10": null
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "85": {
@@ -45177,7 +47247,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 85,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -45204,7 +47276,11 @@
             "9": 0,
             "10": 0
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "3": {
         "is_away": false,
@@ -45307,7 +47383,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 85,
+          "e_id": 3
         },
         "score_board": {
           "away": {
@@ -45334,7 +47412,11 @@
             "9": 0,
             "10": 0
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "4": {
         "is_away": false,
@@ -45437,7 +47519,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 85,
+          "e_id": 4
         },
         "score_board": {
           "away": {
@@ -45464,7 +47548,11 @@
             "9": 0,
             "10": 0
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "5": {
         "is_away": false,
@@ -45567,7 +47655,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 85,
+          "e_id": 5
         },
         "score_board": {
           "away": {
@@ -45594,7 +47684,11 @@
             "9": 0,
             "10": 0
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "6": {
         "is_away": false,
@@ -45697,7 +47791,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 85,
+          "e_id": 6
         },
         "score_board": {
           "away": {
@@ -45724,7 +47820,11 @@
             "9": 0,
             "10": 0
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "7": {
         "is_away": false,
@@ -45827,7 +47927,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 85,
+          "e_id": 7
         },
         "score_board": {
           "away": {
@@ -45854,7 +47956,11 @@
             "9": 0,
             "10": 0
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "9": {
         "is_away": false,
@@ -45957,7 +48063,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 85,
+          "e_id": 9
         },
         "score_board": {
           "away": {
@@ -45984,7 +48092,11 @@
             "9": 0,
             "10": 0
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "86": {
@@ -46089,7 +48201,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 86,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -46116,7 +48230,11 @@
             "9": 0,
             "10": 0
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -46219,7 +48337,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 86,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -46246,7 +48366,11 @@
             "9": 0,
             "10": 0
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -46349,7 +48473,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 86,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -46376,7 +48502,11 @@
             "9": 0,
             "10": 1
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "87": {
@@ -46481,7 +48611,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 87,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -46508,7 +48640,11 @@
             "9": 0,
             "10": 1
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -46611,7 +48747,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 87,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -46638,7 +48776,11 @@
             "9": 0,
             "10": 1
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -46741,7 +48883,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 87,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -46768,7 +48912,11 @@
             "9": 0,
             "10": 1
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": true
       }
     },
     "88": {
@@ -46873,7 +49021,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 88,
+          "e_id": 0
         },
         "score_board": {
           "away": {
@@ -46900,7 +49050,11 @@
             "9": 0,
             "10": 1
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": true,
+        "is_last_event": false
       },
       "1": {
         "is_away": false,
@@ -47003,7 +49157,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 88,
+          "e_id": 1
         },
         "score_board": {
           "away": {
@@ -47030,7 +49186,11 @@
             "9": 0,
             "10": 1
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": false,
+        "is_first_event": false,
+        "is_last_event": false
       },
       "2": {
         "is_away": false,
@@ -47133,7 +49293,9 @@
                 "full_name": null
               }
             }
-          }
+          },
+          "p_id": 88,
+          "e_id": 2
         },
         "score_board": {
           "away": {
@@ -47160,7 +49322,11 @@
             "9": 0,
             "10": 1
           }
-        }
+        },
+        "is_first_play": false,
+        "is_last_play": true,
+        "is_first_event": false,
+        "is_last_event": true
       }
     }
   }

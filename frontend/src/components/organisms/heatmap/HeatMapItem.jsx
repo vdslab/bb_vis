@@ -1,21 +1,41 @@
 import { ResponsiveHeatMapCanvas } from "@nivo/heatmap";
-import { setGamePk } from "@/store/GameStore";
+import { setId } from "@/store/GameStore";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
-const HeatMapItem = ({ data }) => {
+const HeatMapItem = ({ analysisData }) => {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (analysisData && analysisData.length > 0) {
+      const firstRow = analysisData[0];
+      if (firstRow && firstRow.data && firstRow.data.length > 0) {
+        const firstData = firstRow.data[0];
+        if (firstData.p_id !== undefined && firstData.e_id !== undefined) {
+          dispatch(
+            setId({
+              p_id: Number(firstData.p_id),
+              e_id: Number(firstData.e_id),
+            }),
+          );
+        }
+      }
+    }
+  }, [analysisData, dispatch]);
+
   const handleRowClick = (row) => {
-    dispatch(setGamePk(Number(row.serieId)));
+    dispatch(
+      setId({ p_id: Number(row.data.p_id), e_id: Number(row.data.e_id) }),
+    );
   };
 
   return (
     <ResponsiveHeatMapCanvas
-      data={data}
-      margin={{ top: 70, right: 60, bottom: 20, left: 80 }}
+      data={analysisData}
+      margin={{ top: 50, right: 0, bottom: 1, left: 0 }}
       valueFormat=">-.2s"
-      axisTop={{ tickRotation: -90 }}
-      axisRight={{ legend: "country", legendOffset: 40 }}
+      axisTop={null}
+      // axisRight={{ legend: "country", legendOffset: 40 }}
       axisLeft={null}
       colors={{
         type: "quantize",
@@ -32,11 +52,11 @@ const HeatMapItem = ({ data }) => {
       legends={[
         {
           anchor: "left",
-          translateX: -50,
-          translateY: 0,
+          translateX: 0,
+          translateY: -50,
           length: 200,
           thickness: 10,
-          direction: "column",
+          direction: "row",
           tickPosition: "after",
           tickSize: 3,
           tickSpacing: 4,

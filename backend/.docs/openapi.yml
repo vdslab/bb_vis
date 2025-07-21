@@ -68,6 +68,10 @@ components:
     ResultObject:
       $ref: "./schemas/responseDataObject/base/ResultObject.yml"
 
+    # シミュレーション操作用
+    777579_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777579_logistic_regression_analysis_data.json"
+
     # 通常データ
     777115_logistic_regression_analysis_data:
       $ref: "./schemas/data/analysis/777115_logistic_regression_analysis_data.json"

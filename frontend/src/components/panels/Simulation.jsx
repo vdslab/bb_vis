@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "@/styles/simulation.css";
 import GameField from "../organisms/simulation/GameField";
 import GameScoreBoard from "../organisms/simulation/GameScoreBoard";
+import GameController from "../organisms/simulation/GameController";
 import { useSelector } from "react-redux";
 import { usePlayData } from "@/hooks/usePlayData";
 
@@ -23,6 +24,8 @@ const Simulation = () => {
       playData &&
       p_id !== null &&
       e_id !== null &&
+      playData.data &&
+      playData.data[p_id] &&
       playData.data[p_id][e_id] !== undefined
     ) {
       setEventData(playData.data[p_id][e_id]);
@@ -41,6 +44,12 @@ const Simulation = () => {
       <div className="panel-content">
         {loading && <div className="loading">Loading...</div>}
         <div className="simulation-container">
+          <GameController
+            eventData={eventData}
+            playData={playData}
+            p_id={p_id}
+            e_id={e_id}
+          />
           <GameScoreBoard metaData={metaData} eventData={eventData} />
           <GameField eventData={eventData} />
         </div>
