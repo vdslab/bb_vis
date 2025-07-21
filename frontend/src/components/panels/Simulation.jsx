@@ -16,17 +16,20 @@ const Simulation = () => {
 
   // playDataからp_id,e_idのデータを取得
   const [eventData, setEventData] = useState("");
+  const [metaData, setMetaData] = useState("");
 
   useEffect(() => {
     if (
       playData &&
       p_id !== null &&
       e_id !== null &&
-      playData[p_id][e_id] !== undefined
+      playData.data[p_id][e_id] !== undefined
     ) {
-      setEventData(playData[p_id][e_id]);
+      setEventData(playData.data[p_id][e_id]);
+      setMetaData(playData.meta);
     } else {
       setEventData("");
+      setMetaData("");
     }
   }, [p_id, e_id, playData]);
 
@@ -38,7 +41,7 @@ const Simulation = () => {
       <div className="panel-content">
         {loading && <div className="loading">Loading...</div>}
         <div className="simulation-container">
-          <GameScoreBoard />
+          <GameScoreBoard metaData={metaData} eventData={eventData} />
           <GameField eventData={eventData} />
         </div>
       </div>

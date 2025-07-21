@@ -1,7 +1,7 @@
 import "@/styles/simulation.css";
 import { useEffect, useRef } from "react";
 
-const GameScoreBoard = () => {
+const GameScoreBoard = ({ metaData, eventData }) => {
   const canvasRef = useRef(null);
 
   // length
@@ -13,6 +13,8 @@ const GameScoreBoard = () => {
   const blockWidth = 0.03;
   const blockGap = 0.047;
 
+  const awayTeamTextHeight = 0.34;
+  const homeTeamTextHeight = 0.57;
   // color
   const gray = "#daddd5";
   const white = "#d5d1c8";
@@ -22,6 +24,7 @@ const GameScoreBoard = () => {
 
   // font
   const textFont = "bold 20px Arial";
+  const teamFont2 = "bold 17px Arial";
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -42,17 +45,6 @@ const GameScoreBoard = () => {
       // 内側の四角形
       ctx.fillStyle = green;
       ctx.fillRect(4, 4, canvas.width - 8, canvas.height - 8);
-
-      // チーム名
-      // ctx.fillStyle = white;
-      // ctx.font = textFont;
-      // ctx.textAlign = "center";
-      // ctx.textBaseline = "middle";
-      // ctx.fillText(
-      //   "T E A M",
-      //   canvas.width * 0.155,
-      //   canvas.height * labelHeight,
-      // );
 
       ctx.fillStyle = black;
       ctx.fillRect(
@@ -141,6 +133,74 @@ const GameScoreBoard = () => {
           canvas.height * blockHeight,
         );
       }
+
+      if (!eventData) {
+        return;
+      }
+
+      // 動的処理
+      // team
+      ctx.fillStyle = white;
+      ctx.font = teamFont2;
+      ctx.textAlign = "left";
+      // ctx.textBaseline = "top";
+      ctx.fillText(
+        metaData.team.away,
+        canvas.width * 0.045,
+        canvas.height * awayTeamTextHeight,
+      );
+      ctx.fillText(
+        metaData.team.home,
+        canvas.width * 0.045,
+        canvas.height * homeTeamTextHeight,
+      );
+
+      // inning_score
+      ctx.fillStyle = white;
+
+      for (let i = 0; i < 10; i++) {
+        const away_score = eventData.score_board.away[i + 1] ?? "";
+        const home_score = eventData.score_board.home[i + 1] ?? "";
+        console.log(away_score, home_score);
+        // away_score
+        ctx.font = textFont;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(
+          away_score,
+          canvas.width * (0.282 + blockGap * i),
+          canvas.height * awayTeamTextHeight,
+        );
+
+        // home_score
+        ctx.font = textFont;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(
+          home_score,
+          canvas.width * (0.282 + blockGap * i),
+          canvas.height * homeTeamTextHeight,
+        );
+      }
+
+      // total_score
+      const away_pos_score = eventData.team_score.away.pos_score;
+      const home_pos_score = eventData.team_score.home.pos_score;
+
+      ctx.fillStyle = white;
+      ctx.font = textFont;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(
+        away_pos_score,
+        canvas.width * (0.282 + blockGap * 10),
+        canvas.height * awayTeamTextHeight,
+      );
+      ctx.fillText(
+        home_pos_score,
+        canvas.width * (0.282 + blockGap * 10),
+        canvas.height * homeTeamTextHeight,
+      );
     };
 
     // 初回描画
@@ -157,7 +217,7 @@ const GameScoreBoard = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [eventData, metaData]);
 
   return (
     <div className="game-score-board">
