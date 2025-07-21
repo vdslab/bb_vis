@@ -201,6 +201,65 @@ const GameScoreBoard = ({ metaData, eventData }) => {
         canvas.width * (0.282 + blockGap * 10),
         canvas.height * homeTeamTextHeight,
       );
+
+      // BSO
+      // TODO: エッジケースの処理
+      if (eventData.detail.count.balls > 3) {
+        eventData.detail.count.balls = 3;
+      }
+      if (eventData.detail.count.strikes > 2) {
+        eventData.detail.count.strikes = 2;
+      }
+      if (eventData.detail.count.outs > 2) {
+        eventData.detail.count.outs = 2;
+      }
+
+      // B
+      for (let i = 0; i < eventData.detail.count.balls; i++) {
+        ctx.fillStyle = white;
+        /* 円の描画 */
+        ctx.beginPath(); // パスの初期化
+        ctx.arc(
+          canvas.width * (0.845 + 0.035 * i),
+          canvas.height * (labelHeight + 0.05),
+          canvas.height * 0.06,
+          0,
+          2 * Math.PI,
+        );
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      // S
+      for (let i = 0; i < eventData.detail.count.strikes; i++) {
+        ctx.fillStyle = white;
+        /* 円の描画 */
+        ctx.beginPath(); // パスの初期化
+        ctx.arc(
+          canvas.width * (0.845 + 0.035 * i),
+          canvas.height * (labelHeight + 0.231),
+          canvas.height * 0.06,
+          0,
+          2 * Math.PI,
+        );
+        ctx.closePath();
+        ctx.fill();
+      }
+      // 0
+      for (let i = 0; i < eventData.detail.count.outs; i++) {
+        ctx.fillStyle = white;
+        /* 円の描画 */
+        ctx.beginPath();
+        ctx.arc(
+          canvas.width * (0.845 + 0.035 * i),
+          canvas.height * (labelHeight + 0.412),
+          canvas.height * 0.06,
+          0,
+          2 * Math.PI,
+        );
+        ctx.closePath();
+        ctx.fill();
+      }
     };
 
     // 初回描画
