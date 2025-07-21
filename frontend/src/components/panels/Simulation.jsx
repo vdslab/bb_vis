@@ -44,7 +44,12 @@ const Simulation = () => {
       <div className="panel-content">
         {loading && <div className="loading">Loading...</div>}
         <div className="simulation-container">
-          <GameController />
+          <GameController
+            eventData={eventData}
+            playData={playData}
+            p_id={p_id}
+            e_id={e_id}
+          />
           <GameScoreBoard metaData={metaData} eventData={eventData} />
           <GameField eventData={eventData} />
         </div>

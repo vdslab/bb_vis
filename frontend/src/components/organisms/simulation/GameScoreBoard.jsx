@@ -161,7 +161,6 @@ const GameScoreBoard = ({ metaData, eventData }) => {
       for (let i = 0; i < 10; i++) {
         const away_score = eventData.score_board.away[i + 1] ?? "";
         const home_score = eventData.score_board.home[i + 1] ?? "";
-        console.log(away_score, home_score);
         // away_score
         ctx.font = textFont;
         ctx.textAlign = "center";
