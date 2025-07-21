@@ -12,10 +12,10 @@ const HeatMapItem = ({ data }) => {
   return (
     <ResponsiveHeatMapCanvas
       data={data}
-      margin={{ top: 70, right: 60, bottom: 20, left: 80 }}
+      margin={{ top: 50, right: 0, bottom: 1, left: 0 }}
       valueFormat=">-.2s"
-      axisTop={{ tickRotation: -90 }}
-      axisRight={{ legend: "country", legendOffset: 40 }}
+      axisTop={null}
+      // axisRight={{ legend: "country", legendOffset: 40 }}
       axisLeft={null}
       colors={{
         type: "quantize",
@@ -32,11 +32,11 @@ const HeatMapItem = ({ data }) => {
       legends={[
         {
           anchor: "left",
-          translateX: -50,
-          translateY: 0,
+          translateX: 0,
+          translateY: -50,
           length: 200,
           thickness: 10,
-          direction: "column",
+          direction: "row",
           tickPosition: "after",
           tickSize: 3,
           tickSpacing: 4,
