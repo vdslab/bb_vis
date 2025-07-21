@@ -1,17 +1,37 @@
 import { ResponsiveHeatMapCanvas } from "@nivo/heatmap";
-import { setGamePk } from "@/store/GameStore";
+import { setId } from "@/store/GameStore";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
-const HeatMapItem = ({ data }) => {
+const HeatMapItem = ({ analysisData }) => {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (analysisData && analysisData.length > 0) {
+      const firstRow = analysisData[0];
+      if (firstRow && firstRow.data && firstRow.data.length > 0) {
+        const firstData = firstRow.data[0];
+        if (firstData.p_id !== undefined && firstData.e_id !== undefined) {
+          dispatch(
+            setId({
+              p_id: Number(firstData.p_id),
+              e_id: Number(firstData.e_id),
+            }),
+          );
+        }
+      }
+    }
+  }, [analysisData, dispatch]);
+
   const handleRowClick = (row) => {
-    dispatch(setGamePk(Number(row.serieId)));
+    dispatch(
+      setId({ p_id: Number(row.data.p_id), e_id: Number(row.data.e_id) }),
+    );
   };
 
   return (
     <ResponsiveHeatMapCanvas
-      data={data}
+      data={analysisData}
       margin={{ top: 50, right: 0, bottom: 1, left: 0 }}
       valueFormat=">-.2s"
       axisTop={null}

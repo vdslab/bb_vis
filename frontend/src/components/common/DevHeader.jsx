@@ -5,8 +5,8 @@ import { setGamePk, setId } from "@/store/GameStore";
 const Header = () => {
   const dispatch = useDispatch();
   const [gamePk, setGamePkInput] = useState("");
-  const [pId, setPIdInput] = useState("");
-  const [eId, setEIdInput] = useState("");
+  const [pId, setPIdInput] = useState(-1);
+  const [eId, setEIdInput] = useState(-1);
 
   const handleGetDetailById = () => {
     if (gamePk.trim()) {

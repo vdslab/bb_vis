@@ -24,6 +24,8 @@ const Simulation = () => {
       playData &&
       p_id !== null &&
       e_id !== null &&
+      playData.data &&
+      playData.data[p_id] &&
       playData.data[p_id][e_id] !== undefined
     ) {
       setEventData(playData.data[p_id][e_id]);
