@@ -33,6 +33,15 @@ const ParallelCoordinatesItem = () => {
     }));
   };
 
+  const getGamepk = (data) => {
+    return data.map((item, key) => ({
+      key: key,
+      gamepk: item.gamepk,
+    }));
+  };
+  // ハイライト用データ、テスト用
+  const highlightData = 778122;
+
   // パラレルコーディネートを描画
   useEffect(() => {
     if (!data.length || !canvasRef.current) return;
@@ -57,6 +66,18 @@ const ParallelCoordinatesItem = () => {
     features.forEach((feature) => {
       normalizedData = normalizeData(normalizedData, feature.key);
     });
+
+    // gamepkを取得
+    // let gamepk = getGamepk(data);
+
+    // console.log("gamepk", gamepk);
+
+    // マウスホバー時のデータ格納用
+    // 将来的にはマウスホバー、クリック、該当gamepkのビデオクリップかなんかに使ってください
+    // 今はテスト用にハイライトデータを設定中
+
+    // const [hoveredData, setHoveredData] = useState(null);
+    // const hoveredGamepk = hoveredData ? hoveredData.gamepk : null;
 
     const margin = { top: 40, bottom: 40, left: 60, right: 60 };
     const chartWidth = dimensions.width - margin.left - margin.right;
@@ -108,8 +129,12 @@ const ParallelCoordinatesItem = () => {
 
     // データラインを描画
     normalizedData.forEach((item) => {
-      ctx.strokeStyle = `rgba(70, 130, 180, 0.3)`;
-      ctx.lineWidth = 1;
+      console.log(item.gamepk);
+      const isTarget = item.gamepk === highlightData;
+      ctx.strokeStyle = isTarget
+        ? "rgba(255, 0, 0, 1)"
+        : "rgba(70, 130, 180, 0.3)";
+      ctx.lineWidth = isTarget ? 2.5 : 1;
       ctx.beginPath();
 
       features.forEach((feature, featureIndex) => {
@@ -185,11 +210,13 @@ const ParallelCoordinatesItem = () => {
           const distance = Math.sqrt((mouseX - x) ** 2 + (mouseY - y) ** 2);
           return distance < 10;
         });
-
-        ctx.strokeStyle = isNearMouse
-          ? "rgba(255, 0, 0, 0.8)"
-          : "rgba(70, 130, 180, 0.3)";
-        ctx.lineWidth = isNearMouse ? 3 : 1;
+        const isTarget = item.gamepk === highlightData;
+        ctx.strokeStyle = isTarget
+          ? "rgba(255, 0, 0, 1)"
+          : isNearMouse
+            ? "rgba(0, 200, 0, 0.8)"
+            : "rgba(70, 130, 180, 0.3)";
+        ctx.lineWidth = isTarget ? 3 : isNearMouse ? 2 : 1;
         ctx.beginPath();
 
         features.forEach((feature, featureIndex) => {
