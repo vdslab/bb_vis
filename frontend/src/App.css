@@ -55,3 +55,11 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/* ヘッダーの中身 */
+.logo-img {
+  width: 200px;
+  height: 100px;
+  position: relative;
+  bottom: -10px;
+}

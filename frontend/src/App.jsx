@@ -9,9 +9,10 @@ function App() {
   return (
     <div className="app-container">
       {/* 本番用ヘッダー */}
-      {/* <Header /> */}
+      <Header />
       {/* 開発用ヘッダー */}
-      <TestHeader />
+      {/*<TestHeader /> */}
+
       <main className="main-container">
         <Layout />
       </main>

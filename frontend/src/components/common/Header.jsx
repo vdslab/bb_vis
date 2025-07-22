@@ -1,7 +1,11 @@
+import rogoImg from "../../asset/rogo.png"; // 画像ファイルのインポート
+
 const Header = () => {
   return (
     <header className="header">
-      <h1>Hot Zone</h1>
+      <h1>
+        <img src={rogoImg} alt="ロゴ" className="logo-img" />
+      </h1>
       <nav>
         <span>ナビゲーション</span>
       </nav>
