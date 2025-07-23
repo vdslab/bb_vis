@@ -57,23 +57,12 @@
 .runner {
   position: absolute;
   transform: translate(-50%, -50%);
-}
-
-.runner-circle {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-  border: 3px solid #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  animation: pulse 2s infinite;
+  height: 20%;
 }
 
 .runner-name {
   color: white;
+  height: 20%;
   font-weight: bold;
   font-size: 12px;
   text-align: center;
@@ -81,20 +70,31 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* ランナーの画像 */
+.runner-img {
+  height: 80%;
+}
+
+.runner-img-wrapper {
+  height: 80%;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ベースの位置 */
 .first-base {
-  top: 60%;
-  left: 63%;
+  top: 66%;
+  left: 42%;
 }
 
 .second-base {
-  top: 52%;
-  left: 45%;
+  top: 50%;
+  left: 50%;
 }
 
 .third-base {
-  top: 72%;
-  left: 38%;
+  top: 60%;
+  left: 65%;
 }
 
 /* パルスアニメーション */

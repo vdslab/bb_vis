@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import yakyujouImage from "@/asset/yakyujou_touka1.png";
 import "@/styles/simulation.css";
+import runnerImg1 from "../../../asset/runner1.png";
 
 const GameField = ({ eventData }) => {
   const [runners, setRunners] = useState({
@@ -28,8 +29,9 @@ const GameField = ({ eventData }) => {
         {/* 一塁ランナー */}
         {runners.first.name && (
           <div className="runner first-base">
-            <div className="runner-circle">
-              <span className="runner-name">{runners.first.name}</span>
+            <span className="runner-name">{runners.first.name}</span>
+            <div className="runner-img-wrapper">
+              <img src={runnerImg1} alt="ランナー" className="runner-img" />
             </div>
           </div>
         )}
@@ -37,8 +39,9 @@ const GameField = ({ eventData }) => {
         {/* 二塁ランナー */}
         {runners.second.name && (
           <div className="runner second-base">
-            <div className="runner-circle">
-              <span className="runner-name">{runners.second.name}</span>
+            <span className="runner-name">{runners.second.name}</span>
+            <div className="runner-img-wrapper">
+              <img src={runnerImg1} alt="ランナー" className="runner-img" />
             </div>
           </div>
         )}
@@ -46,8 +49,9 @@ const GameField = ({ eventData }) => {
         {/* 三塁ランナー */}
         {runners.third.name && (
           <div className="runner third-base">
-            <div className="runner-circle">
-              <span className="runner-name">{runners.third.name}</span>
+            <span className="runner-name">{runners.third.name}</span>
+            <div className="runner-img-wrapper">
+              <img src={runnerImg1} alt="ランナー" className="runner-img" />
             </div>
           </div>
         )}
@@ -55,5 +59,4 @@ const GameField = ({ eventData }) => {
     </div>
   );
 };
-
 export default GameField;
