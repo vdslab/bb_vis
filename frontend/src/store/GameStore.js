@@ -1,5 +1,5 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
-
+// ParallelCoordinatesItem.jsxからgamepkを受け取り、setGamepkに対して更新を行う
 const initialState = {
   // TODO:実際のデータを取得する
   gamepk: 1000,
