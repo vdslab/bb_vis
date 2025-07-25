@@ -77,24 +77,25 @@
 
 .runner-img-wrapper {
   height: 80%;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 /* ベースの位置 */
 .first-base {
-  top: 66%;
-  left: 42%;
+  top: 60%;
+  left: 65%;
 }
 
 .second-base {
-  top: 50%;
+  top: 48%;
   left: 50%;
 }
 
 .third-base {
-  top: 60%;
-  left: 65%;
+  top: 62%;
+  left: 35%;
 }
 
 /* パルスアニメーション */
