@@ -1,4 +1,4 @@
-import rogoImg from "../../asset/rogo.png"; // 画像ファイルのインポート
+import rogoImg from "../../asset/rogo.png";
 
 const Header = () => {
   return (
