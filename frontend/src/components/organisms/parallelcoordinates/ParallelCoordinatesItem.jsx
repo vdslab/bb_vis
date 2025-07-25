@@ -1,6 +1,9 @@
 import React, { useRef, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setGamePk } from "../../../store/GameStore";
 
-const ParallelCoordinatesItem = () => {
+const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
+  const dispatch = useDispatch();
   const canvasRef = useRef(null);
   const [data, setData] = useState([]);
   const [dimensions] = useState({
@@ -32,6 +35,46 @@ const ParallelCoordinatesItem = () => {
       [key + "_normalized"]: (d[key] - min) / (max - min),
     }));
   };
+
+  const getGamepk = (data) => {
+    return data.map((item, key) => ({
+      key: key,
+      gamepk: item.gamepk,
+    }));
+  };
+
+  // 2点間の距離を計算する関数
+  function getDistanceToLineSegment(x1, y1, x2, y2, px, py) {
+    const A = px - x1;
+    const B = py - y1;
+    const C = x2 - x1;
+    const D = y2 - y1;
+
+    const dot = A * C + B * D;
+    const len_sq = C * C + D * D;
+    let param = -1;
+    if (len_sq !== 0) param = dot / len_sq;
+
+    let xx, yy;
+
+    if (param < 0) {
+      xx = x1;
+      yy = y1;
+    } else if (param > 1) {
+      xx = x2;
+      yy = y2;
+    } else {
+      xx = x1 + param * C;
+      yy = y1 + param * D;
+    }
+
+    const dx = px - xx;
+    const dy = py - yy;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  // ハイライト用データ、テスト用
+  const highlightData = 778122;
 
   // パラレルコーディネートを描画
   useEffect(() => {
@@ -108,8 +151,11 @@ const ParallelCoordinatesItem = () => {
 
     // データラインを描画
     normalizedData.forEach((item) => {
-      ctx.strokeStyle = `rgba(70, 130, 180, 0.3)`;
-      ctx.lineWidth = 1;
+      const isTarget = item.gamepk === highlightData;
+      ctx.strokeStyle = isTarget
+        ? "rgba(255, 0, 0, 1)"
+        : "rgba(70, 130, 180, 0.3)";
+      ctx.lineWidth = isTarget ? 2.5 : 1;
       ctx.beginPath();
 
       features.forEach((feature, featureIndex) => {
@@ -177,19 +223,34 @@ const ParallelCoordinatesItem = () => {
 
       // データラインを再描画
       normalizedData.forEach((item) => {
-        const isNearMouse = features.some((feature, featureIndex) => {
-          const x = margin.left + featureIndex * axisSpacing;
-          const normalizedValue = item[feature.key + "_normalized"];
-          const y = margin.top + chartHeight - normalizedValue * chartHeight;
+        let isNearMouse = false;
 
-          const distance = Math.sqrt((mouseX - x) ** 2 + (mouseY - y) ** 2);
-          return distance < 10;
-        });
+        for (let i = 0; i < features.length - 1; i++) {
+          const x1 = margin.left + i * axisSpacing;
+          const x2 = margin.left + (i + 1) * axisSpacing;
 
-        ctx.strokeStyle = isNearMouse
-          ? "rgba(255, 0, 0, 0.8)"
-          : "rgba(70, 130, 180, 0.3)";
-        ctx.lineWidth = isNearMouse ? 3 : 1;
+          const y1 =
+            margin.top +
+            chartHeight -
+            item[features[i].key + "_normalized"] * chartHeight;
+          const y2 =
+            margin.top +
+            chartHeight -
+            item[features[i + 1].key + "_normalized"] * chartHeight;
+
+          const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
+          if (dist < 2) { // dist < 2 は任意の判定範囲、デカかったら小さくできる
+            isNearMouse = true;
+            break;
+          }
+        }
+        const isTarget = item.gamepk === highlightData;
+        ctx.strokeStyle = isTarget
+          ? "rgba(255, 0, 0, 1)"
+          : isNearMouse
+            ? "rgba(0, 200, 0, 0.8)"
+            : "rgba(70, 130, 180, 0.3)";
+        ctx.lineWidth = isTarget ? 3 : isNearMouse ? 2 : 1;
         ctx.beginPath();
 
         features.forEach((feature, featureIndex) => {
@@ -207,13 +268,45 @@ const ParallelCoordinatesItem = () => {
         ctx.stroke();
       });
     };
+    // クリック時の挙動管理
+    const handleClick = (event) => {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = event.clientX - rect.left;
+      const mouseY = event.clientY - rect.top;
 
+      for (const item of normalizedData) {
+        for (let i = 0; i < features.length - 1; i++) {
+          const x1 = margin.left + i * axisSpacing;
+          const x2 = margin.left + (i + 1) * axisSpacing;
+
+          const y1 =
+            margin.top +
+            chartHeight -
+            item[features[i].key + "_normalized"] * chartHeight;
+          const y2 =
+            margin.top +
+            chartHeight -
+            item[features[i + 1].key + "_normalized"] * chartHeight;
+
+          const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
+
+          if (dist < 5) { // dist < 5 は任意の判定範囲、デカかったら小さくできる
+            console.log("Clicked gamepk:", item.gamepk);
+            dispatch(setGamePk(item.gamepk));
+            // クリックされたgamepkを親コンポーネントに通知
+            return;
+          }
+        }
+      }
+    };
     canvas.addEventListener("mousemove", handleMouseMove);
+    canvas.addEventListener("click", handleClick);
 
     return () => {
       canvas.removeEventListener("mousemove", handleMouseMove);
+      canvas.removeEventListener("click", handleClick);
     };
-  }, [data, dimensions]);
+  }, [data, dimensions,dispatch]);
 
   return (
     <div style={{ padding: "20px" }}>
