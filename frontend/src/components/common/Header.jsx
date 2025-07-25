@@ -4,16 +4,7 @@ const Header = () => {
   return (
     <header className="header">
       <h1>
-        <img
-          src={rogoImg}
-          alt="ロゴ"
-          style={{
-            width: "30%",
-            height: "60%",
-            position: "relative",
-            bottom: "-10px",
-          }}
-        />
+        <img src={rogoImg} alt="ロゴ" className="logo-img" />
       </h1>
       <nav>
         <span>ナビゲーション</span>

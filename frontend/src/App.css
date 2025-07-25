@@ -58,8 +58,8 @@ body {
 
 /* ヘッダーの中身 */
 .logo-img {
-  width: 200px;
-  height: 100px;
+  width: 30%;
+  height: 100%;
   position: relative;
   bottom: -10px;
 }
