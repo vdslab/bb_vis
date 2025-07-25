@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import yakyujouImage from "@/asset/yakyujou_touka1.png";
 import "@/styles/simulation.css";
 import runnerImg1 from "../../../asset/runner1.png";
+import runnerImg2 from "../../../asset/runner2.png";
 
 const GameField = ({ eventData }) => {
   const [runners, setRunners] = useState({
@@ -10,8 +11,11 @@ const GameField = ({ eventData }) => {
     third: { name: null },
   });
 
+  const [runnerImg, setRunnerImg] = useState(runnerImg1); // 画像の初期値
+
   useEffect(() => {
     if (eventData) {
+      setRunnerImg(eventData.is_away ? runnerImg1 : runnerImg2);
       const runnerState = eventData.runner_state.pos_runner_state;
       setRunners({
         first: { name: runnerState["1B"].full_name },
@@ -31,7 +35,7 @@ const GameField = ({ eventData }) => {
           <div className="runner first-base">
             <span className="runner-name">{runners.first.name}</span>
             <div className="runner-img-wrapper">
-              <img src={runnerImg1} alt="ランナー" className="runner-img" />
+              <img src={runnerImg} alt="ランナー" className="runner-img" />
             </div>
           </div>
         )}
@@ -41,7 +45,7 @@ const GameField = ({ eventData }) => {
           <div className="runner second-base">
             <span className="runner-name">{runners.second.name}</span>
             <div className="runner-img-wrapper">
-              <img src={runnerImg1} alt="ランナー" className="runner-img" />
+              <img src={runnerImg} alt="ランナー" className="runner-img" />
             </div>
           </div>
         )}
@@ -51,7 +55,7 @@ const GameField = ({ eventData }) => {
           <div className="runner third-base">
             <span className="runner-name">{runners.third.name}</span>
             <div className="runner-img-wrapper">
-              <img src={runnerImg1} alt="ランナー" className="runner-img" />
+              <img src={runnerImg} alt="ランナー" className="runner-img" />
             </div>
           </div>
         )}
