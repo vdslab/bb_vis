@@ -13,6 +13,8 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
     width: 800,
     height: 400,
   });
+  // ハイライト用データ、テスト用
+  const [highlightData, setHighlightData] = useState(null);
 
   // データを読み込む
   useEffect(() => {
@@ -86,9 +88,6 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
     const dy = py - yy;
     return Math.sqrt(dx * dx + dy * dy);
   }
-
-  // ハイライト用データ、テスト用
-  const highlightData = 778122;
 
   // パラレルコーディネートを描画
   useEffect(() => {
@@ -308,6 +307,7 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
           if (dist < 5) {
             // dist < 5 は任意の判定範囲、デカかったら小さくできる
             console.log("Clicked gamepk:", item.gamepk);
+            setHighlightData(item.gamepk);
             dispatch(setGamePk(item.gamepk));
             // クリックされたgamepkを親コンポーネントに通知
             return;
@@ -322,7 +322,7 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("click", handleClick);
     };
-  }, [data, dimensions, dispatch]);
+  }, [data, dimensions, dispatch, highlightData]);
 
   return (
     <div style={{ padding: "20px" }}>
