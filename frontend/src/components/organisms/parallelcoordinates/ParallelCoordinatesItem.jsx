@@ -1,9 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setGamePk } from "../../../store/GameStore";
+import { useSelector } from "react-redux";
 
+// NOTE:消していいやつか分からん(props)
 const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
   const dispatch = useDispatch();
+  const selectedTeam = useSelector((state) => state.game.selectedTeam);
   const canvasRef = useRef(null);
   const [data, setData] = useState([]);
   const [dimensions] = useState({
@@ -17,13 +20,23 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
       try {
         const response = await fetch("/data/2025-03-16-2025-07-14.json");
         const jsonData = await response.json();
-        setData(jsonData);
+        if (selectedTeam === "All") {
+          setData(jsonData);
+        } else {
+          setData(
+            jsonData.filter(
+              (item) =>
+                item.team.home === selectedTeam ||
+                item.team.away === selectedTeam,
+            ),
+          );
+        }
       } catch (error) {
         console.error("データの読み込みに失敗しました:", error);
       }
     };
     loadData();
-  }, []);
+  }, [selectedTeam]);
 
   // データの正規化
   const normalizeData = (data, key) => {
@@ -36,6 +49,7 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
     }));
   };
 
+  // NOTE:消していいやつか分からん
   const getGamepk = (data) => {
     return data.map((item, key) => ({
       key: key,
@@ -239,7 +253,8 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
             item[features[i + 1].key + "_normalized"] * chartHeight;
 
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
-          if (dist < 2) { // dist < 2 は任意の判定範囲、デカかったら小さくできる
+          if (dist < 2) {
+            // dist < 2 は任意の判定範囲、デカかったら小さくできる
             isNearMouse = true;
             break;
           }
@@ -290,7 +305,8 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
 
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
 
-          if (dist < 5) { // dist < 5 は任意の判定範囲、デカかったら小さくできる
+          if (dist < 5) {
+            // dist < 5 は任意の判定範囲、デカかったら小さくできる
             console.log("Clicked gamepk:", item.gamepk);
             dispatch(setGamePk(item.gamepk));
             // クリックされたgamepkを親コンポーネントに通知
@@ -306,7 +322,7 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("click", handleClick);
     };
-  }, [data, dimensions,dispatch]);
+  }, [data, dimensions, dispatch]);
 
   return (
     <div style={{ padding: "20px" }}>

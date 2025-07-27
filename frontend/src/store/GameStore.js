@@ -7,6 +7,8 @@ const initialState = {
     p_id: null,
     e_id: null,
   },
+  selectedTeam: "All",
+  selectedFeature: null,
 };
 
 const gameSlice = createSlice({
@@ -19,6 +21,12 @@ const gameSlice = createSlice({
     setId: (state, action) => {
       state.id = action.payload;
     },
+    setSelectedTeam: (state, action) => {
+      state.selectedTeam = action.payload;
+    },
+    setSelectedFeature: (state, action) => {
+      state.selectedFeature = action.payload;
+    },
   },
 });
 
@@ -28,5 +36,6 @@ const GameStore = configureStore({
   },
 });
 
-export const { setGamePk, setId } = gameSlice.actions;
+export const { setGamePk, setId, setSelectedTeam, setSelectedFeature } =
+  gameSlice.actions;
 export default GameStore;

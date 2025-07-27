@@ -1,16 +1,52 @@
 import SelectBox from "../organisms/serch/SelectBox";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setSelectedTeam } from "../../store/GameStore";
+import { useEffect } from "react";
 
 const Search = () => {
-  const [teamValue, setTeamValue] = useState("");
+  const [teamValue, setTeamValue] = useState("All");
   const [featureValue, setFeatureValue] = useState("");
+  const dispatch = useDispatch();
 
-  // TODO: dataを実際のデータに変更する
+  useEffect(() => {
+    dispatch(setSelectedTeam(teamValue));
+  }, [teamValue, dispatch]);
+
+  // MLB teams from the JSON data
   const teamOptions = [
-    { value: "team1", label: "Team 1" },
-    { value: "team2", label: "Team 2" },
-    { value: "team3", label: "Team 3" },
-  ];
+    { value: "All", label: "All" },
+    { value: "Los Angeles Dodgers", label: "Dodgers" },
+    { value: "Chicago Cubs", label: "Cubs" },
+    { value: "Milwaukee Brewers", label: "Brewers" },
+    { value: "New York Yankees", label: "Yankees" },
+    { value: "Baltimore Orioles", label: "Orioles" },
+    { value: "Toronto Blue Jays", label: "Blue Jays" },
+    { value: "Boston Red Sox", label: "Red Sox" },
+    { value: "Texas Rangers", label: "Rangers" },
+    { value: "Philadelphia Phillies", label: "Phillies" },
+    { value: "Washington Nationals", label: "Nationals" },
+    { value: "Cleveland Guardians", label: "Guardians" },
+    { value: "Kansas City Royals", label: "Royals" },
+    { value: "New York Mets", label: "Mets" },
+    { value: "Houston Astros", label: "Astros" },
+    { value: "San Francisco Giants", label: "Giants" },
+    { value: "Cincinnati Reds", label: "Reds" },
+    { value: "Atlanta Braves", label: "Braves" },
+    { value: "San Diego Padres", label: "Padres" },
+    { value: "Los Angeles Angels", label: "Angels" },
+    { value: "Chicago White Sox", label: "White Sox" },
+    { value: "Pittsburgh Pirates", label: "Pirates" },
+    { value: "Miami Marlins", label: "Marlins" },
+    { value: "Minnesota Twins", label: "Twins" },
+    { value: "St. Louis Cardinals", label: "Cardinals" },
+    { value: "Detroit Tigers", label: "Tigers" },
+    { value: "Arizona Diamondbacks", label: "Diamondbacks" },
+    { value: "Athletics", label: "Athletics" },
+    { value: "Seattle Mariners", label: "Mariners" },
+    { value: "Colorado Rockies", label: "Rockies" },
+    { value: "Tampa Bay Rays", label: "Rays" },
+  ].sort((a, b) => a.label.localeCompare(b.label));
 
   const featureOptions = [
     { value: "feature1", label: "Feature 1" },
