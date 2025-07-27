@@ -9,6 +9,10 @@ const initialState = {
   },
   selectedTeam: "All",
   selectedFeature: null,
+  selectedDate: {
+    startDate: null,
+    endDate: null,
+  },
 };
 
 const gameSlice = createSlice({
@@ -27,6 +31,9 @@ const gameSlice = createSlice({
     setSelectedFeature: (state, action) => {
       state.selectedFeature = action.payload;
     },
+    setSelectedDate: (state, action) => {
+      state.selectedDate = action.payload;
+    },
   },
 });
 
@@ -36,6 +43,11 @@ const GameStore = configureStore({
   },
 });
 
-export const { setGamePk, setId, setSelectedTeam, setSelectedFeature } =
-  gameSlice.actions;
+export const {
+  setGamePk,
+  setId,
+  setSelectedTeam,
+  setSelectedFeature,
+  setSelectedDate,
+} = gameSlice.actions;
 export default GameStore;

@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 import { setGamePk } from "../../../store/GameStore";
 import { useSelector } from "react-redux";
 
-// NOTE:消していいやつか分からん(props)
-const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
+const ParallelCoordinatesItem = () => {
   const dispatch = useDispatch();
   const selectedTeam = useSelector((state) => state.game.selectedTeam);
+  const selectedDate = useSelector((state) => state.game.selectedDate);
   const canvasRef = useRef(null);
   const [data, setData] = useState([]);
   const [dimensions] = useState({
@@ -22,23 +22,42 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
       try {
         const response = await fetch("/data/2025-03-16-2025-07-14.json");
         const jsonData = await response.json();
-        if (selectedTeam === "All") {
-          setData(jsonData);
-        } else {
-          setData(
-            jsonData.filter(
-              (item) =>
-                item.team.home === selectedTeam ||
-                item.team.away === selectedTeam,
-            ),
+
+        // チームフィルタリング
+        let filteredData = jsonData;
+        if (selectedTeam !== "All") {
+          filteredData = jsonData.filter(
+            (item) =>
+              item.team.home === selectedTeam ||
+              item.team.away === selectedTeam,
           );
         }
+
+        // 日付フィルタリング
+        if (selectedDate.startDate || selectedDate.endDate) {
+          filteredData = filteredData.filter((item) => {
+            const itemDate = item.date;
+            const startDate = selectedDate.startDate;
+            const endDate = selectedDate.endDate;
+
+            if (startDate && endDate) {
+              return itemDate >= startDate && itemDate <= endDate;
+            } else if (startDate) {
+              return itemDate >= startDate;
+            } else if (endDate) {
+              return itemDate <= endDate;
+            }
+            return true;
+          });
+        }
+
+        setData(filteredData);
       } catch (error) {
         console.error("データの読み込みに失敗しました:", error);
       }
     };
     loadData();
-  }, [selectedTeam]);
+  }, [selectedTeam, selectedDate]);
 
   // データの正規化
   const normalizeData = (data, key) => {
@@ -48,14 +67,6 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
     return data.map((d) => ({
       ...d,
       [key + "_normalized"]: (d[key] - min) / (max - min),
-    }));
-  };
-
-  // NOTE:消していいやつか分からん
-  const getGamepk = (data) => {
-    return data.map((item, key) => ({
-      key: key,
-      gamepk: item.gamepk,
     }));
   };
 

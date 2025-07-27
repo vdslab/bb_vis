@@ -1,17 +1,23 @@
 import SelectBox from "../organisms/serch/SelectBox";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setSelectedTeam } from "../../store/GameStore";
+import { setSelectedTeam, setSelectedDate } from "../../store/GameStore";
 import { useEffect } from "react";
+import DatePicker from "../organisms/serch/DatePicker";
 
 const Search = () => {
   const [teamValue, setTeamValue] = useState("All");
   const [featureValue, setFeatureValue] = useState("");
+  const [dateValue, setDateValue] = useState({
+    startDate: null,
+    endDate: null,
+  });
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setSelectedTeam(teamValue));
-  }, [teamValue, dispatch]);
+    dispatch(setSelectedDate(dateValue));
+  }, [teamValue, dateValue, dispatch]);
 
   // MLB teams from the JSON data
   const teamOptions = [
@@ -75,6 +81,15 @@ const Search = () => {
               value={featureValue}
               onChange={(event) => setFeatureValue(event.target.value)}
               options={featureOptions}
+            />
+          </div>
+        </div>
+        <div className="search-box-item2">
+          <div className="search-box-item2-date">
+            <DatePicker
+              label="Date"
+              value={dateValue}
+              onChange={(event) => setDateValue(event.target.value)}
             />
           </div>
         </div>
