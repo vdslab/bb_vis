@@ -42,7 +42,6 @@ const Simulation = () => {
         <h2>Simulation</h2>
       </div>
       <div className="panel-content">
-        {loading && <div className="loading">Loading...</div>}
         <div className="simulation-container">
           <GameController
             eventData={eventData}

@@ -8,13 +8,45 @@ const ParallelCoordinatesItem = () => {
   const selectedTeam = useSelector((state) => state.game.selectedTeam);
   const selectedDate = useSelector((state) => state.game.selectedDate);
   const canvasRef = useRef(null);
+  const containerRef = useRef(null);
   const [data, setData] = useState([]);
-  const [dimensions] = useState({
-    width: 800,
-    height: 400,
+  const [dimensions, setDimensions] = useState({
+    width: 0,
+    height: 0,
   });
   // ハイライト用データ、テスト用
   const [highlightData, setHighlightData] = useState(null);
+
+  // コンテナのサイズを監視してキャンバスサイズを調整
+  useEffect(() => {
+    const updateCanvasSize = () => {
+      if (containerRef.current) {
+        const container = containerRef.current;
+        const rect = container.getBoundingClientRect();
+        setDimensions({
+          width: rect.width,
+          height: rect.height,
+        });
+      }
+    };
+
+    // 初期サイズ設定
+    updateCanvasSize();
+
+    // リサイズイベントリスナー
+    const resizeObserver = new ResizeObserver(updateCanvasSize);
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
+
+    // ウィンドウリサイズ時にも更新
+    window.addEventListener("resize", updateCanvasSize);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateCanvasSize);
+    };
+  }, []);
 
   // データを読み込む
   useEffect(() => {
@@ -115,10 +147,15 @@ const ParallelCoordinatesItem = () => {
 
   // パラレルコーディネートを描画
   useEffect(() => {
-    if (!data.length || !canvasRef.current) {
+    if (
+      !data.length ||
+      !canvasRef.current ||
+      dimensions.width === 0 ||
+      dimensions.height === 0
+    ) {
       // データが空の場合は空のキャンバスを表示
       const canvas = canvasRef.current;
-      if (canvas) {
+      if (canvas && dimensions.width > 0 && dimensions.height > 0) {
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, dimensions.width, dimensions.height);
 
@@ -137,6 +174,10 @@ const ParallelCoordinatesItem = () => {
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
+
+    // キャンバスのサイズを設定
+    canvas.width = dimensions.width;
+    canvas.height = dimensions.height;
 
     // キャンバスをクリア
     ctx.clearRect(0, 0, dimensions.width, dimensions.height);
@@ -254,8 +295,12 @@ const ParallelCoordinatesItem = () => {
       if (!data.length || !normalizedData.length) return;
 
       const rect = canvas.getBoundingClientRect();
-      const mouseX = event.clientX - rect.left;
-      const mouseY = event.clientY - rect.top;
+      // キャンバスの実際の表示サイズと内部サイズの比率を計算
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+
+      const mouseX = (event.clientX - rect.left) * scaleX;
+      const mouseY = (event.clientY - rect.top) * scaleY;
 
       // マウス位置に近いデータポイントをハイライト
       ctx.clearRect(0, 0, dimensions.width, dimensions.height);
@@ -372,8 +417,12 @@ const ParallelCoordinatesItem = () => {
       if (!data.length || !normalizedData.length) return;
 
       const rect = canvas.getBoundingClientRect();
-      const mouseX = event.clientX - rect.left;
-      const mouseY = event.clientY - rect.top;
+      // キャンバスの実際の表示サイズと内部サイズの比率を計算
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+
+      const mouseX = (event.clientX - rect.left) * scaleX;
+      const mouseY = (event.clientY - rect.top) * scaleY;
 
       for (const item of normalizedData) {
         for (let i = 0; i < features.length - 1; i++) {
@@ -412,17 +461,30 @@ const ParallelCoordinatesItem = () => {
   }, [data, dimensions, dispatch, highlightData]);
 
   return (
-    <div style={{ padding: "20px" }}>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <canvas
-          ref={canvasRef}
-          width={dimensions.width}
-          height={dimensions.height}
-          style={{
-            backgroundColor: "#fff",
-          }}
-        />
-      </div>
+    <div
+      ref={containerRef}
+      style={{
+        width: "100%",
+        height: "100%",
+        padding: "20px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
+      }}
+    >
+      <canvas
+        ref={canvasRef}
+        style={{
+          backgroundColor: "#fff",
+          maxWidth: "100%",
+          maxHeight: "100%",
+          width: dimensions.width,
+          height: dimensions.height,
+          display: "block", // インライン要素の余白を削除
+        }}
+      />
     </div>
   );
 };

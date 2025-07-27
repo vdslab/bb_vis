@@ -1,0 +1,102 @@
+/* サイドバーコンテナ */
+.sidebar {
+  position: fixed;
+  top: 7vh; /* ヘッダーの高さ分下げる */
+  left: 0;
+  height: calc(100vh - 7vh); /* ヘッダーの高さを引く */
+  background-color: var(--background-color);
+  border-right: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  z-index: 100; /* ヘッダーより低いz-index */
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 展開時のサイドバー */
+.sidebar-expanded {
+  width: 16%;
+}
+
+/* 折りたたみ時のサイドバー */
+.sidebar-collapsed {
+  width: 64px;
+}
+
+/* サイドバーツールバー */
+.sidebar-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  min-height: 64px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* トグルボタン */
+.sidebar-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-toggle-btn:hover {
+  background-color: var(--surface-color);
+}
+
+.sidebar-toggle-btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* 区切り線 */
+.sidebar-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 0;
+}
+
+/* サイドバーコンテンツ */
+.sidebar-content {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .sidebar-expanded {
+    width: 240px;
+  }
+
+  .sidebar-collapsed {
+    width: 56px;
+  }
+
+  .sidebar-toolbar {
+    padding: 8px 12px;
+    min-height: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar-expanded {
+    width: 200px;
+  }
+
+  .sidebar-collapsed {
+    width: 48px;
+  }
+
+  .sidebar-toolbar {
+    padding: 6px 8px;
+    min-height: 48px;
+  }
+}
