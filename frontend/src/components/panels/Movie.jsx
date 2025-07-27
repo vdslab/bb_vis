@@ -1,14 +1,21 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { memo, useMemo } from "react";
 import { useMovieData } from "@/hooks/useMovieData";
 import MovieList from "../organisms/movie/MovieList";
 
-const Movie = () => {
+const Movie = memo(() => {
   const gamepk = useSelector((state) => state.game.gamepk);
 
   const { moviesIframeTags, loading } = useMovieData(gamepk);
-  const [iframeWidth] = useState("auto");
-  const [iframeHeight] = useState("100%");
+
+  // iframeWidthとiframeHeightをメモ化
+  const { iframeWidth, iframeHeight } = useMemo(
+    () => ({
+      iframeWidth: "auto",
+      iframeHeight: "100%",
+    }),
+    [],
+  );
 
   return (
     <div className="panel-screen movie-panel">
@@ -24,6 +31,8 @@ const Movie = () => {
       </div>
     </div>
   );
-};
+});
+
+Movie.displayName = "Movie";
 
 export default Movie;

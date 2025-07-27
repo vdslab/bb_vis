@@ -1,11 +1,19 @@
-import React from "react";
+import React, { memo, useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import MovieListItem from "./MovieListItem";
 
-const MovieList = ({ iframeTags, width, height }) => {
+const MovieList = memo(({ iframeTags, width, height }) => {
+  // 安定したキーを生成
+  const slidesWithKeys = useMemo(() => {
+    return iframeTags.map((iframeTag, index) => ({
+      iframeTag,
+      key: `movie-${index}-${iframeTag?.slice(0, 50)?.replace(/[^a-zA-Z0-9]/g, "") || index}`,
+    }));
+  }, [iframeTags]);
+
   return (
     <div className="movie-list">
       <Swiper
@@ -32,8 +40,8 @@ const MovieList = ({ iframeTags, width, height }) => {
           },
         }}
       >
-        {iframeTags.map((iframeTag, index) => (
-          <SwiperSlide key={index}>
+        {slidesWithKeys.map(({ iframeTag, key }) => (
+          <SwiperSlide key={key}>
             <MovieListItem
               iframeTag={iframeTag}
               width={width}
@@ -44,6 +52,8 @@ const MovieList = ({ iframeTags, width, height }) => {
       </Swiper>
     </div>
   );
-};
+});
+
+MovieList.displayName = "MovieList";
 
 export default MovieList;

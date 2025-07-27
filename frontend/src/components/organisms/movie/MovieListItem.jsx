@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import "@styles/movie.css";
 
-const MovieListItem = ({ iframeTag, width, height }) => {
+const MovieListItem = memo(({ iframeTag, width, height }) => {
   // iframeTagの中でwidth/heightを動的に設定
   const modifiedIframeTag = iframeTag?.replace(
     /<iframe([^>]*?)>/i,
@@ -17,6 +17,8 @@ const MovieListItem = ({ iframeTag, width, height }) => {
       />
     </div>
   );
-};
+});
+
+MovieListItem.displayName = "MovieListItem";
 
 export default MovieListItem;
