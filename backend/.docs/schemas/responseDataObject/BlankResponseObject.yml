@@ -1,0 +1,3 @@
+description: 汎用ブランクレスポンス
+allOf:
+  - $ref: "./base/BaseResponseObject.yml"

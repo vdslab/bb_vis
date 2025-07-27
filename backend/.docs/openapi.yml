@@ -1,0 +1,131 @@
+openapi: "3.0.3"
+info:
+  title: webapp API仕様
+  version: "1.0.0"
+  description: |
+
+    ## OpenAPI
+
+    OpenAPIはjson/yml形式で記述します。基本的にはymlで記述してください。
+
+    OpenAPIのコードは`backend/.docs`以下のディレクトリに格納されます。
+
+    ## モック
+
+    モックサーバーにはPrismを使用します。起動するには**"フロントエンドフォルダで"**以下のコマンドを実行します
+
+    ```
+    $ npm run mock-server
+    ```
+
+    このポートは4041ポートで起動します。起動には数分かかります。
+
+    ## VSCode拡張
+
+    OpenAPI関連のファイルを編集する際、以下の拡張機能を導入することをお勧めします。
+
+    - [OpenAPI (Swagger) Editor](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi)
+    - [Swagger Viewer](https://marketplace.visualstudio.com/items?itemName=Arjun.swagger-viewer)
+    - [Swagger Tools](https://marketplace.visualstudio.com/items?itemName=TheHolyCoder.swagger-tools)
+
+servers:
+  - url: http://localhost:4041/
+    description: モックサーバー
+  - url: http://localhost:8081/
+    description: ローカル開発サーバー
+
+paths:
+  /.netlify/functions/getAnalysisById:
+    $ref: "./endpoints/.netlify/functions/getAnalysisById.yml"
+  /.netlify/functions/getIdByAwayteamAndDate:
+    $ref: "./endpoints/.netlify/functions/getIdByAwayteamAndDate.yml"
+  /.netlify/functions/getIdByHometeamAndDate:
+    $ref: "./endpoints/.netlify/functions/getIdByHometeamAndDate.yml"
+  /.netlify/functions/getIdListByDate:
+    $ref: "./endpoints/.netlify/functions/getIdListByDate.yml"
+  /.netlify/functions/getMoviesById:
+    $ref: "./endpoints/.netlify/functions/getMoviesById.yml"
+  /.netlify/functions/getPlayDataById:
+    $ref: "./endpoints/.netlify/functions/getPlayDataById.yml"
+
+components:
+  schemas:
+    # レスポンスオブジェクト
+    AnalysisGetResponseObject:
+      $ref: "./schemas/responseDataObject/GetAnalysisResponseObject.yml"
+    BlankResponseObject:
+      $ref: "./schemas/responseDataObject/BlankResponseObject.yml"
+    GetGamepkResponseObject:
+      $ref: "./schemas/responseDataObject/GetGamepkResponseObject.yml"
+    GetMoviesResponseObject:
+      $ref: "./schemas/responseDataObject/GetMoviesResponseObject.yml"
+    GetPlayDataResponseObject:
+      $ref: "./schemas/responseDataObject/GetPlayDataResponseObject.yml"
+
+    # ベースレスポンスオブジェクト
+    BaseResponseObject:
+      $ref: "./schemas/responseDataObject/base/BaseResponseObject.yml"
+    ResultObject:
+      $ref: "./schemas/responseDataObject/base/ResultObject.yml"
+
+    # シミュレーション操作用
+    777579_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777579_logistic_regression_analysis_data.json"
+
+    # 通常データ
+    777115_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777115_logistic_regression_analysis_data.json"
+    777117_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777117_logistic_regression_analysis_data.json"
+    777549_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777549_logistic_regression_analysis_data.json"
+    777972_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777972_logistic_regression_analysis_data.json"
+    777979_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/777979_logistic_regression_analysis_data.json"
+    778131_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778131_logistic_regression_analysis_data.json"
+    778345_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778345_logistic_regression_analysis_data.json"
+    778434_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778434_logistic_regression_analysis_data.json"
+    778473_logistic_regression_analysis_data:
+      $ref: "./schemas/data/analysis/778473_logistic_regression_analysis_data.json"
+
+    # スケールテスト用データ
+    777115_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777115_logistic_regression_analysis_data.json"
+    777117_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777117_logistic_regression_analysis_data.json"
+    777549_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777549_logistic_regression_analysis_data.json"
+    777972_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777972_logistic_regression_analysis_data.json"
+    777979_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/777979_logistic_regression_analysis_data.json"
+    778131_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/778131_logistic_regression_analysis_data.json"
+    778345_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/778345_logistic_regression_analysis_data.json"
+    778434_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/778434_logistic_regression_analysis_data.json"
+    778473_logistic_regression_analysis_data_scale_test:
+      $ref: "./schemas/data/analysis_scale_test/778473_logistic_regression_analysis_data.json"
+
+    # others
+    settingCommon:
+      $ref: "./schemas/SettingCommon.yml"
+
+  responses:
+    BlankUnAuthResponse:
+      $ref: "./responses/BlankUnAuthResponse.yml"
+    GetAnalysisResponse:
+      $ref: "./responses/GetAnalysisResponse.yml"
+    GetIdByAwayteamAndDateResponse:
+      $ref: "./responses/GetGamepkResponse.yml"
+    GetGamepkResponse:
+      $ref: "./responses/GetGamepkResponse.yml"
+    GetMoviesResponse:
+      $ref: "./responses/GetMoviesResponse.yml"
+    GetPlayDataResponse:
+      $ref: "./responses/GetPlayDataResponse.yml"

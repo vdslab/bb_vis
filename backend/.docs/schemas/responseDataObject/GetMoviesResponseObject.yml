@@ -1,0 +1,31 @@
+description: game_pk取得レスポンスオブジェクト
+type: array
+items:
+  type: string
+  description: 動画iframeタグ
+
+example:
+  # 動画 1
+  - <iframe src="https://streamable.com/m/andy-pages-hit-by-pitch-max-muncy-to-2nd?partnerId=web_video-game-index-page_video-share" width="560" height="315"></iframe>
+  # 動画 2
+  - <iframe src="https://streamable.com/m/freddie-freeman-singles-on-a-ground-ball-to-right-fielder-fernando-tatis-4ttepy?partnerId=web_video-game-index-page_video-share" width="560" height="315"></iframe>
+  # 動画 3
+  - <iframe src="https://streamable.com/m/ben-casparius-in-play-run-s-to-manny-machado?partnerId=web_video-game-index-page_video-share" width="560" height="315"></iframe>
+  # 動画 4
+  - <iframe src="https://streamable.com/m/dodgers-score-five-runs-in-4th?partnerId=web_video-game-index-page_video-share" width="560" height="315"></iframe>
+  # 動画 5
+  - <iframe src="https://streamable.com/m/mookie-betts-singles-on-a-line-drive-to-center-fielder-tyler-wade-tommy-e?partnerId=web_video-game-index-page_video-share" width="560" height="315"></iframe>
+  # 動画 6
+  - <iframe src="https://streamable.com/m/shohei-ohtani-singles-on-a-line-drive-to-right-fielder-fernando-tatis-jr?partnerId=web_video-game-index-page_video-share" width="560" height="315"></iframe>
+  # 動画 7
+  - <iframe src="https://streamable.com/m/dylan-cease-in-play-run-s-to-tommy-edman?partnerId=web_video-game-index-page_video-share" width="560" height="315"></iframe>
+  # 動画 8
+  - <iframe src="https://streamable.com/m/dylan-cease-in-play-run-s-to-max-muncy-mdfymc?partnerId=web_video-game-index-page_video-share" width="560" height="315"></iframe>
+  # 動画 9
+  - <iframe src="https://streamable.com/m/ben-casparius-in-play-run-s-to-xander-bogaerts?partnerId=web_video-game-index-page_video-share" width="560" height="315"></iframe>
+  # 動画 10
+  - <iframe src="https://streamable.com/m/shohei-ohtani-doubles-12-on-a-sharp-line-drive-to-center-fielder-tyler-wa?partnerId=web_video-game-index-page_video-share" width="560" height="315"></iframe>
+  # 動画 11
+  - <iframe src="https://streamable.com/m/manny-machado-out-on-a-sacrifice-fly-to-center-fielder-andy-pages-fernand?partnerId=web_video-game-index-page_video-share" width="560" height="315"></iframe>
+  # 動画 12
+  - <iframe src="https://streamable.com/m/shohei-ohtani-in-play-no-out-to-fernando-tatis-jr?partnerId=web_video-game-index-page_video-share" width="560" height="315"></iframe>

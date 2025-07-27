@@ -1,0 +1,5 @@
+description: ムービーデータ取得レスポンス
+content:
+  application/json:
+    schema:
+      $ref: "../schemas/responseDataObject/GetMoviesResponseObject.yml"

@@ -1,0 +1,27 @@
+post:
+  description: アウェイチームと日付から試合IDを取得
+  tags:
+    - gamepk取得API
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            awayteam:
+              type: string
+            start_date:
+              type: string
+            end_date:
+              type: string
+          required:
+            - awayteam
+            - start_date
+            - end_date
+          example:
+            awayteam: "Los Angeles Dodgers"
+            start_date: "2025-01-01"
+            end_date: "2025-01-07"
+  responses:
+    "200":
+      $ref: "../../../responses/GetGamepkResponse.yml"

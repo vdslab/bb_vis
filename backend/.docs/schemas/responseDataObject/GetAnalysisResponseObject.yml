@@ -1,0 +1,33 @@
+# 実装上の都合で、一旦arrayで返すようにしておく
+
+description: 分析データ取得レスポンスオブジェクト
+type: array
+items:
+  type: string
+  description: 分析データ
+
+example:
+  # シミュレーション操作用
+  - $ref: "../../schemas/data/analysis/777579_logistic_regression_analysis_data.json"
+
+  # 通常データ
+  # - $ref: "../../schemas/data/analysis/777115_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis/777117_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis/777549_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis/777972_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis/777979_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis/778131_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis/778345_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis/778434_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis/778473_logistic_regression_analysis_data.json"
+
+  # スケールテスト用データ
+  # - $ref: "../../schemas/data/analysis_scale_test/777115_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis_scale_test/777117_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis_scale_test/777549_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis_scale_test/777972_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis_scale_test/777979_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis_scale_test/778131_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis_scale_test/778345_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis_scale_test/778434_logistic_regression_analysis_data.json"
+  # - $ref: "../../schemas/data/analysis_scale_test/778473_logistic_regression_analysis_data.json"

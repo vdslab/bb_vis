@@ -1,0 +1,33 @@
+description: 定数定義
+type: object
+required:
+  - id
+  - paramSection
+  - paramKey1
+  - paramValue1
+properties:
+  id:
+    description: 連番
+    type: number
+  paramSection:
+    description: セクション
+    type: string
+  paramKey1:
+    description: キー１
+    type: string
+  paramKey2:
+    description: キー２
+    type: string
+  paramValue1:
+    description: 値１
+    type: object
+  paramValue2:
+    description: 値２
+    type: string
+
+example:
+  id: 1
+  paramSection: INIT
+  paramKey1: ANALISYS_DATA
+  paramValue1:
+    $ref: "../schemas/data/analysis/777549_logistic_regression_analysis_data.json"

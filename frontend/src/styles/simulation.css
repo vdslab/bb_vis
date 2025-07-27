@@ -1,0 +1,145 @@
+/* パネル割合設定 */
+:root {
+  /* ゲームスコアボードの高さ */
+  --game-score-board-height: 25%;
+  /* ゲームフィールドの高さ */
+  --game-field-height: 60%;
+  /* ゲームコントローラの高さ */
+  --game-controller-height: 15%;
+}
+
+.simulation-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.game-score-board {
+  width: 100%;
+  height: var(--game-score-board-height);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scoreboard-container {
+  width: 55%;
+  height: 75%;
+}
+
+.game-field {
+  position: relative;
+  width: 100%;
+  height: var(--game-field-height);
+  border-radius: 8px;
+  overflow: hidden;
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.field-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.runners-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ランナーの配置位置 */
+.runner {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 20%;
+}
+
+.runner-name {
+  color: white;
+  height: 20%;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ランナーの画像 */
+.runner-img {
+  height: 80%;
+}
+
+.runner-img-wrapper {
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ベースの位置 */
+.first-base {
+  top: 60%;
+  left: 65%;
+}
+
+.second-base {
+  top: 48%;
+  left: 50%;
+}
+
+.third-base {
+  top: 62%;
+  left: 35%;
+}
+
+/* パルスアニメーション */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.game-controller {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: var(--game-controller-height);
+  position: relative;
+}
+
+.game-controller-left-arrow {
+  width: 7%;
+  height: 42%;
+  position: absolute;
+  bottom: 17%;
+  left: 0%;
+}
+
+.game-controller-item {
+  width: 86%;
+  height: 100%;
+}
+
+.game-controller-right-arrow {
+  width: 7%;
+  height: 42%;
+  position: absolute;
+  bottom: 17%;
+  right: 0%;
+}

@@ -1,0 +1,5 @@
+description: game_pk取得レスポンス
+content:
+  application/json:
+    schema:
+      $ref: "../schemas/responseDataObject/GetGamepkResponseObject.yml"

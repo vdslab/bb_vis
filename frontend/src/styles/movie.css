@@ -1,0 +1,77 @@
+.movie-list {
+  width: 100%;
+  max-width: 100%;
+}
+
+.movie-item {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.movie-item iframe {
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 16/9;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Swiperのスタイル調整 */
+.swiper {
+  width: 100%;
+  height: calc(22vh - 20px); /* panel-contentの高さに合わせる */
+}
+
+.swiper-slide {
+  width: auto !important;
+  height: 100%;
+  aspect-ratio: 16/9;
+}
+
+.swiper-pagination {
+  position: static;
+  margin-top: 10px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #007bff;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 14px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .swiper {
+    height: calc(25vh - 30px); /* padding 15px × 2 */
+  }
+
+  .swiper-slide {
+    aspect-ratio: 16/9;
+  }
+
+  .movie-item iframe {
+    aspect-ratio: 16/9;
+  }
+}
+
+@media (max-width: 480px) {
+  .swiper {
+    height: calc(25vh - 20px); /* padding 10px × 2 */
+  }
+
+  .swiper-slide {
+    aspect-ratio: 16/9;
+  }
+}
