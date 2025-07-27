@@ -1,15 +1,20 @@
 import React, { useRef, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setGamePk } from "../../../store/GameStore";
+import { useSelector } from "react-redux";
 
-const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
+const ParallelCoordinatesItem = () => {
   const dispatch = useDispatch();
+  const selectedTeam = useSelector((state) => state.game.selectedTeam);
+  const selectedDate = useSelector((state) => state.game.selectedDate);
   const canvasRef = useRef(null);
   const [data, setData] = useState([]);
   const [dimensions] = useState({
     width: 800,
     height: 400,
   });
+  // ハイライト用データ、テスト用
+  const [highlightData, setHighlightData] = useState(null);
 
   // データを読み込む
   useEffect(() => {
@@ -17,29 +22,64 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
       try {
         const response = await fetch("/data/2025-03-16-2025-07-14.json");
         const jsonData = await response.json();
-        setData(jsonData);
+
+        // チームフィルタリング
+        let filteredData = jsonData;
+        if (selectedTeam !== "All") {
+          filteredData = jsonData.filter(
+            (item) =>
+              item.team.home === selectedTeam ||
+              item.team.away === selectedTeam,
+          );
+        }
+
+        // 日付フィルタリング
+        if (selectedDate.startDate || selectedDate.endDate) {
+          filteredData = filteredData.filter((item) => {
+            const itemDate = item.date;
+            const startDate = selectedDate.startDate;
+            const endDate = selectedDate.endDate;
+
+            if (startDate && endDate) {
+              return itemDate >= startDate && itemDate <= endDate;
+            } else if (startDate) {
+              return itemDate >= startDate;
+            } else if (endDate) {
+              return itemDate <= endDate;
+            }
+            return true;
+          });
+        }
+
+        setData(filteredData);
       } catch (error) {
         console.error("データの読み込みに失敗しました:", error);
       }
     };
     loadData();
-  }, []);
+  }, [selectedTeam, selectedDate]);
 
   // データの正規化
   const normalizeData = (data, key) => {
+    if (!data || data.length === 0) {
+      return [];
+    }
+
     const values = data.map((d) => d[key]);
     const min = Math.min(...values);
     const max = Math.max(...values);
+
+    // データが一つしかない場合、または全て同じ値の場合は0.5を返す（中央に表示）
+    if (data.length === 1 || min === max) {
+      return data.map((d) => ({
+        ...d,
+        [key + "_normalized"]: 0.5,
+      }));
+    }
+
     return data.map((d) => ({
       ...d,
       [key + "_normalized"]: (d[key] - min) / (max - min),
-    }));
-  };
-
-  const getGamepk = (data) => {
-    return data.map((item, key) => ({
-      key: key,
-      gamepk: item.gamepk,
     }));
   };
 
@@ -73,12 +113,27 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
     return Math.sqrt(dx * dx + dy * dy);
   }
 
-  // ハイライト用データ、テスト用
-  const highlightData = 778122;
-
   // パラレルコーディネートを描画
   useEffect(() => {
-    if (!data.length || !canvasRef.current) return;
+    if (!data.length || !canvasRef.current) {
+      // データが空の場合は空のキャンバスを表示
+      const canvas = canvasRef.current;
+      if (canvas) {
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, dimensions.width, dimensions.height);
+
+        // データがないことを示すメッセージを表示
+        ctx.fillStyle = "#666";
+        ctx.font = "16px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText(
+          "データがありません",
+          dimensions.width / 2,
+          dimensions.height / 2,
+        );
+      }
+      return;
+    }
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -128,11 +183,11 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
       const values = data.map((d) => d[feature.key]);
       const min = Math.min(...values);
       const max = Math.max(...values);
-      const step = (max - min) / 4;
 
-      for (let i = 0; i <= 4; i++) {
-        const value = min + i * step;
-        const y = margin.top + chartHeight - (i / 4) * chartHeight;
+      // データが一つしかない場合、または全て同じ値の場合はその値を表示
+      if (data.length === 1 || min === max) {
+        const value = min;
+        const y = margin.top + chartHeight / 2; // 中央に表示
 
         ctx.fillStyle = "#666";
         ctx.font = "10px Arial";
@@ -146,6 +201,26 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
         ctx.moveTo(x - 3, y);
         ctx.lineTo(x + 3, y);
         ctx.stroke();
+      } else {
+        const step = (max - min) / 4;
+
+        for (let i = 0; i <= 4; i++) {
+          const value = min + i * step;
+          const y = margin.top + chartHeight - (i / 4) * chartHeight;
+
+          ctx.fillStyle = "#666";
+          ctx.font = "10px Arial";
+          ctx.textAlign = "right";
+          ctx.fillText(value.toFixed(1), x - 5, y + 3);
+
+          // 目盛り線
+          ctx.strokeStyle = "#ddd";
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(x - 3, y);
+          ctx.lineTo(x + 3, y);
+          ctx.stroke();
+        }
       }
     });
 
@@ -175,6 +250,9 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
 
     // ホバー効果のためのイベントリスナー
     const handleMouseMove = (event) => {
+      // データが空の場合は何もしない
+      if (!data.length || !normalizedData.length) return;
+
       const rect = canvas.getBoundingClientRect();
       const mouseX = event.clientX - rect.left;
       const mouseY = event.clientY - rect.top;
@@ -201,11 +279,11 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
         const values = data.map((d) => d[feature.key]);
         const min = Math.min(...values);
         const max = Math.max(...values);
-        const step = (max - min) / 4;
 
-        for (let i = 0; i <= 4; i++) {
-          const value = min + i * step;
-          const y = margin.top + chartHeight - (i / 4) * chartHeight;
+        // データが一つしかない場合、または全て同じ値の場合はその値を表示
+        if (data.length === 1 || min === max) {
+          const value = min;
+          const y = margin.top + chartHeight / 2; // 中央に表示
 
           ctx.fillStyle = "#666";
           ctx.font = "10px Arial";
@@ -218,6 +296,25 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
           ctx.moveTo(x - 3, y);
           ctx.lineTo(x + 3, y);
           ctx.stroke();
+        } else {
+          const step = (max - min) / 4;
+
+          for (let i = 0; i <= 4; i++) {
+            const value = min + i * step;
+            const y = margin.top + chartHeight - (i / 4) * chartHeight;
+
+            ctx.fillStyle = "#666";
+            ctx.font = "10px Arial";
+            ctx.textAlign = "right";
+            ctx.fillText(value.toFixed(1), x - 5, y + 3);
+
+            ctx.strokeStyle = "#ddd";
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(x - 3, y);
+            ctx.lineTo(x + 3, y);
+            ctx.stroke();
+          }
         }
       });
 
@@ -239,7 +336,8 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
             item[features[i + 1].key + "_normalized"] * chartHeight;
 
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
-          if (dist < 2) { // dist < 2 は任意の判定範囲、デカかったら小さくできる
+          if (dist < 2) {
+            // dist < 2 は任意の判定範囲、デカかったら小さくできる
             isNearMouse = true;
             break;
           }
@@ -270,6 +368,9 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
     };
     // クリック時の挙動管理
     const handleClick = (event) => {
+      // データが空の場合は何もしない
+      if (!data.length || !normalizedData.length) return;
+
       const rect = canvas.getBoundingClientRect();
       const mouseX = event.clientX - rect.left;
       const mouseY = event.clientY - rect.top;
@@ -290,8 +391,10 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
 
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
 
-          if (dist < 5) { // dist < 5 は任意の判定範囲、デカかったら小さくできる
+          if (dist < 5) {
+            // dist < 5 は任意の判定範囲、デカかったら小さくできる
             console.log("Clicked gamepk:", item.gamepk);
+            setHighlightData(item.gamepk);
             dispatch(setGamePk(item.gamepk));
             // クリックされたgamepkを親コンポーネントに通知
             return;
@@ -306,7 +409,7 @@ const ParallelCoordinatesItem = ({ onSelectGamepk }) => {
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("click", handleClick);
     };
-  }, [data, dimensions,dispatch]);
+  }, [data, dimensions, dispatch, highlightData]);
 
   return (
     <div style={{ padding: "20px" }}>
