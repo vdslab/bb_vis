@@ -61,9 +61,22 @@ const ParallelCoordinatesItem = () => {
 
   // データの正規化
   const normalizeData = (data, key) => {
+    if (!data || data.length === 0) {
+      return [];
+    }
+
     const values = data.map((d) => d[key]);
     const min = Math.min(...values);
     const max = Math.max(...values);
+
+    // データが一つしかない場合、または全て同じ値の場合は0.5を返す（中央に表示）
+    if (data.length === 1 || min === max) {
+      return data.map((d) => ({
+        ...d,
+        [key + "_normalized"]: 0.5,
+      }));
+    }
+
     return data.map((d) => ({
       ...d,
       [key + "_normalized"]: (d[key] - min) / (max - min),
@@ -102,7 +115,25 @@ const ParallelCoordinatesItem = () => {
 
   // パラレルコーディネートを描画
   useEffect(() => {
-    if (!data.length || !canvasRef.current) return;
+    if (!data.length || !canvasRef.current) {
+      // データが空の場合は空のキャンバスを表示
+      const canvas = canvasRef.current;
+      if (canvas) {
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, dimensions.width, dimensions.height);
+
+        // データがないことを示すメッセージを表示
+        ctx.fillStyle = "#666";
+        ctx.font = "16px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText(
+          "データがありません",
+          dimensions.width / 2,
+          dimensions.height / 2,
+        );
+      }
+      return;
+    }
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -152,11 +183,11 @@ const ParallelCoordinatesItem = () => {
       const values = data.map((d) => d[feature.key]);
       const min = Math.min(...values);
       const max = Math.max(...values);
-      const step = (max - min) / 4;
 
-      for (let i = 0; i <= 4; i++) {
-        const value = min + i * step;
-        const y = margin.top + chartHeight - (i / 4) * chartHeight;
+      // データが一つしかない場合、または全て同じ値の場合はその値を表示
+      if (data.length === 1 || min === max) {
+        const value = min;
+        const y = margin.top + chartHeight / 2; // 中央に表示
 
         ctx.fillStyle = "#666";
         ctx.font = "10px Arial";
@@ -170,6 +201,26 @@ const ParallelCoordinatesItem = () => {
         ctx.moveTo(x - 3, y);
         ctx.lineTo(x + 3, y);
         ctx.stroke();
+      } else {
+        const step = (max - min) / 4;
+
+        for (let i = 0; i <= 4; i++) {
+          const value = min + i * step;
+          const y = margin.top + chartHeight - (i / 4) * chartHeight;
+
+          ctx.fillStyle = "#666";
+          ctx.font = "10px Arial";
+          ctx.textAlign = "right";
+          ctx.fillText(value.toFixed(1), x - 5, y + 3);
+
+          // 目盛り線
+          ctx.strokeStyle = "#ddd";
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(x - 3, y);
+          ctx.lineTo(x + 3, y);
+          ctx.stroke();
+        }
       }
     });
 
@@ -199,6 +250,9 @@ const ParallelCoordinatesItem = () => {
 
     // ホバー効果のためのイベントリスナー
     const handleMouseMove = (event) => {
+      // データが空の場合は何もしない
+      if (!data.length || !normalizedData.length) return;
+
       const rect = canvas.getBoundingClientRect();
       const mouseX = event.clientX - rect.left;
       const mouseY = event.clientY - rect.top;
@@ -225,11 +279,11 @@ const ParallelCoordinatesItem = () => {
         const values = data.map((d) => d[feature.key]);
         const min = Math.min(...values);
         const max = Math.max(...values);
-        const step = (max - min) / 4;
 
-        for (let i = 0; i <= 4; i++) {
-          const value = min + i * step;
-          const y = margin.top + chartHeight - (i / 4) * chartHeight;
+        // データが一つしかない場合、または全て同じ値の場合はその値を表示
+        if (data.length === 1 || min === max) {
+          const value = min;
+          const y = margin.top + chartHeight / 2; // 中央に表示
 
           ctx.fillStyle = "#666";
           ctx.font = "10px Arial";
@@ -242,6 +296,25 @@ const ParallelCoordinatesItem = () => {
           ctx.moveTo(x - 3, y);
           ctx.lineTo(x + 3, y);
           ctx.stroke();
+        } else {
+          const step = (max - min) / 4;
+
+          for (let i = 0; i <= 4; i++) {
+            const value = min + i * step;
+            const y = margin.top + chartHeight - (i / 4) * chartHeight;
+
+            ctx.fillStyle = "#666";
+            ctx.font = "10px Arial";
+            ctx.textAlign = "right";
+            ctx.fillText(value.toFixed(1), x - 5, y + 3);
+
+            ctx.strokeStyle = "#ddd";
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(x - 3, y);
+            ctx.lineTo(x + 3, y);
+            ctx.stroke();
+          }
         }
       });
 
@@ -295,6 +368,9 @@ const ParallelCoordinatesItem = () => {
     };
     // クリック時の挙動管理
     const handleClick = (event) => {
+      // データが空の場合は何もしない
+      if (!data.length || !normalizedData.length) return;
+
       const rect = canvas.getBoundingClientRect();
       const mouseX = event.clientX - rect.left;
       const mouseY = event.clientY - rect.top;
