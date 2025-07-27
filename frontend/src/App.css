@@ -35,6 +35,8 @@ body {
   justify-content: space-between;
   padding: 0 20px;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 1000; /* サイドバーより高いz-index */
 }
 
 .header h1 {
@@ -54,6 +56,17 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: margin-left 0.3s ease;
+}
+
+/* サイドバー展開時のメインコンテナ */
+.main-with-sidebar {
+  margin-left: 16%;
+}
+
+/* サイドバー折りたたみ時のメインコンテナ */
+.main-without-sidebar {
+  margin-left: 64px;
 }
 
 /* ヘッダーの中身 */
@@ -62,4 +75,25 @@ body {
   height: 100%;
   position: relative;
   bottom: -10px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .main-with-sidebar {
+    margin-left: 240px;
+  }
+
+  .main-without-sidebar {
+    margin-left: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-with-sidebar {
+    margin-left: 200px;
+  }
+
+  .main-without-sidebar {
+    margin-left: 48px;
+  }
 }
