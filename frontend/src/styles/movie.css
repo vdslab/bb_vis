@@ -7,29 +7,85 @@
 .movie-item {
   width: 100%;
   height: 100%;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   overflow: hidden;
+  border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.movie-item iframe {
-  width: 100% !important;
-  height: 100% !important;
+.movie-item-iframe {
+  width: 16*9/16vh !important;
+  height: 16vh !important;
   aspect-ratio: 16/9;
   border: none;
   border-radius: 8px;
 }
 
+.movie-item-description {
+  width: 100%;
+  height: 5vh !important;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text-color);
+  padding: 4px 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
 /* Swiperのスタイル調整 */
 .swiper {
   width: 100%;
-  height: calc(22vh - 20px); /* panel-contentの高さに合わせる */
+  height: 21vh;
+  user-select: none; /* テキスト選択を防ぐ */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  /* タッチパッドでの操作を最適化 */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-x;
+  /* CSS Scroll Snap API */
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.swiper-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .swiper-slide {
-  width: auto !important;
+  width: 260px !important; /* 動画の標準的な幅に設定 */
   height: 100%;
   aspect-ratio: 16/9;
+  cursor: grab;
+  /* タッチパッドでの操作を最適化 */
+  touch-action: pan-x;
+  /* CSS Scroll Snap API */
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+.swiper-slide:active {
+  cursor: grabbing;
+}
+
+.swiper-wrapper {
+  height: 21vh;
+  transition-timing-function: ease-out;
+  /* タッチパッドでの操作を最適化 */
+  will-change: transform;
+  touch-action: pan-x;
+  /* CSS Scroll Snap API */
+  display: flex;
+  scroll-behavior: smooth;
 }
 
 .swiper-pagination {
@@ -37,14 +93,75 @@
   margin-top: 10px;
 }
 
+/* ナビゲーション領域 */
+.nav-area {
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-area-prev {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 123, 255, 0.05), transparent);
+}
+
+.nav-area-next {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 123, 255, 0.05), transparent);
+}
+
+.nav-area:hover {
+  background-color: rgba(0, 123, 255, 0.15);
+}
+
+.nav-area-prev:hover {
+  background: linear-gradient(to right, rgba(0, 123, 255, 0.25), rgba(0, 123, 255, 0.05));
+}
+
+.nav-area-next:hover {
+  background: linear-gradient(to left, rgba(0, 123, 255, 0.25), rgba(0, 123, 255, 0.05));
+}
+
+/* ホバー時の視覚的インジケーター */
+.nav-area::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-area-prev::before {
+  left: 20px;
+  border-width: 8px 12px 8px 0;
+  border-color: transparent rgba(255, 255, 255, 0.8) transparent transparent;
+}
+
+.nav-area-next::before {
+  right: 20px;
+  border-width: 8px 0 8px 12px;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.8);
+}
+
+.nav-area:hover::before {
+  opacity: 1;
+}
+
+/* デフォルトのSwiperボタンを非表示 */
 .swiper-button-prev,
 .swiper-button-next {
-  color: #007bff;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin-top: -20px;
+  display: none;
 }
 
 .swiper-button-prev::after,
