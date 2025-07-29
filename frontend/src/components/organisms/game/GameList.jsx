@@ -22,6 +22,7 @@ const GameList = ({ games = [] }) => {
         >
           <GameListCard
             gamepk={game.gamepk}
+            date={game.date}
             hometeam={game.team.home_short}
             awayteam={game.team.away_short}
             hometeamscore={game.score.home}

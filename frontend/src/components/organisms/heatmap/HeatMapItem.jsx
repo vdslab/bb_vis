@@ -32,7 +32,7 @@ const HeatMapItem = ({ analysisData }) => {
   return (
     <ResponsiveHeatMapCanvas
       data={analysisData}
-      margin={{ top: 50, right: 0, bottom: 1, left: 0 }}
+      margin={{ top: 50, right: 0, bottom: 1, left: 13 }}
       valueFormat=">-.2s"
       axisTop={null}
       // axisRight={{ legend: "country", legendOffset: 40 }}

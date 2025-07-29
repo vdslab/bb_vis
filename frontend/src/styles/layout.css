@@ -8,8 +8,8 @@
   --right-panel-ratio: 55%;
 
   /* 左パネル内の割合 */
-  --game-ratio: 38vh;
-  --parallel-coordinates-ratio: 71vh;
+  --game-ratio: 40vh;
+  --parallel-coordinates-ratio: 53vh;
 
   /* 右パネル内の割合 */
   --movie-ratio: 22vh;
@@ -47,6 +47,8 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .panel-screen:first-child {

@@ -14,6 +14,7 @@ import {
 
 const GameListCard = ({
   gamepk,
+  date,
   hometeam,
   awayteam,
   hometeamscore,
@@ -37,6 +38,15 @@ const GameListCard = ({
     >
       <CardActionArea onClick={handleClick}>
         <CardContent sx={{ padding: "8px" }}>
+          <Box>
+            <Typography
+              variant="body1"
+              component="div"
+              sx={{ textAlign: "left", fontSize: "0.7rem" }}
+            >
+              {date.replace(/-/g, "/")}
+            </Typography>
+          </Box>
           <Box
             sx={{
               display: "grid",
@@ -47,7 +57,13 @@ const GameListCard = ({
             <Typography
               variant="body1"
               component="div"
-              sx={{ fontWeight: "bold", textAlign: "center" }}
+              sx={{
+                fontWeight: "bold",
+                textAlign: "center",
+                fontFamily: "Soei Kaku Pop",
+                fontStyle: "italic",
+                fontSize: "1.4rem",
+              }}
             >
               {hometeam}
             </Typography>
@@ -55,14 +71,14 @@ const GameListCard = ({
             <Typography
               variant="body1"
               component="span"
-              sx={{ fontWeight: "bold", textAlign: "end" }}
+              sx={{ fontWeight: "bold", fontSize: "1.2rem", justifyContent: "flex-end", display: "flex", alignItems: "center", height: "100%" }}
             >
               {hometeamscore}
             </Typography>
             <Typography
               variant="body1"
               component="span"
-              sx={{ textAlign: "center" }}
+              sx={{ fontWeight: "bold", fontSize: "1.2rem" ,justifyContent: "center", display: "flex", alignItems: "center", height: "100%"}}
             >
               -
             </Typography>
@@ -70,7 +86,7 @@ const GameListCard = ({
             <Typography
               variant="body1"
               component="span"
-              sx={{ fontWeight: "bold", textAlign: "start" }}
+              sx={{ fontWeight: "bold", fontSize: "1.2rem" ,justifyContent: "flex-start", display: "flex", alignItems: "center", height: "100%" }}
             >
               {awayteamscore}
             </Typography>
@@ -78,7 +94,13 @@ const GameListCard = ({
             <Typography
               variant="body1"
               component="div"
-              sx={{ fontWeight: "bold", textAlign: "center" }}
+              sx={{
+                fontWeight: "bold",
+                textAlign: "center",
+                fontFamily: "Soei Kaku Pop",
+                fontStyle: "italic",
+                fontSize: "1.4rem",
+              }}
             >
               {awayteam}
             </Typography>
