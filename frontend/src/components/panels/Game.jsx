@@ -1,5 +1,4 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
 import GameList from "../organisms/game/GameList";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
@@ -8,7 +7,9 @@ const Game = () => {
   const selectedTeam = useSelector((state) => state.game.selectedTeam);
   const selectedDate = useSelector((state) => state.game.selectedDate);
   const [data, setData] = useState([]);
-  // データを読み込む
+
+  // TODO:フィルターされたデータが送られてくるようにorフィルターされたgamepkから取得するように
+  // TODO:ソートおよびフィルター処理は別途フックを用意したい
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -41,6 +42,17 @@ const Game = () => {
             }
             return true;
           });
+        }
+
+        // ソートとスライスを実行
+        filteredData.sort((a, b) => {
+          const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
+          return dateA - dateB;
+        });
+        
+        if (filteredData.length > 50) {
+          filteredData = filteredData.slice(0, 50);
         }
 
         setData(filteredData);
