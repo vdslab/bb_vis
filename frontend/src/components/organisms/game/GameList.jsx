@@ -8,8 +8,6 @@ const GameList = ({ games = [] }) => {
       style={{
         display: "flex",
         flexWrap: "wrap",
-        gap: "16px",
-        padding: "12px",
         justifyContent: "flex-start",
         alignItems: "flex-start",
       }}
@@ -18,9 +16,8 @@ const GameList = ({ games = [] }) => {
         <div
           key={index}
           style={{
-            flex: "0 0 auto",
-            width: "32%",
-            height: "120px",
+            width: "100%",
+            height: "100%",
           }}
         >
           <GameListCard
