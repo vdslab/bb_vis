@@ -52,7 +52,7 @@ const ParallelCoordinatesItem = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch("/data/2025-03-16-2025-07-14.json");
+        const response = await fetch("/data/2025-03-16-2025-07-28.json");
         const jsonData = await response.json();
 
         // チームフィルタリング

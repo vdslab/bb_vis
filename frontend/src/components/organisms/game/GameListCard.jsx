@@ -14,11 +14,11 @@ import {
 
 const GameListCard = ({
   gamepk,
+  date,
   hometeam,
   awayteam,
   hometeamscore,
   awayteamscore,
-  status,
 }) => {
   const dispatch = useDispatch();
 
@@ -32,81 +32,77 @@ const GameListCard = ({
         width: "100%",
         height: "100%",
         transition: "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.5)",
-        borderRadius: "8px",
+        boxShadow: "none",
+        borderRadius: "0px",
       }}
     >
       <CardActionArea onClick={handleClick}>
-        <CardContent>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "5fr 2fr 5fr",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+        <CardContent sx={{ padding: "8px" }}>
+          <Box>
             <Typography
-              gutterBottom
-              variant="h6"
+              variant="body1"
               component="div"
-              sx={{ fontWeight: "bold", textAlign: "center" }}
+              sx={{ textAlign: "left", fontSize: "0.7rem" }}
             >
-              {hometeam}
-            </Typography>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ textAlign: "center" }}
-            >
-              vs
-            </Typography>
-            <Typography
-              gutterBottom
-              variant="h6"
-              component="div"
-              sx={{ fontWeight: "bold", textAlign: "center" }}
-            >
-              {awayteam}
+              {date.replace(/-/g, "/")}
             </Typography>
           </Box>
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: "5fr 2fr 5fr",
-              alignItems: "center",
-              justifyContent: "center",
+              gridTemplateColumns: "3fr 1fr 2fr 1fr 3fr",
             }}
           >
+            {/* ホームチーム名 */}
             <Typography
-              variant="h4"
+              variant="body1"
+              component="div"
+              sx={{
+                fontWeight: "bold",
+                textAlign: "center",
+                fontFamily: "Soei Kaku Pop",
+                fontStyle: "italic",
+                fontSize: "1.4rem",
+              }}
+            >
+              {hometeam}
+            </Typography>
+            {/* ホームチームスコア */}
+            <Typography
+              variant="body1"
               component="span"
-              sx={{ fontWeight: "bold", textAlign: "end" }}
+              sx={{ fontWeight: "bold", fontSize: "1.2rem", justifyContent: "flex-end", display: "flex", alignItems: "center", height: "100%" }}
             >
               {hometeamscore}
             </Typography>
             <Typography
-              variant="h5"
+              variant="body1"
               component="span"
-              sx={{ textAlign: "center" }}
+              sx={{ fontWeight: "bold", fontSize: "1.2rem" ,justifyContent: "center", display: "flex", alignItems: "center", height: "100%"}}
             >
               -
             </Typography>
+            {/* アウェーチームスコア */}
             <Typography
-              variant="h4"
+              variant="body1"
               component="span"
-              sx={{ fontWeight: "bold", textAlign: "start" }}
+              sx={{ fontWeight: "bold", fontSize: "1.2rem" ,justifyContent: "flex-start", display: "flex", alignItems: "center", height: "100%" }}
             >
               {awayteamscore}
             </Typography>
-          </Box>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            {/* アウェーチーム名 */}
             <Typography
-              variant="h7"
-              component="span"
-              sx={{ fontWeight: "bold", textAlign: "start" }}
+              variant="body1"
+              component="div"
+              sx={{
+                fontWeight: "bold",
+                textAlign: "center",
+                fontFamily: "Soei Kaku Pop",
+                fontStyle: "italic",
+                fontSize: "1.4rem",
+              }}
             >
-              {status}
+              {awayteam}
             </Typography>
           </Box>
         </CardContent>

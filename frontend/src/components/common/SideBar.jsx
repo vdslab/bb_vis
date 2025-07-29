@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./SideBar.css";
+import "@styles/SideBar.css";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import Search from "../panels/Search";
 
@@ -31,7 +31,7 @@ const SideBar = ({ onToggle, isOpen }) => {
           onClick={toggleSidebar}
           aria-label={isExpanded ? "サイドバーを閉じる" : "サイドバーを開く"}
         >
-          <FilterAltIcon />
+          <FilterAltIcon sx={{ fontSize: 28 }} />
         </button>
       </div>
       <div className="sidebar-divider"></div>
