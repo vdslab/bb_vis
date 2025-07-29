@@ -6,9 +6,8 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import "@styles/search.css";
 
 const DatePicker = ({ label, value, onChange }) => {
-  // valueから初期値を取得（valueがオブジェクトの場合）
-  const initialStartDate = value?.startDate || null;
-  const initialEndDate = value?.endDate || null;
+  const initialStartDate = value?.startDate ? new Date(value.startDate) : null;
+  const initialEndDate = value?.endDate ? new Date(value.endDate) : null;
 
   const [startDate, setStartDate] = useState(initialStartDate);
   const [endDate, setEndDate] = useState(initialEndDate);
@@ -35,28 +34,53 @@ const DatePicker = ({ label, value, onChange }) => {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <FormControl className="search-date-picker" sx={{ width: "95%" }}>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-          <Typography className="search-label" sx={{ mb: 1 }}>
-            {label}
-          </Typography>
-          <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+      <FormControl className="search-date-picker" sx={{ width: "100%" }}>
+        <Typography className="search-label">
+          {label}
+        </Typography>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 1 }}>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Typography sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}>
+              From:
+            </Typography>
             <MuiDatePicker
               label="開始日"
               value={startDate}
               onChange={handleStartDateChange}
               renderInput={(params) => (
-                <TextField {...params} size="small" sx={{ flex: 1 }} />
+                <TextField 
+                  {...params} 
+                  size="medium" 
+                  sx={{ 
+                    flex: 1,
+                    "& .MuiInputBase-root": {
+                      minHeight: "40px"
+                    }
+                  }} 
+                />
               )}
               format="yyyy/MM/dd"
             />
-            <Typography sx={{ fontSize: "14px" }}>~</Typography>
+          </Box>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+            <Typography sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}>
+              To:
+            </Typography>
             <MuiDatePicker
               label="終了日"
               value={endDate}
               onChange={handleEndDateChange}
               renderInput={(params) => (
-                <TextField {...params} size="small" sx={{ flex: 1 }} />
+                <TextField 
+                  {...params} 
+                  size="medium" 
+                  sx={{ 
+                    flex: 1,
+                    "& .MuiInputBase-root": {
+                      minHeight: "40px"
+                    }
+                  }} 
+                />
               )}
               format="yyyy/MM/dd"
             />

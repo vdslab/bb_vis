@@ -1,12 +1,10 @@
-import Search from "../panels/Search";
-import HeatMap from "../panels/HeatMap";
 import ParallelCoordinates from "../panels/ParallelCoordinates";
+import Game from "../panels/Game";
 
 const LeftPanel = () => {
   return (
     <div className="left-panel">
-      <Search />
-      {/* <HeatMap /> */}
+      <Game />
       <ParallelCoordinates />
     </div>
   );

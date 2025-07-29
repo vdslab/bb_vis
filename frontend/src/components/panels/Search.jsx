@@ -1,25 +1,32 @@
 import SelectBox from "../organisms/serch/SelectBox";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setSelectedTeam, setSelectedDate } from "../../store/GameStore";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectedTeam, setSelectedDate, setSelectedFeature } from "../../store/GameStore";
 import DatePicker from "../organisms/serch/DatePicker";
 
 const Search = () => {
-  const [teamValue, setTeamValue] = useState("All");
-  const [featureValue, setFeatureValue] = useState("");
-  const [dateValue, setDateValue] = useState({
-    startDate: null,
-    endDate: null,
-  });
   const dispatch = useDispatch();
+  
+  const storeSelectedTeam = useSelector((state) => state.game.selectedTeam);
+  const storeSelectedFeature = useSelector((state) => state.game.selectedFeature);
+  const storeSelectedDate = useSelector((state) => state.game.selectedDate);
+
+  const [teamValue, setTeamValue] = useState(storeSelectedTeam);
+  const [featureValue, setFeatureValue] = useState(storeSelectedFeature || "");
+  const [dateValue, setDateValue] = useState(storeSelectedDate);
+
+  useEffect(() => {
+    setTeamValue(storeSelectedTeam);
+    setFeatureValue(storeSelectedFeature || "");
+    setDateValue(storeSelectedDate);
+  }, [storeSelectedTeam, storeSelectedFeature, storeSelectedDate]);
 
   useEffect(() => {
     dispatch(setSelectedTeam(teamValue));
+    dispatch(setSelectedFeature(featureValue));
     dispatch(setSelectedDate(dateValue));
-  }, [teamValue, dateValue, dispatch]);
+  }, [teamValue, featureValue, dateValue, dispatch]);
 
-  // MLB teams from the JSON data
   const teamOptions = [
     { value: "All", label: "All" },
     { value: "Los Angeles Dodgers", label: "Dodgers" },
@@ -63,11 +70,10 @@ const Search = () => {
   return (
     <div className="panel-screen search-panel">
       <div className="panel-header">
-        <h2>Search</h2>
+        <h2>Filters</h2>
       </div>
-      <div className="panel-content search-box">
-        <div className="search-box-item1">
-          <div className="search-box-item1-team">
+        <div className="search-box">
+          <div className="search-box-team">
             <SelectBox
               label="Team"
               value={teamValue}
@@ -75,7 +81,7 @@ const Search = () => {
               options={teamOptions}
             />
           </div>
-          <div className="search-box-item1-feature">
+          <div className="search-box-feature">
             <SelectBox
               label="Feature"
               value={featureValue}
@@ -83,9 +89,7 @@ const Search = () => {
               options={featureOptions}
             />
           </div>
-        </div>
-        <div className="search-box-item2">
-          <div className="search-box-item2-date">
+          <div className="search-box-date">
             <DatePicker
               label="Date"
               value={dateValue}
@@ -94,7 +98,6 @@ const Search = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

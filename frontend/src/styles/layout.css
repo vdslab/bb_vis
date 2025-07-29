@@ -8,13 +8,12 @@
   --right-panel-ratio: 55%;
 
   /* 左パネル内の割合 */
-  --search-ratio: 38vh;
-  --heatmap-ratio: 55vh;
+  --game-ratio: 38vh;
+  --parallel-coordinates-ratio: 71vh;
 
   /* 右パネル内の割合 */
   --movie-ratio: 22vh;
   --simulation-ratio: 71vh;
-  --game-ratio: 71vh;
 }
 
 /* レイアウトコンテナ */
@@ -55,7 +54,6 @@
 }
 
 .panel-header {
-  padding: 10px;
   overflow-y: auto;
 }
 
