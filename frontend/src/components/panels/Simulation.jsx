@@ -9,7 +9,7 @@ import { usePlayData } from "@/hooks/usePlayData";
 const Simulation = () => {
   // playDataを受け取る
   const gamepk = useSelector((state) => state.game.gamepk);
-  const { playData, loading } = usePlayData(gamepk);
+  const { playData } = usePlayData(gamepk);
 
   // p_id,e_idを受け取る
   const p_id = useSelector((state) => state.game.id.p_id);

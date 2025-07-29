@@ -63,11 +63,10 @@ const Search = () => {
   return (
     <div className="panel-screen search-panel">
       <div className="panel-header">
-        <h2>Search</h2>
+        <h2>Filters</h2>
       </div>
-      <div className="panel-content search-box">
-        <div className="search-box-item1">
-          <div className="search-box-item1-team">
+        <div className="search-box">
+          <div className="search-box-team">
             <SelectBox
               label="Team"
               value={teamValue}
@@ -75,7 +74,7 @@ const Search = () => {
               options={teamOptions}
             />
           </div>
-          <div className="search-box-item1-feature">
+          <div className="search-box-feature">
             <SelectBox
               label="Feature"
               value={featureValue}
@@ -83,9 +82,7 @@ const Search = () => {
               options={featureOptions}
             />
           </div>
-        </div>
-        <div className="search-box-item2">
-          <div className="search-box-item2-date">
+          <div className="search-box-date">
             <DatePicker
               label="Date"
               value={dateValue}
@@ -94,7 +91,6 @@ const Search = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
