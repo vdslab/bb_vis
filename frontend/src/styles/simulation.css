@@ -24,12 +24,15 @@
 }
 
 .scoreboard-container {
-  width: 55%;
+  width: 30vw;
   height: 75%;
 }
 
 .game-field {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: var(--game-field-height);
   border-radius: 8px;
@@ -38,7 +41,7 @@
 }
 
 .field-background {
-  width: 100%;
+  width: 50vw;
   height: 100%;
   object-fit: cover;
   object-position: center;

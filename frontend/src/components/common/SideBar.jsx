@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./SideBar.css";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import Search from "../panels/Search";
 
 const SideBar = ({ onToggle, isOpen }) => {
   const [isExpanded, setIsExpanded] = useState(true);
@@ -34,7 +35,9 @@ const SideBar = ({ onToggle, isOpen }) => {
         </button>
       </div>
       <div className="sidebar-divider"></div>
-      <div className="sidebar-content">{/* 後々コンテンツを追加予定 */}</div>
+      <div className="sidebar-content">
+        {isExpanded && <Search />}
+      </div>
     </div>
   );
 };
