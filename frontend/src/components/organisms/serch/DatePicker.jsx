@@ -6,9 +6,8 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import "@styles/search.css";
 
 const DatePicker = ({ label, value, onChange }) => {
-  // valueから初期値を取得（valueがオブジェクトの場合）
-  const initialStartDate = value?.startDate || null;
-  const initialEndDate = value?.endDate || null;
+  const initialStartDate = value?.startDate ? new Date(value.startDate) : null;
+  const initialEndDate = value?.endDate ? new Date(value.endDate) : null;
 
   const [startDate, setStartDate] = useState(initialStartDate);
   const [endDate, setEndDate] = useState(initialEndDate);

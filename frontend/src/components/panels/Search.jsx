@@ -1,25 +1,32 @@
 import SelectBox from "../organisms/serch/SelectBox";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setSelectedTeam, setSelectedDate } from "../../store/GameStore";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectedTeam, setSelectedDate, setSelectedFeature } from "../../store/GameStore";
 import DatePicker from "../organisms/serch/DatePicker";
 
 const Search = () => {
-  const [teamValue, setTeamValue] = useState("All");
-  const [featureValue, setFeatureValue] = useState("");
-  const [dateValue, setDateValue] = useState({
-    startDate: null,
-    endDate: null,
-  });
   const dispatch = useDispatch();
+  
+  const storeSelectedTeam = useSelector((state) => state.game.selectedTeam);
+  const storeSelectedFeature = useSelector((state) => state.game.selectedFeature);
+  const storeSelectedDate = useSelector((state) => state.game.selectedDate);
+
+  const [teamValue, setTeamValue] = useState(storeSelectedTeam);
+  const [featureValue, setFeatureValue] = useState(storeSelectedFeature || "");
+  const [dateValue, setDateValue] = useState(storeSelectedDate);
+
+  useEffect(() => {
+    setTeamValue(storeSelectedTeam);
+    setFeatureValue(storeSelectedFeature || "");
+    setDateValue(storeSelectedDate);
+  }, [storeSelectedTeam, storeSelectedFeature, storeSelectedDate]);
 
   useEffect(() => {
     dispatch(setSelectedTeam(teamValue));
+    dispatch(setSelectedFeature(featureValue));
     dispatch(setSelectedDate(dateValue));
-  }, [teamValue, dateValue, dispatch]);
+  }, [teamValue, featureValue, dateValue, dispatch]);
 
-  // MLB teams from the JSON data
   const teamOptions = [
     { value: "All", label: "All" },
     { value: "Los Angeles Dodgers", label: "Dodgers" },
