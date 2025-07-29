@@ -1,6 +1,12 @@
 import React, { memo, useMemo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Autoplay,
+} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import MovieListItem from "./MovieListItem";
@@ -17,7 +23,11 @@ const MovieList = memo(({ iframeTags, width, height }) => {
   return (
     <div className="movie-list">
       <Swiper
-        modules={[Navigation, A11y]}
+        modules={[Navigation, A11y, Autoplay]}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
         spaceBetween={10}
         slidesPerView="auto"
         navigation
