@@ -25,10 +25,10 @@ const GameList = ({ games = [] }) => {
         >
           <GameListCard
             gamepk={game.gamepk}
-            hometeam={game.hometeam}
-            awayteam={game.awayteam}
-            hometeamscore={game.hometeamscore}
-            awayteamscore={game.awayteamscore}
+            hometeam={game.team.home_short}
+            awayteam={game.team.away_short}
+            hometeamscore={game.score.home}
+            awayteamscore={game.score.away}
             status={game.status}
           />
         </div>
