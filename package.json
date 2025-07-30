@@ -1,14 +1,18 @@
 {
-  "name": "bb_viscopy",
+  "name": "hotzone",
   "version": "1.0.0",
   "description": "Baseball analytics application with Netlify Functions",
   "main": "index.js",
   "scripts": {
-    "build": "cd frontend && npm run build",
+    "build:front": "cd frontend && npm install && npm run build",
+    "build": "npm run build:front && npm install --prefix backend/functions",
     "dev": "netlify dev"
   },
   "dependencies": {
     "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "netlify-cli": "^15.0.0"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -18,6 +22,5 @@
     "analytics",
     "netlify-functions"
   ],
-  "author": "",
   "license": "ISC"
-} 
+}
