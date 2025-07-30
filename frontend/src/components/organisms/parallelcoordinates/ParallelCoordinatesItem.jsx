@@ -1,3 +1,7 @@
+// fillteredDataを参照するとフィルタ済みデータが取得できるようになっています
+// もし必要になったら参照してください。
+// データの形としてはgamepkと各軸の値が入っています。
+
 import React, { useRef, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setGamePk } from "../../../store/GameStore";
@@ -10,19 +14,24 @@ const ParallelCoordinatesItem = () => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const [data, setData] = useState([]);
-  const [dimensions, setDimensions] = useState({
-    width: 0,
-    height: 0,
-  });
-  // ハイライト用データ、テスト用
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  // ブラシ状態管理
+  const [brushes, setBrushes] = useState({});
+  const [activeBrush, setActiveBrush] = useState(null);
+  const [isBrushing, setIsBrushing] = useState(false);
+
+  // ブラシでフィルタされたデータの格納
+  const [filteredData, setFilteredData] = useState(data);
+
+  // ハイライトされているデータ(gamepk)
   const [highlightData, setHighlightData] = useState(null);
 
-  // コンテナのサイズを監視してキャンバスサイズを調整
+  // コンテナサイズ監視
   useEffect(() => {
     const updateCanvasSize = () => {
       if (containerRef.current) {
-        const container = containerRef.current;
-        const rect = container.getBoundingClientRect();
+        const rect = containerRef.current.getBoundingClientRect();
         setDimensions({
           width: rect.width,
           height: rect.height,
@@ -30,16 +39,13 @@ const ParallelCoordinatesItem = () => {
       }
     };
 
-    // 初期サイズ設定
     updateCanvasSize();
 
-    // リサイズイベントリスナー
     const resizeObserver = new ResizeObserver(updateCanvasSize);
     if (containerRef.current) {
       resizeObserver.observe(containerRef.current);
     }
 
-    // ウィンドウリサイズ時にも更新
     window.addEventListener("resize", updateCanvasSize);
 
     return () => {
@@ -48,14 +54,14 @@ const ParallelCoordinatesItem = () => {
     };
   }, []);
 
-  // データを読み込む
+  // データ読み込み（チーム・日付フィルタ対応）
   useEffect(() => {
     const loadData = async () => {
       try {
         const response = await fetch("/data/2025-03-16-2025-07-28.json");
         const jsonData = await response.json();
 
-        // チームフィルタリング
+        // チームでフィルタリング
         let filteredData = jsonData;
         if (selectedTeam !== "All") {
           filteredData = jsonData.filter(
@@ -65,7 +71,7 @@ const ParallelCoordinatesItem = () => {
           );
         }
 
-        // 日付フィルタリング
+        // 日付でフィルタリング
         if (selectedDate.startDate || selectedDate.endDate) {
           filteredData = filteredData.filter((item) => {
             const itemDate = item.date;
@@ -91,7 +97,7 @@ const ParallelCoordinatesItem = () => {
     loadData();
   }, [selectedTeam, selectedDate]);
 
-  // データの正規化
+  // データ正規化（0〜1に変換）
   const normalizeData = (data, key) => {
     if (!data || data.length === 0) {
       return [];
@@ -101,7 +107,7 @@ const ParallelCoordinatesItem = () => {
     const min = Math.min(...values);
     const max = Math.max(...values);
 
-    // データが一つしかない場合、または全て同じ値の場合は0.5を返す（中央に表示）
+    // データが一つ、または全て同じ値の場合は中央(0.5)に固定
     if (data.length === 1 || min === max) {
       return data.map((d) => ({
         ...d,
@@ -115,7 +121,7 @@ const ParallelCoordinatesItem = () => {
     }));
   };
 
-  // 2点間の距離を計算する関数
+  // 2点間の距離計算（線分への距離）
   function getDistanceToLineSegment(x1, y1, x2, y2, px, py) {
     const A = px - x1;
     const B = py - y1;
@@ -145,7 +151,11 @@ const ParallelCoordinatesItem = () => {
     return Math.sqrt(dx * dx + dy * dy);
   }
 
-  // パラレルコーディネートを描画
+  // ブラシ全解除
+  const handleClearBrush = () => {
+    setBrushes({});
+  };
+  // メイン描画＆イベント処理
   useEffect(() => {
     if (
       !data.length ||
@@ -153,13 +163,11 @@ const ParallelCoordinatesItem = () => {
       dimensions.width === 0 ||
       dimensions.height === 0
     ) {
-      // データが空の場合は空のキャンバスを表示
+      // データなしのキャンバス表示
       const canvas = canvasRef.current;
       if (canvas && dimensions.width > 0 && dimensions.height > 0) {
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, dimensions.width, dimensions.height);
-
-        // データがないことを示すメッセージを表示
         ctx.fillStyle = "#666";
         ctx.font = "16px Arial";
         ctx.textAlign = "center";
@@ -174,15 +182,11 @@ const ParallelCoordinatesItem = () => {
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-
-    // キャンバスのサイズを設定
     canvas.width = dimensions.width;
     canvas.height = dimensions.height;
-
-    // キャンバスをクリア
     ctx.clearRect(0, 0, dimensions.width, dimensions.height);
 
-    // 特徴量の定義
+    // 特徴量一覧
     const features = [
       { key: "time", label: "Time (s)", color: "#FF6B6B" },
       { key: "ex_base_hit_cnt", label: "Extra Base Hits", color: "#4ECDC4" },
@@ -191,18 +195,19 @@ const ParallelCoordinatesItem = () => {
       { key: "lead_change_cnt", label: "Lead Changes", color: "#FFEAA7" },
     ];
 
-    // データを正規化
+    // 正規化
     let normalizedData = [...data];
     features.forEach((feature) => {
       normalizedData = normalizeData(normalizedData, feature.key);
     });
 
+    // マージンとチャート領域計算
     const margin = { top: 40, bottom: 40, left: 60, right: 60 };
     const chartWidth = dimensions.width - margin.left - margin.right;
     const chartHeight = dimensions.height - margin.top - margin.bottom;
     const axisSpacing = chartWidth / (features.length - 1);
 
-    // 軸を描画
+    // 軸描画
     features.forEach((feature, index) => {
       const x = margin.left + index * axisSpacing;
 
@@ -220,22 +225,20 @@ const ParallelCoordinatesItem = () => {
       ctx.textAlign = "center";
       ctx.fillText(feature.label, x, margin.top - 10);
 
-      // 目盛り
+      // 目盛り表示
       const values = data.map((d) => d[feature.key]);
       const min = Math.min(...values);
       const max = Math.max(...values);
 
-      // データが一つしかない場合、または全て同じ値の場合はその値を表示
       if (data.length === 1 || min === max) {
         const value = min;
-        const y = margin.top + chartHeight / 2; // 中央に表示
+        const y = margin.top + chartHeight / 2;
 
         ctx.fillStyle = "#666";
         ctx.font = "10px Arial";
         ctx.textAlign = "right";
         ctx.fillText(value.toFixed(1), x - 5, y + 3);
 
-        // 目盛り線
         ctx.strokeStyle = "#ddd";
         ctx.lineWidth = 1;
         ctx.beginPath();
@@ -244,7 +247,6 @@ const ParallelCoordinatesItem = () => {
         ctx.stroke();
       } else {
         const step = (max - min) / 4;
-
         for (let i = 0; i <= 4; i++) {
           const value = min + i * step;
           const y = margin.top + chartHeight - (i / 4) * chartHeight;
@@ -254,7 +256,6 @@ const ParallelCoordinatesItem = () => {
           ctx.textAlign = "right";
           ctx.fillText(value.toFixed(1), x - 5, y + 3);
 
-          // 目盛り線
           ctx.strokeStyle = "#ddd";
           ctx.lineWidth = 1;
           ctx.beginPath();
@@ -265,8 +266,20 @@ const ParallelCoordinatesItem = () => {
       }
     });
 
-    // データラインを描画
-    normalizedData.forEach((item) => {
+    // ブラシフィルタで絞り込み
+    const filteredData = normalizedData.filter((item) => {
+      return Object.entries(brushes).every(([key, range]) => {
+        if (!range || range.y1 === range.y2) return true; // ブラシ未適用軸はスルー
+        const y =
+          margin.top + chartHeight - item[key + "_normalized"] * chartHeight;
+        const minY = Math.min(range.y1, range.y2);
+        const maxY = Math.max(range.y1, range.y2);
+        return y >= minY && y <= maxY;
+      });
+    });
+    console.log("Filtered Data:", filteredData.length, filteredData);
+    // データライン描画（ブラシフィルタ済み）
+    filteredData.forEach((item) => {
       const isTarget = item.gamepk === highlightData;
       ctx.strokeStyle = isTarget
         ? "rgba(255, 0, 0, 1)"
@@ -274,38 +287,65 @@ const ParallelCoordinatesItem = () => {
       ctx.lineWidth = isTarget ? 2.5 : 1;
       ctx.beginPath();
 
-      features.forEach((feature, featureIndex) => {
-        const x = margin.left + featureIndex * axisSpacing;
+      features.forEach((feature, i) => {
+        const x = margin.left + i * axisSpacing;
         const normalizedValue = item[feature.key + "_normalized"];
         const y = margin.top + chartHeight - normalizedValue * chartHeight;
-
-        if (featureIndex === 0) {
-          ctx.moveTo(x, y);
-        } else {
-          ctx.lineTo(x, y);
-        }
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
       });
 
       ctx.stroke();
     });
 
-    // ホバー効果のためのイベントリスナー
-    const handleMouseMove = (event) => {
-      // データが空の場合は何もしない
-      if (!data.length || !normalizedData.length) return;
+    // ブラシの矩形を描画
+    Object.entries(brushes).forEach(([key, { y1, y2 }]) => {
+      if (!y1 || !y2 || y1 === y2) return;
+      const idx = features.findIndex((f) => f.key === key);
+      if (idx === -1) return;
+      const x = margin.left + idx * axisSpacing;
+      ctx.fillStyle = "rgba(0, 0, 255, 0.2)";
+      ctx.fillRect(x - 5, Math.min(y1, y2), 10, Math.abs(y2 - y1));
+    });
 
-      const rect = canvas.getBoundingClientRect();
-      // キャンバスの実際の表示サイズと内部サイズの比率を計算
-      const scaleX = canvas.width / rect.width;
-      const scaleY = canvas.height / rect.height;
+    // マウス位置の取得および軸付近判定関数
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
 
-      const mouseX = (event.clientX - rect.left) * scaleX;
-      const mouseY = (event.clientY - rect.top) * scaleY;
+    // マウスX座標が軸付近か判定（距離10px以内）
+    const isNearAxis = (mouseX) => {
+      for (let i = 0; i < features.length; i++) {
+        const axisX = margin.left + i * axisSpacing;
+        if (Math.abs(mouseX - axisX) < 10) return features[i].key;
+      }
+      return null;
+    };
 
-      // マウス位置に近いデータポイントをハイライト
+    // マウス移動時イベント処理
+    const handleMouseMove = (e) => {
+      const mouseX = (e.clientX - rect.left) * scaleX;
+      const mouseY = (e.clientY - rect.top) * scaleY;
+
+      // 軸付近またはブラシ中はカーソルを縦矢印に
+      const nearAxisKey = isNearAxis(mouseX);
+      if (isBrushing || nearAxisKey) {
+        canvas.style.cursor = "ns-resize";
+        // 軸付近にいるのでホバー色をリセット（ホバー解除）
+        if (highlightData !== null) {
+          setHighlightData(null);
+        }
+        return;
+      } else {
+        canvas.style.cursor = "default";
+      }
+
+      // 【重要】軸付近またはブラシ中はホバー・クリック無効化
+      if (isBrushing || nearAxisKey) return;
+
+      // キャンバスクリア
       ctx.clearRect(0, 0, dimensions.width, dimensions.height);
 
-      // 軸を再描画
+      // 軸を再描画（省略は不可）
       features.forEach((feature, index) => {
         const x = margin.left + index * axisSpacing;
 
@@ -325,10 +365,9 @@ const ParallelCoordinatesItem = () => {
         const min = Math.min(...values);
         const max = Math.max(...values);
 
-        // データが一つしかない場合、または全て同じ値の場合はその値を表示
         if (data.length === 1 || min === max) {
           const value = min;
-          const y = margin.top + chartHeight / 2; // 中央に表示
+          const y = margin.top + chartHeight / 2;
 
           ctx.fillStyle = "#666";
           ctx.font = "10px Arial";
@@ -343,7 +382,6 @@ const ParallelCoordinatesItem = () => {
           ctx.stroke();
         } else {
           const step = (max - min) / 4;
-
           for (let i = 0; i <= 4; i++) {
             const value = min + i * step;
             const y = margin.top + chartHeight - (i / 4) * chartHeight;
@@ -363,8 +401,8 @@ const ParallelCoordinatesItem = () => {
         }
       });
 
-      // データラインを再描画
-      normalizedData.forEach((item) => {
+      // ホバー効果（フィルタ済みデータ上でマウスに近いラインを色付け）
+      filteredData.forEach((item) => {
         let isNearMouse = false;
 
         for (let i = 0; i < features.length - 1; i++) {
@@ -381,12 +419,13 @@ const ParallelCoordinatesItem = () => {
             item[features[i + 1].key + "_normalized"] * chartHeight;
 
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
+
           if (dist < 2) {
-            // dist < 2 は任意の判定範囲、デカかったら小さくできる
             isNearMouse = true;
             break;
           }
         }
+
         const isTarget = item.gamepk === highlightData;
         ctx.strokeStyle = isTarget
           ? "rgba(255, 0, 0, 1)"
@@ -394,37 +433,39 @@ const ParallelCoordinatesItem = () => {
             ? "rgba(0, 200, 0, 0.8)"
             : "rgba(70, 130, 180, 0.3)";
         ctx.lineWidth = isTarget ? 3 : isNearMouse ? 2 : 1;
-        ctx.beginPath();
 
+        ctx.beginPath();
         features.forEach((feature, featureIndex) => {
           const x = margin.left + featureIndex * axisSpacing;
           const normalizedValue = item[feature.key + "_normalized"];
           const y = margin.top + chartHeight - normalizedValue * chartHeight;
 
-          if (featureIndex === 0) {
-            ctx.moveTo(x, y);
-          } else {
-            ctx.lineTo(x, y);
-          }
+          featureIndex === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
         });
-
         ctx.stroke();
       });
+
+      // ブラシ矩形の再描画
+      Object.entries(brushes).forEach(([key, { y1, y2 }]) => {
+        if (!y1 || !y2 || y1 === y2) return;
+        const idx = features.findIndex((f) => f.key === key);
+        if (idx === -1) return;
+        const x = margin.left + idx * axisSpacing;
+        ctx.fillStyle = "rgba(0, 0, 255, 0.2)";
+        ctx.fillRect(x - 5, Math.min(y1, y2), 10, Math.abs(y2 - y1));
+      });
     };
-    // クリック時の挙動管理
-    const handleClick = (event) => {
-      // データが空の場合は何もしない
-      if (!data.length || !normalizedData.length) return;
 
-      const rect = canvas.getBoundingClientRect();
-      // キャンバスの実際の表示サイズと内部サイズの比率を計算
-      const scaleX = canvas.width / rect.width;
-      const scaleY = canvas.height / rect.height;
+    // クリックイベント処理
+    const handleClick = (e) => {
+      // 軸付近またはブラシ中はクリック無効化
+      const mouseX = (e.clientX - rect.left) * scaleX;
+      const nearAxisKey = isNearAxis(mouseX);
+      if (isBrushing || nearAxisKey) return;
 
-      const mouseX = (event.clientX - rect.left) * scaleX;
-      const mouseY = (event.clientY - rect.top) * scaleY;
+      const mouseY = (e.clientY - rect.top) * scaleY;
 
-      for (const item of normalizedData) {
+      for (const item of filteredData) {
         for (let i = 0; i < features.length - 1; i++) {
           const x1 = margin.left + i * axisSpacing;
           const x2 = margin.left + (i + 1) * axisSpacing;
@@ -441,48 +482,115 @@ const ParallelCoordinatesItem = () => {
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
 
           if (dist < 5) {
-            // dist < 5 は任意の判定範囲、デカかったら小さくできる
-            console.log("Clicked gamepk:", item.gamepk);
             setHighlightData(item.gamepk);
             dispatch(setGamePk(item.gamepk));
-            // クリックされたgamepkを親コンポーネントに通知
             return;
           }
         }
       }
     };
+
+    // ブラシ開始（mousedown）
+    const handleMouseDown = (e) => {
+      const mouseX = (e.clientX - rect.left) * scaleX;
+      const mouseY = (e.clientY - rect.top) * scaleY;
+      const nearAxisKey = isNearAxis(mouseX);
+      if (!nearAxisKey) return;
+
+      setActiveBrush(nearAxisKey);
+      setIsBrushing(true);
+
+      setBrushes((prev) => ({
+        ...prev,
+        [nearAxisKey]: { y1: mouseY, y2: mouseY },
+      }));
+
+      canvas.style.cursor = "ns-resize";
+    };
+
+    // ブラシ移動（mousemove during brushing）
+    const handleMouseMoveBrush = (e) => {
+      if (!isBrushing || !activeBrush) return;
+
+      const mouseY = (e.clientY - rect.top) * scaleY;
+
+      setBrushes((prev) => {
+        const prevRange = prev[activeBrush];
+        if (!prevRange) return prev;
+        return {
+          ...prev,
+          [activeBrush]: {
+            y1: prevRange.y1,
+            y2: mouseY,
+          },
+        };
+      });
+    };
+
+    // ブラシ終了（mouseup）
+    const handleMouseUpBrush = () => {
+      if (!isBrushing) return;
+
+      setBrushes((prev) => {
+        const newBrushes = { ...prev };
+        if (activeBrush && newBrushes[activeBrush]) {
+          const { y1, y2 } = newBrushes[activeBrush];
+          // 範囲がほぼゼロならブラシを解除
+          if (Math.abs(y1 - y2) < 3) {
+            delete newBrushes[activeBrush];
+          }
+        }
+        return newBrushes;
+      });
+
+      setIsBrushing(false);
+      setActiveBrush(null);
+      canvas.style.cursor = "default";
+    };
+
+    // イベントリスナー登録
     canvas.addEventListener("mousemove", handleMouseMove);
     canvas.addEventListener("click", handleClick);
+    canvas.addEventListener("mousedown", handleMouseDown);
+    canvas.addEventListener("mousemove", handleMouseMoveBrush);
+    window.addEventListener("mouseup", handleMouseUpBrush);
 
+    // 初期描画（マウス位置情報がなくても良いので仮値で呼び出し）
+    handleMouseMove({ clientX: rect.left, clientY: rect.top });
+
+    // クリーンアップ
     return () => {
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("click", handleClick);
+      canvas.removeEventListener("mousedown", handleMouseDown);
+      canvas.removeEventListener("mousemove", handleMouseMoveBrush);
+      window.removeEventListener("mouseup", handleMouseUpBrush);
     };
-  }, [data, dimensions, dispatch, highlightData]);
+  }, [
+    data,
+    dimensions,
+    brushes,
+    isBrushing,
+    activeBrush,
+    highlightData,
+    dispatch,
+  ]);
 
   return (
     <div
       ref={containerRef}
-      style={{
-        width: "100%",
-        height: "100%",
-        padding: "20px",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "relative",
-      }}
+      style={{ width: "100%", height: "100%", position: "relative" }}
     >
+      <button onClick={handleClearBrush} style={{ margin: "10px" }}>
+        ブラシを全て解除
+      </button>
       <canvas
         ref={canvasRef}
         style={{
-          backgroundColor: "#fff",
-          maxWidth: "100%",
-          maxHeight: "100%",
-          width: dimensions.width,
-          height: dimensions.height,
-          display: "block", // インライン要素の余白を削除
+          width: "100%",
+          height: "100%",
+          cursor: isBrushing ? "ns-resize" : "default",
+          userSelect: "none",
         }}
       />
     </div>
