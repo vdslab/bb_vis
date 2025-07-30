@@ -1,0 +1,9 @@
+[build]
+  command = "npm install && cd frontend && npm install && npm run build"
+  functions = "backend/functions"
+  publish = "frontend/dist"
+
+[dev]
+  functions = "backend/functions"
+  port = 8888
+  autoLaunch = false 

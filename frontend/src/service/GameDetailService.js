@@ -7,7 +7,7 @@ export class GameDetailService {
    * @returns {Promise} - 試合詳細データ
    */
   static async getPlayDataById(gamepk) {
-    const endpoint = ".netlify/functions/getPlayDataById";
+    const endpoint = "/.netlify/functions/getPlayDataById";
     return ApiService.callGetApi(endpoint, {
       gamepk: gamepk,
     });
@@ -19,7 +19,7 @@ export class GameDetailService {
    * @returns {Promise} - 試合ムービーデータ
    */
   static async getMoviesById(gamepk) {
-    const endpoint = ".netlify/functions/getMoviesById";
+    const endpoint = "/.netlify/functions/getMoviesById";
     return ApiService.callGetApi(endpoint, {
       gamepk: gamepk,
     });
@@ -30,8 +30,8 @@ export class GameDetailService {
    * @param {string} gamepk - 試合ID
    * @returns {Promise} - 分析データ
    */
-  static async getAnalysisById(gamepk) {
-    const endpoint = ".netlify/functions/getAnalysisById";
+  static async getAnalysisDataById(gamepk) {
+    const endpoint = "/.netlify/functions/getAnalysisDataById";
     return ApiService.callGetApi(endpoint, {
       gamepk: gamepk,
     });

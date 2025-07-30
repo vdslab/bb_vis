@@ -1,14 +1,16 @@
 # 実装上の都合で、一旦arrayで返すようにしておく
 
 description: 分析データ取得レスポンスオブジェクト
-type: array
-items:
-  type: string
-  description: 分析データ
+type: object
+properties:
+  gamepk:
+    type: string
+    description: 試合ID
+  data:
+    type: object
 
 example:
-  # シミュレーション操作用
-  - $ref: "../../schemas/data/analysis/777579_logistic_regression_analysis_data.json"
+  $ref: "../../schemas/data/analysis/777579_logistic_regression_analysis_data.json"
 
   # 通常データ
   # - $ref: "../../schemas/data/analysis/777115_logistic_regression_analysis_data.json"
