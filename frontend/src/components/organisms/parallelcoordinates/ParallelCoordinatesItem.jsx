@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { setGamePk } from "../../../store/GameStore";
 import { useSelector } from "react-redux";
 
-const ParallelCoordinatesItem = () => {
+const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
   const dispatch = useDispatch();
   const selectedTeam = useSelector((state) => state.game.selectedTeam);
   const selectedDate = useSelector((state) => state.game.selectedDate);
@@ -22,10 +22,15 @@ const ParallelCoordinatesItem = () => {
   const [isBrushing, setIsBrushing] = useState(false);
 
   // ブラシでフィルタされたデータの格納
-  const [filteredData, setFilteredData] = useState(data);
+  // TODO:使ってないとエラーになるからコメントアウトしといた
+  // const [filteredData, setFilteredData] = useState(data);
 
   // ハイライトされているデータ(gamepk)
   const [highlightData, setHighlightData] = useState(null);
+
+  useEffect(() => {
+    setBrushes({});
+  }, [brushDeleteFlag]);
 
   // コンテナサイズ監視
   useEffect(() => {
@@ -151,10 +156,6 @@ const ParallelCoordinatesItem = () => {
     return Math.sqrt(dx * dx + dy * dy);
   }
 
-  // ブラシ全解除
-  const handleClearBrush = () => {
-    setBrushes({});
-  };
   // メイン描画＆イベント処理
   useEffect(() => {
     if (
@@ -581,9 +582,6 @@ const ParallelCoordinatesItem = () => {
       ref={containerRef}
       style={{ width: "100%", height: "100%", position: "relative" }}
     >
-      <button onClick={handleClearBrush} style={{ margin: "10px" }}>
-        ブラシを全て解除
-      </button>
       <canvas
         ref={canvasRef}
         style={{

@@ -57,6 +57,7 @@
 
 .panel-header {
   overflow-y: auto;
+  display: flex;
 }
 
 .panel-header h2 {
