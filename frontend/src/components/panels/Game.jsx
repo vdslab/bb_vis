@@ -46,12 +46,9 @@ const Game = () => {
           });
         }
 
-        // ParallelCoordinatesのブラシフィルタが適用されている場合
-        if (filteredGamePks.length > 0) {
-          filteredData = filteredData.filter((item) =>
-            filteredGamePks.includes(item.gamepk)
-          );
-        }
+        filteredData = filteredData.filter((item) =>
+          filteredGamePks.includes(item.gamepk)
+        );
 
         // ソートとスライスを実行
         filteredData.sort((a, b) => {
