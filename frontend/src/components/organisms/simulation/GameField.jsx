@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import yakyujouImage from "@/asset/yakyujou_touka1.png";
+import yakyujouImage from "@/asset/ground.png";
 import "@/styles/simulation.css";
 import runnerImg1 from "../../../asset/runner1.png";
 import runnerImg2 from "../../../asset/runner2.png";
