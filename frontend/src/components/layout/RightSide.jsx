@@ -7,7 +7,7 @@ const RightPanel = () => {
   const selectedGameDate = useSelector((state) => state.game.selectedGameDate);
   const selectedGameAwayTeam = useSelector((state) => state.game.selectedGameAwayTeam);
   const selectedGameHomeTeam = useSelector((state) => state.game.selectedGameHomeTeam);
-  console.log(selectedGameAwayTeam, selectedGameHomeTeam);
+
   return (
     <div className="right-panel">
       <div className="right-panel-header">
