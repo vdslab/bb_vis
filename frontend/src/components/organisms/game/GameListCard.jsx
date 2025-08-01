@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setGamePk, setHighlightData } from "@/store/GameStore";
+import { setGamePk, setHighlightData, setSelectedGameAwayTeam, setSelectedGameHomeTeam, setSelectedGameDate } from "@/store/GameStore";
 
 import {
   Card,
@@ -26,6 +26,9 @@ const GameListCard = ({
   const handleClick = () => {
     dispatch(setGamePk(gamepk));
     dispatch(setHighlightData(gamepk));
+    dispatch(setSelectedGameDate(date));
+    dispatch(setSelectedGameAwayTeam(awayteam));
+    dispatch(setSelectedGameHomeTeam(hometeam));
   };
 
   return (
