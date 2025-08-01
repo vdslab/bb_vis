@@ -4,13 +4,14 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setGamePk, setSelectedGameDate, setSelectedGameAwayTeam, setSelectedGameHomeTeam, setFilteredGamePks } from "../../../store/GameStore";
+import { setGamePk, setSelectedGameDate, setSelectedGameAwayTeam, setSelectedGameHomeTeam, setFilteredGamePks, setHighlightData } from "../../../store/GameStore";
 import { useSelector } from "react-redux";
 
 const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
   const dispatch = useDispatch();
   const selectedTeam = useSelector((state) => state.game.selectedTeam);
   const selectedDate = useSelector((state) => state.game.selectedDate);
+  const highlightData = useSelector((state) => state.game.highlightData);
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const [data, setData] = useState([]);
@@ -24,9 +25,6 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
   // ブラシでフィルタされたデータの格納
   // TODO:使ってないとエラーになるからコメントアウトしといた
   // const [filteredData, setFilteredData] = useState(data);
-
-  // ハイライトされているデータ(gamepk)
-  const [highlightData, setHighlightData] = useState(null);
 
   useEffect(() => {
     setBrushes({});
@@ -336,7 +334,7 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
         canvas.style.cursor = "ns-resize";
         // 軸付近にいるのでホバー色をリセット（ホバー解除）
         if (highlightData !== null) {
-          setHighlightData(null);
+          dispatch(setHighlightData(null));
         }
         return;
       } else {
@@ -487,7 +485,7 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
 
           if (dist < 5) {
             console.log(item);
-            setHighlightData(item.gamepk);
+            dispatch(setHighlightData(item.gamepk));
             dispatch(setGamePk(item.gamepk));
             dispatch(setSelectedGameDate(item.date));
             dispatch(setSelectedGameAwayTeam(item.team.away));

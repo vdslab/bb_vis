@@ -7,6 +7,7 @@ const Game = () => {
   const selectedTeam = useSelector((state) => state.game.selectedTeam);
   const selectedDate = useSelector((state) => state.game.selectedDate);
   const filteredGamePks = useSelector((state) => state.game.filteredGamePks);
+  const highlightData = useSelector((state) => state.game.highlightData);
   const [data, setData] = useState([]);
 
   // TODO:フィルターされたデータが送られてくるようにorフィルターされたgamepkから取得するように
@@ -77,7 +78,7 @@ const Game = () => {
         <h2>Scores</h2>
       </div>
       <div className="panel-content">
-        <GameList games={data} />
+        <GameList games={data} highlightData={highlightData} />
       </div>
     </div>
   );

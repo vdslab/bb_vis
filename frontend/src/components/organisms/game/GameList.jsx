@@ -1,7 +1,7 @@
 import React from "react";
 import GameListCard from "./GameListCard";
 
-const GameList = ({ games = [] }) => {
+const GameList = ({ games = [], highlightData }) => {
   return (
     <div
       className="game-list"
@@ -28,6 +28,7 @@ const GameList = ({ games = [] }) => {
             hometeamscore={game.score.home}
             awayteamscore={game.score.away}
             status={game.status}
+            isHighlighted={highlightData === game.gamepk}
           />
         </div>
       ))}
