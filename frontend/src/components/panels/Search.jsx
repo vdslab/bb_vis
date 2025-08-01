@@ -81,14 +81,6 @@ const Search = () => {
               options={teamOptions}
             />
           </div>
-          <div className="search-box-feature">
-            <SelectBox
-              label="Feature"
-              value={featureValue}
-              onChange={(event) => setFeatureValue(event.target.value)}
-              options={featureOptions}
-            />
-          </div>
           <div className="search-box-date">
             <DatePicker
               label="Date"

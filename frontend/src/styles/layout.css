@@ -58,6 +58,8 @@
 .panel-header {
   overflow-y: auto;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .panel-header h2 {
@@ -83,9 +85,9 @@
   flex: 0 0 var(--simulation-ratio);
 }
 
-.game-panel {
+/* .game-panel {
   flex: 0 0 var(--game-ratio);
-}
+} */
 
 /* パネル内のコンテンツエリア */
 .panel-content {

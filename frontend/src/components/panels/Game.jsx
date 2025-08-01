@@ -66,7 +66,7 @@ const Game = () => {
   return (
     <div className="panel-screen game-panel">
       <div className="panel-header">
-        <h2>Game</h2>
+        <h2>Scores</h2>
       </div>
       <div className="panel-content">
         <GameList games={data} />
