@@ -7,7 +7,7 @@ const initialState = {
     p_id: 0,
     e_id: 3,
   },
-  selectedTeam: "All",
+  selectedTeam: "Los Angeles Dodgers",
   selectedFeature: null,
   selectedDate: {
     startDate: null,
@@ -16,8 +16,9 @@ const initialState = {
   selectedGameDate: "2025-06-09",
   selectedGameAwayTeam: "Sandiego Padres",
   selectedGameHomeTeam: "Los Angeles Dodgers",
-  filteredGamePks: [],
+  filteredGamePks: [777579],
   highlightData: 777579,
+  highlightFromParallelCoordinates: true,
 };
 
 const gameSlice = createSlice({
@@ -54,6 +55,9 @@ const gameSlice = createSlice({
     setHighlightData: (state, action) => {
       state.highlightData = action.payload;
     },
+    setHighlightFromParallelCoordinates: (state, action) => {
+      state.highlightFromParallelCoordinates = action.payload;
+    },
   },
 });
 
@@ -74,5 +78,6 @@ export const {
   setSelectedGameHomeTeam,
   setFilteredGamePks,
   setHighlightData,
+  setHighlightFromParallelCoordinates,
 } = gameSlice.actions;
 export default GameStore;
