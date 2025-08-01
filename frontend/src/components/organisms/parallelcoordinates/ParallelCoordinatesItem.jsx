@@ -332,10 +332,6 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
       const nearAxisKey = isNearAxis(mouseX);
       if (isBrushing || nearAxisKey) {
         canvas.style.cursor = "ns-resize";
-        // 軸付近にいるのでホバー色をリセット（ホバー解除）
-        if (highlightData !== null) {
-          dispatch(setHighlightData(null));
-        }
         return;
       } else {
         canvas.style.cursor = "default";
