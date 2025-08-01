@@ -13,6 +13,9 @@ const initialState = {
     startDate: null,
     endDate: null,
   },
+  selectedGameDate: "2025-06-09",
+  selectedGameAwayTeam: "Sandiego Padres",
+  selectedGameHomeTeam: "Los Angeles Dodgers",
 };
 
 const gameSlice = createSlice({
@@ -34,6 +37,15 @@ const gameSlice = createSlice({
     setSelectedDate: (state, action) => {
       state.selectedDate = action.payload;
     },
+    setSelectedGameDate: (state, action) => {
+      state.selectedGameDate = action.payload;
+    },
+    setSelectedGameAwayTeam: (state, action) => {
+      state.selectedGameAwayTeam = action.payload;
+    },
+    setSelectedGameHomeTeam: (state, action) => {
+      state.selectedGameHomeTeam = action.payload;
+    },
   },
 });
 
@@ -49,5 +61,8 @@ export const {
   setSelectedTeam,
   setSelectedFeature,
   setSelectedDate,
+  setSelectedGameDate,
+  setSelectedGameAwayTeam,
+  setSelectedGameHomeTeam,
 } = gameSlice.actions;
 export default GameStore;

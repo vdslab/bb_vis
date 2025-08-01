@@ -4,7 +4,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setGamePk } from "../../../store/GameStore";
+import { setGamePk, setSelectedGameDate, setSelectedGameAwayTeam, setSelectedGameHomeTeam } from "../../../store/GameStore";
 import { useSelector } from "react-redux";
 
 const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
@@ -483,8 +483,12 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
 
           if (dist < 5) {
+            console.log(item);
             setHighlightData(item.gamepk);
             dispatch(setGamePk(item.gamepk));
+            dispatch(setSelectedGameDate(item.date));
+            dispatch(setSelectedGameAwayTeam(item.team.away));
+            dispatch(setSelectedGameHomeTeam(item.team.home));
             return;
           }
         }

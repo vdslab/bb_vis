@@ -12,8 +12,9 @@
   --parallel-coordinates-ratio: 53vh;
 
   /* 右パネル内の割合 */
+  --game-meta-ratio: 4vh;
   --movie-ratio: 22vh;
-  --simulation-ratio: 71vh;
+  --simulation-ratio: 67vh;
 }
 
 /* レイアウトコンテナ */
@@ -40,6 +41,11 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.right-panel-header {
+  flex: 0 0 var(--game-meta-ratio);
+  height: 4vh;
 }
 
 /* 各パネルの画面エリア */
@@ -79,6 +85,7 @@
 .movie-panel {
   flex: 0 0 var(--movie-ratio);
   background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .simulation-panel {

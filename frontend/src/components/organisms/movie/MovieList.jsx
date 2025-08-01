@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/mousewheel";
 import MovieListItem from "./MovieListItem";
 
-const MovieList = memo(({ iframeTags }) => {
+const MovieList = memo(({ iframeTags, loading }) => {
   const swiperRef = useRef(null);
 
   // 安定したキーを生成
@@ -34,7 +34,7 @@ const MovieList = memo(({ iframeTags }) => {
     <div className="movie-list">
       <div className="swiper-container">
         <div className="nav-area nav-area-prev" onClick={handlePrevClick}></div>
-        
+        {loading ? <div className="loading">Loading...</div> :
         <Swiper
           ref={swiperRef}
           modules={[Navigation, A11y ,Autoplay]}
@@ -55,7 +55,7 @@ const MovieList = memo(({ iframeTags }) => {
             </SwiperSlide>
           ))}
         </Swiper>
-        
+        }
         <div className="nav-area nav-area-next" onClick={handleNextClick}></div>
       </div>
     </div>

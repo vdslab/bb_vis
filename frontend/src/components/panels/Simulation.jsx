@@ -39,7 +39,6 @@ const Simulation = () => {
   return (
     <div className="panel-screen simulation-panel">
       <div className="panel-header">
-        <h2>Simulation</h2>
       </div>
       <div className="panel-content">
         <div className="simulation-container">

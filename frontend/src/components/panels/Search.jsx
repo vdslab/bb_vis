@@ -61,12 +61,6 @@ const Search = () => {
     { value: "Tampa Bay Rays", label: "Rays" },
   ].sort((a, b) => a.label.localeCompare(b.label));
 
-  const featureOptions = [
-    { value: "feature1", label: "Feature 1" },
-    { value: "feature2", label: "Feature 2" },
-    { value: "feature3", label: "Feature 3" },
-  ];
-
   return (
     <div className="panel-screen search-panel">
       <div className="panel-header">
