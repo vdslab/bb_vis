@@ -72,7 +72,7 @@ const GameController = ({ eventData, playData, p_id, e_id }) => {
         {loading && <div className="loading">Loading...</div>}
         {!loading && !analysisData && (
           <div className="error-message">
-            <p>データが取得できませんでした。</p>
+            <p>No data</p>
             {gamepk && <p>Game PK: {gamepk}</p>}
           </div>
         )}

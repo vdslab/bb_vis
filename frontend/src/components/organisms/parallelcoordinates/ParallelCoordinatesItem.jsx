@@ -171,7 +171,7 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
         ctx.font = "16px Arial";
         ctx.textAlign = "center";
         ctx.fillText(
-          "データがありません",
+          "No data",
           dimensions.width / 2,
           dimensions.height / 2,
         );
