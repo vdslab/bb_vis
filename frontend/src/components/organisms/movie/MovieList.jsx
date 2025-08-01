@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useRef } from "react";
+import React, { memo, useMemo, useRef, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, A11y, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -9,6 +9,32 @@ import MovieListItem from "./MovieListItem";
 
 const MovieList = memo(({ iframeTags, loading }) => {
   const swiperRef = useRef(null);
+  const [slideWidth, setSlideWidth] = useState(260); // デフォルト値
+
+  // 動画のアスペクト比に基づいて幅を計算
+  useEffect(() => {
+    const calculateSlideWidth = () => {
+      // 利用可能な高さを取得（パディングやマージンを考慮）
+      const videoHeight = window.innerHeight * 0.16; // 16vh相当
+      
+      // 16:9のアスペクト比で幅を計算
+      const calculatedWidth = (videoHeight * 16) / 9;
+      
+      // 最小幅と最大幅を設定
+      const minWidth = 200;
+      const maxWidth = 400;
+      const finalWidth = Math.max(minWidth, Math.min(maxWidth, calculatedWidth));
+      
+      setSlideWidth(finalWidth);
+    };
+
+    calculateSlideWidth();
+    window.addEventListener('resize', calculateSlideWidth);
+    
+    return () => {
+      window.removeEventListener('resize', calculateSlideWidth);
+    };
+  }, []);
 
   // 安定したキーを生成
   const slidesWithKeys = useMemo(() => {
@@ -48,7 +74,10 @@ const MovieList = memo(({ iframeTags, loading }) => {
           }}
         >
           {slidesWithKeys.map(({ iframeTag, key }) => (
-            <SwiperSlide key={key}>
+            <SwiperSlide 
+              key={key}
+              style={{ width: `${slideWidth}px` }}
+            >
               <MovieListItem
                 iframeTag={iframeTag}
               />
