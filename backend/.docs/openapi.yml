@@ -35,8 +35,8 @@ servers:
     description: ローカル開発サーバー
 
 paths:
-  /.netlify/functions/getAnalysisById:
-    $ref: "./endpoints/.netlify/functions/getAnalysisById.yml"
+  /.netlify/functions/getAnalysisDataById:
+    $ref: "./endpoints/.netlify/functions/getAnalysisDataById.yml"
   /.netlify/functions/getIdByAwayteamAndDate:
     $ref: "./endpoints/.netlify/functions/getIdByAwayteamAndDate.yml"
   /.netlify/functions/getIdByHometeamAndDate:
@@ -52,7 +52,7 @@ components:
   schemas:
     # レスポンスオブジェクト
     AnalysisGetResponseObject:
-      $ref: "./schemas/responseDataObject/GetAnalysisResponseObject.yml"
+      $ref: "./schemas/responseDataObject/GetAnalysisDataResponseObject.yml"
     BlankResponseObject:
       $ref: "./schemas/responseDataObject/BlankResponseObject.yml"
     GetGamepkResponseObject:
@@ -119,8 +119,8 @@ components:
   responses:
     BlankUnAuthResponse:
       $ref: "./responses/BlankUnAuthResponse.yml"
-    GetAnalysisResponse:
-      $ref: "./responses/GetAnalysisResponse.yml"
+    GetAnalysisDataResponse:
+      $ref: "./responses/GetAnalysisDataResponse.yml"
     GetIdByAwayteamAndDateResponse:
       $ref: "./responses/GetGamepkResponse.yml"
     GetGamepkResponse:

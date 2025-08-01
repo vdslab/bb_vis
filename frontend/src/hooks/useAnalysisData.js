@@ -12,9 +12,10 @@ export const useAnalysisData = (gamepk) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const data = await GameDetailService.getAnalysisById(gamepk);
-        console.log(data);
-        setAnalysisData(data);
+        const data = await GameDetailService.getAnalysisDataById(gamepk);
+        // オブジェクトを配列の1要素目として変換
+        const analysisDataArray = data ? [data] : null;
+        setAnalysisData(analysisDataArray);
       } catch (error) {
         console.error("Error fetching analysis data:", error);
         setAnalysisData(null);

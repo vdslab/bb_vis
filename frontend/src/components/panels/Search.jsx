@@ -1,31 +1,73 @@
 import SelectBox from "../organisms/serch/SelectBox";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectedTeam, setSelectedDate, setSelectedFeature } from "../../store/GameStore";
+import DatePicker from "../organisms/serch/DatePicker";
 
 const Search = () => {
-  const [teamValue, setTeamValue] = useState("");
-  const [featureValue, setFeatureValue] = useState("");
+  const dispatch = useDispatch();
+  
+  const storeSelectedTeam = useSelector((state) => state.game.selectedTeam);
+  const storeSelectedFeature = useSelector((state) => state.game.selectedFeature);
+  const storeSelectedDate = useSelector((state) => state.game.selectedDate);
 
-  // TODO: dataを実際のデータに変更する
+  const [teamValue, setTeamValue] = useState(storeSelectedTeam);
+  const [featureValue, setFeatureValue] = useState(storeSelectedFeature || "");
+  const [dateValue, setDateValue] = useState(storeSelectedDate);
+
+  useEffect(() => {
+    setTeamValue(storeSelectedTeam);
+    setFeatureValue(storeSelectedFeature || "");
+    setDateValue(storeSelectedDate);
+  }, [storeSelectedTeam, storeSelectedFeature, storeSelectedDate]);
+
+  useEffect(() => {
+    dispatch(setSelectedTeam(teamValue));
+    dispatch(setSelectedFeature(featureValue));
+    dispatch(setSelectedDate(dateValue));
+  }, [teamValue, featureValue, dateValue, dispatch]);
+
   const teamOptions = [
-    { value: "team1", label: "Team 1" },
-    { value: "team2", label: "Team 2" },
-    { value: "team3", label: "Team 3" },
-  ];
-
-  const featureOptions = [
-    { value: "feature1", label: "Feature 1" },
-    { value: "feature2", label: "Feature 2" },
-    { value: "feature3", label: "Feature 3" },
-  ];
+    { value: "All", label: "All" },
+    { value: "Los Angeles Dodgers", label: "Dodgers" },
+    { value: "Chicago Cubs", label: "Cubs" },
+    { value: "Milwaukee Brewers", label: "Brewers" },
+    { value: "New York Yankees", label: "Yankees" },
+    { value: "Baltimore Orioles", label: "Orioles" },
+    { value: "Toronto Blue Jays", label: "Blue Jays" },
+    { value: "Boston Red Sox", label: "Red Sox" },
+    { value: "Texas Rangers", label: "Rangers" },
+    { value: "Philadelphia Phillies", label: "Phillies" },
+    { value: "Washington Nationals", label: "Nationals" },
+    { value: "Cleveland Guardians", label: "Guardians" },
+    { value: "Kansas City Royals", label: "Royals" },
+    { value: "New York Mets", label: "Mets" },
+    { value: "Houston Astros", label: "Astros" },
+    { value: "San Francisco Giants", label: "Giants" },
+    { value: "Cincinnati Reds", label: "Reds" },
+    { value: "Atlanta Braves", label: "Braves" },
+    { value: "San Diego Padres", label: "Padres" },
+    { value: "Los Angeles Angels", label: "Angels" },
+    { value: "Chicago White Sox", label: "White Sox" },
+    { value: "Pittsburgh Pirates", label: "Pirates" },
+    { value: "Miami Marlins", label: "Marlins" },
+    { value: "Minnesota Twins", label: "Twins" },
+    { value: "St. Louis Cardinals", label: "Cardinals" },
+    { value: "Detroit Tigers", label: "Tigers" },
+    { value: "Arizona Diamondbacks", label: "Diamondbacks" },
+    { value: "Athletics", label: "Athletics" },
+    { value: "Seattle Mariners", label: "Mariners" },
+    { value: "Colorado Rockies", label: "Rockies" },
+    { value: "Tampa Bay Rays", label: "Rays" },
+  ].sort((a, b) => a.label.localeCompare(b.label));
 
   return (
     <div className="panel-screen search-panel">
       <div className="panel-header">
-        <h2>Search</h2>
+        <h2>Filters</h2>
       </div>
-      <div className="panel-content search-box">
-        <div className="search-box-item1">
-          <div className="search-box-item1-team">
+        <div className="search-box">
+          <div className="search-box-team">
             <SelectBox
               label="Team"
               value={teamValue}
@@ -33,17 +75,15 @@ const Search = () => {
               options={teamOptions}
             />
           </div>
-          <div className="search-box-item1-feature">
-            <SelectBox
-              label="Feature"
-              value={featureValue}
-              onChange={(event) => setFeatureValue(event.target.value)}
-              options={featureOptions}
+          <div className="search-box-date">
+            <DatePicker
+              label="Date"
+              value={dateValue}
+              onChange={(event) => setDateValue(event.target.value)}
             />
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

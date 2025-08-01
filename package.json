@@ -1,0 +1,26 @@
+{
+  "name": "hotzone",
+  "version": "1.0.0",
+  "description": "Baseball analytics application with Netlify Functions",
+  "main": "index.js",
+  "scripts": {
+    "build:front": "cd frontend && npm install && npm run build",
+    "build": "npm run build:front && npm install --prefix backend/functions",
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "netlify-cli": "^15.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "baseball",
+    "analytics",
+    "netlify-functions"
+  ],
+  "license": "ISC"
+}
