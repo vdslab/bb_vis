@@ -20,9 +20,9 @@ const Movie = memo(() => {
   return (
     <div className="panel-screen movie-panel">
       <div className="panel-content">
-        {loading && <div className="loading">Loading...</div>}
         <div className="movie-list">
           <MovieList
+            loading={loading}
             iframeTags={moviesIframeTags}
             width={iframeWidth}
             height={iframeHeight}

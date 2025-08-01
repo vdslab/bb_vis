@@ -42,7 +42,7 @@ h4,
 h5,
 h6 {
   color: var(--text-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
 }
 
 h1 {

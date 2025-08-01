@@ -12,8 +12,9 @@
   --parallel-coordinates-ratio: 53vh;
 
   /* 右パネル内の割合 */
+  --game-meta-ratio: 4vh;
   --movie-ratio: 22vh;
-  --simulation-ratio: 71vh;
+  --simulation-ratio: 67vh;
 }
 
 /* レイアウトコンテナ */
@@ -42,6 +43,11 @@
   overflow: hidden;
 }
 
+.right-panel-header {
+  flex: 0 0 var(--game-meta-ratio);
+  height: 4vh;
+}
+
 /* 各パネルの画面エリア */
 .panel-screen {
   display: flex;
@@ -58,6 +64,8 @@
 .panel-header {
   overflow-y: auto;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .panel-header h2 {
@@ -77,15 +85,16 @@
 .movie-panel {
   flex: 0 0 var(--movie-ratio);
   background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .simulation-panel {
   flex: 0 0 var(--simulation-ratio);
 }
 
-.game-panel {
+/* .game-panel {
   flex: 0 0 var(--game-ratio);
-}
+} */
 
 /* パネル内のコンテンツエリア */
 .panel-content {

@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 const Game = () => {
   const selectedTeam = useSelector((state) => state.game.selectedTeam);
   const selectedDate = useSelector((state) => state.game.selectedDate);
+  const filteredGamePks = useSelector((state) => state.game.filteredGamePks);
+  const highlightData = useSelector((state) => state.game.highlightData);
   const [data, setData] = useState([]);
 
   // TODO:フィルターされたデータが送られてくるようにorフィルターされたgamepkから取得するように
@@ -44,6 +46,13 @@ const Game = () => {
           });
         }
 
+        // ParallelCoordinatesのブラシフィルタが適用されている場合
+        if (filteredGamePks.length > 0) {
+          filteredData = filteredData.filter((item) =>
+            filteredGamePks.includes(item.gamepk)
+          );
+        }
+
         // ソートとスライスを実行
         filteredData.sort((a, b) => {
           const dateA = new Date(a.date);
@@ -61,15 +70,15 @@ const Game = () => {
       }
     };
     loadData();
-  }, [selectedTeam, selectedDate]);
+  }, [selectedTeam, selectedDate, filteredGamePks]);
 
   return (
     <div className="panel-screen game-panel">
       <div className="panel-header">
-        <h2>Game</h2>
+        <h2>Scores</h2>
       </div>
       <div className="panel-content">
-        <GameList games={data} />
+        <GameList games={data} highlightData={highlightData} />
       </div>
     </div>
   );

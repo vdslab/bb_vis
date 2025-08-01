@@ -29,7 +29,6 @@ const SideBar = ({ onToggle, isOpen }) => {
         <button
           className="sidebar-toggle-btn"
           onClick={toggleSidebar}
-          aria-label={isExpanded ? "サイドバーを閉じる" : "サイドバーを開く"}
         >
           <FilterAltIcon sx={{ fontSize: 28 }} />
         </button>

@@ -13,7 +13,6 @@ export const useAnalysisData = (gamepk) => {
       try {
         setLoading(true);
         const data = await GameDetailService.getAnalysisDataById(gamepk);
-        console.log(data);
         // オブジェクトを配列の1要素目として変換
         const analysisDataArray = data ? [data] : null;
         setAnalysisData(analysisDataArray);

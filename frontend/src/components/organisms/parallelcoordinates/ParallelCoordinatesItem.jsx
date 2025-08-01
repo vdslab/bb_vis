@@ -4,13 +4,14 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setGamePk } from "../../../store/GameStore";
+import { setGamePk, setSelectedGameDate, setSelectedGameAwayTeam, setSelectedGameHomeTeam, setFilteredGamePks, setHighlightData } from "../../../store/GameStore";
 import { useSelector } from "react-redux";
 
 const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
   const dispatch = useDispatch();
   const selectedTeam = useSelector((state) => state.game.selectedTeam);
   const selectedDate = useSelector((state) => state.game.selectedDate);
+  const highlightData = useSelector((state) => state.game.highlightData);
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const [data, setData] = useState([]);
@@ -24,9 +25,6 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
   // ブラシでフィルタされたデータの格納
   // TODO:使ってないとエラーになるからコメントアウトしといた
   // const [filteredData, setFilteredData] = useState(data);
-
-  // ハイライトされているデータ(gamepk)
-  const [highlightData, setHighlightData] = useState(null);
 
   useEffect(() => {
     setBrushes({});
@@ -278,7 +276,10 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
         return y >= minY && y <= maxY;
       });
     });
-    console.log("Filtered Data:", filteredData.length, filteredData);
+    
+    // フィルタされたデータをReduxストアに保存
+    dispatch(setFilteredGamePks(filteredData.map(item => item.gamepk)));
+
     // データライン描画（ブラシフィルタ済み）
     filteredData.forEach((item) => {
       const isTarget = item.gamepk === highlightData;
@@ -331,10 +332,6 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
       const nearAxisKey = isNearAxis(mouseX);
       if (isBrushing || nearAxisKey) {
         canvas.style.cursor = "ns-resize";
-        // 軸付近にいるのでホバー色をリセット（ホバー解除）
-        if (highlightData !== null) {
-          setHighlightData(null);
-        }
         return;
       } else {
         canvas.style.cursor = "default";
@@ -483,8 +480,12 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
 
           if (dist < 5) {
-            setHighlightData(item.gamepk);
+            console.log(item);
+            dispatch(setHighlightData(item.gamepk));
             dispatch(setGamePk(item.gamepk));
+            dispatch(setSelectedGameDate(item.date));
+            dispatch(setSelectedGameAwayTeam(item.team.away));
+            dispatch(setSelectedGameHomeTeam(item.team.home));
             return;
           }
         }

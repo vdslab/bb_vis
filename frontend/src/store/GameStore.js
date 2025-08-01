@@ -13,6 +13,11 @@ const initialState = {
     startDate: null,
     endDate: null,
   },
+  selectedGameDate: "2025-06-09",
+  selectedGameAwayTeam: "Sandiego Padres",
+  selectedGameHomeTeam: "Los Angeles Dodgers",
+  filteredGamePks: [],
+  highlightData: 777579,
 };
 
 const gameSlice = createSlice({
@@ -34,6 +39,21 @@ const gameSlice = createSlice({
     setSelectedDate: (state, action) => {
       state.selectedDate = action.payload;
     },
+    setSelectedGameDate: (state, action) => {
+      state.selectedGameDate = action.payload;
+    },
+    setSelectedGameAwayTeam: (state, action) => {
+      state.selectedGameAwayTeam = action.payload;
+    },
+    setSelectedGameHomeTeam: (state, action) => {
+      state.selectedGameHomeTeam = action.payload;
+    },
+    setFilteredGamePks: (state, action) => {
+      state.filteredGamePks = action.payload;
+    },
+    setHighlightData: (state, action) => {
+      state.highlightData = action.payload;
+    },
   },
 });
 
@@ -49,5 +69,10 @@ export const {
   setSelectedTeam,
   setSelectedFeature,
   setSelectedDate,
+  setSelectedGameDate,
+  setSelectedGameAwayTeam,
+  setSelectedGameHomeTeam,
+  setFilteredGamePks,
+  setHighlightData,
 } = gameSlice.actions;
 export default GameStore;
