@@ -4,7 +4,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setGamePk, setSelectedGameDate, setSelectedGameAwayTeam, setSelectedGameHomeTeam, setFilteredGamePks, setHighlightData } from "../../../store/GameStore";
+import { setGamePk, setSelectedGameDate, setSelectedGameAwayTeam, setSelectedGameHomeTeam, setFilteredGamePks, setHighlightData, setHighlightFromParallelCoordinates } from "../../../store/GameStore";
 import { useSelector } from "react-redux";
 
 const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
@@ -171,7 +171,7 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
         ctx.font = "16px Arial";
         ctx.textAlign = "center";
         ctx.fillText(
-          "データがありません",
+          "No data",
           dimensions.width / 2,
           dimensions.height / 2,
         );
@@ -482,6 +482,7 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
           if (dist < 5) {
             console.log(item);
             dispatch(setHighlightData(item.gamepk));
+            dispatch(setHighlightFromParallelCoordinates(true)); // パラレルコーディネートからの選択
             dispatch(setGamePk(item.gamepk));
             dispatch(setSelectedGameDate(item.date));
             dispatch(setSelectedGameAwayTeam(item.team.away));

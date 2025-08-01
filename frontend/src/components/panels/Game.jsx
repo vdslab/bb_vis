@@ -8,6 +8,7 @@ const Game = () => {
   const selectedDate = useSelector((state) => state.game.selectedDate);
   const filteredGamePks = useSelector((state) => state.game.filteredGamePks);
   const highlightData = useSelector((state) => state.game.highlightData);
+  const highlightFromParallelCoordinates = useSelector((state) => state.game.highlightFromParallelCoordinates);
   const [data, setData] = useState([]);
 
   // TODO:フィルターされたデータが送られてくるようにorフィルターされたgamepkから取得するように
@@ -46,15 +47,21 @@ const Game = () => {
           });
         }
 
-        // ParallelCoordinatesのブラシフィルタが適用されている場合
-        if (filteredGamePks.length > 0) {
-          filteredData = filteredData.filter((item) =>
-            filteredGamePks.includes(item.gamepk)
-          );
-        }
+        filteredData = filteredData.filter((item) =>
+          filteredGamePks.includes(item.gamepk)
+        );
 
-        // ソートとスライスを実行
+        // ソート処理：パラレルコーディネートからの選択時のみカードを一番上に、その後は日付順（新しい順）
         filteredData.sort((a, b) => {
+          // highlightFromParallelCoordinatesがtrueかつhighlightDataと一致するカードを最優先
+          if (highlightFromParallelCoordinates && highlightData && a.gamepk === highlightData && b.gamepk !== highlightData) {
+            return -1; // aを上に
+          }
+          if (highlightFromParallelCoordinates && highlightData && b.gamepk === highlightData && a.gamepk !== highlightData) {
+            return 1; // bを上に
+          }
+          
+          // パラレルコーディネートからの選択でない場合、または両方とも一致しない場合は日付順
           const dateA = new Date(a.date);
           const dateB = new Date(b.date);
           return dateB - dateA;
@@ -70,7 +77,7 @@ const Game = () => {
       }
     };
     loadData();
-  }, [selectedTeam, selectedDate, filteredGamePks]);
+  }, [selectedTeam, selectedDate, filteredGamePks, highlightData, highlightFromParallelCoordinates]);
 
   return (
     <div className="panel-screen game-panel">

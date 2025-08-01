@@ -14,6 +14,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import LineAxisIcon from "@mui/icons-material/LineAxis";
 import SportsBaseballIcon from "@mui/icons-material/SportsBaseball";
 import SettingsIcon from "@mui/icons-material/Settings";
+import ScoreboardIcon from "@mui/icons-material/Scoreboard";
+import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 
 const HelpDialog = ({ isOpen, handleClose }) => {
   return (
@@ -27,7 +29,7 @@ const HelpDialog = ({ isOpen, handleClose }) => {
         }}
       >
         <Typography variant="h6" component="span">
-          ヘルプ
+          Help
         </Typography>
         <DialogActions>
           <Button onClick={handleClose}>
@@ -46,10 +48,27 @@ const HelpDialog = ({ isOpen, handleClose }) => {
             Search
           </Typography>
           <Typography variant="body2">
-            チームと日付で絞り込み検索ができます。
+            You can filter games by team and date.
           </Typography>
         </Box>
+        <Divider />
 
+        <Box my={3}>
+          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+            <ScoreboardIcon
+              fontSize="small"
+              sx={{ verticalAlign: "middle", mr: 1 }}
+            />
+            Scores
+          </Typography>
+          <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+            You can check the match date, match situation, and match results in
+            the score. When you click on the score you are interested in, it
+            will be highlighted in yellow, and the parallel coordination for
+            that day will be highlighted in red. {"\n"}
+            At the same time, the video and simulation will be updated.
+          </Typography>
+        </Box>
         <Divider />
 
         <Box my={3}>
@@ -58,12 +77,36 @@ const HelpDialog = ({ isOpen, handleClose }) => {
               fontSize="small"
               sx={{ verticalAlign: "middle", mr: 1 }}
             />
-            Parallel Coordinates
+            The parallel coordination graph
           </Typography>
-          <Typography variant="body2">
-            パラレルコーディネートグラフでは、time(s)、Extra Base、Total Score、
-            Score Difference、Lead Changes などの指標を見ることができます。
-            各項目をクリックすると、右上の動画とシミュレーションの内容が切り替わります。
+          <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+            The parallel coordination graph allows you to view various
+            indicators for each game (time(s), extra base, total score, score
+            difference, lead changes, etc.). {"\n"}
+            Drag the axis up and down to filter by that item. {"\n"}
+            Click “Clear Brush” in the upper right corner to clear the filter.{" "}
+            {"\n"}
+            Hovering the mouse over the axis turns it green, and clicking turns
+            it red, switching between the video and simulation content.
+          </Typography>
+        </Box>
+
+        <Divider />
+
+        <Box my={3}>
+          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+            <OndemandVideoIcon
+              fontSize="small"
+              sx={{ verticalAlign: "middle", mr: 1 }}
+            />
+            video
+          </Typography>
+          <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+            In the video, highlight footage showing the match date and competing
+            teams is displayed.{"\n"}
+            Below each video, a description of the scene is written.{"\n"}
+            When you click the video, a dialog opens and the video begins to
+            play.
           </Typography>
         </Box>
 
@@ -77,10 +120,14 @@ const HelpDialog = ({ isOpen, handleClose }) => {
             />
             Simulation
           </Typography>
-          <Typography variant="body2">
-            シミュレーションでは、ヒートマップの色の濃さで試合の盛り上がり度合いが分かります。
-            気になる箇所をクリックすると、ゲームの詳細（チーム名、イニング数、ボール・ストライク・アウトのカウント）が更新されます。
-            野球場では出塁位置、選手の情報を確認できます。
+          <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+            In the simulation, the intensity of the game can be seen by the
+            color intensity of the heat map. Clicking on the area of interest
+            will display game details (team name, number of innings, ball,
+            strike, and out counts) on the board.
+            {"\n"}
+            At the baseball stadium, you can check the base positions and player
+            information.
           </Typography>
         </Box>
         <Divider />
@@ -91,7 +138,7 @@ const HelpDialog = ({ isOpen, handleClose }) => {
               fontSize="small"
               sx={{ verticalAlign: "middle", mr: 1 }}
             />
-            参照したもの
+            References
           </Typography>
           <Link
             href="https://hpgpixer.jp/"
@@ -99,7 +146,7 @@ const HelpDialog = ({ isOpen, handleClose }) => {
             rel="noopener noreferrer"
             underline="hover"
           >
-            ピクセルガロー
+            Pixel Garo
           </Link>
 
           <Divider />
@@ -121,7 +168,7 @@ const HelpDialog = ({ isOpen, handleClose }) => {
             rel="noopener noreferrer"
             underline="hover"
           >
-            MLB GUMBOデータアクセス
+            MLB GUMBO Data Access
           </Link>
         </Box>
       </DialogContent>

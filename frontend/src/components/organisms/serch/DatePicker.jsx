@@ -44,7 +44,7 @@ const DatePicker = ({ label, value, onChange }) => {
               From:
             </Typography>
             <MuiDatePicker
-              label="開始日"
+              label="Start Date"
               value={startDate}
               onChange={handleStartDateChange}
               renderInput={(params) => (
@@ -67,7 +67,7 @@ const DatePicker = ({ label, value, onChange }) => {
               To:
             </Typography>
             <MuiDatePicker
-              label="終了日"
+              label="End Date"
               value={endDate}
               onChange={handleEndDateChange}
               renderInput={(params) => (
