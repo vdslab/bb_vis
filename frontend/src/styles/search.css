@@ -29,9 +29,36 @@
   width: 100% !important;
 }
 
+.search-date-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .search-label {
   font-weight: 600;
   font-size: 16px;
   margin-bottom: 8px;
   color: var(--text-color);
+}
+
+.search-date-quick-range {
+  margin-left: auto;
+  display: inline-flex;
+}
+
+.search-date-quick-range .MuiToggleButton-root {
+  text-transform: none;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.search-date-quick-range .MuiToggleButton-root:first-of-type {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.search-date-header .search-label {
+  margin-bottom: 0;
 }
