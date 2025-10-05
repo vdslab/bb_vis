@@ -79,6 +79,20 @@
   height: 80%;
 }
 
+/* ピッチャーの画像 */
+
+.pitcher {
+  position: absolute;
+  top: 65%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+}
+
+.pitcher-img {
+  width: 40px;
+  height: auto;
+}
+
 .runner-img-wrapper {
   height: 80%;
   display: flex;
