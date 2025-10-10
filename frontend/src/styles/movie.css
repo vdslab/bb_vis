@@ -121,16 +121,24 @@
 }
 
 .nav-area-prev:hover {
-  background: linear-gradient(to right, rgba(0, 123, 255, 0.25), rgba(0, 123, 255, 0.05));
+  background: linear-gradient(
+    to right,
+    rgba(0, 123, 255, 0.25),
+    rgba(0, 123, 255, 0.05)
+  );
 }
 
 .nav-area-next:hover {
-  background: linear-gradient(to left, rgba(0, 123, 255, 0.25), rgba(0, 123, 255, 0.05));
+  background: linear-gradient(
+    to left,
+    rgba(0, 123, 255, 0.25),
+    rgba(0, 123, 255, 0.05)
+  );
 }
 
 /* ホバー時の視覚的インジケーター */
 .nav-area::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -191,4 +199,13 @@
   .swiper-slide {
     aspect-ratio: 16/9;
   }
+}
+
+/* No Dataを表示 */
+.movie-no-data {
+  text-align: center;
+  font-size: 2rem;
+  color: #080808;
+  font-weight: bold;
+  padding: 60px 0;
 }

@@ -16,23 +16,26 @@ const MovieList = memo(({ iframeTags, loading }) => {
     const calculateSlideWidth = () => {
       // 利用可能な高さを取得（パディングやマージンを考慮）
       const videoHeight = window.innerHeight * 0.16; // 16vh相当
-      
+
       // 16:9のアスペクト比で幅を計算
       const calculatedWidth = (videoHeight * 16) / 9;
-      
+
       // 最小幅と最大幅を設定
       const minWidth = 200;
       const maxWidth = 400;
-      const finalWidth = Math.max(minWidth, Math.min(maxWidth, calculatedWidth));
-      
+      const finalWidth = Math.max(
+        minWidth,
+        Math.min(maxWidth, calculatedWidth),
+      );
+
       setSlideWidth(finalWidth);
     };
 
     calculateSlideWidth();
-    window.addEventListener('resize', calculateSlideWidth);
-    
+    window.addEventListener("resize", calculateSlideWidth);
+
     return () => {
-      window.removeEventListener('resize', calculateSlideWidth);
+      window.removeEventListener("resize", calculateSlideWidth);
     };
   }, []);
 
@@ -60,31 +63,33 @@ const MovieList = memo(({ iframeTags, loading }) => {
     <div className="movie-list">
       <div className="swiper-container">
         <div className="nav-area nav-area-prev" onClick={handlePrevClick}></div>
-        {loading ? <div className="loading">Loading...</div> :
-        <Swiper
-          ref={swiperRef}
-          modules={[Navigation, A11y ,Autoplay]}
-          spaceBetween={5}
-          slidesPerView="auto"
-          navigation={false}
-          cssMode={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-        >
-          {slidesWithKeys.map(({ iframeTag, key }) => (
-            <SwiperSlide 
-              key={key}
-              style={{ width: `${slideWidth}px` }}
-            >
-              <MovieListItem
-                iframeTag={iframeTag}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        }
+        {/* 読み込み中 */}
+        {loading ? (
+          <div className="loading">Loading...</div>
+        ) : !iframeTags || iframeTags.length === 0 ? (
+          /* データがないとき */
+          <div className="movie-no-data">No Data</div>
+        ) : (
+          /*  通常表示 */
+          <Swiper
+            ref={swiperRef}
+            modules={[Navigation, A11y, Autoplay]}
+            spaceBetween={5}
+            slidesPerView="auto"
+            navigation={false}
+            cssMode={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+          >
+            {slidesWithKeys.map(({ iframeTag, key }) => (
+              <SwiperSlide key={key} style={{ width: `${slideWidth}px` }}>
+                <MovieListItem iframeTag={iframeTag} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
         <div className="nav-area nav-area-next" onClick={handleNextClick}></div>
       </div>
     </div>
