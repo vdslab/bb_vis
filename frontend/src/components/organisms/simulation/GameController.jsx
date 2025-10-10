@@ -72,7 +72,7 @@ const GameController = ({ eventData, playData, p_id, e_id }) => {
         {loading && <div className="loading">Loading...</div>}
         {!loading && !analysisData && (
           <div className="error-message">
-            <p className="error-text no-data">No data</p>
+            <p className="error-text no-data">No Data</p>
             {gamepk && <p>Game PK: {gamepk}</p>}
           </div>
         )}

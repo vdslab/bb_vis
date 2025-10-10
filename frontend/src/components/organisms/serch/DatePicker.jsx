@@ -46,7 +46,9 @@ const DatePicker = ({ label, value, onChange }) => {
     if (nextStartDate && nextEndDate) {
       const startISO = toISODate(nextStartDate);
       const matchesRange = (months) => {
-        const comparisonStart = toISODate(subMonths(new Date(nextEndDate), months));
+        const comparisonStart = toISODate(
+          subMonths(new Date(nextEndDate), months),
+        );
         return startISO === comparisonStart;
       };
 
@@ -104,9 +106,7 @@ const DatePicker = ({ label, value, onChange }) => {
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <FormControl className="search-date-picker" sx={{ width: "100%" }}>
         <Box className="search-date-header">
-          <Typography className="search-label">
-            {label}
-          </Typography>
+          <Typography className="search-label">{label}</Typography>
           <ToggleButtonGroup
             size="small"
             exclusive
@@ -121,7 +121,9 @@ const DatePicker = ({ label, value, onChange }) => {
         </Box>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 1 }}>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Typography sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}>
+            <Typography
+              sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}
+            >
               From:
             </Typography>
             <MuiDatePicker
@@ -129,22 +131,24 @@ const DatePicker = ({ label, value, onChange }) => {
               value={startDate}
               onChange={handleStartDateChange}
               renderInput={(params) => (
-                <TextField 
-                  {...params} 
-                  size="medium" 
-                  sx={{ 
+                <TextField
+                  {...params}
+                  size="medium"
+                  sx={{
                     flex: 1,
                     "& .MuiInputBase-root": {
-                      minHeight: "40px"
-                    }
-                  }} 
+                      minHeight: "40px",
+                    },
+                  }}
                 />
               )}
               format="yyyy/MM/dd"
             />
           </Box>
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Typography sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}>
+            <Typography
+              sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}
+            >
               To:
             </Typography>
             <MuiDatePicker
@@ -152,15 +156,15 @@ const DatePicker = ({ label, value, onChange }) => {
               value={endDate}
               onChange={handleEndDateChange}
               renderInput={(params) => (
-                <TextField 
-                  {...params} 
-                  size="medium" 
-                  sx={{ 
+                <TextField
+                  {...params}
+                  size="medium"
+                  sx={{
                     flex: 1,
                     "& .MuiInputBase-root": {
-                      minHeight: "40px"
-                    }
-                  }} 
+                      minHeight: "40px",
+                    },
+                  }}
                 />
               )}
               format="yyyy/MM/dd"

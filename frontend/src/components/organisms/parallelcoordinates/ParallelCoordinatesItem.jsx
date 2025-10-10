@@ -4,7 +4,15 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setGamePk, setSelectedGameDate, setSelectedGameAwayTeam, setSelectedGameHomeTeam, setFilteredGamePks, setHighlightData, setHighlightFromParallelCoordinates } from "../../../store/GameStore";
+import {
+  setGamePk,
+  setSelectedGameDate,
+  setSelectedGameAwayTeam,
+  setSelectedGameHomeTeam,
+  setFilteredGamePks,
+  setHighlightData,
+  setHighlightFromParallelCoordinates,
+} from "../../../store/GameStore";
 import { useSelector } from "react-redux";
 
 const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
@@ -168,13 +176,10 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, dimensions.width, dimensions.height);
         ctx.fillStyle = "#666";
-        ctx.font = "16px Arial";
+        ctx.font = "bold 30px Arial";
         ctx.textAlign = "center";
-        ctx.fillText(
-          "No data",
-          dimensions.width / 2,
-          dimensions.height / 2,
-        );
+
+        ctx.fillText("No Data", dimensions.width / 2, dimensions.height / 2);
       }
       return;
     }
@@ -276,9 +281,9 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
         return y >= minY && y <= maxY;
       });
     });
-    
+
     // フィルタされたデータをReduxストアに保存
-    dispatch(setFilteredGamePks(filteredData.map(item => item.gamepk)));
+    dispatch(setFilteredGamePks(filteredData.map((item) => item.gamepk)));
 
     // データライン描画（ブラシフィルタ済み）
     filteredData.forEach((item) => {
