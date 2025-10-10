@@ -150,5 +150,6 @@
 
 .error-message .no-data {
   font-size: 32px !important;
+  text-align: center;
   font-weight: bold;
 }
