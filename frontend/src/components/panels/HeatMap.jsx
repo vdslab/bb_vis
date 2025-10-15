@@ -25,7 +25,7 @@ const HeatMap = () => {
           {loading && <div className="loading">Loading...</div>}
           {!loading && !hasValidData && (
             <div className="error-message">
-              <p>No data</p>
+              <p>No Data</p>
               {gamepk && <p>Game PK: {gamepk}</p>}
             </div>
           )}

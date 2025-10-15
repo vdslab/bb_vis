@@ -134,3 +134,19 @@
     padding: 10px;
   }
 }
+
+/* scoresにNo Dataを追加 */
+
+.no-data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.scores-no-data-text {
+  font-weight: bold;
+  font-size: 30px;
+  color: #666;
+}

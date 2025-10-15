@@ -164,6 +164,7 @@
 
 .error-message .no-data {
   font-size: 32px !important;
+  color: #666;
   text-align: center;
   font-weight: bold;
 }
