@@ -1,3 +1,14 @@
 .game-list-card-detail {
+  display: flex;
+  flex-direction: column;
   min-height: 100px;
+}
+
+.game-list-card-detail-upper {
+  min-height: 100px;
+}
+
+.game-list-card-detail-under {
+  display: flex;
+  justify-content: right;
 }

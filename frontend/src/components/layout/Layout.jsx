@@ -1,13 +1,12 @@
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setIsDialogOpen } from "@/store/GameStore";
 import LeftPanel from "./LeftSide";
 import RightPanel from "./RightSide";
 import GameDetailDialog from "../organisms/dialog/GameDetailDialog";
 
 const Layout = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  
-  const gamepk = useSelector((state) => state.game.gamepk);
+  const dispatch = useDispatch();
+  const isDialogOpen = useSelector((state) => state.game.isDialogOpen);
   const selectedGameDate = useSelector((state) => state.game.selectedGameDate);
   const selectedGameAwayTeam = useSelector((state) => state.game.selectedGameAwayTeam);
   const selectedGameHomeTeam = useSelector((state) => state.game.selectedGameHomeTeam);
@@ -18,15 +17,8 @@ const Layout = () => {
     homeTeam: selectedGameHomeTeam,
   };
 
-  // ゲームが選択されたときにダイアログを自動で開く
-  useEffect(() => {
-    if (gamepk) {
-      setIsDialogOpen(true);
-    }
-  }, [gamepk]);
-
   const handleCloseDialog = () => {
-    setIsDialogOpen(false);
+    dispatch(setIsDialogOpen(false));
   };
 
   return (
