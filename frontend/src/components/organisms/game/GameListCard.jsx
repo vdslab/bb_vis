@@ -24,36 +24,35 @@ const GameListCard = ({
   };
 
   return (
-    <div className={`game-list-card ${isHighlighted ? "highlighted" : ""}`}>
-      <div className="game-list-card-action" onClick={handleClick}>
-        <div className="game-list-card-content">
-          {isHighlighted && (
-            <div className="game-list-card-pulse-indicator" />
-          )}
-          <div className="game-list-card-date">
-            {date.replace(/-/g, "/")}
-          </div>
-          <div className="game-list-card-teams">
-            {/* ホームチーム名 */}
-            <div className="game-list-card-team-name">
-              {hometeam}
-            </div>
-            {/* ホームチームスコア */}
-            <span className="game-list-card-score score-end">
-              {hometeamscore}
-            </span>
-            <span className="game-list-card-score score-center">
-              -
-            </span>
-            {/* アウェーチームスコア */}
-            <span className="game-list-card-score score-start">
-              {awayteamscore}
-            </span>
-            {/* アウェーチーム名 */}
-            <div className="game-list-card-team-name">
-              {awayteam}
-            </div>
-          </div>
+    <div 
+      className={`game-list-card ${isHighlighted ? "highlighted" : ""}`}
+      onClick={handleClick}
+    >
+      {isHighlighted && (
+        <div className="game-list-card-pulse-indicator" />
+      )}
+      <div className="game-list-card-date">
+        {date.replace(/-/g, "/")}
+      </div>
+      <div className="game-list-card-teams">
+        {/* ホームチーム名 */}
+        <div className="game-list-card-team-name">
+          {hometeam}
+        </div>
+        {/* ホームチームスコア */}
+        <span className="game-list-card-score score-end">
+          {hometeamscore}
+        </span>
+        <span className="game-list-card-score score-center">
+          -
+        </span>
+        {/* アウェーチームスコア */}
+        <span className="game-list-card-score score-start">
+          {awayteamscore}
+        </span>
+        {/* アウェーチーム名 */}
+        <div className="game-list-card-team-name">
+          {awayteam}
         </div>
       </div>
     </div>
