@@ -48,6 +48,16 @@
   object-position: center;
 }
 
+.field-overlay {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50vw; /* 背景と同じ幅にする */
+  height: 100%;
+  pointer-events: none;
+}
+
 .runners-overlay {
   position: absolute;
   top: 0;
@@ -103,17 +113,17 @@
 /* ベースの位置 */
 .first-base {
   top: 59%;
-  left: 61%;
+  left: 67%;
 }
 
 .second-base {
-  top: 41%;
+  top: 42%;
   left: 52%;
 }
 
 .third-base {
-  top: 60%;
-  left: 41%;
+  top: 59%;
+  left: 37%;
 }
 
 /* パルスアニメーション */
