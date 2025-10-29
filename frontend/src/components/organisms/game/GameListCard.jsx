@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setGamePk, setHighlightData, setSelectedGameAwayTeam, setSelectedGameHomeTeam, setSelectedGameDate, setHighlightFromParallelCoordinates } from "@/store/GameStore";
-import "@/styles/gamelist.css";
+import "@/styles/gamelistcard.css";
 
 const GameListCard = ({
   gamepk,
