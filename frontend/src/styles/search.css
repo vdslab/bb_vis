@@ -32,7 +32,8 @@
 .search-date-header {
   width: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 12px;
 }
 
@@ -61,4 +62,29 @@
 
 .search-date-header .search-label {
   margin-bottom: 0;
+}
+
+.search-panel-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-color, #fff);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Dateの中のDate Select */
+.search-date-select {
+  margin-top: 12px;
+}
+
+.search-date-select .search-label {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-color, #fff);
+}
+
+.MuiTypography-root.MuiTypography-body1.search-label {
+  font-size: 20px !important;
+  font-weight: 500;
+  color: var(--text-color, #fff);
 }

@@ -1,14 +1,20 @@
 import SelectBox from "../organisms/serch/SelectBox";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSelectedTeam, setSelectedDate, setSelectedFeature } from "../../store/GameStore";
+import {
+  setSelectedTeam,
+  setSelectedDate,
+  setSelectedFeature,
+} from "../../store/GameStore";
 import DatePicker from "../organisms/serch/DatePicker";
 
 const Search = () => {
   const dispatch = useDispatch();
-  
+
   const storeSelectedTeam = useSelector((state) => state.game.selectedTeam);
-  const storeSelectedFeature = useSelector((state) => state.game.selectedFeature);
+  const storeSelectedFeature = useSelector(
+    (state) => state.game.selectedFeature,
+  );
   const storeSelectedDate = useSelector((state) => state.game.selectedDate);
 
   const [teamValue, setTeamValue] = useState(storeSelectedTeam);
@@ -63,27 +69,27 @@ const Search = () => {
 
   return (
     <div className="panel-screen search-panel">
-      <div className="panel-header">
+      <div className="search-panel-header">
         <h2>Filters</h2>
       </div>
-        <div className="search-box">
-          <div className="search-box-team">
-            <SelectBox
-              label="Team"
-              value={teamValue}
-              onChange={(event) => setTeamValue(event.target.value)}
-              options={teamOptions}
-            />
-          </div>
-          <div className="search-box-date">
-            <DatePicker
-              label="Date"
-              value={dateValue}
-              onChange={(event) => setDateValue(event.target.value)}
-            />
-          </div>
+      <div className="search-box">
+        <div className="search-box-team">
+          <SelectBox
+            label="Team"
+            value={teamValue}
+            onChange={(event) => setTeamValue(event.target.value)}
+            options={teamOptions}
+          />
+        </div>
+        <div className="search-box-date">
+          <DatePicker
+            label="Date"
+            value={dateValue}
+            onChange={(event) => setDateValue(event.target.value)}
+          />
         </div>
       </div>
+    </div>
   );
 };
 

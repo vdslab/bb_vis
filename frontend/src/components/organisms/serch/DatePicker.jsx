@@ -79,9 +79,7 @@ const DatePicker = ({ label, value, onChange }) => {
   };
 
   const handleQuickRangeChange = (_, newRange) => {
-    if (!newRange) {
-      return;
-    }
+    if (!newRange) return;
 
     if (newRange === "ALL") {
       setQuickRange("ALL");
@@ -107,19 +105,60 @@ const DatePicker = ({ label, value, onChange }) => {
       <FormControl className="search-date-picker" sx={{ width: "100%" }}>
         <Box className="search-date-header">
           <Typography className="search-label">{label}</Typography>
+        </Box>
+
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 1 }}>
+          {/* Single Day */}
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 1,
+              width: "100%",
+            }}
+          >
+            <Typography sx={{ fontSize: "14px", fontWeight: 500 }}>
+              Date:
+            </Typography>
+            <MuiDatePicker
+              label="Single Date"
+              value={startDate}
+              onChange={(newValue) => {
+                setStartDate(newValue);
+                setEndDate(newValue);
+                emitChange(newValue, newValue);
+                setQuickRange(null);
+              }}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  size="medium"
+                  sx={{
+                    width: "100%",
+                    minHeight: "40px",
+                    "& .MuiInputBase-root": { minHeight: "40px" },
+                  }}
+                />
+              )}
+              format="yyyy/MM/dd"
+            />
+          </Box>
+
+          {/* クイックレンジボタン */}
           <ToggleButtonGroup
             size="small"
             exclusive
             value={quickRange}
             onChange={handleQuickRangeChange}
             className="search-date-quick-range"
+            sx={{ alignSelf: "center", mt: 1 }}
           >
             <ToggleButton value="1M">1M</ToggleButton>
             <ToggleButton value="3M">3M</ToggleButton>
             <ToggleButton value="ALL">All</ToggleButton>
           </ToggleButtonGroup>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 1 }}>
+
+          {/* From */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <Typography
               sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}
@@ -145,6 +184,8 @@ const DatePicker = ({ label, value, onChange }) => {
               format="yyyy/MM/dd"
             />
           </Box>
+
+          {/* To */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
             <Typography
               sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}
