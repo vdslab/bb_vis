@@ -14,7 +14,7 @@ const GameListCard = ({
   isHighlighted = false,
 }) => {
   const dispatch = useDispatch();
-  const [ isOpen, setIsOpen ] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const targetRef = useRef(null);
 
   // NOTE:isHighlightedがある場合のみスクロールを行なっている
@@ -23,8 +23,11 @@ const GameListCard = ({
     if (isHighlighted && targetRef.current) {
       targetRef.current.scrollIntoView({
         behavior: 'smooth',
-        block: 'center'
+        block: 'nearest'
       });
+      setIsOpen(true);
+    }else{
+      setIsOpen(false);
     }
   }, [isHighlighted]);
 
@@ -35,7 +38,6 @@ const GameListCard = ({
     dispatch(setSelectedGameDate(date));
     dispatch(setSelectedGameAwayTeam(awayteam));
     dispatch(setSelectedGameHomeTeam(hometeam));
-    setIsOpen(isOpen ? false : true)
   };
   return (
     <>
