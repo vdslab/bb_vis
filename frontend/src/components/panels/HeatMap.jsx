@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useAnalysisData } from "@/hooks/useAnalysisData";
 import HeatMapItem from "../organisms/heatmap/HeatMapItem";
 import HeatMapItemTest from "../organisms/heatmap/HeatMapItemTest";
@@ -10,10 +9,6 @@ const HeatMap = () => {
 
   const { analysisData, loading } = useAnalysisData(gamepk);
   console.log(analysisData);
-
-  useEffect(() => {
-    console.log(analysisData);
-  }, [analysisData]);
 
   // データの存在チェック
   const hasValidData = analysisData;

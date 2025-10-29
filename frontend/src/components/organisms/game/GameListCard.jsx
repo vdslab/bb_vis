@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setGamePk, setHighlightData, setSelectedGameAwayTeam, setSelectedGameHomeTeam, setSelectedGameDate, setHighlightFromParallelCoordinates } from "@/store/GameStore";
 import "@/styles/gamelistcard.css";
@@ -14,7 +14,23 @@ const GameListCard = ({
   isHighlighted = false,
 }) => {
   const dispatch = useDispatch();
-  const [ isOpen, setIsOpen ] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const targetRef = useRef(null);
+
+  // NOTE:isHighlightedがある場合のみスクロールを行なっている
+  // これをしないと、初期描画時にtargetRefがリストの一番下を参照する為、一番下にスクロールされてしまう
+  useEffect(() => {
+    if (isHighlighted && targetRef.current) {
+      targetRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+      });
+      setIsOpen(true);
+    }else{
+      setIsOpen(false);
+    }
+  }, [isHighlighted]);
+
   const handleClick = () => {
     dispatch(setGamePk(gamepk));
     dispatch(setHighlightData(gamepk));
@@ -22,14 +38,13 @@ const GameListCard = ({
     dispatch(setSelectedGameDate(date));
     dispatch(setSelectedGameAwayTeam(awayteam));
     dispatch(setSelectedGameHomeTeam(hometeam));
-    setIsOpen(isOpen ? false : true)
   };
-
   return (
     <>
       <div 
         className={`game-list-card ${isHighlighted ? "highlighted" : ""}`}
         onClick={handleClick}
+        ref={targetRef}
       >
         {isHighlighted && (
           <div className="game-list-card-pulse-indicator" />
