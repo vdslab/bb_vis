@@ -59,9 +59,10 @@ const Game = () => {
           return dateB - dateA;
         });
 
-        if (filteredData.length > 50) {
-          filteredData = filteredData.slice(0, 50);
-        }
+        // 50件だけ表示
+        // if (filteredData.length > 50) {
+        //   filteredData = filteredData.slice(0, 50);
+        // }
 
         setData(filteredData);
       } catch (error) {
