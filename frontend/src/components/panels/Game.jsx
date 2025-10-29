@@ -53,27 +53,7 @@ const Game = () => {
           filteredGamePks.includes(item.gamepk),
         );
 
-        // ソート処理：パラレルコーディネートからの選択時のみカードを一番上に、その後は日付順（新しい順）
         filteredData.sort((a, b) => {
-          // highlightFromParallelCoordinatesがtrueかつhighlightDataと一致するカードを最優先
-          if (
-            highlightFromParallelCoordinates &&
-            highlightData &&
-            a.gamepk === highlightData &&
-            b.gamepk !== highlightData
-          ) {
-            return -1; // aを上に
-          }
-          if (
-            highlightFromParallelCoordinates &&
-            highlightData &&
-            b.gamepk === highlightData &&
-            a.gamepk !== highlightData
-          ) {
-            return 1; // bを上に
-          }
-
-          // パラレルコーディネートからの選択でない場合、または両方とも一致しない場合は日付順
           const dateA = new Date(a.date);
           const dateB = new Date(b.date);
           return dateB - dateA;
