@@ -19,6 +19,7 @@ const initialState = {
   filteredGamePks: [777579],
   highlightData: 777579,
   highlightFromParallelCoordinates: true,
+  isDialogOpen: false,
 };
 
 const gameSlice = createSlice({
@@ -58,6 +59,9 @@ const gameSlice = createSlice({
     setHighlightFromParallelCoordinates: (state, action) => {
       state.highlightFromParallelCoordinates = action.payload;
     },
+    setIsDialogOpen: (state, action) => {
+      state.isDialogOpen = action.payload;
+    },
   },
 });
 
@@ -79,5 +83,6 @@ export const {
   setFilteredGamePks,
   setHighlightData,
   setHighlightFromParallelCoordinates,
+  setIsDialogOpen,
 } = gameSlice.actions;
 export default GameStore;
