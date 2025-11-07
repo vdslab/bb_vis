@@ -51,13 +51,17 @@ const MovieList = memo(({ iframeTags, loading }) => {
             ref={swiperRef}
             direction="vertical"
             modules={[Mousewheel, Autoplay, FreeMode]}
-            freeMode={true}
+            loop={true}
+            freeMode={{
+              enabled: true,
+              sticky: true,
+            }}
             spaceBetween={10}
             slidesPerView="auto"
             mousewheel={true}
             speed={400}
             autoplay={{
-              delay: 3000,
+              delay: 2000,
               disableOnInteraction: false,
             }}
             style={{ height: "100%", width: "100%" }}
