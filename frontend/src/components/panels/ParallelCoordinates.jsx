@@ -1,6 +1,7 @@
 import "@/styles/parallelcoordinates.css";
 import ParallelCoordinatesItem from "../organisms/parallelcoordinates/ParallelCoordinatesItem";
 import { useState } from "react";
+import Button from "../atoms/button";
 
 const ParallelCoordinates = () => {
   // データを取得
@@ -14,9 +15,9 @@ const ParallelCoordinates = () => {
     <div className="panel-screen parallel-panel">
       <div className="panel-header">
         <h2>Parallel Coordinates</h2>
-        <button onClick={handleClearBrush} style={{ margin: "10px" }}>
-          ブラシ選択解除
-        </button>
+        <Button onClick={handleClearBrush} style={{ margin: "10px" }}>
+        Reset
+        </Button>
       </div>
       <div className="panel-content parallelcoordinates-content">
         <div className="parallel-coordinates-container">
