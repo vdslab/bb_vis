@@ -11,4 +11,5 @@
 .game-list-card-detail-under {
   display: flex;
   justify-content: right;
+  margin-right: 16px;
 }
