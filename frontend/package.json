@@ -19,6 +19,7 @@
     "@mui/x-date-pickers": "^8.9.0",
     "@nivo/heatmap": "^0.99.0",
     "@reduxjs/toolkit": "^2.8.2",
+    "@rollup/plugin-replace": "^6.0.3",
     "axios": "^1.10.0",
     "d3-scale-chromatic": "^3.1.0",
     "date-fns": "^4.1.0",
