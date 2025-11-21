@@ -27,7 +27,7 @@ const HeatMap = () => {
           {!loading && hasValidData && (
             <div className="heatmap-item">
               {/* ライブラリ描画 */}
-              <HeatMapItem data={analysisData} />
+              <HeatMapItem analysisData={analysisData} />
               {/* 通常データ時 上:通常描画,下:長さスケール */}
               {/* スケールテスト用データ時 上:データスケール,下:無し */}
               {/* <HeatMapItemTest data={analysisData} /> */}
