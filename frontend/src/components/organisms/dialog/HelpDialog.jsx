@@ -1,13 +1,13 @@
 import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-  Typography,
-  Divider,
-  Link,
-  Box,
+	Dialog,
+	DialogTitle,
+	DialogContent,
+	DialogActions,
+	Button,
+	Typography,
+	Divider,
+	Link,
+	Box,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import SearchIcon from "@mui/icons-material/Search";
@@ -18,178 +18,161 @@ import ScoreboardIcon from "@mui/icons-material/Scoreboard";
 import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 
 const HelpDialog = ({ isOpen, handleClose }) => {
-  return (
-    <Dialog open={isOpen} onClose={handleClose} maxWidth="sm" fullWidth>
-      <DialogTitle
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          borderBottom: "1px solid #ccc",
-        }}
-      >
-        <Typography variant="h6" component="span">
-          Help
-        </Typography>
-        <DialogActions>
-          <Button onClick={handleClose}>
-            <CloseIcon />
-          </Button>
-        </DialogActions>
-      </DialogTitle>
+	return (
+		<Dialog open={isOpen} onClose={handleClose} maxWidth="sm" fullWidth>
+			<DialogTitle
+				sx={{
+					display: "flex",
+					justifyContent: "space-between",
+					alignItems: "center",
+					borderBottom: "1px solid #ccc",
+				}}
+			>
+				<Typography variant="h6" component="span">
+					ヘルプ
+				</Typography>
+				<DialogActions>
+					<Button onClick={handleClose}>
+						<CloseIcon />
+					</Button>
+				</DialogActions>
+			</DialogTitle>
 
-      <DialogContent dividers sx={{ bgcolor: "#f9f9f9" }}>
-        <Box mb={3}>
-          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-            <SearchIcon
-              fontSize="small"
-              sx={{ verticalAlign: "middle", mr: 1 }}
-            />
-            Search
-          </Typography>
-          <Typography variant="body2">
-            You can filter games by team and date.
-          </Typography>
-        </Box>
-        <Divider />
+			<DialogContent dividers sx={{ bgcolor: "#f9f9f9" }}>
+				<Box mb={3}>
+					<Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+						<SearchIcon fontSize="small" sx={{ verticalAlign: "middle", mr: 1 }} />
+						検索
+					</Typography>
+					<Typography variant="body2">
+						チームと日付で試合を絞り込むことができます。
+					</Typography>
+				</Box>
+				<Divider />
 
-        <Box my={3}>
-          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-            <ScoreboardIcon
-              fontSize="small"
-              sx={{ verticalAlign: "middle", mr: 1 }}
-            />
-            Scores
-          </Typography>
-          <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-            You can check the match date, match situation, and match results in
-            the score. When you click on the score you are interested in, it
-            will be highlighted in yellow, and the parallel coordination for
-            that day will be highlighted in red. {"\n"}
-            At the same time, the video and simulation will be updated.
-          </Typography>
-        </Box>
-        <Divider />
+				<Box my={3}>
+					<Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+						<ScoreboardIcon fontSize="small" sx={{ verticalAlign: "middle", mr: 1 }} />
+						スコア
+					</Typography>
+					<Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+						スコアでは、試合日や状況、結果を確認できます。
+						気になるスコアをクリックすると黄色でハイライトされ、その日のパラレルコーディネーションが赤で強調されます。
+						{"\n"}
+						ゲームビューをクリックすると、シミュレーションとハイライト動画がポップアップして表示されます。
+					</Typography>
+				</Box>
+				<Divider />
 
-        <Box my={3}>
-          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-            <LineAxisIcon
-              fontSize="small"
-              sx={{ verticalAlign: "middle", mr: 1 }}
-            />
-            The parallel coordination graph
-          </Typography>
-          <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-            The parallel coordination graph allows you to view various
-            indicators for each game (time(s), extra base, total score, score
-            difference, lead changes, etc.). {"\n"}
-            Drag the axis up and down to filter by that item. {"\n"}
-            Click “Clear Brush” in the upper right corner to clear the filter.{" "}
-            {"\n"}
-            Hovering the mouse over the axis turns it green, and clicking turns
-            it red, switching between the video and simulation content.
-          </Typography>
-        </Box>
+				<Box my={3}>
+					<Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+						<LineAxisIcon fontSize="small" sx={{ verticalAlign: "middle", mr: 1 }} />
+						パラレルコーディネーション（並列座標プロット）
+					</Typography>
+					<Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+						各試合の指標（プレイ時間、長打、総得点、点差、リード変化など）を可視化したグラフです。
+						{"\n"}
+						軸を上下にドラッグすることで、その項目でフィルタできます。
+						{"\n"}
+						右上の「Reset」をクリックするとフィルタが解除されます。
+						{"\n"}
+						軸にマウスを乗せると緑色に、クリックすると赤色になり、その試合のスコアの部分が強調されます。
+					</Typography>
+				</Box>
 
-        <Divider />
+				<Divider />
 
-        <Box my={3}>
-          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-            <OndemandVideoIcon
-              fontSize="small"
-              sx={{ verticalAlign: "middle", mr: 1 }}
-            />
-            video
-          </Typography>
-          <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-            In the video, highlight footage showing the match date and competing
-            teams is displayed.{"\n"}
-            Below each video, a description of the scene is written.{"\n"}
-            When you click the video, a dialog opens and the video begins to
-            play.
-          </Typography>
-        </Box>
+				<Box my={3}>
+					<Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+						<OndemandVideoIcon
+							fontSize="small"
+							sx={{ verticalAlign: "middle", mr: 1 }}
+						/>
+						動画
+					</Typography>
+					<Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+						動画では、試合日と対戦チームに関連したハイライト映像が表示されます。
+						{"\n"}
+						各動画の下にはシーンの説明文があります。
+						{"\n"}
+						動画をクリックするとダイアログが開き、再生を再生できます。
+					</Typography>
+				</Box>
 
-        <Divider />
+				<Divider />
 
-        <Box my={3}>
-          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-            <SportsBaseballIcon
-              fontSize="small"
-              sx={{ verticalAlign: "middle", mr: 1 }}
-            />
-            Simulation
-          </Typography>
-          <Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
-            In the simulation, the intensity of the game can be seen by the
-            color intensity of the heat map. Clicking on the area of interest
-            will display game details (team name, number of innings, ball,
-            strike, and out counts) on the board.
-            {"\n"}
-            At the baseball stadium, you can check the base positions and player
-            information.
-          </Typography>
-        </Box>
-        <Divider />
+				<Box my={3}>
+					<Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+						<SportsBaseballIcon
+							fontSize="small"
+							sx={{ verticalAlign: "middle", mr: 1 }}
+						/>
+						シミュレーション
+					</Typography>
+					<Typography variant="body2" sx={{ whiteSpace: "pre-line" }}>
+						シミュレーションでは、ヒートマップの色の濃さで試合の盛り上がりが濃さで視覚化されています。
+						気になる箇所をクリックすると、試合詳細（チーム名、イニング数、ボール・ストライク・アウトのカウント）がグラウンドに表示されます。
+						{"\n"}
+						球場では、塁上のランナー位置や選手情報を確認できます。
+					</Typography>
+				</Box>
+				<Divider />
 
-        <Box mt={3}>
-          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-            <SettingsIcon
-              fontSize="small"
-              sx={{ verticalAlign: "middle", mr: 1 }}
-            />
-            References
-          </Typography>
-          <Link
-            href="https://hpgpixer.jp/"
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="hover"
-          >
-            Pixel Garo
-          </Link>
+				<Box mt={3}>
+					<Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+						<SettingsIcon fontSize="small" sx={{ verticalAlign: "middle", mr: 1 }} />
+						参考サイト
+					</Typography>
+					<Link
+						href="https://hpgpixer.jp/"
+						target="_blank"
+						rel="noopener noreferrer"
+						underline="hover"
+					>
+						Pixel Garo
+					</Link>
 
-          <Divider />
+					<Divider />
 
-          <Link
-            href="https://www.mlb.com/ja/video"
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="hover"
-          >
-            Major League Baseball Video Search | MLB Film Room
-          </Link>
+					<Link
+						href="https://www.mlb.com/ja/video"
+						target="_blank"
+						rel="noopener noreferrer"
+						underline="hover"
+					>
+						MLB Film Room（メジャーリーグ公式動画検索）
+					</Link>
 
-          <Divider />
+					<Divider />
 
-          <Link
-            href="https://devpost.com/software/mlb-gumbo-data-access"
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="hover"
-          >
-            MLB GUMBO Data Access
-          </Link>
-        </Box>
-      </DialogContent>
+					<Link
+						href="https://devpost.com/software/mlb-gumbo-data-access"
+						target="_blank"
+						rel="noopener noreferrer"
+						underline="hover"
+					>
+						MLB GUMBO Data Access
+					</Link>
+				</Box>
+			</DialogContent>
 
-      <Box py={2} textAlign="center">
-        <Typography variant="caption" color="textSecondary">
-          Copyright 2025 MLB Advanced Media, L.P. Use of any content on this
-          page acknowledges agreement to the terms posted{" "}
-          <Link
-            href="http://gdx.mlb.com/components/copyright.txt"
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="hover"
-          >
-            here
-          </Link>
-          .
-        </Typography>
-      </Box>
-    </Dialog>
-  );
+			<Box py={2} textAlign="center">
+				<Typography variant="caption" color="textSecondary">
+					Copyright 2025 MLB Advanced Media, L.P.
+					本ページ内のコンテンツを使用することで、以下の利用規約に同意したものとみなされます{" "}
+					<Link
+						href="http://gdx.mlb.com/components/copyright.txt"
+						target="_blank"
+						rel="noopener noreferrer"
+						underline="hover"
+					>
+						here
+					</Link>
+					.
+				</Typography>
+			</Box>
+		</Dialog>
+	);
 };
 
 export default HelpDialog;
