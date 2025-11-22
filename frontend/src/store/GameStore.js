@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 // ParallelCoordinatesItem.jsxからgamepkを受け取り、setGamepkに対して更新を行う
 const initialState = {
   // TODO:実際のデータを取得する
@@ -65,12 +65,6 @@ const gameSlice = createSlice({
   },
 });
 
-const GameStore = configureStore({
-  reducer: {
-    game: gameSlice.reducer,
-  },
-});
-
 export const {
   setGamePk,
   setId,
@@ -85,4 +79,5 @@ export const {
   setHighlightFromParallelCoordinates,
   setIsDialogOpen,
 } = gameSlice.actions;
-export default GameStore;
+
+export default gameSlice.reducer;
