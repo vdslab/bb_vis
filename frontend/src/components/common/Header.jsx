@@ -10,8 +10,19 @@ import rogoImg from "../../asset/rogo.png";
 import { useState } from "react";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import HelpDialog from "../organisms/dialog/HelpDialog";
+// devonly:start
+import { useDispatch } from "react-redux";
+import { setIsDialogOpen } from "@/store/DebugStore";
+// devonly:end
 
 const Header = () => {
+  // devonly:start
+  const dispatch = useDispatch();
+  const handleOpenDebugDialog = () => {
+    dispatch(setIsDialogOpen(true));
+  };
+  // devonly:end
+  
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
@@ -26,7 +37,7 @@ const Header = () => {
   const toDebugMode = (e) => {
     e.preventDefault();
     if(e.ctrlKey || e.metaKey){
-      console.log("debug mode");
+      handleOpenDebugDialog();
     }
   };
   /* devonly:end */
