@@ -5,6 +5,7 @@ const Button = ({
   variant = 'outlined', 
   size = 'small',
   onClick,
+  sx = {},
 }) => {
   return (
     <MuiButton
@@ -22,6 +23,7 @@ const Button = ({
           borderColor: 'rgba(0, 0, 0, 0.87)',
           backgroundColor: 'rgba(0, 0, 0, 0.04)',
         },
+        ...sx,
       }}
     >
       {children}
