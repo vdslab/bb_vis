@@ -22,10 +22,25 @@ const Header = () => {
     setIsOpen(false);
   };
 
+  /* devonly:start */
+  const toDebugMode = (e) => {
+    e.preventDefault();
+    if(e.ctrlKey || e.metaKey){
+      console.log("debug mode");
+    }
+  };
+  /* devonly:end */
+
   return (
     <header className="header">
       <h1>
-        <img src={rogoImg} alt="ロゴ" className="logo-img" />
+        {/* devonly:start */}
+        <span onClick={toDebugMode}>
+          {/* devonly:end */}
+          <img src={rogoImg} alt="ロゴ" className="logo-img" />
+          {/* devonly:start */}
+        </span>
+        {/* devonly:end */}
       </h1>
       <div>
         <Button onClick={handleOpen}>
