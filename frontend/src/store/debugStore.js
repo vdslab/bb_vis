@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 // debugモードに関するstore
 const initialState = {
   debugMode:true,
-  movieAutoScroll:false,
+  stopMovieAutoScroll:false,
   isDialogOpen:false,
 };
 
@@ -15,8 +15,8 @@ const debugSlice = createSlice({
     setDebugMode: (state, action) => {
       state.debugMode = action.payload;
     },
-    setMovieAutoScroll: (state, action) => {
-      state.movieAutoScroll = action.payload;
+    setStopMovieAutoScroll: (state, action) => {
+      state.stopMovieAutoScroll = action.payload;
     },
     setIsDialogOpen: (state, action) => {
       state.isDialogOpen = action.payload;
@@ -26,7 +26,7 @@ const debugSlice = createSlice({
 
 export const {
   setDebugMode,
-  setMovieAutoScroll,
+  setStopMovieAutoScroll,
   setIsDialogOpen,
 } = debugSlice.actions;
 
