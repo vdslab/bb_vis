@@ -33,6 +33,7 @@ const Search = () => {
   const gameData = useSelector((state) => state.game.gameData);
   const stopMovieAutoScroll = useSelector((state) => state.debug.stopMovieAutoScroll);
   const showGamePk = useSelector((state) => state.debug.showGamePk);
+  const debugMode = useSelector((state) => state.debug.debugMode);
   const [gamePkValue, setGamePkValue] = useState("");
   const [isNotFound, setIsNotFound] = useState(false);
 
@@ -132,24 +133,26 @@ const Search = () => {
         </div>
       </div>
       {/* devonly:start */}
-      <div className="debug-tool">
-        <p>Debug Field:</p>
-        <CheckBox
-          label="Stop Movie Auto Scroll"
-          checked={stopMovieAutoScroll}
-          onChange={handleStopMovieAutoScrollChange}
-        />
-        <CheckBox label="Show Game PK" checked={showGamePk} onChange={handleShowGamePk} />
-        <InputField
-          label="Game PK"
-          value={gamePkValue}
-          onButtonClick={handleGamePkClick}
-          onChange={(event) => setGamePkValue(event.target.value)}
-        />
-        {isNotFound && (
-          <p style={{ color: "red", fontSize: "10px" }}>gamepk: {gamePkValue} not found</p>
-        )}
-      </div>
+      {debugMode && (
+        <div className="debug-tool">
+          <p>Debug Field:</p>
+          <CheckBox
+            label="Stop Movie Auto Scroll"
+            checked={stopMovieAutoScroll}
+            onChange={handleStopMovieAutoScrollChange}
+          />
+          <CheckBox label="Show Game PK" checked={showGamePk} onChange={handleShowGamePk} />
+          <InputField
+            label="Game PK"
+            value={gamePkValue}
+            onButtonClick={handleGamePkClick}
+            onChange={(event) => setGamePkValue(event.target.value)}
+          />
+          {isNotFound && (
+            <p style={{ color: "red", fontSize: "10px" }}>gamepk: {gamePkValue} not found</p>
+          )}
+        </div>
+      )}
       {/* devonly:end */}
     </div>
   );
