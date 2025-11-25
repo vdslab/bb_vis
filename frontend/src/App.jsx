@@ -1,16 +1,16 @@
 import "./App.css";
 import "./styles/global.css";
 import "./styles/layout.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/common/Header";
-import TestHeader from "./components/common/DevHeader";
 import SideBar from "./components/common/SideBar";
 import Layout from "./components/layout/Layout";
 // devonly:start
 import DebugDialog from "./components/organisms/dialog/DebugDialog";
 import { useDispatch, useSelector } from "react-redux";
-import { setIsDialogOpen } from "@/store/debugStore";
+import { setIsDialogOpen } from "@/store/DebugStore";
 // devonly:end
+import { setGameData, setIsDataLoaded } from "@/store/GameStore";
 
 function App() {
   // devonly:start
@@ -28,16 +28,26 @@ function App() {
     setSidebarExpanded(isExpanded);
   };
 
+  // データを一度だけ読み込む
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const response = await fetch("/data/2025-03-16-2025-10-06.json");
+        const jsonData = await response.json();
+        dispatch(setGameData(jsonData));
+        dispatch(setIsDataLoaded(true));
+      } catch (error) {
+        console.error("データの読み込みに失敗しました:", error);
+        dispatch(setIsDataLoaded(false));
+      }
+    };
+    loadData();
+  }, [dispatch]);
+
   return (
     <div className="app-container">
-      {/* サイドバー */}
       <SideBar onToggle={handleSidebarToggle} isOpen={sidebarExpanded} />
-
-      {/* 本番用ヘッダー */}
       <Header />
-      {/* 開発用ヘッダー */}
-      {/*<TestHeader /> */}
-
       <main
         className={`main-container ${sidebarExpanded ? "main-with-sidebar" : "main-without-sidebar"}`}
       >

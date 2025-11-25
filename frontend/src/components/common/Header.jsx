@@ -5,7 +5,7 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import HelpDialog from "../organisms/dialog/HelpDialog";
 // devonly:start
 import { useDispatch } from "react-redux";
-import { setIsDialogOpen } from "@/store/debugStore";
+import { setIsDialogOpen } from "@/store/DebugStore";
 // devonly:end
 
 const Header = () => {
