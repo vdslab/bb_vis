@@ -5,6 +5,7 @@ import { setSelectedTeam, setSelectedDate, setSelectedFeature } from "../../stor
 import DatePicker from "../organisms/serch/DatePicker";
 // devonly:start
 import InputField from "../organisms/serch/InputField";
+import CheckBox from "../atoms/CheckBox";
 import {
   setGamePk,
   setHighlightData,
@@ -13,6 +14,7 @@ import {
   setSelectedGameDate,
   setHighlightFromParallelCoordinates,
 } from "../../store/GameStore";
+import { setStopMovieAutoScroll } from "../../store/DebugStore";
 // devonly:end
 
 const Search = () => {
@@ -28,8 +30,14 @@ const Search = () => {
 
   // devonly:start
   const gameData = useSelector((state) => state.game.gameData);
+  const stopMovieAutoScroll = useSelector((state) => state.debug.stopMovieAutoScroll);
   const [gamePkValue, setGamePkValue] = useState("");
   const [isNotFound, setIsNotFound] = useState(false);
+
+  const handleStopMovieAutoScrollChange = (event) => {
+    dispatch(setStopMovieAutoScroll(event.target.checked));
+  };
+
   const handleGamePkClick = () => {
     const gamePk = Number(gamePkValue);
     const game = gameData.find((g) => g.gamepk === gamePk);
@@ -120,7 +128,12 @@ const Search = () => {
       </div>
       {/* devonly:start */}
       <div className="debug-tool">
-        Debug Field:
+        <p>Debug Field:</p>
+        <CheckBox
+          label="Stop Movie Auto Scroll"
+          checked={stopMovieAutoScroll}
+          onChange={handleStopMovieAutoScrollChange}
+        />
         <InputField
           label="Game PK"
           value={gamePkValue}
