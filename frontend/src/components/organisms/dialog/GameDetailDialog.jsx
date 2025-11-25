@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  IconButton,
-  Box,
-} from "@mui/material";
+import { Dialog, DialogTitle, DialogContent, DialogActions, IconButton, Box } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import Simulation from "../../panels/Simulation";
 import Movie from "../../panels/Movie";
@@ -77,4 +70,3 @@ const GameDetailDialog = ({ isOpen, handleClose, selectedGameInfo }) => {
 };
 
 export default GameDetailDialog;
-

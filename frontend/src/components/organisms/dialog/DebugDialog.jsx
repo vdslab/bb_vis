@@ -10,12 +10,17 @@ const DebugDialog = ({ isOpen, handleClose }) => {
   const handleChangeDebugMode = () => {
     dispatch(setDebugMode(!isDebugMode));
   };
-  
+
   return (
     <Dialog open={isOpen} onClose={handleClose}>
       <DialogTitle>DebugTools</DialogTitle>
       <FormControl>
-      <FormControlLabel control={<Switch checked={isDebugMode} onChange={handleChangeDebugMode} name="debugMode" />} label="Debug Mode" />
+        <FormControlLabel
+          control={
+            <Switch checked={isDebugMode} onChange={handleChangeDebugMode} name="debugMode" />
+          }
+          label="Debug Mode"
+        />
       </FormControl>
     </Dialog>
   );

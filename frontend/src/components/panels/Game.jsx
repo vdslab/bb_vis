@@ -25,9 +25,7 @@ const Game = () => {
         let filteredData = jsonData;
         if (selectedTeam !== "All") {
           filteredData = jsonData.filter(
-            (item) =>
-              item.team.home === selectedTeam ||
-              item.team.away === selectedTeam,
+            (item) => item.team.home === selectedTeam || item.team.away === selectedTeam,
           );
         }
 
@@ -49,9 +47,7 @@ const Game = () => {
           });
         }
 
-        filteredData = filteredData.filter((item) =>
-          filteredGamePks.includes(item.gamepk),
-        );
+        filteredData = filteredData.filter((item) => filteredGamePks.includes(item.gamepk));
 
         filteredData.sort((a, b) => {
           const dateA = new Date(a.date);

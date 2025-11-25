@@ -15,4 +15,3 @@ const indexStore = configureStore({
 });
 
 export default indexStore;
-

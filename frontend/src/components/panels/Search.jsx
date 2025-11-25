@@ -1,20 +1,14 @@
 import SelectBox from "../organisms/serch/SelectBox";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  setSelectedTeam,
-  setSelectedDate,
-  setSelectedFeature,
-} from "../../store/GameStore";
+import { setSelectedTeam, setSelectedDate, setSelectedFeature } from "../../store/GameStore";
 import DatePicker from "../organisms/serch/DatePicker";
 
 const Search = () => {
   const dispatch = useDispatch();
 
   const storeSelectedTeam = useSelector((state) => state.game.selectedTeam);
-  const storeSelectedFeature = useSelector(
-    (state) => state.game.selectedFeature,
-  );
+  const storeSelectedFeature = useSelector((state) => state.game.selectedFeature);
   const storeSelectedDate = useSelector((state) => state.game.selectedDate);
 
   const [teamValue, setTeamValue] = useState(storeSelectedTeam);

@@ -1,6 +1,4 @@
-import {
-  Button,
-} from "@mui/material";
+import { Button } from "@mui/material";
 import rogoImg from "../../asset/rogo.png";
 import { useState } from "react";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
@@ -17,7 +15,7 @@ const Header = () => {
     dispatch(setIsDialogOpen(true));
   };
   // devonly:end
-  
+
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
@@ -31,7 +29,7 @@ const Header = () => {
   /* devonly:start */
   const toDebugMode = (e) => {
     e.preventDefault();
-    if(e.ctrlKey || e.metaKey){
+    if (e.ctrlKey || e.metaKey) {
       handleOpenDebugDialog();
     }
   };

@@ -3,9 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // debugモードに関するstore
 const initialState = {
-  debugMode:true,
-  stopMovieAutoScroll:false,
-  isDialogOpen:false,
+  debugMode: true,
+  stopMovieAutoScroll: false,
+  isDialogOpen: false,
 };
 
 const debugSlice = createSlice({
@@ -24,11 +24,7 @@ const debugSlice = createSlice({
   },
 });
 
-export const {
-  setDebugMode,
-  setStopMovieAutoScroll,
-  setIsDialogOpen,
-} = debugSlice.actions;
+export const { setDebugMode, setStopMovieAutoScroll, setIsDialogOpen } = debugSlice.actions;
 
 export default debugSlice.reducer;
 // devonly:end

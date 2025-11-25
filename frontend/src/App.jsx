@@ -60,8 +60,8 @@ function App() {
       </style>
       {isDebugMode && (
         <>
-          <span 
-            className="debug-mode-rect" 
+          <span
+            className="debug-mode-rect"
             style={{
               position: "absolute",
               left: "0px",
@@ -71,11 +71,12 @@ function App() {
               backgroundColor: "black",
               opacity: 1,
               zIndex: 9999,
-              animation: "debugFade 1.5s ease-in-out infinite alternate"
-          }}></span>
+              animation: "debugFade 1.5s ease-in-out infinite alternate",
+            }}
+          ></span>
           <span
-            className="debug-mode-label" 
-            style={{  
+            className="debug-mode-label"
+            style={{
               position: "absolute",
               left: "0px",
               bottom: "0px",

@@ -25,16 +25,14 @@ const HeatMapItem = ({ analysisData }) => {
   }, [analysisData, dispatch]);
 
   const handleRowClick = (row) => {
-    dispatch(
-      setId({ p_id: Number(row.data.p_id), e_id: Number(row.data.e_id) }),
-    );
+    dispatch(setId({ p_id: Number(row.data.p_id), e_id: Number(row.data.e_id) }));
   };
 
   return (
     <div className="heatmap-wrapper">
       {/* イニング情報のオーバーレイ */}
       <InningOverlay analysisData={analysisData} />
-      
+
       {/* ヒートマップ */}
       <ResponsiveHeatMap
         data={analysisData}
