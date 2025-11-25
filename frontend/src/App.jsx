@@ -5,16 +5,17 @@ import { useState, useEffect } from "react";
 import Header from "./components/common/Header";
 import SideBar from "./components/common/SideBar";
 import Layout from "./components/layout/Layout";
+import { useDispatch } from "react-redux";
 // devonly:start
 import DebugDialog from "./components/organisms/dialog/DebugDialog";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { setIsDialogOpen } from "@/store/DebugStore";
 // devonly:end
 import { setGameData, setIsDataLoaded } from "@/store/GameStore";
 
 function App() {
-  // devonly:start
   const dispatch = useDispatch();
+  // devonly:start
   const isDialogClose = () => {
     dispatch(setIsDialogOpen(false));
   };
