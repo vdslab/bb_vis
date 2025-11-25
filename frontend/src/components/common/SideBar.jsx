@@ -22,21 +22,14 @@ const SideBar = ({ onToggle, isOpen }) => {
   };
 
   return (
-    <div
-      className={`sidebar ${isExpanded ? "sidebar-expanded" : "sidebar-collapsed"}`}
-    >
+    <div className={`sidebar ${isExpanded ? "sidebar-expanded" : "sidebar-collapsed"}`}>
       <div className="sidebar-toolbar">
-        <button
-          className="sidebar-toggle-btn"
-          onClick={toggleSidebar}
-        >
+        <button className="sidebar-toggle-btn" onClick={toggleSidebar}>
           <FilterAltIcon sx={{ fontSize: 28 }} />
         </button>
       </div>
       <div className="sidebar-divider"></div>
-      <div className="sidebar-content">
-        {isExpanded && <Search />}
-      </div>
+      <div className="sidebar-content">{isExpanded && <Search />}</div>
     </div>
   );
 };

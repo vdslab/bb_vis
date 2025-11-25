@@ -9,14 +9,14 @@ const ParallelCoordinates = () => {
   const [brushDeleteFlag, setBrushDeleteFlag] = useState(false);
   const handleClearBrush = () => {
     setBrushDeleteFlag(!brushDeleteFlag);
-  }; 
+  };
 
   return (
     <div className="panel-screen parallel-panel">
       <div className="panel-header">
         <h2>Parallel Coordinates</h2>
         <Button onClick={handleClearBrush} style={{ margin: "10px" }}>
-        Reset
+          Reset
         </Button>
       </div>
       <div className="panel-content parallelcoordinates-content">

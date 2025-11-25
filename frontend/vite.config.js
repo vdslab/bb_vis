@@ -7,7 +7,7 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vite.dev/config/
-export default defineConfig(({mode}) => {
+export default defineConfig(({ mode }) => {
   const isProd = mode === "production";
   return {
     plugins: [
@@ -29,7 +29,7 @@ export default defineConfig(({mode}) => {
           return isProd;
         },
       },
-      react()
+      react(),
     ],
     resolve: {
       alias: {

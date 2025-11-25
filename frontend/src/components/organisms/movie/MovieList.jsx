@@ -5,17 +5,31 @@ import "swiper/css";
 import "swiper/css/mousewheel";
 import "swiper/css/free-mode";
 import MovieListItem from "./MovieListItem";
+// devonly:start
+import { useSelector } from "react-redux";
+// devonly:end
 
 const MovieList = memo(({ iframeTags, loading }) => {
+  // devonly:start
+  const stopMovieAutoScroll = useSelector((state) => state.debug.stopMovieAutoScroll);
+  // devonly:end
   const swiperRef = useRef(null);
+
+  let autoplayConfig = {
+    delay: 2000,
+    disableOnInteraction: false,
+  };
+  // devonly:start
+  if (stopMovieAutoScroll) {
+    autoplayConfig = false;
+  }
+  // devonly:end
 
   // 安定したキーを生成
   const slidesWithKeys = useMemo(() => {
     return iframeTags.map((iframeTag, index) => ({
       iframeTag,
-      key: `movie-${index}-${
-        iframeTag?.slice(0, 50)?.replace(/[^a-zA-Z0-9]/g, "") || index
-      }`,
+      key: `movie-${index}-${iframeTag?.slice(0, 50)?.replace(/[^a-zA-Z0-9]/g, "") || index}`,
     }));
   }, [iframeTags]);
 
@@ -34,10 +48,7 @@ const MovieList = memo(({ iframeTags, loading }) => {
   return (
     <div className="movie-list">
       <div className="swiper-container-vertical">
-        <div
-          className="nav-area-vertical nav-area-prev-vertical"
-          onClick={handlePrevClick}
-        ></div>
+        <div className="nav-area-vertical nav-area-prev-vertical" onClick={handlePrevClick}></div>
 
         {/* 読み込み中 */}
         {loading ? (
@@ -60,10 +71,7 @@ const MovieList = memo(({ iframeTags, loading }) => {
             slidesPerView="auto"
             mousewheel={true}
             speed={400}
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
-            }}
+            autoplay={autoplayConfig}
             style={{ height: "100%", width: "100%" }}
           >
             {slidesWithKeys.map(({ iframeTag, key }) => (
@@ -74,10 +82,7 @@ const MovieList = memo(({ iframeTags, loading }) => {
           </Swiper>
         )}
 
-        <div
-          className="nav-area-vertical nav-area-next-vertical"
-          onClick={handleNextClick}
-        ></div>
+        <div className="nav-area-vertical nav-area-next-vertical" onClick={handleNextClick}></div>
       </div>
     </div>
   );

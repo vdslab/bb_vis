@@ -55,12 +55,7 @@ const MovieDialog = ({ isOpen, handleClose, iframeTag, videoTitle, videoUrl }) =
       <Box py={2} px={3} textAlign="left" bgcolor="#f5f5f5">
         <Typography variant="body2" color="textSecondary">
           動画URL:{" "}
-          <Link
-            href={videoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="hover"
-          >
+          <Link href={videoUrl} target="_blank" rel="noopener noreferrer" underline="hover">
             {videoUrl}
           </Link>
         </Typography>

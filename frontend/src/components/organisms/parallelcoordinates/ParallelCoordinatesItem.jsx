@@ -20,6 +20,8 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
   const selectedTeam = useSelector((state) => state.game.selectedTeam);
   const selectedDate = useSelector((state) => state.game.selectedDate);
   const highlightData = useSelector((state) => state.game.highlightData);
+  const gameData = useSelector((state) => state.game.gameData);
+  const isDataLoaded = useSelector((state) => state.game.isDataLoaded);
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const [data, setData] = useState([]);
@@ -67,46 +69,38 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
 
   // データ読み込み（チーム・日付フィルタ対応）
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const response = await fetch("/data/2025-03-16-2025-07-28.json");
-        const jsonData = await response.json();
+    if (!isDataLoaded || gameData.length === 0) {
+      return;
+    }
 
-        // チームでフィルタリング
-        let filteredData = jsonData;
-        if (selectedTeam !== "All") {
-          filteredData = jsonData.filter(
-            (item) =>
-              item.team.home === selectedTeam ||
-              item.team.away === selectedTeam,
-          );
+    // チームでフィルタリング
+    let filteredData = gameData;
+    if (selectedTeam !== "All") {
+      filteredData = gameData.filter(
+        (item) => item.team.home === selectedTeam || item.team.away === selectedTeam,
+      );
+    }
+
+    // 日付でフィルタリング
+    if (selectedDate.startDate || selectedDate.endDate) {
+      filteredData = filteredData.filter((item) => {
+        const itemDate = item.date;
+        const startDate = selectedDate.startDate;
+        const endDate = selectedDate.endDate;
+
+        if (startDate && endDate) {
+          return itemDate >= startDate && itemDate <= endDate;
+        } else if (startDate) {
+          return itemDate >= startDate;
+        } else if (endDate) {
+          return itemDate <= endDate;
         }
+        return true;
+      });
+    }
 
-        // 日付でフィルタリング
-        if (selectedDate.startDate || selectedDate.endDate) {
-          filteredData = filteredData.filter((item) => {
-            const itemDate = item.date;
-            const startDate = selectedDate.startDate;
-            const endDate = selectedDate.endDate;
-
-            if (startDate && endDate) {
-              return itemDate >= startDate && itemDate <= endDate;
-            } else if (startDate) {
-              return itemDate >= startDate;
-            } else if (endDate) {
-              return itemDate <= endDate;
-            }
-            return true;
-          });
-        }
-
-        setData(filteredData);
-      } catch (error) {
-        console.error("データの読み込みに失敗しました:", error);
-      }
-    };
-    loadData();
-  }, [selectedTeam, selectedDate]);
+    setData(filteredData);
+  }, [gameData, isDataLoaded, selectedTeam, selectedDate]);
 
   // データ正規化（0〜1に変換）
   const normalizeData = (data, key) => {
@@ -164,12 +158,7 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
 
   // メイン描画＆イベント処理
   useEffect(() => {
-    if (
-      !data.length ||
-      !canvasRef.current ||
-      dimensions.width === 0 ||
-      dimensions.height === 0
-    ) {
+    if (!data.length || !canvasRef.current || dimensions.width === 0 || dimensions.height === 0) {
       // データなしのキャンバス表示
       const canvas = canvasRef.current;
       if (canvas && dimensions.width > 0 && dimensions.height > 0) {
@@ -274,8 +263,7 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
     const filteredData = normalizedData.filter((item) => {
       return Object.entries(brushes).every(([key, range]) => {
         if (!range || range.y1 === range.y2) return true; // ブラシ未適用軸はスルー
-        const y =
-          margin.top + chartHeight - item[key + "_normalized"] * chartHeight;
+        const y = margin.top + chartHeight - item[key + "_normalized"] * chartHeight;
         const minY = Math.min(range.y1, range.y2);
         const maxY = Math.max(range.y1, range.y2);
         return y >= minY && y <= maxY;
@@ -288,9 +276,7 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
     // データライン描画（ブラシフィルタ済み）
     filteredData.forEach((item) => {
       const isTarget = item.gamepk === highlightData;
-      ctx.strokeStyle = isTarget
-        ? "rgba(255, 0, 0, 1)"
-        : "rgba(70, 130, 180, 0.3)";
+      ctx.strokeStyle = isTarget ? "rgba(255, 0, 0, 1)" : "rgba(70, 130, 180, 0.3)";
       ctx.lineWidth = isTarget ? 2.5 : 1;
       ctx.beginPath();
 
@@ -412,14 +398,9 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
           const x1 = margin.left + i * axisSpacing;
           const x2 = margin.left + (i + 1) * axisSpacing;
 
-          const y1 =
-            margin.top +
-            chartHeight -
-            item[features[i].key + "_normalized"] * chartHeight;
+          const y1 = margin.top + chartHeight - item[features[i].key + "_normalized"] * chartHeight;
           const y2 =
-            margin.top +
-            chartHeight -
-            item[features[i + 1].key + "_normalized"] * chartHeight;
+            margin.top + chartHeight - item[features[i + 1].key + "_normalized"] * chartHeight;
 
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
 
@@ -473,14 +454,9 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
           const x1 = margin.left + i * axisSpacing;
           const x2 = margin.left + (i + 1) * axisSpacing;
 
-          const y1 =
-            margin.top +
-            chartHeight -
-            item[features[i].key + "_normalized"] * chartHeight;
+          const y1 = margin.top + chartHeight - item[features[i].key + "_normalized"] * chartHeight;
           const y2 =
-            margin.top +
-            chartHeight -
-            item[features[i + 1].key + "_normalized"] * chartHeight;
+            margin.top + chartHeight - item[features[i + 1].key + "_normalized"] * chartHeight;
 
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
 
@@ -574,21 +550,10 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
       canvas.removeEventListener("mousemove", handleMouseMoveBrush);
       window.removeEventListener("mouseup", handleMouseUpBrush);
     };
-  }, [
-    data,
-    dimensions,
-    brushes,
-    isBrushing,
-    activeBrush,
-    highlightData,
-    dispatch,
-  ]);
+  }, [data, dimensions, brushes, isBrushing, activeBrush, highlightData, dispatch]);
 
   return (
-    <div
-      ref={containerRef}
-      style={{ width: "100%", height: "100%", position: "relative" }}
-    >
+    <div ref={containerRef} style={{ width: "100%", height: "100%", position: "relative" }}>
       <canvas
         ref={canvasRef}
         style={{

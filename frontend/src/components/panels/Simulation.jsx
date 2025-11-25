@@ -38,16 +38,10 @@ const Simulation = () => {
 
   return (
     <div className="panel-screen simulation-panel">
-      <div className="panel-header">
-      </div>
+      <div className="panel-header"></div>
       <div className="panel-content">
         <div className="simulation-container">
-          <GameController
-            eventData={eventData}
-            playData={playData}
-            p_id={p_id}
-            e_id={e_id}
-          />
+          <GameController eventData={eventData} playData={playData} p_id={p_id} e_id={e_id} />
           <GameScoreBoard metaData={metaData} eventData={eventData} />
           <GameField eventData={eventData} />
         </div>

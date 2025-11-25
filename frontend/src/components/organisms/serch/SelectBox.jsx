@@ -5,9 +5,7 @@ import "@styles/search.css";
 const SearchSelect = ({ label, value, onChange, options }) => {
   return (
     <FormControl className="search-select" sx={{ width: "100%" }}>
-      <Typography className="search-label">
-        {label}
-      </Typography>
+      <Typography className="search-label">{label}</Typography>
       <Select
         value={value}
         onChange={onChange}
@@ -17,14 +15,12 @@ const SearchSelect = ({ label, value, onChange, options }) => {
           minHeight: "48px",
           "& .MuiSelect-select": {
             padding: "12px 16px",
-            fontSize: "14px"
-          }
+            fontSize: "14px",
+          },
         }}
         renderValue={(selected) => (
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Typography sx={{ fontSize: "14px" }}>
-              {selected || `Select ${label}`}
-            </Typography>
+            <Typography sx={{ fontSize: "14px" }}>{selected || `Select ${label}`}</Typography>
           </Box>
         )}
       >

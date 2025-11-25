@@ -1,17 +1,21 @@
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Typography,
-  Button,
-} from "@mui/material";
+import { Button } from "@mui/material";
 import rogoImg from "../../asset/rogo.png";
 import { useState } from "react";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import HelpDialog from "../organisms/dialog/HelpDialog";
+// devonly:start
+import { useDispatch } from "react-redux";
+import { setIsDialogOpen } from "@/store/DebugStore";
+// devonly:end
 
 const Header = () => {
+  // devonly:start
+  const dispatch = useDispatch();
+  const handleOpenDebugDialog = () => {
+    dispatch(setIsDialogOpen(true));
+  };
+  // devonly:end
+
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => {
@@ -22,10 +26,25 @@ const Header = () => {
     setIsOpen(false);
   };
 
+  /* devonly:start */
+  const toDebugMode = (e) => {
+    e.preventDefault();
+    if (e.ctrlKey || e.metaKey) {
+      handleOpenDebugDialog();
+    }
+  };
+  /* devonly:end */
+
   return (
     <header className="header">
       <h1>
-        <img src={rogoImg} alt="ロゴ" className="logo-img" />
+        {/* devonly:start */}
+        <span onClick={toDebugMode}>
+          {/* devonly:end */}
+          <img src={rogoImg} alt="ロゴ" className="logo-img" />
+          {/* devonly:start */}
+        </span>
+        {/* devonly:end */}
       </h1>
       <div>
         <Button onClick={handleOpen}>
