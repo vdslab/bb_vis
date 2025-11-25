@@ -9,7 +9,7 @@ import Layout from "./components/layout/Layout";
 // devonly:start
 import DebugDialog from "./components/organisms/dialog/DebugDialog";
 import { useDispatch, useSelector } from "react-redux";
-import { setIsDialogOpen } from "@/store/DebugStore";
+import { setIsDialogOpen } from "@/store/debugStore";
 // devonly:end
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
     dispatch(setIsDialogOpen(false));
   };
   const isDialogOpen = useSelector((state) => state.debug.isDialogOpen);
+  const isDebugMode = useSelector((state) => state.debug.debugMode);
   // devonly:end
 
   const [sidebarExpanded, setSidebarExpanded] = useState(true);
@@ -43,6 +44,54 @@ function App() {
         <Layout />
       </main>
       {/* devonly:start */}
+      <style>
+        {`
+          @keyframes debugFade {
+            0% {
+              opacity: 0.8;
+            }
+            100% {
+              opacity: 1;
+              0 0 30px rgba(255, 255, 0, 0.6),
+              0 0 40px rgba(255, 255, 0, 0.3);
+            }
+          }
+        `}
+      </style>
+      {isDebugMode && (
+        <>
+          <span 
+            className="debug-mode-rect" 
+            style={{
+              position: "absolute",
+              left: "0px",
+              bottom: "0px",
+              width: "143px",
+              height: "23px",
+              backgroundColor: "black",
+              opacity: 1,
+              zIndex: 9999,
+              animation: "debugFade 1.5s ease-in-out infinite alternate"
+          }}></span>
+          <span
+            className="debug-mode-label" 
+            style={{  
+              position: "absolute",
+              left: "0px",
+              bottom: "0px",
+              color: "yellow",
+              fontWeight: "bold",
+              opacity: 1,
+              fontSize: "18px",
+              letterSpacing: "2px",
+              zIndex: 9999,
+              fontStyle: "italic",
+            }}
+          >
+            DEBUG MODE
+          </span>
+        </>
+      )}
       <DebugDialog isOpen={isDialogOpen} handleClose={isDialogClose} />
       {/* devonly:end */}
     </div>
