@@ -40,10 +40,7 @@ const GameController = ({ eventData, playData, p_id, e_id }) => {
       const p_id_ = p_id;
       let e_id_ = Number(e_id) + 1;
       const keys = Object.keys(playData.data[p_id_]);
-      while (
-        e_id_ < Number(keys[keys.length - 1]) &&
-        !playData.data[p_id_][e_id_]
-      ) {
+      while (e_id_ < Number(keys[keys.length - 1]) && !playData.data[p_id_][e_id_]) {
         e_id_++;
       }
       dispatch(setId({ p_id: p_id_, e_id: e_id_ }));
@@ -76,9 +73,7 @@ const GameController = ({ eventData, playData, p_id, e_id }) => {
             {gamepk && <p>Game PK: {gamepk}</p>}
           </div>
         )}
-        {!loading && analysisData && (
-          <HeatMapItem analysisData={analysisData} />
-        )}
+        {!loading && analysisData && <HeatMapItem analysisData={analysisData} />}
       </div>
       <div className="game-controller-right-arrow">
         <IconButton

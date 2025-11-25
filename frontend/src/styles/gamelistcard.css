@@ -6,7 +6,9 @@
   padding: 8px;
   position: relative;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition:
+    transform 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
   box-shadow: none;
   border-radius: 0px;
   background: transparent;
@@ -103,4 +105,3 @@
 .game-list-card.highlighted .game-list-card-score {
   color: #ff6f00;
 }
-

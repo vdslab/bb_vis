@@ -21,9 +21,7 @@ const GameField = ({ eventData }) => {
       // ランナー画像の選択
       const currentRunnerImg = eventData.is_away ? runnerImg1 : runnerImg2;
       setRunnerImg(currentRunnerImg);
-      setPitcherImg(
-        currentRunnerImg === runnerImg1 ? pitcherImg1 : pitcherImg2,
-      );
+      setPitcherImg(currentRunnerImg === runnerImg1 ? pitcherImg1 : pitcherImg2);
 
       // ランナー状態を更新
       const runnerState = eventData.runner_state.pos_runner_state;

@@ -46,9 +46,7 @@ const DatePicker = ({ label, value, onChange }) => {
     if (nextStartDate && nextEndDate) {
       const startISO = toISODate(nextStartDate);
       const matchesRange = (months) => {
-        const comparisonStart = toISODate(
-          subMonths(new Date(nextEndDate), months),
-        );
+        const comparisonStart = toISODate(subMonths(new Date(nextEndDate), months));
         return startISO === comparisonStart;
       };
 
@@ -117,9 +115,7 @@ const DatePicker = ({ label, value, onChange }) => {
               width: "100%",
             }}
           >
-            <Typography sx={{ fontSize: "14px", fontWeight: 500 }}>
-              Date:
-            </Typography>
+            <Typography sx={{ fontSize: "14px", fontWeight: 500 }}>Date:</Typography>
             <MuiDatePicker
               label="Single Date"
               value={startDate}
@@ -160,9 +156,7 @@ const DatePicker = ({ label, value, onChange }) => {
 
           {/* From */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Typography
-              sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}
-            >
+            <Typography sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}>
               From:
             </Typography>
             <MuiDatePicker
@@ -187,9 +181,7 @@ const DatePicker = ({ label, value, onChange }) => {
 
           {/* To */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Typography
-              sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}
-            >
+            <Typography sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}>
               To:
             </Typography>
             <MuiDatePicker
