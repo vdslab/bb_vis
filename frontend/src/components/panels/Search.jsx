@@ -15,6 +15,7 @@ import {
   setHighlightFromParallelCoordinates,
 } from "../../store/GameStore";
 import { setStopMovieAutoScroll } from "../../store/DebugStore";
+import { setShowGamePk } from "../../store/DebugStore";
 // devonly:end
 
 const Search = () => {
@@ -31,11 +32,15 @@ const Search = () => {
   // devonly:start
   const gameData = useSelector((state) => state.game.gameData);
   const stopMovieAutoScroll = useSelector((state) => state.debug.stopMovieAutoScroll);
+  const showGamePk = useSelector((state) => state.debug.showGamePk);
   const [gamePkValue, setGamePkValue] = useState("");
   const [isNotFound, setIsNotFound] = useState(false);
 
   const handleStopMovieAutoScrollChange = (event) => {
     dispatch(setStopMovieAutoScroll(event.target.checked));
+  };
+  const handleShowGamePk = (event) => {
+    dispatch(setShowGamePk(event.target.checked));
   };
 
   const handleGamePkClick = () => {
@@ -134,6 +139,7 @@ const Search = () => {
           checked={stopMovieAutoScroll}
           onChange={handleStopMovieAutoScrollChange}
         />
+        <CheckBox label="Show Game PK" checked={showGamePk} onChange={handleShowGamePk} />
         <InputField
           label="Game PK"
           value={gamePkValue}

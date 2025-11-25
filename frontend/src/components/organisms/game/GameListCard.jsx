@@ -10,6 +10,9 @@ import {
 } from "@/store/GameStore";
 import "@/styles/gamelistcard.css";
 import GameListCardDetail from "./GameListCardDetail";
+// devonly:start
+import { useSelector } from "react-redux";
+// devonly:end
 
 const GameListCard = ({
   gamepk,
@@ -46,6 +49,10 @@ const GameListCard = ({
     dispatch(setSelectedGameAwayTeam(awayteam));
     dispatch(setSelectedGameHomeTeam(hometeam));
   };
+
+  // devonly:start
+  const showGamePk = useSelector((state) => state.debug.showGamePk);
+  // devonly:end
   return (
     <>
       <div
@@ -53,6 +60,20 @@ const GameListCard = ({
         onClick={handleClick}
         ref={targetRef}
       >
+        {/* devonly:start */}
+        {showGamePk && (
+          <div
+            className="game-list-card-gamepk"
+            style={{
+              position: "absolute",
+              fontSize: "13px",
+              right: "4px",
+            }}
+          >
+            {gamepk}
+          </div>
+        )}
+        {/* devonly:end */}
         {isHighlighted && <div className="game-list-card-pulse-indicator" />}
         <div className="game-list-card-date">{date.replace(/-/g, "/")}</div>
         <div className="game-list-card-teams">
