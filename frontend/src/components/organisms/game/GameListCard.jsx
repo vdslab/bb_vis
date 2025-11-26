@@ -10,6 +10,9 @@ import {
 } from "@/store/GameStore";
 import "@/styles/gamelistcard.css";
 import GameListCardDetail from "./GameListCardDetail";
+// devonly:start
+import { useSelector } from "react-redux";
+// devonly:end
 
 //  英語→日本語
 const TEAM_NAME_MAP = {
@@ -90,6 +93,10 @@ const GameListCard = ({
   const homeJP = getJPTeamName(hometeam);
   const awayJP = getJPTeamName(awayteam);
 
+
+  // devonly:start
+  const showGamePk = useSelector((state) => state.debug.showGamePk);
+  // devonly:end
   return (
     <>
       <div
@@ -97,9 +104,22 @@ const GameListCard = ({
         onClick={handleClick}
         ref={targetRef}
       >
+        {/* devonly:start */}
+        {showGamePk && (
+          <div
+            className="game-list-card-gamepk"
+            style={{
+              position: "absolute",
+              fontSize: "13px",
+              right: "4px",
+            }}
+          >
+            {gamepk}
+          </div>
+        )}
+        {/* devonly:end */}
         {isHighlighted && <div className="game-list-card-pulse-indicator" />}
         <div className="game-list-card-date">{date.replace(/-/g, "/")}</div>
-
         <div className="game-list-card-teams">
           {/* ホームチーム（日本語 → 英語） */}
           <div className="game-list-card-team-name small-team">
@@ -118,7 +138,6 @@ const GameListCard = ({
           </div>
         </div>
       </div>
-
       {isOpen && <GameListCardDetail />}
     </>
   );

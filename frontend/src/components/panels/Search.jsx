@@ -3,6 +3,20 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedTeam, setSelectedDate, setSelectedFeature } from "../../store/GameStore";
 import DatePicker from "../organisms/serch/DatePicker";
+// devonly:start
+import InputField from "../organisms/serch/InputField";
+import CheckBox from "../atoms/CheckBox";
+import {
+  setGamePk,
+  setHighlightData,
+  setSelectedGameAwayTeam,
+  setSelectedGameHomeTeam,
+  setSelectedGameDate,
+  setHighlightFromParallelCoordinates,
+} from "../../store/GameStore";
+import { setStopMovieAutoScroll } from "../../store/DebugStore";
+import { setShowGamePk } from "../../store/DebugStore";
+// devonly:end
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -14,6 +28,41 @@ const Search = () => {
   const [teamValue, setTeamValue] = useState(storeSelectedTeam);
   const [featureValue, setFeatureValue] = useState(storeSelectedFeature || "");
   const [dateValue, setDateValue] = useState(storeSelectedDate);
+
+  // devonly:start
+  const gameData = useSelector((state) => state.game.gameData);
+  const stopMovieAutoScroll = useSelector((state) => state.debug.stopMovieAutoScroll);
+  const showGamePk = useSelector((state) => state.debug.showGamePk);
+  const debugMode = useSelector((state) => state.debug.debugMode);
+  const [gamePkValue, setGamePkValue] = useState("");
+  const [isNotFound, setIsNotFound] = useState(false);
+
+  const handleStopMovieAutoScrollChange = (event) => {
+    dispatch(setStopMovieAutoScroll(event.target.checked));
+  };
+  const handleShowGamePk = (event) => {
+    dispatch(setShowGamePk(event.target.checked));
+  };
+
+  const handleGamePkClick = () => {
+    const gamePk = Number(gamePkValue);
+    const game = gameData.find((g) => g.gamepk === gamePk);
+    if (
+      game &&
+      (teamValue === "All" || game.team.away === teamValue || game.team.home === teamValue)
+    ) {
+      dispatch(setGamePk(gamePk));
+      dispatch(setHighlightData(gamePk));
+      dispatch(setHighlightFromParallelCoordinates(false));
+      dispatch(setSelectedGameDate(game.date));
+      dispatch(setSelectedGameAwayTeam(game.team.away));
+      dispatch(setSelectedGameHomeTeam(game.team.home));
+      setIsNotFound(false);
+    } else {
+      setIsNotFound(true);
+    }
+  };
+  // devonly:end
 
   useEffect(() => {
     setTeamValue(storeSelectedTeam);
@@ -83,6 +132,28 @@ const Search = () => {
           />
         </div>
       </div>
+      {/* devonly:start */}
+      {debugMode && (
+        <div className="debug-tool">
+          <p>Debug Field:</p>
+          <CheckBox
+            label="Stop Movie Auto Scroll"
+            checked={stopMovieAutoScroll}
+            onChange={handleStopMovieAutoScrollChange}
+          />
+          <CheckBox label="Show Game PK" checked={showGamePk} onChange={handleShowGamePk} />
+          <InputField
+            label="Game PK"
+            value={gamePkValue}
+            onButtonClick={handleGamePkClick}
+            onChange={(event) => setGamePkValue(event.target.value)}
+          />
+          {isNotFound && (
+            <p style={{ color: "red", fontSize: "10px" }}>gamepk: {gamePkValue} not found</p>
+          )}
+        </div>
+      )}
+      {/* devonly:end */}
     </div>
   );
 };

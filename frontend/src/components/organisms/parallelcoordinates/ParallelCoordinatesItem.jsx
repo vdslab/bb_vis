@@ -20,6 +20,8 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
   const selectedTeam = useSelector((state) => state.game.selectedTeam);
   const selectedDate = useSelector((state) => state.game.selectedDate);
   const highlightData = useSelector((state) => state.game.highlightData);
+  const gameData = useSelector((state) => state.game.gameData);
+  const isDataLoaded = useSelector((state) => state.game.isDataLoaded);
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const [data, setData] = useState([]);
@@ -67,44 +69,38 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
 
   // データ読み込み（チーム・日付フィルタ対応）
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const response = await fetch("/data/2025-03-16-2025-07-28.json");
-        const jsonData = await response.json();
+    if (!isDataLoaded || gameData.length === 0) {
+      return;
+    }
 
-        // チームでフィルタリング
-        let filteredData = jsonData;
-        if (selectedTeam !== "All") {
-          filteredData = jsonData.filter(
-            (item) => item.team.home === selectedTeam || item.team.away === selectedTeam,
-          );
+    // チームでフィルタリング
+    let filteredData = gameData;
+    if (selectedTeam !== "All") {
+      filteredData = gameData.filter(
+        (item) => item.team.home === selectedTeam || item.team.away === selectedTeam,
+      );
+    }
+
+    // 日付でフィルタリング
+    if (selectedDate.startDate || selectedDate.endDate) {
+      filteredData = filteredData.filter((item) => {
+        const itemDate = item.date;
+        const startDate = selectedDate.startDate;
+        const endDate = selectedDate.endDate;
+
+        if (startDate && endDate) {
+          return itemDate >= startDate && itemDate <= endDate;
+        } else if (startDate) {
+          return itemDate >= startDate;
+        } else if (endDate) {
+          return itemDate <= endDate;
         }
+        return true;
+      });
+    }
 
-        // 日付でフィルタリング
-        if (selectedDate.startDate || selectedDate.endDate) {
-          filteredData = filteredData.filter((item) => {
-            const itemDate = item.date;
-            const startDate = selectedDate.startDate;
-            const endDate = selectedDate.endDate;
-
-            if (startDate && endDate) {
-              return itemDate >= startDate && itemDate <= endDate;
-            } else if (startDate) {
-              return itemDate >= startDate;
-            } else if (endDate) {
-              return itemDate <= endDate;
-            }
-            return true;
-          });
-        }
-
-        setData(filteredData);
-      } catch (error) {
-        console.error("データの読み込みに失敗しました:", error);
-      }
-    };
-    loadData();
-  }, [selectedTeam, selectedDate]);
+    setData(filteredData);
+  }, [gameData, isDataLoaded, selectedTeam, selectedDate]);
 
   // データ正規化（0〜1に変換）
   const normalizeData = (data, key) => {

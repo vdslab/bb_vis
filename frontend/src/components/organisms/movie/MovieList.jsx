@@ -5,9 +5,25 @@ import "swiper/css";
 import "swiper/css/mousewheel";
 import "swiper/css/free-mode";
 import MovieListItem from "./MovieListItem";
+// devonly:start
+import { useSelector } from "react-redux";
+// devonly:end
 
 const MovieList = memo(({ iframeTags, loading }) => {
+  // devonly:start
+  const stopMovieAutoScroll = useSelector((state) => state.debug.stopMovieAutoScroll);
+  // devonly:end
   const swiperRef = useRef(null);
+
+  let autoplayConfig = {
+    delay: 2000,
+    disableOnInteraction: false,
+  };
+  // devonly:start
+  if (stopMovieAutoScroll) {
+    autoplayConfig = false;
+  }
+  // devonly:end
 
   // 安定したキーを生成
   const slidesWithKeys = useMemo(() => {
@@ -55,10 +71,7 @@ const MovieList = memo(({ iframeTags, loading }) => {
             slidesPerView="auto"
             mousewheel={true}
             speed={400}
-            autoplay={{
-              delay: 2000,
-              disableOnInteraction: false,
-            }}
+            autoplay={autoplayConfig}
             style={{ height: "100%", width: "100%" }}
           >
             {slidesWithKeys.map(({ iframeTag, key }) => (

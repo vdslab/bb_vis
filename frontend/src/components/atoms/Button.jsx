@@ -1,6 +1,6 @@
 import { Button as MuiButton } from "@mui/material";
 
-const Button = ({ children, variant = "outlined", size = "small", onClick }) => {
+const Button = ({ children, variant = "outlined", size = "small", onClick, sx = {} }) => {
   return (
     <MuiButton
       variant={variant}
@@ -17,6 +17,7 @@ const Button = ({ children, variant = "outlined", size = "small", onClick }) => 
           borderColor: "rgba(0, 0, 0, 0.87)",
           backgroundColor: "rgba(0, 0, 0, 0.04)",
         },
+        ...sx,
       }}
     >
       {children}
