@@ -93,7 +93,6 @@ const GameListCard = ({
   const homeJP = getJPTeamName(hometeam);
   const awayJP = getJPTeamName(awayteam);
 
-
   // devonly:start
   const showGamePk = useSelector((state) => state.debug.showGamePk);
   // devonly:end
