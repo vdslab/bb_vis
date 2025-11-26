@@ -27,14 +27,14 @@ const MovieListItem = memo(({ iframeTag }) => {
     const srcMatch = tag?.match(/src="([^"]+)"/);
     const src = srcMatch?.[1] || "";
     const movieName = src.split("/").pop()?.split("?")[0] || "動画再生";
-    const movieUrl = "https://www.mlb.com/video/" + movieName + "?partnerId=web_video-game-index-page_video-share"
+    const movieUrl =
+      "https://www.mlb.com/video/" + movieName + "?partnerId=web_video-game-index-page_video-share";
     return movieUrl;
   };
 
   const description = extractDescription(iframeTag);
 
   const movieUrl = extractMovieUrl(iframeTag);
-
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -47,7 +47,7 @@ const MovieListItem = memo(({ iframeTag }) => {
   };
   const thumbnailIframe = iframeTag?.replace(
     /<iframe([^>]*?)src="([^"]+)"([^>]*)>/i,
-    `<iframe$1 src="$2" $3 style="width: 100%; height: 100%; border: none; aspect-ratio: 16/9; pointer-events: none;"fullscreen"></iframe>`
+    `<iframe$1 src="$2" $3 style="width: 100%; height: 100%; border: none; aspect-ratio: 16/9; pointer-events: none;"fullscreen"></iframe>`,
   );
   return (
     <div className="movie-item">

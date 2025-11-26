@@ -76,9 +76,7 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
         let filteredData = jsonData;
         if (selectedTeam !== "All") {
           filteredData = jsonData.filter(
-            (item) =>
-              item.team.home === selectedTeam ||
-              item.team.away === selectedTeam,
+            (item) => item.team.home === selectedTeam || item.team.away === selectedTeam,
           );
         }
 
@@ -164,12 +162,7 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
 
   // メイン描画＆イベント処理
   useEffect(() => {
-    if (
-      !data.length ||
-      !canvasRef.current ||
-      dimensions.width === 0 ||
-      dimensions.height === 0
-    ) {
+    if (!data.length || !canvasRef.current || dimensions.width === 0 || dimensions.height === 0) {
       // データなしのキャンバス表示
       const canvas = canvasRef.current;
       if (canvas && dimensions.width > 0 && dimensions.height > 0) {
@@ -274,8 +267,7 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
     const filteredData = normalizedData.filter((item) => {
       return Object.entries(brushes).every(([key, range]) => {
         if (!range || range.y1 === range.y2) return true; // ブラシ未適用軸はスルー
-        const y =
-          margin.top + chartHeight - item[key + "_normalized"] * chartHeight;
+        const y = margin.top + chartHeight - item[key + "_normalized"] * chartHeight;
         const minY = Math.min(range.y1, range.y2);
         const maxY = Math.max(range.y1, range.y2);
         return y >= minY && y <= maxY;
@@ -288,9 +280,7 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
     // データライン描画（ブラシフィルタ済み）
     filteredData.forEach((item) => {
       const isTarget = item.gamepk === highlightData;
-      ctx.strokeStyle = isTarget
-        ? "rgba(255, 0, 0, 1)"
-        : "rgba(70, 130, 180, 0.3)";
+      ctx.strokeStyle = isTarget ? "rgba(255, 0, 0, 1)" : "rgba(70, 130, 180, 0.3)";
       ctx.lineWidth = isTarget ? 2.5 : 1;
       ctx.beginPath();
 
@@ -412,14 +402,9 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
           const x1 = margin.left + i * axisSpacing;
           const x2 = margin.left + (i + 1) * axisSpacing;
 
-          const y1 =
-            margin.top +
-            chartHeight -
-            item[features[i].key + "_normalized"] * chartHeight;
+          const y1 = margin.top + chartHeight - item[features[i].key + "_normalized"] * chartHeight;
           const y2 =
-            margin.top +
-            chartHeight -
-            item[features[i + 1].key + "_normalized"] * chartHeight;
+            margin.top + chartHeight - item[features[i + 1].key + "_normalized"] * chartHeight;
 
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
 
@@ -473,14 +458,9 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
           const x1 = margin.left + i * axisSpacing;
           const x2 = margin.left + (i + 1) * axisSpacing;
 
-          const y1 =
-            margin.top +
-            chartHeight -
-            item[features[i].key + "_normalized"] * chartHeight;
+          const y1 = margin.top + chartHeight - item[features[i].key + "_normalized"] * chartHeight;
           const y2 =
-            margin.top +
-            chartHeight -
-            item[features[i + 1].key + "_normalized"] * chartHeight;
+            margin.top + chartHeight - item[features[i + 1].key + "_normalized"] * chartHeight;
 
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
 
@@ -574,21 +554,10 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
       canvas.removeEventListener("mousemove", handleMouseMoveBrush);
       window.removeEventListener("mouseup", handleMouseUpBrush);
     };
-  }, [
-    data,
-    dimensions,
-    brushes,
-    isBrushing,
-    activeBrush,
-    highlightData,
-    dispatch,
-  ]);
+  }, [data, dimensions, brushes, isBrushing, activeBrush, highlightData, dispatch]);
 
   return (
-    <div
-      ref={containerRef}
-      style={{ width: "100%", height: "100%", position: "relative" }}
-    >
+    <div ref={containerRef} style={{ width: "100%", height: "100%", position: "relative" }}>
       <canvas
         ref={canvasRef}
         style={{

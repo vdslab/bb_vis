@@ -13,9 +13,7 @@ const MovieList = memo(({ iframeTags, loading }) => {
   const slidesWithKeys = useMemo(() => {
     return iframeTags.map((iframeTag, index) => ({
       iframeTag,
-      key: `movie-${index}-${
-        iframeTag?.slice(0, 50)?.replace(/[^a-zA-Z0-9]/g, "") || index
-      }`,
+      key: `movie-${index}-${iframeTag?.slice(0, 50)?.replace(/[^a-zA-Z0-9]/g, "") || index}`,
     }));
   }, [iframeTags]);
 
@@ -34,10 +32,7 @@ const MovieList = memo(({ iframeTags, loading }) => {
   return (
     <div className="movie-list">
       <div className="swiper-container-vertical">
-        <div
-          className="nav-area-vertical nav-area-prev-vertical"
-          onClick={handlePrevClick}
-        ></div>
+        <div className="nav-area-vertical nav-area-prev-vertical" onClick={handlePrevClick}></div>
 
         {/* 読み込み中 */}
         {loading ? (
@@ -74,10 +69,7 @@ const MovieList = memo(({ iframeTags, loading }) => {
           </Swiper>
         )}
 
-        <div
-          className="nav-area-vertical nav-area-next-vertical"
-          onClick={handleNextClick}
-        ></div>
+        <div className="nav-area-vertical nav-area-next-vertical" onClick={handleNextClick}></div>
       </div>
     </div>
   );

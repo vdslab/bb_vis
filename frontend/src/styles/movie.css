@@ -117,19 +117,11 @@
 }
 
 .nav-area-prev:hover {
-  background: linear-gradient(
-    to right,
-    rgba(0, 123, 255, 0.25),
-    rgba(0, 123, 255, 0.05)
-  );
+  background: linear-gradient(to right, rgba(0, 123, 255, 0.25), rgba(0, 123, 255, 0.05));
 }
 
 .nav-area-next:hover {
-  background: linear-gradient(
-    to left,
-    rgba(0, 123, 255, 0.25),
-    rgba(0, 123, 255, 0.05)
-  );
+  background: linear-gradient(to left, rgba(0, 123, 255, 0.25), rgba(0, 123, 255, 0.05));
 }
 
 /* ホバー時の視覚的インジケーター */
@@ -199,19 +191,11 @@
 }
 
 .nav-area-prev-vertical:hover {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 123, 255, 0.25),
-    rgba(0, 123, 255, 0.05)
-  );
+  background: linear-gradient(to bottom, rgba(0, 123, 255, 0.25), rgba(0, 123, 255, 0.05));
 }
 
 .nav-area-next-vertical:hover {
-  background: linear-gradient(
-    to top,
-    rgba(0, 123, 255, 0.25),
-    rgba(0, 123, 255, 0.05)
-  );
+  background: linear-gradient(to top, rgba(0, 123, 255, 0.25), rgba(0, 123, 255, 0.05));
 }
 
 /* ホバー時の視覚的インジケーター */

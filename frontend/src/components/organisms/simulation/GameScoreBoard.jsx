@@ -71,11 +71,7 @@ const GameScoreBoard = ({ metaData, eventData }) => {
         ctx.font = textFont;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
-        ctx.fillText(
-          c,
-          canvas.width * (0.282 + blockGap * i),
-          canvas.height * labelHeight,
-        );
+        ctx.fillText(c, canvas.width * (0.282 + blockGap * i), canvas.height * labelHeight);
 
         ctx.fillStyle = black;
         // イニングナンバーの四角形
@@ -107,21 +103,9 @@ const GameScoreBoard = ({ metaData, eventData }) => {
       ctx.font = textFont;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.fillText(
-        "B",
-        canvas.width * 0.805,
-        canvas.height * (labelHeight + 0.05),
-      );
-      ctx.fillText(
-        "S",
-        canvas.width * 0.805,
-        canvas.height * (labelHeight + 0.235),
-      );
-      ctx.fillText(
-        "O",
-        canvas.width * 0.805,
-        canvas.height * (labelHeight + 0.42),
-      );
+      ctx.fillText("B", canvas.width * 0.805, canvas.height * (labelHeight + 0.05));
+      ctx.fillText("S", canvas.width * 0.805, canvas.height * (labelHeight + 0.235));
+      ctx.fillText("O", canvas.width * 0.805, canvas.height * (labelHeight + 0.42));
 
       // count
       ctx.fillStyle = black;
@@ -144,16 +128,8 @@ const GameScoreBoard = ({ metaData, eventData }) => {
       ctx.font = teamFont2;
       ctx.textAlign = "left";
       // ctx.textBaseline = "top";
-      ctx.fillText(
-        metaData.team.away,
-        canvas.width * 0.045,
-        canvas.height * awayTeamTextHeight,
-      );
-      ctx.fillText(
-        metaData.team.home,
-        canvas.width * 0.045,
-        canvas.height * homeTeamTextHeight,
-      );
+      ctx.fillText(metaData.team.away, canvas.width * 0.045, canvas.height * awayTeamTextHeight);
+      ctx.fillText(metaData.team.home, canvas.width * 0.045, canvas.height * homeTeamTextHeight);
 
       // inning_score
       ctx.fillStyle = white;
