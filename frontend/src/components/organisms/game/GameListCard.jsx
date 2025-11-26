@@ -88,7 +88,7 @@ const GameListCard = ({
           <div className="game-list-card-team-name">{awayteam}</div>
         </div>
       </div>
-      {isOpen && <GameListCardDetail />}
+      {isOpen && <GameListCardDetail gamepk={gamepk} />}
     </>
   );
 };
