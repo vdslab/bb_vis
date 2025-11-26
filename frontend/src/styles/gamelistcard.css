@@ -105,3 +105,14 @@
 .game-list-card.highlighted .game-list-card-score {
   color: #ff6f00;
 }
+
+/* チーム名を小さくする */
+.small-team {
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.team-name-en {
+  font-size: 20px;
+  opacity: 1;
+}
