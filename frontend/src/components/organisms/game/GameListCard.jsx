@@ -102,7 +102,7 @@ const GameListCard = ({
 
 				<div className="game-list-card-teams">
 					{/* ホームチーム（日本語 → 英語） */}
-					<div className="game-list-card-team-name">
+					<div className="game-list-card-team-name small-team">
 						<div>{homeJP || hometeam}</div>
 						<div className="team-name-en">{hometeam}</div>
 					</div>
@@ -112,7 +112,7 @@ const GameListCard = ({
 					<span className="game-list-card-score score-start">{awayteamscore}</span>
 
 					{/* アウェーチーム（日本語 → 英語） */}
-					<div className="game-list-card-team-name">
+					<div className="game-list-card-team-name small-team">
 						<div>{awayJP || awayteam}</div>
 						<div className="team-name-en">{awayteam}</div>
 					</div>

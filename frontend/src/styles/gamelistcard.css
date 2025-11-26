@@ -106,13 +106,13 @@
 	color: #ff6f00;
 }
 
-.team-jp {
-	font-size: 15px;
-	font-weight: bold;
+/* チーム名を小さくする */
+.small-team {
+	font-size: 14px;
+	line-height: 1.1;
 }
 
-.team-en {
-	font-size: 11px;
+.small-team .team-name-en {
+	font-size: 20px;
 	opacity: 0.7;
-	margin-top: -2px;
 }
