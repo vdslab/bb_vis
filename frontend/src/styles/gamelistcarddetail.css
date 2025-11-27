@@ -1,15 +1,31 @@
 .game-list-card-detail {
   display: flex;
   flex-direction: column;
-  min-height: 100px;
 }
 
 .game-list-card-detail-upper {
-  min-height: 150px;
+  display: flex;
+  width: 100%;
+  height: 100px;
+}
+
+.game-list-card-detail-upper-heatmap {
+  width: 70%;
+  height: 100%;
+}
+
+.game-list-card-detail-upper-evaluation {
+  width: 30%;
+  height: 100%;
+}
+
+.game-list-card-detail-middle {
+  width: 100%;
 }
 
 .game-list-card-detail-under {
   display: flex;
   justify-content: right;
   margin-right: 16px;
+  margin-top: 16px;
 }

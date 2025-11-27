@@ -6,6 +6,7 @@ import Button from "@/components/atoms/button";
 import { setAnalysisData } from "@/store/GameStore";
 import { useAnalysisData } from "@/hooks/useAnalysisData";
 import HeatMapItem from "../heatmap/HeatMapItem";
+import GameEvaluation from "./GameEvaluation";
 
 const GameListCardDetail = ({ gamepk }) => {
   // アコーディオンで試合の情報を表示する
@@ -24,10 +25,14 @@ const GameListCardDetail = ({ gamepk }) => {
   return (
     <div className="game-list-card-detail">
       <div className="game-list-card-detail-upper">
-        <a>試合情報</a>
-        <a>何を表示するかは考えていない</a>
-        {analysisData && !loading && <HeatMapItem analysisData={analysisData} />}
+        <div className="game-list-card-detail-upper-heatmap">
+          {analysisData && !loading && <HeatMapItem analysisData={analysisData} />}
+        </div>
+        <div className="game-list-card-detail-upper-heatmap-evaluation">
+          <GameEvaluation analysisData={analysisData} />
+        </div>
       </div>
+      <div className="game-list-card-detail-middle"></div>
       <div className="game-list-card-detail-under">
         <Button onClick={handleClick}>View Game Details →</Button>
       </div>
