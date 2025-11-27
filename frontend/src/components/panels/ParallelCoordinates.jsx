@@ -1,7 +1,7 @@
 import "@/styles/parallelcoordinates.css";
 import ParallelCoordinatesItem from "../organisms/parallelcoordinates/ParallelCoordinatesItem";
 import { useState } from "react";
-import Button from "../atoms/button";
+import Button from "../atoms/Button";
 
 const ParallelCoordinates = () => {
   // データを取得
