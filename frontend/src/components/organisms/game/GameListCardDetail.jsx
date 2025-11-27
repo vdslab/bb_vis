@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { setIsDialogOpen } from "@/store/GameStore";
 import "@styles/gamelistcarddetail.css";
-import Button from "@/components/atoms/button";
+import Button from "@/components/atoms/Button";
 import { setAnalysisData } from "@/store/GameStore";
 import { useAnalysisData } from "@/hooks/useAnalysisData";
 import HeatMapItem from "../heatmap/HeatMapItem";
