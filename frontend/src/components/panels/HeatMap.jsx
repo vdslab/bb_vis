@@ -1,14 +1,10 @@
-import { useAnalysisData } from "@/hooks/useAnalysisData";
 import HeatMapItem from "../organisms/heatmap/HeatMapItem";
-import HeatMapItemTest from "../organisms/heatmap/HeatMapItemTest";
 import { useSelector } from "react-redux";
 import "@/styles/heatmap.css";
 
 const HeatMap = () => {
   const gamepk = useSelector((state) => state.game.gamepk);
-
-  const { analysisData, loading } = useAnalysisData(gamepk);
-  console.log(analysisData);
+  const analysisData = useSelector((state) => state.game.analysisData);
 
   // データの存在チェック
   const hasValidData = analysisData;
@@ -17,20 +13,17 @@ const HeatMap = () => {
     <div className="panel-screen heatmap-panel">
       <div className="panel-content">
         <div className="heatmap-container">
-          {loading && <div className="loading">Loading...</div>}
-          {!loading && !hasValidData && (
+          {!analysisData && <div className="loading">Loading...</div>}
+          {!analysisData && !hasValidData && (
             <div className="error-message">
               <p>No Data</p>
               {gamepk && <p>Game PK: {gamepk}</p>}
             </div>
           )}
-          {!loading && hasValidData && (
+          {analysisData && hasValidData && (
             <div className="heatmap-item">
               {/* ライブラリ描画 */}
               <HeatMapItem analysisData={analysisData} />
-              {/* 通常データ時 上:通常描画,下:長さスケール */}
-              {/* スケールテスト用データ時 上:データスケール,下:無し */}
-              {/* <HeatMapItemTest data={analysisData} /> */}
             </div>
           )}
         </div>

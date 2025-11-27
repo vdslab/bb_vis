@@ -22,6 +22,7 @@ const initialState = {
   isDialogOpen: false,
   gameData: [],
   isDataLoaded: false,
+  analysisData: [],
 };
 
 const gameSlice = createSlice({
@@ -70,6 +71,9 @@ const gameSlice = createSlice({
     setIsDataLoaded: (state, action) => {
       state.isDataLoaded = action.payload;
     },
+    setAnalysisData: (state, action) => {
+      state.analysisData = action.payload;
+    },
   },
 });
 
@@ -88,6 +92,7 @@ export const {
   setIsDialogOpen,
   setGameData,
   setIsDataLoaded,
+  setAnalysisData,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

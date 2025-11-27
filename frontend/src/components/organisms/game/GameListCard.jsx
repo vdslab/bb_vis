@@ -137,7 +137,7 @@ const GameListCard = ({
           </div>
         </div>
       </div>
-      {isOpen && <GameListCardDetail />}
+      {isOpen && <GameListCardDetail gamepk={gamepk} />}
     </>
   );
 };

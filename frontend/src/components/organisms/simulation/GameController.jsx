@@ -1,6 +1,5 @@
 import HeatMapItem from "../heatmap/HeatMapItem";
 import { useSelector } from "react-redux";
-import { useAnalysisData } from "@/hooks/useAnalysisData";
 import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { setId } from "@/store/GameStore";
@@ -9,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 
 const GameController = ({ eventData, playData, p_id, e_id }) => {
   const gamepk = useSelector((state) => state.game.gamepk);
-  const { analysisData, loading } = useAnalysisData(gamepk);
+  const analysisData = useSelector((state) => state.game.analysisData);
   const dispatch = useDispatch();
   const isFirst = eventData.is_first_play && eventData.is_first_event;
   const isLast = eventData.is_last_play && eventData.is_last_event;
@@ -66,14 +65,13 @@ const GameController = ({ eventData, playData, p_id, e_id }) => {
       </div>
 
       <div className="game-controller-item">
-        {loading && <div className="loading">Loading...</div>}
-        {!loading && !analysisData && (
+        {!analysisData && (
           <div className="error-message">
             <p className="error-text no-data">No Data</p>
             {gamepk && <p>Game PK: {gamepk}</p>}
           </div>
         )}
-        {!loading && analysisData && <HeatMapItem analysisData={analysisData} />}
+        {analysisData && <HeatMapItem analysisData={analysisData} />}
       </div>
       <div className="game-controller-right-arrow">
         <IconButton
