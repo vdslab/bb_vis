@@ -3,7 +3,7 @@ import axios from "axios";
 export class ApiService {
   // 開発環境では外部URL、本番環境（Netlify）では相対パスを使用
   static baseUrl = import.meta.env.VITE_API_HOST_URL || "";
-  
+
   static async callGetApi(endpoint, params = {}) {
     try {
       const response = await axios.get(endpoint, {

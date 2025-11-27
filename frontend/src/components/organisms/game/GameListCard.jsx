@@ -1,16 +1,57 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { setGamePk, setHighlightData, setSelectedGameAwayTeam, setSelectedGameHomeTeam, setSelectedGameDate, setHighlightFromParallelCoordinates } from "@/store/GameStore";
-
 import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  CardActionArea,
-  Box,
-  Chip,
-} from "@mui/material";
+  setGamePk,
+  setHighlightData,
+  setSelectedGameAwayTeam,
+  setSelectedGameHomeTeam,
+  setSelectedGameDate,
+  setHighlightFromParallelCoordinates,
+} from "@/store/GameStore";
+import "@/styles/gamelistcard.css";
+import GameListCardDetail from "./GameListCardDetail";
+// devonly:start
+import { useSelector } from "react-redux";
+// devonly:end
+
+//  英語→日本語
+const TEAM_NAME_MAP = {
+  Diamondbacks: "ダイヤモンドバックス",
+  Braves: "ブレーブス",
+  Orioles: "オリオールズ",
+  "Red Sox": "レッドソックス",
+  Cubs: "カブス",
+  "White Sox": "ホワイトソックス",
+  Reds: "レッズ",
+  Guardians: "ガーディアンズ",
+  Rockies: "ロッキーズ",
+  Tigers: "タイガース",
+  Astros: "アストロズ",
+  Royals: "ロイヤルズ",
+  Angels: "エンゼルス",
+  Dodgers: "ドジャース",
+  Marlins: "マーリンズ",
+  Brewers: "ブルワーズ",
+  Twins: "ツインズ",
+  Mets: "メッツ",
+  Yankees: "ヤンキース",
+  Athletics: "アスレチックス",
+  Phillies: "フィリーズ",
+  Pirates: "パイレーツ",
+  Padres: "パドレス",
+  Giants: "ジャイアンツ",
+  Mariners: "マリナーズ",
+  Cardinals: "カージナルス",
+  Rays: "レイズ",
+  Rangers: "レンジャーズ",
+  BlueJays: "ブルージェイズ",
+  Nationals: "ナショナルズ",
+};
+
+//  日本語変換
+const getJPTeamName = (name) => {
+  return TEAM_NAME_MAP[name] || null;
+};
 
 const GameListCard = ({
   gamepk,
@@ -22,167 +63,82 @@ const GameListCard = ({
   isHighlighted = false,
 }) => {
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+  const targetRef = useRef(null);
+
+  useEffect(() => {
+    if (isHighlighted && targetRef.current) {
+      targetRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, [isHighlighted]);
 
   const handleClick = () => {
     dispatch(setGamePk(gamepk));
     dispatch(setHighlightData(gamepk));
     dispatch(setHighlightFromParallelCoordinates(false));
     dispatch(setSelectedGameDate(date));
+
+    //Redux には英語を渡す
     dispatch(setSelectedGameAwayTeam(awayteam));
     dispatch(setSelectedGameHomeTeam(hometeam));
   };
 
+  //  日本語名を準備
+  const homeJP = getJPTeamName(hometeam);
+  const awayJP = getJPTeamName(awayteam);
+
+  // devonly:start
+  const showGamePk = useSelector((state) => state.debug.showGamePk);
+  // devonly:end
   return (
-    <Card
-      sx={{
-        width: "100%",
-        height: "100%",
-        transition: "transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out",
-        boxShadow: isHighlighted ? "0px 4px 20px rgba(255, 193, 7, 0.5)" : "none",
-        borderRadius: "0px",
-        background: isHighlighted 
-          ? "linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 235, 59, 0.05) 100%)"
-          : "transparent",
-        border: isHighlighted ? "2px solidrgb(7, 255, 247)" : "none",
-        "&:hover": {
-          transform: isHighlighted ? "scale(1.02)" : "scale(1)",
-          boxShadow: isHighlighted 
-            ? "0px 6px 25px rgba(255, 193, 7, 0.7)"
-            : "0px 2px 8px rgba(0, 0, 0, 0.1)",
-        },
-      }}
-    >
-      <CardActionArea onClick={handleClick}>
-        <CardContent sx={{ padding: "8px", position: "relative" }}>
-          {isHighlighted && (
-            <Box
-              sx={{
-                position: "absolute",
-                top: "4px",
-                right: "4px",
-                width: "8px",
-                height: "8px",
-                borderRadius: "50%",
-                backgroundColor: "#ffc107",
-                boxShadow: "0px 0px 8px rgba(255, 193, 7, 0.8)",
-                animation: "pulse 2s infinite",
-                "@keyframes pulse": {
-                  "0%": {
-                    boxShadow: "0 0 0 0 rgba(255, 193, 7, 0.7)",
-                  },
-                  "70%": {
-                    boxShadow: "0 0 0 8px rgba(255, 193, 7, 0)",
-                  },
-                  "100%": {
-                    boxShadow: "0 0 0 0 rgba(255, 193, 7, 0)",
-                  },
-                },
-              }}
-            />
-          )}
-          <Box>
-            <Typography
-              variant="body1"
-              component="div"
-              sx={{ 
-                textAlign: "left", 
-                fontSize: "0.7rem",
-                color: isHighlighted ? "#ff6f00" : "inherit",
-                fontWeight: isHighlighted ? "bold" : "normal",
-              }}
-            >
-              {date.replace(/-/g, "/")}
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: "3fr 1fr 2fr 1fr 3fr",
+    <>
+      <div
+        className={`game-list-card ${isHighlighted ? "highlighted" : ""}`}
+        onClick={handleClick}
+        ref={targetRef}
+      >
+        {/* devonly:start */}
+        {showGamePk && (
+          <div
+            className="game-list-card-gamepk"
+            style={{
+              position: "absolute",
+              fontSize: "13px",
+              right: "4px",
             }}
           >
-            {/* ホームチーム名 */}
-            <Typography
-              variant="body1"
-              component="div"
-              sx={{
-                fontWeight: "bold",
-                textAlign: "center",
-                fontFamily: "Soei Kaku Pop",
-                fontStyle: "italic",
-                fontSize: "1.4rem",
-                color: isHighlighted ? "#ff6f00" : "inherit",
-                textShadow: isHighlighted ? "0px 0px 4px rgba(255, 111, 0, 0.3)" : "none",
-              }}
-            >
-              {hometeam}
-            </Typography>
-            {/* ホームチームスコア */}
-            <Typography
-              variant="body1"
-              component="span"
-              sx={{ 
-                fontWeight: "bold", 
-                fontSize: "1.2rem", 
-                justifyContent: "flex-end", 
-                display: "flex", 
-                alignItems: "center", 
-                height: "100%",
-                color: isHighlighted ? "#ff6f00" : "inherit",
-              }}
-            >
-              {hometeamscore}
-            </Typography>
-            <Typography
-              variant="body1"
-              component="span"
-              sx={{ 
-                fontWeight: "bold", 
-                fontSize: "1.2rem",
-                justifyContent: "center", 
-                display: "flex", 
-                alignItems: "center", 
-                height: "100%",
-                color: isHighlighted ? "#ff6f00" : "inherit",
-              }}
-            >
-              -
-            </Typography>
-            {/* アウェーチームスコア */}
-            <Typography
-              variant="body1"
-              component="span"
-              sx={{ 
-                fontWeight: "bold", 
-                fontSize: "1.2rem",
-                justifyContent: "flex-start", 
-                display: "flex", 
-                alignItems: "center", 
-                height: "100%",
-                color: isHighlighted ? "#ff6f00" : "inherit",
-              }}
-            >
-              {awayteamscore}
-            </Typography>
-            {/* アウェーチーム名 */}
-            <Typography
-              variant="body1"
-              component="div"
-              sx={{
-                fontWeight: "bold",
-                textAlign: "center",
-                fontFamily: "Soei Kaku Pop",
-                fontStyle: "italic",
-                fontSize: "1.4rem",
-                color: isHighlighted ? "#ff6f00" : "inherit",
-                textShadow: isHighlighted ? "0px 0px 4px rgba(255, 111, 0, 0.3)" : "none",
-              }}
-            >
-              {awayteam}
-            </Typography>
-          </Box>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+            {gamepk}
+          </div>
+        )}
+        {/* devonly:end */}
+        {isHighlighted && <div className="game-list-card-pulse-indicator" />}
+        <div className="game-list-card-date">{date.replace(/-/g, "/")}</div>
+        <div className="game-list-card-teams">
+          {/* ホームチーム（日本語 → 英語） */}
+          <div className="game-list-card-team-name small-team">
+            <div>{homeJP || hometeam}</div>
+            <div className="team-name-en">{hometeam}</div>
+          </div>
+
+          <span className="game-list-card-score score-end">{hometeamscore}</span>
+          <span className="game-list-card-score score-center">-</span>
+          <span className="game-list-card-score score-start">{awayteamscore}</span>
+
+          {/* アウェーチーム（日本語 → 英語） */}
+          <div className="game-list-card-team-name small-team">
+            <div>{awayJP || awayteam}</div>
+            <div className="team-name-en">{awayteam}</div>
+          </div>
+        </div>
+      </div>
+      {isOpen && <GameListCardDetail gamepk={gamepk} />}
+    </>
   );
 };
 

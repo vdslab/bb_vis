@@ -3,10 +3,24 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedTeam, setSelectedDate, setSelectedFeature } from "../../store/GameStore";
 import DatePicker from "../organisms/serch/DatePicker";
+// devonly:start
+import InputField from "../organisms/serch/InputField";
+import CheckBox from "../atoms/CheckBox";
+import {
+  setGamePk,
+  setHighlightData,
+  setSelectedGameAwayTeam,
+  setSelectedGameHomeTeam,
+  setSelectedGameDate,
+  setHighlightFromParallelCoordinates,
+} from "../../store/GameStore";
+import { setStopMovieAutoScroll } from "../../store/DebugStore";
+import { setShowGamePk } from "../../store/DebugStore";
+// devonly:end
 
 const Search = () => {
   const dispatch = useDispatch();
-  
+
   const storeSelectedTeam = useSelector((state) => state.game.selectedTeam);
   const storeSelectedFeature = useSelector((state) => state.game.selectedFeature);
   const storeSelectedDate = useSelector((state) => state.game.selectedDate);
@@ -14,6 +28,41 @@ const Search = () => {
   const [teamValue, setTeamValue] = useState(storeSelectedTeam);
   const [featureValue, setFeatureValue] = useState(storeSelectedFeature || "");
   const [dateValue, setDateValue] = useState(storeSelectedDate);
+
+  // devonly:start
+  const gameData = useSelector((state) => state.game.gameData);
+  const stopMovieAutoScroll = useSelector((state) => state.debug.stopMovieAutoScroll);
+  const showGamePk = useSelector((state) => state.debug.showGamePk);
+  const debugMode = useSelector((state) => state.debug.debugMode);
+  const [gamePkValue, setGamePkValue] = useState("");
+  const [isNotFound, setIsNotFound] = useState(false);
+
+  const handleStopMovieAutoScrollChange = (event) => {
+    dispatch(setStopMovieAutoScroll(event.target.checked));
+  };
+  const handleShowGamePk = (event) => {
+    dispatch(setShowGamePk(event.target.checked));
+  };
+
+  const handleGamePkClick = () => {
+    const gamePk = Number(gamePkValue);
+    const game = gameData.find((g) => g.gamepk === gamePk);
+    if (
+      game &&
+      (teamValue === "All" || game.team.away === teamValue || game.team.home === teamValue)
+    ) {
+      dispatch(setGamePk(gamePk));
+      dispatch(setHighlightData(gamePk));
+      dispatch(setHighlightFromParallelCoordinates(false));
+      dispatch(setSelectedGameDate(game.date));
+      dispatch(setSelectedGameAwayTeam(game.team.away));
+      dispatch(setSelectedGameHomeTeam(game.team.home));
+      setIsNotFound(false);
+    } else {
+      setIsNotFound(true);
+    }
+  };
+  // devonly:end
 
   useEffect(() => {
     setTeamValue(storeSelectedTeam);
@@ -28,62 +77,84 @@ const Search = () => {
   }, [teamValue, featureValue, dateValue, dispatch]);
 
   const teamOptions = [
-    { value: "All", label: "All" },
-    { value: "Los Angeles Dodgers", label: "Dodgers" },
-    { value: "Chicago Cubs", label: "Cubs" },
-    { value: "Milwaukee Brewers", label: "Brewers" },
-    { value: "New York Yankees", label: "Yankees" },
-    { value: "Baltimore Orioles", label: "Orioles" },
-    { value: "Toronto Blue Jays", label: "Blue Jays" },
-    { value: "Boston Red Sox", label: "Red Sox" },
-    { value: "Texas Rangers", label: "Rangers" },
-    { value: "Philadelphia Phillies", label: "Phillies" },
-    { value: "Washington Nationals", label: "Nationals" },
-    { value: "Cleveland Guardians", label: "Guardians" },
-    { value: "Kansas City Royals", label: "Royals" },
-    { value: "New York Mets", label: "Mets" },
-    { value: "Houston Astros", label: "Astros" },
-    { value: "San Francisco Giants", label: "Giants" },
-    { value: "Cincinnati Reds", label: "Reds" },
-    { value: "Atlanta Braves", label: "Braves" },
-    { value: "San Diego Padres", label: "Padres" },
-    { value: "Los Angeles Angels", label: "Angels" },
-    { value: "Chicago White Sox", label: "White Sox" },
-    { value: "Pittsburgh Pirates", label: "Pirates" },
-    { value: "Miami Marlins", label: "Marlins" },
-    { value: "Minnesota Twins", label: "Twins" },
-    { value: "St. Louis Cardinals", label: "Cardinals" },
-    { value: "Detroit Tigers", label: "Tigers" },
-    { value: "Arizona Diamondbacks", label: "Diamondbacks" },
-    { value: "Athletics", label: "Athletics" },
-    { value: "Seattle Mariners", label: "Mariners" },
-    { value: "Colorado Rockies", label: "Rockies" },
-    { value: "Tampa Bay Rays", label: "Rays" },
+    { value: "All", label: "All（すべて）" },
+    { value: "Los Angeles Dodgers", label: "Dodgers（ドジャース）" },
+    { value: "Chicago Cubs", label: "Cubs（カブス）" },
+    { value: "Milwaukee Brewers", label: "Brewers（ブルワーズ）" },
+    { value: "New York Yankees", label: "Yankees（ヤンキース）" },
+    { value: "Baltimore Orioles", label: "Orioles（オリオールズ）" },
+    { value: "Toronto Blue Jays", label: "Blue Jays（ブルージェイズ）" },
+    { value: "Boston Red Sox", label: "Red Sox（レッドソックス）" },
+    { value: "Texas Rangers", label: "Rangers（レンジャーズ）" },
+    { value: "Philadelphia Phillies", label: "Phillies（フィリーズ）" },
+    { value: "Washington Nationals", label: "Nationals（ナショナルズ）" },
+    { value: "Cleveland Guardians", label: "Guardians（ガーディアン）" },
+    { value: "Kansas City Royals", label: "Royals（ロイヤルズ）" },
+    { value: "New York Mets", label: "Mets（メッツ）" },
+    { value: "Houston Astros", label: "Astros（アストロズ）" },
+    { value: "San Francisco Giants", label: "Giants（ジャイアンツ）" },
+    { value: "Cincinnati Reds", label: "Reds（レッズ）" },
+    { value: "Atlanta Braves", label: "Braves（ブレーブス）" },
+    { value: "San Diego Padres", label: "Padres（パドレス）" },
+    { value: "Los Angeles Angels", label: "Angels（エンジェルス）" },
+    { value: "Chicago White Sox", label: "White Sox（ホワイトソックス）" },
+    { value: "Pittsburgh Pirates", label: "Pirates（パイレーツ）" },
+    { value: "Miami Marlins", label: "Marlins（マリーンズ）" },
+    { value: "Minnesota Twins", label: "Twins（ツインズ）" },
+    { value: "St. Louis Cardinals", label: "Cardinals（カージナルス）" },
+    { value: "Detroit Tigers", label: "Tigers（タイガーズ）" },
+    { value: "Arizona Diamondbacks", label: "Diamondbacks（ダイアモンドバックス）" },
+    { value: "Athletics", label: "Athletics（アスレチックス）" },
+    { value: "Seattle Mariners", label: "Mariners（マリナーズ）" },
+    { value: "Colorado Rockies", label: "Rockies（ロッキーズ）" },
+    { value: "Tampa Bay Rays", label: "Rays（レイズ）" },
   ].sort((a, b) => a.label.localeCompare(b.label));
 
   return (
     <div className="panel-screen search-panel">
-      <div className="panel-header">
+      <div className="search-panel-header">
         <h2>Filters</h2>
       </div>
-        <div className="search-box">
-          <div className="search-box-team">
-            <SelectBox
-              label="Team"
-              value={teamValue}
-              onChange={(event) => setTeamValue(event.target.value)}
-              options={teamOptions}
-            />
-          </div>
-          <div className="search-box-date">
-            <DatePicker
-              label="Date"
-              value={dateValue}
-              onChange={(event) => setDateValue(event.target.value)}
-            />
-          </div>
+      <div className="search-box">
+        <div className="search-box-team">
+          <SelectBox
+            label="Team"
+            value={teamValue}
+            onChange={(event) => setTeamValue(event.target.value)}
+            options={teamOptions}
+          />
+        </div>
+        <div className="search-box-date">
+          <DatePicker
+            label="Date"
+            value={dateValue}
+            onChange={(event) => setDateValue(event.target.value)}
+          />
         </div>
       </div>
+      {/* devonly:start */}
+      {debugMode && (
+        <div className="debug-tool">
+          <p>Debug Field:</p>
+          <CheckBox
+            label="Stop Movie Auto Scroll"
+            checked={stopMovieAutoScroll}
+            onChange={handleStopMovieAutoScrollChange}
+          />
+          <CheckBox label="Show Game PK" checked={showGamePk} onChange={handleShowGamePk} />
+          <InputField
+            label="Game PK"
+            value={gamePkValue}
+            onButtonClick={handleGamePkClick}
+            onChange={(event) => setGamePkValue(event.target.value)}
+          />
+          {isNotFound && (
+            <p style={{ color: "red", fontSize: "10px" }}>gamepk: {gamePkValue} not found</p>
+          )}
+        </div>
+      )}
+      {/* devonly:end */}
+    </div>
   );
 };
 

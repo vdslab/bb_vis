@@ -48,6 +48,16 @@
   object-position: center;
 }
 
+.field-overlay {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50vw; /* 背景と同じ幅にする */
+  height: 100%;
+  pointer-events: none;
+}
+
 .runners-overlay {
   position: absolute;
   top: 0;
@@ -79,6 +89,20 @@
   height: 80%;
 }
 
+/* ピッチャーの画像 */
+
+.pitcher {
+  position: absolute;
+  top: 65%;
+  left: 51%;
+  transform: translate(-50%, -50%);
+}
+
+.pitcher-img {
+  width: 40px;
+  height: auto;
+}
+
 .runner-img-wrapper {
   height: 80%;
   display: flex;
@@ -88,18 +112,18 @@
 
 /* ベースの位置 */
 .first-base {
-  top: 60%;
+  top: 59%;
   left: 67%;
 }
 
 .second-base {
-  top: 41%;
+  top: 42%;
   left: 52%;
 }
 
 .third-base {
-  top: 60%;
-  left: 36%;
+  top: 59%;
+  left: 37%;
 }
 
 /* パルスアニメーション */
@@ -146,4 +170,11 @@
   position: absolute;
   bottom: 16%;
   right: 0%;
+}
+
+.error-message .no-data {
+  font-size: 32px !important;
+  color: #666;
+  text-align: center;
+  font-weight: bold;
 }

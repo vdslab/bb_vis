@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 // ParallelCoordinatesItem.jsxからgamepkを受け取り、setGamepkに対して更新を行う
 const initialState = {
   // TODO:実際のデータを取得する
@@ -19,6 +19,10 @@ const initialState = {
   filteredGamePks: [777579],
   highlightData: 777579,
   highlightFromParallelCoordinates: true,
+  isDialogOpen: false,
+  gameData: [],
+  isDataLoaded: false,
+  analysisData: [],
 };
 
 const gameSlice = createSlice({
@@ -58,12 +62,18 @@ const gameSlice = createSlice({
     setHighlightFromParallelCoordinates: (state, action) => {
       state.highlightFromParallelCoordinates = action.payload;
     },
-  },
-});
-
-const GameStore = configureStore({
-  reducer: {
-    game: gameSlice.reducer,
+    setIsDialogOpen: (state, action) => {
+      state.isDialogOpen = action.payload;
+    },
+    setGameData: (state, action) => {
+      state.gameData = action.payload;
+    },
+    setIsDataLoaded: (state, action) => {
+      state.isDataLoaded = action.payload;
+    },
+    setAnalysisData: (state, action) => {
+      state.analysisData = action.payload;
+    },
   },
 });
 
@@ -79,5 +89,10 @@ export const {
   setFilteredGamePks,
   setHighlightData,
   setHighlightFromParallelCoordinates,
+  setIsDialogOpen,
+  setGameData,
+  setIsDataLoaded,
+  setAnalysisData,
 } = gameSlice.actions;
-export default GameStore;
+
+export default gameSlice.reducer;
