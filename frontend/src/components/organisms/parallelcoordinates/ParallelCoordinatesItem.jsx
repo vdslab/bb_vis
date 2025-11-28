@@ -179,13 +179,13 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
     canvas.height = dimensions.height;
     ctx.clearRect(0, 0, dimensions.width, dimensions.height);
 
-    // 特徴量一覧
+    // 特徴量一覧（日本語）
     const features = [
-      { key: "time", label: "Time (s)", color: "#FF6B6B" },
-      { key: "ex_base_hit_cnt", label: "Extra Base Hits", color: "#4ECDC4" },
-      { key: "total_score", label: "Total Score", color: "#45B7D1" },
-      { key: "diff_score", label: "Score Difference", color: "#96CEB4" },
-      { key: "lead_change_cnt", label: "Lead Changes", color: "#FFEAA7" },
+      { key: "time", label: "試合時間（秒）", color: "#FF6B6B" },
+      { key: "ex_base_hit_cnt", label: "長打数", color: "#4ECDC4" },
+      { key: "total_score", label: "総得点数", color: "#45B7D1" },
+      { key: "diff_score", label: "得点差", color: "#96CEB4" },
+      { key: "lead_change_cnt", label: "逆転回数", color: "#FFEAA7" },
     ];
 
     // 正規化
