@@ -5,6 +5,11 @@ import runnerImg1 from "../../../asset/runner1.png";
 import runnerImg2 from "../../../asset/runner2.png";
 import pitcherImg1 from "../../../asset/pitcher1.png";
 import pitcherImg2 from "../../../asset/pitcher2.png";
+import homerunImg from "../../../asset/homerun.png";
+import autImg from "../../../asset/aut.png";
+import hitImg from "../../../asset/hit.png";
+import doubleImg from "../../../asset/double.png";
+import tripleImg from "../../../asset/triple.png";
 
 const GameField = ({ eventData }) => {
   const [runners, setRunners] = useState({
@@ -37,6 +42,28 @@ const GameField = ({ eventData }) => {
     <div className="game-field">
       {/* 背景画像 */}
       <img src={yakyujouImage} alt="野球場" className="field-background" />
+
+      {/* ホームラン画像 */}
+      {eventData?.event_type === "home_run" && (
+        <img src={homerunImg} alt="Home Run" className="homerun-img" />
+      )}
+      {/* アウト画像 */}
+      {eventData?.event_type === "field_out" && (
+        <>
+          <img src={autImg} alt="Out" className="out-img" />
+        </>
+      )}
+
+      {/* ヒット画像 */}
+      {eventData?.event_type === "single" && <img src={hitImg} alt="Hit" className="hit-img" />}
+      {/* ダブル画像 */}
+      {eventData?.event_type === "double" && (
+        <img src={doubleImg} alt="Double" className="double-img" />
+      )}
+      {/* トリプル画像 */}
+      {eventData?.event_type === "triple" && (
+        <img src={tripleImg} alt="Triple" className="triple-img" />
+      )}
 
       {/* 新しいレイヤー：field-overlay */}
       <div className="field-overlay">
