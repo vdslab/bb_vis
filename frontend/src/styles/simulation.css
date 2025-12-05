@@ -211,9 +211,9 @@
 
 .double-img {
   position: absolute;
-  top: 35%;
-  left: 55%;
-  width: 800px;
+  top: 10%;
+  left: 53%;
+  width: 1000px;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 15;
@@ -221,9 +221,9 @@
 
 .triple-img {
   position: absolute;
-  top: 40%;
-  left: 48%;
-  width: 800px;
+  top: 20%;
+  left: 53%;
+  width: 1000px;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 15;
