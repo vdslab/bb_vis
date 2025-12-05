@@ -181,9 +181,9 @@
 
 .homerun-img {
   position: absolute;
-  top: 35%;
-  left: 54%;
-  width: 800px;
+  top: 65%;
+  left: 50%;
+  width: 1200px;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 10;
@@ -191,9 +191,9 @@
 
 .out-img {
   position: absolute;
-  top: 42%;
+  top: 22%;
   left: 53%;
-  width: 800px;
+  width: 1000px;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 15;
@@ -201,9 +201,9 @@
 
 .hit-img {
   position: absolute;
-  top: 30%;
-  left: 51%;
-  width: 800px;
+  top: 19%;
+  left: 53%;
+  width: 1000px;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 15;
