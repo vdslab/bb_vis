@@ -3,6 +3,7 @@ import "@/styles/simulation.css";
 import GameField from "../organisms/simulation/GameField";
 import GameScoreBoard from "../organisms/simulation/GameScoreBoard";
 import GameController from "../organisms/simulation/GameController";
+import PlayEventOverlay from "../organisms/simulation/PlayEventOverlay";
 import { useSelector } from "react-redux";
 import { usePlayData } from "@/hooks/usePlayData";
 
@@ -18,6 +19,44 @@ const Simulation = () => {
   // playDataからp_id,e_idのデータを取得
   const [eventData, setEventData] = useState("");
   const [metaData, setMetaData] = useState("");
+
+  // ヒートマップのホバー情報
+  const [contextEvents, setContextEvents] = useState([]);
+  const [hoveredPId, setHoveredPId] = useState(null);
+  const [hoveredEId, setHoveredEId] = useState(null);
+  const [hoveredEventData, setHoveredEventData] = useState(null);
+
+  // playDataが読み込まれたら、全イベントを一度だけ作成
+  useEffect(() => {
+    if (playData && playData.data) {
+      // すべてのp_idのイベントをフラットな配列にする
+      const events = [];
+      const playIds = Object.keys(playData.data)
+        .map(Number)
+        .sort((a, b) => a - b);
+
+      playIds.forEach((pid) => {
+        const playEvents = playData.data[pid];
+        if (playEvents) {
+          const eventKeys = Object.keys(playEvents)
+            .map(Number)
+            .filter((key) => playEvents[key] !== null && playEvents[key] !== undefined)
+            .sort((a, b) => a - b);
+
+          eventKeys.forEach((eid) => {
+            events.push({
+              ...playEvents[eid],
+              p_id: pid,
+              e_id: eid,
+              index: eid,
+            });
+          });
+        }
+      });
+
+      setContextEvents(events); // 全イベントをcontextEventsにセット
+    }
+  }, [playData]);
 
   useEffect(() => {
     if (
@@ -36,14 +75,49 @@ const Simulation = () => {
     }
   }, [p_id, e_id, playData]);
 
+  // ヒートマップのホバーイベントハンドラー
+  const handleHeatmapHover = (data) => {
+    if (data && playData && playData.data) {
+      setHoveredPId(data.p_id);
+      setHoveredEId(data.e_id);
+
+      // ホバーしたイベントのデータを取得
+      if (playData.data[data.p_id] && playData.data[data.p_id][data.e_id]) {
+        setHoveredEventData(playData.data[data.p_id][data.e_id]);
+      }
+    }
+  };
+
+  const handleHeatmapLeave = () => {
+    // ホバー解除したら、現在のp_id/e_idに戻す
+    setHoveredPId(null);
+    setHoveredEId(null);
+    setHoveredEventData(null);
+  };
+
   return (
     <div className="panel-screen simulation-panel">
-      <div className="panel-header"></div>
       <div className="panel-content">
         <div className="simulation-container">
-          <GameController eventData={eventData} playData={playData} p_id={p_id} e_id={e_id} />
-          <GameScoreBoard metaData={metaData} eventData={eventData} />
-          <GameField eventData={eventData} />
+          <GameController
+            eventData={hoveredEventData || eventData}
+            playData={playData}
+            p_id={p_id}
+            e_id={e_id}
+            onHeatmapHover={handleHeatmapHover}
+            onHeatmapLeave={handleHeatmapLeave}
+          />
+          <GameScoreBoard metaData={metaData} eventData={hoveredEventData || eventData} />
+          <GameField eventData={hoveredEventData || eventData} />
+
+          {/* イベント詳細オーバーレイ */}
+          <PlayEventOverlay
+            contextEvents={contextEvents}
+            currentPId={p_id}
+            currentEId={e_id}
+            hoveredPId={hoveredPId}
+            hoveredEId={hoveredEId}
+          />
         </div>
       </div>
     </div>
