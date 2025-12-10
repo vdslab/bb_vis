@@ -70,7 +70,7 @@ const Game = () => {
   return (
     <div className="panel-screen game-panel">
       <div className="panel-header">
-        <h2>Scores</h2>
+        <h2>試合リスト</h2>
       </div>
       <div className="panel-content" style={{ textAlign: "center" }}>
         {data.length === 0 ? (
