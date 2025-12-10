@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import yakyujouImage from "@/asset/ground.png";
-import "@/styles/simulation.css";
 import runnerImg1 from "../../../asset/runner1.png";
 import runnerImg2 from "../../../asset/runner2.png";
 import pitcherImg1 from "../../../asset/pitcher1.png";
@@ -10,31 +9,27 @@ import autImg from "../../../asset/aut.png";
 import hitImg from "../../../asset/hit.png";
 import doubleImg from "../../../asset/double.png";
 import tripleImg from "../../../asset/triple.png";
+import RunnersDisplay from "./RunnersDisplay";
+import { useRunnerAnimation } from "@/hooks/useRunnerAnimation";
+import "@/styles/simulation.css";
 
+/**
+ * 野球場の表示コンポーネント
+ * ランナーアニメーション機能付き
+ */
 const GameField = ({ eventData }) => {
-  const [runners, setRunners] = useState({
-    first: { name: null },
-    second: { name: null },
-    third: { name: null },
-  });
-
   const [runnerImg, setRunnerImg] = useState(null);
   const [pitcherImg, setPitcherImg] = useState(null);
 
+  // ランナーのアニメーション管理（元のロジックをそのまま使用）
+  const { runners, animatingRunners } = useRunnerAnimation(eventData);
+
+  // チームに応じた画像を設定
   useEffect(() => {
     if (eventData) {
-      // ランナー画像の選択
       const currentRunnerImg = eventData.is_away ? runnerImg1 : runnerImg2;
       setRunnerImg(currentRunnerImg);
       setPitcherImg(currentRunnerImg === runnerImg1 ? pitcherImg1 : pitcherImg2);
-
-      // ランナー状態を更新
-      const runnerState = eventData.runner_state.pos_runner_state;
-      setRunners({
-        first: { name: runnerState["1B"]?.full_name || null },
-        second: { name: runnerState["2B"]?.full_name || null },
-        third: { name: runnerState["3B"]?.full_name || null },
-      });
     }
   }, [eventData]);
 
@@ -74,35 +69,12 @@ const GameField = ({ eventData }) => {
           </div>
         )}
 
-        {/* ランナーたち */}
-        <div className="runners-overlay">
-          {runners.first.name && (
-            <div className="runner first-base">
-              <span className="runner-name">{runners.first.name}</span>
-              <div className="runner-img-wrapper">
-                <img src={runnerImg} alt="ランナー" className="runner-img" />
-              </div>
-            </div>
-          )}
-
-          {runners.second.name && (
-            <div className="runner second-base">
-              <span className="runner-name">{runners.second.name}</span>
-              <div className="runner-img-wrapper">
-                <img src={runnerImg} alt="ランナー" className="runner-img" />
-              </div>
-            </div>
-          )}
-
-          {runners.third.name && (
-            <div className="runner third-base">
-              <span className="runner-name">{runners.third.name}</span>
-              <div className="runner-img-wrapper">
-                <img src={runnerImg} alt="ランナー" className="runner-img" />
-              </div>
-            </div>
-          )}
-        </div>
+        {/* ランナー表示（元のロジックをそのまま使用） */}
+        <RunnersDisplay
+          runners={runners}
+          animatingRunners={animatingRunners}
+          runnerImg={runnerImg}
+        />
       </div>
     </div>
   );

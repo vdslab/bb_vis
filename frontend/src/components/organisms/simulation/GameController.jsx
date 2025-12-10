@@ -6,10 +6,11 @@ import { setId } from "@/store/GameStore";
 import { useDispatch } from "react-redux";
 import IconButton from "@mui/material/IconButton";
 
-const GameController = ({ eventData, playData, p_id, e_id }) => {
+const GameController = ({ eventData, playData, p_id, e_id, onHeatmapHover, onHeatmapLeave }) => {
   const gamepk = useSelector((state) => state.game.gamepk);
   const analysisData = useSelector((state) => state.game.analysisData);
   const dispatch = useDispatch();
+
   const isFirst = eventData.is_first_play && eventData.is_first_event;
   const isLast = eventData.is_last_play && eventData.is_last_event;
 
@@ -71,7 +72,15 @@ const GameController = ({ eventData, playData, p_id, e_id }) => {
             {gamepk && <p>Game PK: {gamepk}</p>}
           </div>
         )}
-        {analysisData && <HeatMapItem analysisData={analysisData} />}
+        {analysisData && (
+          <HeatMapItem
+            analysisData={analysisData}
+            onHover={onHeatmapHover}
+            onLeave={onHeatmapLeave}
+            currentPId={p_id}
+            currentEId={e_id}
+          />
+        )}
       </div>
       <div className="game-controller-right-arrow">
         <IconButton

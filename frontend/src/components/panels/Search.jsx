@@ -113,12 +113,12 @@ const Search = () => {
   return (
     <div className="panel-screen search-panel">
       <div className="search-panel-header">
-        <h2>Filters</h2>
+        <h2>絞り込み</h2>
       </div>
       <div className="search-box">
         <div className="search-box-team">
           <SelectBox
-            label="Team"
+            label="チーム"
             value={teamValue}
             onChange={(event) => setTeamValue(event.target.value)}
             options={teamOptions}
@@ -126,7 +126,7 @@ const Search = () => {
         </div>
         <div className="search-box-date">
           <DatePicker
-            label="Date"
+            label="日付"
             value={dateValue}
             onChange={(event) => setDateValue(event.target.value)}
           />
