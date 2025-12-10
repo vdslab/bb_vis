@@ -276,8 +276,8 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
     // データライン描画（ブラシフィルタ済み）
     filteredData.forEach((item) => {
       const isTarget = item.gamepk === highlightData;
-      ctx.strokeStyle = isTarget ? "rgba(255, 0, 0, 1)" : "rgba(70, 130, 180, 0.3)";
-      ctx.lineWidth = isTarget ? 2.5 : 1;
+      ctx.strokeStyle = isTarget ? "rgba(249, 115, 22, 1)" : "rgba(148, 163, 184, 0.3)";
+      ctx.lineWidth = isTarget ? 3 : 1;
       ctx.beginPath();
 
       features.forEach((feature, i) => {
@@ -412,11 +412,11 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
 
         const isTarget = item.gamepk === highlightData;
         ctx.strokeStyle = isTarget
-          ? "rgba(255, 0, 0, 1)"
+          ? "rgba(249, 115, 22, 1)"
           : isNearMouse
-            ? "rgba(0, 200, 0, 0.8)"
-            : "rgba(70, 130, 180, 0.3)";
-        ctx.lineWidth = isTarget ? 3 : isNearMouse ? 2 : 1;
+            ? "rgba(14, 165, 233, 0.9)"
+            : "rgba(148, 163, 184, 0.3)";
+        ctx.lineWidth = isTarget ? 3.5 : isNearMouse ? 2.5 : 1;
 
         ctx.beginPath();
         features.forEach((feature, featureIndex) => {
@@ -461,7 +461,6 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
           const dist = getDistanceToLineSegment(x1, y1, x2, y2, mouseX, mouseY);
 
           if (dist < 5) {
-            console.log(item);
             dispatch(setHighlightData(item.gamepk));
             dispatch(setHighlightFromParallelCoordinates(true)); // パラレルコーディネートからの選択
             dispatch(setGamePk(item.gamepk));
