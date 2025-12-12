@@ -5,6 +5,12 @@ import Simulation from "../../panels/Simulation";
 import Movie from "../../panels/Movie";
 
 const GameDetailDialog = ({ isOpen, handleClose, selectedGameInfo }) => {
+  
+  const formatDate = (dateStr) => {
+    const [y, m, d] = dateStr.split("-");
+    return `${Number(y)}年${Number(m)}月${Number(d)}日`;
+  };
+
   return (
     <Dialog open={isOpen} onClose={handleClose} maxWidth="xl" fullWidth>
       <DialogTitle
@@ -16,8 +22,9 @@ const GameDetailDialog = ({ isOpen, handleClose, selectedGameInfo }) => {
         }}
       >
         {selectedGameInfo
-          ? `${selectedGameInfo.date} ${selectedGameInfo.awayTeam} vs ${selectedGameInfo.homeTeam}`
+          ? `${formatDate(selectedGameInfo.date)} ${selectedGameInfo.awayTeam} vs ${selectedGameInfo.homeTeam}`
           : "Game Details"}
+
         <DialogActions>
           <IconButton onClick={handleClose} size="large">
             <CloseIcon />
