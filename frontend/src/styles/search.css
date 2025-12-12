@@ -16,7 +16,8 @@
 
 .search-box-team,
 .search-box-feature,
-.search-box-date {
+.search-box-date,
+.search-box-sort {
   width: 100%;
   min-height: 60px;
   display: flex;

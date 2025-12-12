@@ -13,6 +13,7 @@ const Game = () => {
   );
   const gameData = useSelector((state) => state.game.gameData);
   const isDataLoaded = useSelector((state) => state.game.isDataLoaded);
+  const sortType = useSelector((state) => state.game.sortType);
   const [data, setData] = useState([]);
 
   // TODO:フィルターされたデータが送られてくるようにorフィルターされたgamepkから取得するように
@@ -50,11 +51,20 @@ const Game = () => {
 
     filteredData = filteredData.filter((item) => filteredGamePks.includes(item.gamepk));
 
-    filteredData.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateB - dateA;
-    });
+    // ソート処理
+    if (sortType === "日付（新しい順）") {
+      filteredData.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateB - dateA;
+      });
+    } else if (sortType === "評価（高い順）") {
+      filteredData.sort((a, b) => {
+        const evalA = a.evaluation_score || 0;
+        const evalB = b.evaluation_score || 0;
+        return evalB - evalA;
+      });
+    }
 
     setData(filteredData);
   }, [
@@ -65,6 +75,7 @@ const Game = () => {
     filteredGamePks,
     highlightData,
     highlightFromParallelCoordinates,
+    sortType,
   ]);
 
   return (

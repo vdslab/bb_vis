@@ -18,6 +18,7 @@ const initialState = {
   selectedGameHomeTeam: "Los Angeles Dodgers",
   filteredGamePks: [777579],
   highlightData: 777579,
+  sortType: "評価（高い順）",
   highlightFromParallelCoordinates: true,
   isDialogOpen: false,
   gameData: [],
@@ -74,6 +75,9 @@ const gameSlice = createSlice({
     setAnalysisData: (state, action) => {
       state.analysisData = action.payload;
     },
+    setSortType: (state, action) => {
+      state.sortType = action.payload;
+    },
   },
 });
 
@@ -93,6 +97,7 @@ export const {
   setGameData,
   setIsDataLoaded,
   setAnalysisData,
+  setSortType,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

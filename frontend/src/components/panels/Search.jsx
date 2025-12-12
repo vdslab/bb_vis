@@ -1,7 +1,12 @@
 import SelectBox from "../organisms/serch/SelectBox";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSelectedTeam, setSelectedDate, setSelectedFeature } from "../../store/GameStore";
+import {
+  setSelectedTeam,
+  setSelectedDate,
+  setSelectedFeature,
+  setSortType,
+} from "../../store/GameStore";
 import DatePicker from "../organisms/serch/DatePicker";
 // devonly:start
 import InputField from "../organisms/serch/InputField";
@@ -24,10 +29,12 @@ const Search = () => {
   const storeSelectedTeam = useSelector((state) => state.game.selectedTeam);
   const storeSelectedFeature = useSelector((state) => state.game.selectedFeature);
   const storeSelectedDate = useSelector((state) => state.game.selectedDate);
+  const storeSortType = useSelector((state) => state.game.sortType);
 
   const [teamValue, setTeamValue] = useState(storeSelectedTeam);
   const [featureValue, setFeatureValue] = useState(storeSelectedFeature || "");
   const [dateValue, setDateValue] = useState(storeSelectedDate);
+  const [sortValue, setSortValue] = useState(storeSortType);
 
   // devonly:start
   const gameData = useSelector((state) => state.game.gameData);
@@ -68,13 +75,15 @@ const Search = () => {
     setTeamValue(storeSelectedTeam);
     setFeatureValue(storeSelectedFeature || "");
     setDateValue(storeSelectedDate);
-  }, [storeSelectedTeam, storeSelectedFeature, storeSelectedDate]);
+    setSortValue(storeSortType);
+  }, [storeSelectedTeam, storeSelectedFeature, storeSelectedDate, storeSortType]);
 
   useEffect(() => {
     dispatch(setSelectedTeam(teamValue));
     dispatch(setSelectedFeature(featureValue));
     dispatch(setSelectedDate(dateValue));
-  }, [teamValue, featureValue, dateValue, dispatch]);
+    dispatch(setSortType(sortValue));
+  }, [teamValue, featureValue, dateValue, sortValue, dispatch]);
 
   const teamOptions = [
     { value: "All", label: "All（すべて）" },
@@ -110,6 +119,11 @@ const Search = () => {
     { value: "Tampa Bay Rays", label: "Rays（レイズ）" },
   ].sort((a, b) => a.label.localeCompare(b.label));
 
+  const sortOptions = [
+    { value: "日付（新しい順）", label: "日付（新しい順）" },
+    { value: "評価（高い順）", label: "評価（高い順）" },
+  ];
+
   return (
     <div className="panel-screen search-panel">
       <div className="search-panel-header">
@@ -129,6 +143,14 @@ const Search = () => {
             label="日付"
             value={dateValue}
             onChange={(event) => setDateValue(event.target.value)}
+          />
+        </div>
+        <div className="search-box-sort">
+          <SelectBox
+            label="表示順"
+            value={sortValue}
+            onChange={(event) => setSortValue(event.target.value)}
+            options={sortOptions}
           />
         </div>
       </div>
