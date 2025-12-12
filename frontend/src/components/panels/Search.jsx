@@ -10,9 +10,9 @@ import {
   setFilteredGamePks,
 } from "../../store/GameStore";
 import DatePicker from "../organisms/serch/DatePicker";
+import CheckBox from "../atoms/CheckBox";
 // devonly:start
 import InputField from "../organisms/serch/InputField";
-import CheckBox from "../atoms/CheckBox";
 import {
   setGamePk,
   setHighlightData,
