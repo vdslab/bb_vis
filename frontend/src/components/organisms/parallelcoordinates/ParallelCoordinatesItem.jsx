@@ -10,6 +10,7 @@ import {
   setSelectedGameAwayTeam,
   setSelectedGameHomeTeam,
   setFilteredGamePks,
+  setBrushFilteredGamePks,
   setHighlightData,
   setHighlightFromParallelCoordinates,
 } from "../../../store/GameStore";
@@ -17,8 +18,7 @@ import { useSelector } from "react-redux";
 
 const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
   const dispatch = useDispatch();
-  const selectedTeam = useSelector((state) => state.game.selectedTeam);
-  const selectedDate = useSelector((state) => state.game.selectedDate);
+  const filteredGamePks = useSelector((state) => state.game.filteredGamePks);
   const highlightData = useSelector((state) => state.game.highlightData);
   const gameData = useSelector((state) => state.game.gameData);
   const isDataLoaded = useSelector((state) => state.game.isDataLoaded);
@@ -38,7 +38,9 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
 
   useEffect(() => {
     setBrushes({});
-  }, [brushDeleteFlag]);
+    // ブラシクリア時は、brushFilteredGamePksもnullにリセット
+    dispatch(setBrushFilteredGamePks(null));
+  }, [brushDeleteFlag, dispatch]);
 
   // コンテナサイズ監視
   useEffect(() => {
@@ -67,40 +69,67 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
     };
   }, []);
 
-  // データ読み込み（チーム・日付フィルタ対応）
+  // データ読み込み（filteredGamePksから取得）
   useEffect(() => {
     if (!isDataLoaded || gameData.length === 0) {
       return;
     }
 
-    // チームでフィルタリング
-    let filteredData = gameData;
-    if (selectedTeam !== "All") {
-      filteredData = gameData.filter(
-        (item) => item.team.home === selectedTeam || item.team.away === selectedTeam,
-      );
-    }
-
-    // 日付でフィルタリング
-    if (selectedDate.startDate || selectedDate.endDate) {
-      filteredData = filteredData.filter((item) => {
-        const itemDate = item.date;
-        const startDate = selectedDate.startDate;
-        const endDate = selectedDate.endDate;
-
-        if (startDate && endDate) {
-          return itemDate >= startDate && itemDate <= endDate;
-        } else if (startDate) {
-          return itemDate >= startDate;
-        } else if (endDate) {
-          return itemDate <= endDate;
-        }
-        return true;
-      });
-    }
+    // filteredGamePksに含まれるデータだけを取得し、順序を維持
+    const filteredData = filteredGamePks
+      .map((gamepk) => gameData.find((item) => item.gamepk === gamepk))
+      .filter((item) => item !== undefined);
 
     setData(filteredData);
-  }, [gameData, isDataLoaded, selectedTeam, selectedDate]);
+  }, [gameData, isDataLoaded, filteredGamePks]);
+
+  // ブラシフィルターの適用（brushesが変更された時のみ）
+  useEffect(() => {
+    if (data.length === 0) {
+      return;
+    }
+
+    // ブラシが何も設定されていない場合
+    const hasBrushes = Object.values(brushes).some((range) => range && range.y1 !== range.y2);
+
+    if (!hasBrushes) {
+      // ブラシがない場合はnullをセット（filteredGamePksを使う）
+      dispatch(setBrushFilteredGamePks(null));
+      return;
+    }
+
+    // 各特徴量を正規化
+    const features = [
+      { key: "time", label: "試合時間（秒）", color: "#FF6B6B" },
+      { key: "ex_base_hit_cnt", label: "長打数", color: "#4ECDC4" },
+      { key: "total_score", label: "総得点数", color: "#45B7D1" },
+      { key: "diff_score", label: "得点差", color: "#96CEB4" },
+      { key: "lead_change_cnt", label: "逆転回数", color: "#FFEAA7" },
+    ];
+
+    let normalizedData = [...data];
+    features.forEach((feature) => {
+      normalizedData = normalizeData(normalizedData, feature.key);
+    });
+
+    // キャンバスのサイズ情報を取得
+    const margin = { top: 40, bottom: 40, left: 60, right: 60 };
+    const chartHeight = dimensions.height - margin.top - margin.bottom;
+
+    // ブラシフィルタで絞り込み
+    const brushFiltered = normalizedData.filter((item) => {
+      return Object.entries(brushes).every(([key, range]) => {
+        if (!range || range.y1 === range.y2) return true;
+        const y = margin.top + chartHeight - item[key + "_normalized"] * chartHeight;
+        const minY = Math.min(range.y1, range.y2);
+        const maxY = Math.max(range.y1, range.y2);
+        return y >= minY && y <= maxY;
+      });
+    });
+
+    // ブラシフィルター結果をReduxストアに保存
+    dispatch(setBrushFilteredGamePks(brushFiltered.map((item) => item.gamepk)));
+  }, [brushes, data, dimensions, dispatch]);
 
   // データ正規化（0〜1に変換）
   const normalizeData = (data, key) => {
@@ -259,7 +288,8 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
       }
     });
 
-    // ブラシフィルタで絞り込み
+    // ブラシフィルタで絞り込み（描画用）
+    // NOTE: ブラシフィルターの結果は別のuseEffectでbrusFilteredGamePksに保存される
     const filteredData = normalizedData.filter((item) => {
       return Object.entries(brushes).every(([key, range]) => {
         if (!range || range.y1 === range.y2) return true; // ブラシ未適用軸はスルー
@@ -269,9 +299,6 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
         return y >= minY && y <= maxY;
       });
     });
-
-    // フィルタされたデータをReduxストアに保存
-    dispatch(setFilteredGamePks(filteredData.map((item) => item.gamepk)));
 
     // データライン描画（ブラシフィルタ済み）
     filteredData.forEach((item) => {

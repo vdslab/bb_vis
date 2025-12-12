@@ -1,7 +1,14 @@
 import SelectBox from "../organisms/serch/SelectBox";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSelectedTeam, setSelectedDate, setSelectedFeature } from "../../store/GameStore";
+import {
+  setSelectedTeam,
+  setSelectedDate,
+  setSelectedFeature,
+  setSortType,
+  setShowAllGames,
+  setFilteredGamePks,
+} from "../../store/GameStore";
 import DatePicker from "../organisms/serch/DatePicker";
 // devonly:start
 import InputField from "../organisms/serch/InputField";
@@ -24,10 +31,16 @@ const Search = () => {
   const storeSelectedTeam = useSelector((state) => state.game.selectedTeam);
   const storeSelectedFeature = useSelector((state) => state.game.selectedFeature);
   const storeSelectedDate = useSelector((state) => state.game.selectedDate);
+  const storeSortType = useSelector((state) => state.game.sortType);
+  const storeShowAllGames = useSelector((state) => state.game.showAllGames);
+  const storeGameData = useSelector((state) => state.game.gameData);
+  const storeIsDataLoaded = useSelector((state) => state.game.isDataLoaded);
 
   const [teamValue, setTeamValue] = useState(storeSelectedTeam);
   const [featureValue, setFeatureValue] = useState(storeSelectedFeature || "");
   const [dateValue, setDateValue] = useState(storeSelectedDate);
+  const [sortValue, setSortValue] = useState(storeSortType);
+  const [showAllGamesValue, setShowAllGamesValue] = useState(storeShowAllGames);
 
   // devonly:start
   const gameData = useSelector((state) => state.game.gameData);
@@ -68,13 +81,87 @@ const Search = () => {
     setTeamValue(storeSelectedTeam);
     setFeatureValue(storeSelectedFeature || "");
     setDateValue(storeSelectedDate);
-  }, [storeSelectedTeam, storeSelectedFeature, storeSelectedDate]);
+    setSortValue(storeSortType);
+    setShowAllGamesValue(storeShowAllGames);
+  }, [
+    storeSelectedTeam,
+    storeSelectedFeature,
+    storeSelectedDate,
+    storeSortType,
+    storeShowAllGames,
+  ]);
 
   useEffect(() => {
     dispatch(setSelectedTeam(teamValue));
     dispatch(setSelectedFeature(featureValue));
     dispatch(setSelectedDate(dateValue));
-  }, [teamValue, featureValue, dateValue, dispatch]);
+    dispatch(setSortType(sortValue));
+    dispatch(setShowAllGames(showAllGamesValue));
+  }, [teamValue, featureValue, dateValue, sortValue, showAllGamesValue, dispatch]);
+
+  // フィルタリング・ソート・制限の処理
+  useEffect(() => {
+    if (!storeIsDataLoaded || storeGameData.length === 0) {
+      return;
+    }
+
+    // チームフィルタリング（配列のコピーを作成）
+    let filteredData = [...storeGameData];
+    if (teamValue !== "All") {
+      filteredData = filteredData.filter(
+        (item) => item.team.home === teamValue || item.team.away === teamValue,
+      );
+    }
+
+    // 日付フィルタリング
+    if (dateValue.startDate || dateValue.endDate) {
+      filteredData = filteredData.filter((item) => {
+        const itemDate = item.date;
+        const startDate = dateValue.startDate;
+        const endDate = dateValue.endDate;
+
+        if (startDate && endDate) {
+          return itemDate >= startDate && itemDate <= endDate;
+        } else if (startDate) {
+          return itemDate >= startDate;
+        } else if (endDate) {
+          return itemDate <= endDate;
+        }
+        return true;
+      });
+    }
+
+    // ソート処理
+    if (sortValue === "日付（新しい順）") {
+      filteredData.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateB - dateA;
+      });
+    } else if (sortValue === "評価（高い順）") {
+      filteredData.sort((a, b) => {
+        const evalA = a.evaluation_score || 0;
+        const evalB = b.evaluation_score || 0;
+        return evalB - evalA;
+      });
+    }
+
+    // 全件表示がfalseの場合、50件に制限
+    if (!showAllGamesValue && filteredData.length > 50) {
+      filteredData = filteredData.slice(0, 50);
+    }
+
+    // filteredGamePksを更新
+    dispatch(setFilteredGamePks(filteredData.map((item) => item.gamepk)));
+  }, [
+    storeGameData,
+    storeIsDataLoaded,
+    teamValue,
+    dateValue,
+    sortValue,
+    showAllGamesValue,
+    dispatch,
+  ]);
 
   const teamOptions = [
     { value: "All", label: "All（すべて）" },
@@ -110,6 +197,15 @@ const Search = () => {
     { value: "Tampa Bay Rays", label: "Rays（レイズ）" },
   ].sort((a, b) => a.label.localeCompare(b.label));
 
+  const sortOptions = [
+    { value: "評価（高い順）", label: "評価（高い順）" },
+    { value: "日付（新しい順）", label: "日付（新しい順）" },
+  ];
+
+  const handleShowAllGamesChange = (event) => {
+    setShowAllGamesValue(event.target.checked);
+  };
+
   return (
     <div className="panel-screen search-panel">
       <div className="search-panel-header">
@@ -129,6 +225,21 @@ const Search = () => {
             label="日付"
             value={dateValue}
             onChange={(event) => setDateValue(event.target.value)}
+          />
+        </div>
+        <div className="search-box-sort">
+          <div className="search-box-sort-label-row">
+            <span className="search-label">表示順</span>
+            <CheckBox
+              label="全件表示"
+              checked={showAllGamesValue}
+              onChange={handleShowAllGamesChange}
+            />
+          </div>
+          <SelectBox
+            value={sortValue}
+            onChange={(event) => setSortValue(event.target.value)}
+            options={sortOptions}
           />
         </div>
       </div>

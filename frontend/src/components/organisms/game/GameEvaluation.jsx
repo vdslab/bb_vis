@@ -1,8 +1,9 @@
 import "@/styles/gamelistcarddetail.css";
-import { calcEvaluation } from "@/util/calcEvaluation";
+import { useSelector } from "react-redux";
 
-const GameEvaluation = ({ analysisData }) => {
-  const evaluation_score = calcEvaluation(analysisData[0]);
+const GameEvaluation = ({ gamepk }) => {
+  const gameData = useSelector((state) => state.game.gameData);
+  const evaluation_score = gameData.find((item) => item.gamepk === gamepk).evaluation_score;
 
   // スコアに基づいてランクを決定
   const getRank = (score) => {
