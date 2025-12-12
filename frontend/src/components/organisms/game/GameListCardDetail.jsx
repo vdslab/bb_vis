@@ -29,7 +29,7 @@ const GameListCardDetail = ({ gamepk }) => {
           {analysisData && !loading && <HeatMapItem analysisData={analysisData} />}
         </div>
         <div className="game-list-card-detail-upper-heatmap-evaluation">
-          {analysisData && !loading && <GameEvaluation analysisData={analysisData} />}
+          <GameEvaluation gamepk={gamepk} />
         </div>
       </div>
       <div className="game-list-card-detail-middle"></div>
