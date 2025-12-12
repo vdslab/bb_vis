@@ -37,7 +37,7 @@ const GameListCardDetail = ({ gamepk }) => {
       </div>
       <div className="game-list-card-detail-middle"></div>
       <div className="game-list-card-detail-under">
-        <Button onClick={handleClick}>View Game Details →</Button>
+        <Button onClick={handleClick}>ゲーム詳細へ </Button>
       </div>
     </div>
   );
