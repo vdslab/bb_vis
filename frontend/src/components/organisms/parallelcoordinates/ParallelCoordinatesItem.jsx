@@ -17,8 +17,7 @@ import { useSelector } from "react-redux";
 
 const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
   const dispatch = useDispatch();
-  const selectedTeam = useSelector((state) => state.game.selectedTeam);
-  const selectedDate = useSelector((state) => state.game.selectedDate);
+  const filteredGamePks = useSelector((state) => state.game.filteredGamePks);
   const highlightData = useSelector((state) => state.game.highlightData);
   const gameData = useSelector((state) => state.game.gameData);
   const isDataLoaded = useSelector((state) => state.game.isDataLoaded);
@@ -67,40 +66,19 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
     };
   }, []);
 
-  // データ読み込み（チーム・日付フィルタ対応）
+  // データ読み込み（filteredGamePksから取得）
   useEffect(() => {
     if (!isDataLoaded || gameData.length === 0) {
       return;
     }
 
-    // チームでフィルタリング
-    let filteredData = gameData;
-    if (selectedTeam !== "All") {
-      filteredData = gameData.filter(
-        (item) => item.team.home === selectedTeam || item.team.away === selectedTeam,
-      );
-    }
-
-    // 日付でフィルタリング
-    if (selectedDate.startDate || selectedDate.endDate) {
-      filteredData = filteredData.filter((item) => {
-        const itemDate = item.date;
-        const startDate = selectedDate.startDate;
-        const endDate = selectedDate.endDate;
-
-        if (startDate && endDate) {
-          return itemDate >= startDate && itemDate <= endDate;
-        } else if (startDate) {
-          return itemDate >= startDate;
-        } else if (endDate) {
-          return itemDate <= endDate;
-        }
-        return true;
-      });
-    }
+    // filteredGamePksに含まれるデータだけを取得し、順序を維持
+    const filteredData = filteredGamePks
+      .map((gamepk) => gameData.find((item) => item.gamepk === gamepk))
+      .filter((item) => item !== undefined);
 
     setData(filteredData);
-  }, [gameData, isDataLoaded, selectedTeam, selectedDate]);
+  }, [gameData, isDataLoaded, filteredGamePks]);
 
   // データ正規化（0〜1に変換）
   const normalizeData = (data, key) => {
@@ -270,8 +248,11 @@ const ParallelCoordinatesItem = ({ brushDeleteFlag }) => {
       });
     });
 
-    // フィルタされたデータをReduxストアに保存
-    dispatch(setFilteredGamePks(filteredData.map((item) => item.gamepk)));
+    // NOTE: ブラシフィルターの結果をReduxストアに保存すると無限ループが発生するため、
+    // 現在はParallelCoordinates内部でのみ使用（ハイライト表示など）
+    // TODO: ブラシフィルターの結果をGameリストに反映させる仕組みが必要な場合は、
+    // 別のステート（brushFilteredGamePks）を使う必要がある
+    // dispatch(setFilteredGamePks(filteredData.map((item) => item.gamepk)));
 
     // データライン描画（ブラシフィルタ済み）
     filteredData.forEach((item) => {

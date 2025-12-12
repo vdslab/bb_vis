@@ -19,6 +19,7 @@ const initialState = {
   filteredGamePks: [777579],
   highlightData: 777579,
   sortType: "評価（高い順）",
+  showAllGames: false,
   highlightFromParallelCoordinates: true,
   isDialogOpen: false,
   gameData: [],
@@ -78,6 +79,9 @@ const gameSlice = createSlice({
     setSortType: (state, action) => {
       state.sortType = action.payload;
     },
+    setShowAllGames: (state, action) => {
+      state.showAllGames = action.payload;
+    },
   },
 });
 
@@ -98,6 +102,7 @@ export const {
   setIsDataLoaded,
   setAnalysisData,
   setSortType,
+  setShowAllGames,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

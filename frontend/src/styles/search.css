@@ -25,6 +25,23 @@
   justify-content: center;
 }
 
+.search-box-sort-container {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.search-box-sort-select {
+  flex: 1;
+}
+
+.search-box-sort-checkbox {
+  display: flex;
+  align-items: center;
+  padding-bottom: 8px;
+}
+
 .search-select,
 .search-date-picker {
   width: 100% !important;
