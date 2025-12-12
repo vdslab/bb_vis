@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 
 const Game = () => {
   const filteredGamePks = useSelector((state) => state.game.filteredGamePks);
+  const brushFilteredGamePks = useSelector((state) => state.game.brushFilteredGamePks);
   const highlightData = useSelector((state) => state.game.highlightData);
   const gameData = useSelector((state) => state.game.gameData);
   const isDataLoaded = useSelector((state) => state.game.isDataLoaded);
@@ -15,13 +16,16 @@ const Game = () => {
       return;
     }
 
-    // filteredGamePksに含まれるデータだけを取得し、順序を維持
-    const filteredData = filteredGamePks
+    // brushFilteredGamePksが存在する場合はそれを使用、なければfilteredGamePksを使用
+    const gamePksToUse = brushFilteredGamePks !== null ? brushFilteredGamePks : filteredGamePks;
+
+    // gamePksToUseに含まれるデータだけを取得し、順序を維持
+    const filteredData = gamePksToUse
       .map((gamepk) => gameData.find((item) => item.gamepk === gamepk))
       .filter((item) => item !== undefined);
 
     setData(filteredData);
-  }, [gameData, isDataLoaded, filteredGamePks]);
+  }, [gameData, isDataLoaded, filteredGamePks, brushFilteredGamePks]);
 
   return (
     <div className="panel-screen game-panel">

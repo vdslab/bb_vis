@@ -17,6 +17,7 @@ const initialState = {
   selectedGameAwayTeam: "Sandiego Padres",
   selectedGameHomeTeam: "Los Angeles Dodgers",
   filteredGamePks: [777579],
+  brushFilteredGamePks: null, // ブラシフィルター適用時のgamepk配列
   highlightData: 777579,
   sortType: "評価（高い順）",
   showAllGames: false,
@@ -58,6 +59,9 @@ const gameSlice = createSlice({
     setFilteredGamePks: (state, action) => {
       state.filteredGamePks = action.payload;
     },
+    setBrushFilteredGamePks: (state, action) => {
+      state.brushFilteredGamePks = action.payload;
+    },
     setHighlightData: (state, action) => {
       state.highlightData = action.payload;
     },
@@ -95,6 +99,7 @@ export const {
   setSelectedGameAwayTeam,
   setSelectedGameHomeTeam,
   setFilteredGamePks,
+  setBrushFilteredGamePks,
   setHighlightData,
   setHighlightFromParallelCoordinates,
   setIsDialogOpen,
