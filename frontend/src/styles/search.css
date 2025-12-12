@@ -24,6 +24,32 @@
   justify-content: center;
 }
 
+.search-box-sort {
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.search-box-sort-label-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.search-box-sort-label-row .search-label {
+  flex-shrink: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-color, #fff);
+}
+
 .search-select,
 .search-date-picker {
   width: 100% !important;

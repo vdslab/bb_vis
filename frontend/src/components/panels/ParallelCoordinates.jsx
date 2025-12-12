@@ -14,9 +14,9 @@ const ParallelCoordinates = () => {
   return (
     <div className="panel-screen parallel-panel">
       <div className="panel-header">
-        <h2>Parallel Coordinates</h2>
+        <h2>試合特徴比較チャート</h2>
         <Button onClick={handleClearBrush} style={{ margin: "10px" }}>
-          Reset
+          ブラッシング解除
         </Button>
       </div>
       <div className="panel-content parallelcoordinates-content">

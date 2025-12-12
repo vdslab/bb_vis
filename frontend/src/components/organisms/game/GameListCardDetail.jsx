@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setIsDialogOpen } from "@/store/GameStore";
 import "@styles/gamelistcarddetail.css";
@@ -18,9 +18,12 @@ const GameListCardDetail = ({ gamepk }) => {
   };
 
   const { analysisData, loading } = useAnalysisData(gamepk);
-  if (analysisData && !loading) {
-    dispatch(setAnalysisData(analysisData));
-  }
+
+  useEffect(() => {
+    if (analysisData && !loading) {
+      dispatch(setAnalysisData(analysisData));
+    }
+  }, [analysisData, loading, dispatch]);
 
   return (
     <div className="game-list-card-detail">
@@ -29,12 +32,12 @@ const GameListCardDetail = ({ gamepk }) => {
           {analysisData && !loading && <HeatMapItem analysisData={analysisData} />}
         </div>
         <div className="game-list-card-detail-upper-heatmap-evaluation">
-          {analysisData && !loading && <GameEvaluation analysisData={analysisData} />}
+          <GameEvaluation gamepk={gamepk} />
         </div>
       </div>
       <div className="game-list-card-detail-middle"></div>
       <div className="game-list-card-detail-under">
-        <Button onClick={handleClick}>View Game Details →</Button>
+        <Button onClick={handleClick}>ゲーム詳細へ </Button>
       </div>
     </div>
   );

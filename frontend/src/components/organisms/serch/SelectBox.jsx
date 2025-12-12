@@ -5,7 +5,7 @@ import "@styles/search.css";
 const SearchSelect = ({ label, value, onChange, options }) => {
   return (
     <FormControl className="search-select" sx={{ width: "100%" }}>
-      <Typography className="search-label">{label}</Typography>
+      {label && <Typography className="search-label">{label}</Typography>}
       <Select
         value={value}
         onChange={onChange}

@@ -17,7 +17,10 @@ const initialState = {
   selectedGameAwayTeam: "Sandiego Padres",
   selectedGameHomeTeam: "Los Angeles Dodgers",
   filteredGamePks: [777579],
+  brushFilteredGamePks: null, // ブラシフィルター適用時のgamepk配列
   highlightData: 777579,
+  sortType: "評価（高い順）",
+  showAllGames: false,
   highlightFromParallelCoordinates: true,
   isDialogOpen: false,
   gameData: [],
@@ -56,6 +59,9 @@ const gameSlice = createSlice({
     setFilteredGamePks: (state, action) => {
       state.filteredGamePks = action.payload;
     },
+    setBrushFilteredGamePks: (state, action) => {
+      state.brushFilteredGamePks = action.payload;
+    },
     setHighlightData: (state, action) => {
       state.highlightData = action.payload;
     },
@@ -74,6 +80,12 @@ const gameSlice = createSlice({
     setAnalysisData: (state, action) => {
       state.analysisData = action.payload;
     },
+    setSortType: (state, action) => {
+      state.sortType = action.payload;
+    },
+    setShowAllGames: (state, action) => {
+      state.showAllGames = action.payload;
+    },
   },
 });
 
@@ -87,12 +99,15 @@ export const {
   setSelectedGameAwayTeam,
   setSelectedGameHomeTeam,
   setFilteredGamePks,
+  setBrushFilteredGamePks,
   setHighlightData,
   setHighlightFromParallelCoordinates,
   setIsDialogOpen,
   setGameData,
   setIsDataLoaded,
   setAnalysisData,
+  setSortType,
+  setShowAllGames,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

@@ -115,9 +115,9 @@ const DatePicker = ({ label, value, onChange }) => {
               width: "100%",
             }}
           >
-            <Typography sx={{ fontSize: "14px", fontWeight: 500 }}>Date:</Typography>
+            <Typography sx={{ fontSize: "14px", fontWeight: 500 }}>日付指定</Typography>
             <MuiDatePicker
-              label="Single Date"
+              label="日付を入力"
               value={startDate}
               onChange={(newValue) => {
                 setStartDate(newValue);
@@ -155,12 +155,17 @@ const DatePicker = ({ label, value, onChange }) => {
           </ToggleButtonGroup>
 
           {/* From */}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Typography sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}>
-              From:
-            </Typography>
+          <Typography sx={{ fontSize: "14px", fontWeight: 500 }}>期間指定</Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 1,
+              width: "100%",
+            }}
+          >
             <MuiDatePicker
-              label="Start Date"
+              label="開始日"
               value={startDate}
               onChange={handleStartDateChange}
               renderInput={(params) => (
@@ -168,7 +173,8 @@ const DatePicker = ({ label, value, onChange }) => {
                   {...params}
                   size="medium"
                   sx={{
-                    flex: 1,
+                    width: "100%",
+                    minHeight: "40px",
                     "& .MuiInputBase-root": {
                       minHeight: "40px",
                     },
@@ -180,12 +186,17 @@ const DatePicker = ({ label, value, onChange }) => {
           </Box>
 
           {/* To */}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-            <Typography sx={{ fontSize: "14px", fontWeight: 500, minWidth: "40px" }}>
-              To:
-            </Typography>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 1,
+              width: "100%",
+            }}
+          >
             <MuiDatePicker
-              label="End Date"
+              label="終了日"
               value={endDate}
               onChange={handleEndDateChange}
               renderInput={(params) => (
@@ -193,7 +204,8 @@ const DatePicker = ({ label, value, onChange }) => {
                   {...params}
                   size="medium"
                   sx={{
-                    flex: 1,
+                    width: "100%",
+                    minHeight: "40px",
                     "& .MuiInputBase-root": {
                       minHeight: "40px",
                     },

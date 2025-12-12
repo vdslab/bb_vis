@@ -2,7 +2,25 @@
 .heatmap-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100px;
+}
+
+/* 現在のセルマーカーのアニメーション */
+@keyframes pulse-marker {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.current-cell-marker {
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 /* イニングオーバーレイ */
@@ -67,4 +85,77 @@
 
 .error-message p:first-child {
   font-weight: 500;
+}
+
+/* カスタムツールチップ */
+.heatmap-tooltip {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px 14px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.heatmap-tooltip-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #212529;
+  white-space: nowrap;
+}
+
+/* カスタム凡例オーバーレイ - 縦表示 */
+.heatmap-legend-overlay {
+  position: absolute;
+  top: 50px;
+  bottom: 15px;
+  left: -12px;
+  z-index: 100;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heatmap-legend-title {
+  font-size: 8px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 4px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  text-align: left;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.heatmap-legend-gradient {
+  width: 8px;
+  height: 100%;
+  max-height: 80px;
+  background: linear-gradient(
+    to bottom,
+    #08306b,
+    #08519c,
+    #2171b5,
+    #4292c6,
+    #6baed6,
+    #9ecae1,
+    #c6dbef,
+    #deebf7,
+    #f7fbff
+  );
+  border-radius: 2px;
+  margin-bottom: 4px;
+}
+
+.heatmap-legend-labels {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  height: 100%;
+  max-height: 80px;
+  font-size: 7px;
+  font-weight: 500;
+  color: #495057;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
