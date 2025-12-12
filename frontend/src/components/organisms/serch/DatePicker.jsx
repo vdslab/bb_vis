@@ -117,7 +117,7 @@ const DatePicker = ({ label, value, onChange }) => {
           >
             <Typography sx={{ fontSize: "14px", fontWeight: 500 }}>Date:</Typography>
             <MuiDatePicker
-              label="Single Date"
+              label="日付を入力"
               value={startDate}
               onChange={(newValue) => {
                 setStartDate(newValue);
@@ -160,7 +160,7 @@ const DatePicker = ({ label, value, onChange }) => {
               From:
             </Typography>
             <MuiDatePicker
-              label="Start Date"
+              label="開始日"
               value={startDate}
               onChange={handleStartDateChange}
               renderInput={(params) => (
@@ -185,7 +185,7 @@ const DatePicker = ({ label, value, onChange }) => {
               To:
             </Typography>
             <MuiDatePicker
-              label="End Date"
+              label="終了日"
               value={endDate}
               onChange={handleEndDateChange}
               renderInput={(params) => (
