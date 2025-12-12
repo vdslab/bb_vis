@@ -198,8 +198,8 @@ const Search = () => {
   ].sort((a, b) => a.label.localeCompare(b.label));
 
   const sortOptions = [
-    { value: "日付（新しい順）", label: "日付（新しい順）" },
     { value: "評価（高い順）", label: "評価（高い順）" },
+    { value: "日付（新しい順）", label: "日付（新しい順）" },
   ];
 
   const handleShowAllGamesChange = (event) => {
@@ -228,23 +228,19 @@ const Search = () => {
           />
         </div>
         <div className="search-box-sort">
-          <div className="search-box-sort-container">
-            <div className="search-box-sort-select">
-              <SelectBox
-                label="表示順"
-                value={sortValue}
-                onChange={(event) => setSortValue(event.target.value)}
-                options={sortOptions}
-              />
-            </div>
-            <div className="search-box-sort-checkbox">
-              <CheckBox
-                label="全件表示"
-                checked={showAllGamesValue}
-                onChange={handleShowAllGamesChange}
-              />
-            </div>
+          <div className="search-box-sort-label-row">
+            <span className="search-label">表示順</span>
+            <CheckBox
+              label="全件表示"
+              checked={showAllGamesValue}
+              onChange={handleShowAllGamesChange}
+            />
           </div>
+          <SelectBox
+            value={sortValue}
+            onChange={(event) => setSortValue(event.target.value)}
+            options={sortOptions}
+          />
         </div>
       </div>
       {/* devonly:start */}
