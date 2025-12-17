@@ -10,48 +10,10 @@ import {
 } from "@/store/GameStore";
 import "@/styles/gamelistcard.css";
 import GameListCardDetail from "./GameListCardDetail";
+import { getJPTeamName } from "@/util/teamTranslation";
 // devonly:start
 import { useSelector } from "react-redux";
 // devonly:end
-
-//  英語→日本語
-const TEAM_NAME_MAP = {
-  Diamondbacks: "ダイヤモンドバックス",
-  Braves: "ブレーブス",
-  Orioles: "オリオールズ",
-  "Red Sox": "レッドソックス",
-  Cubs: "カブス",
-  "White Sox": "ホワイトソックス",
-  Reds: "レッズ",
-  Guardians: "ガーディアンズ",
-  Rockies: "ロッキーズ",
-  Tigers: "タイガース",
-  Astros: "アストロズ",
-  Royals: "ロイヤルズ",
-  Angels: "エンゼルス",
-  Dodgers: "ドジャース",
-  Marlins: "マーリンズ",
-  Brewers: "ブルワーズ",
-  Twins: "ツインズ",
-  Mets: "メッツ",
-  Yankees: "ヤンキース",
-  Athletics: "アスレチックス",
-  Phillies: "フィリーズ",
-  Pirates: "パイレーツ",
-  Padres: "パドレス",
-  Giants: "ジャイアンツ",
-  Mariners: "マリナーズ",
-  Cardinals: "カージナルス",
-  Rays: "レイズ",
-  Rangers: "レンジャーズ",
-  BlueJays: "ブルージェイズ",
-  Nationals: "ナショナルズ",
-};
-
-//  日本語変換
-const getJPTeamName = (name) => {
-  return TEAM_NAME_MAP[name] || null;
-};
 
 const GameListCard = ({
   gamepk,
