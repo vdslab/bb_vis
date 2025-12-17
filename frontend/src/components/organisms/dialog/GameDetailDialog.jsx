@@ -1,11 +1,19 @@
 import React from "react";
-import { Dialog, DialogTitle, DialogContent, DialogActions, IconButton, Box } from "@mui/material";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  IconButton,
+  Box,
+  Typography,
+} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import Simulation from "../../panels/Simulation";
 import Movie from "../../panels/Movie";
+import { getJPTeamName } from "../../../util/teamTranslation";
 
 const GameDetailDialog = ({ isOpen, handleClose, selectedGameInfo }) => {
-  
   const formatDate = (dateStr) => {
     const [y, m, d] = dateStr.split("-");
     return `${Number(y)}年${Number(m)}月${Number(d)}日`;
@@ -21,10 +29,32 @@ const GameDetailDialog = ({ isOpen, handleClose, selectedGameInfo }) => {
           borderBottom: "1px solid #ccc",
         }}
       >
-        {selectedGameInfo
-          ? `${formatDate(selectedGameInfo.date)} ${selectedGameInfo.awayTeam} vs ${selectedGameInfo.homeTeam}`
-          : "Game Details"}
-
+        {selectedGameInfo ? (
+          <Box sx={{ display: "flex", alignItems: "flex-end", gap: 1 }}>
+            <Box>{formatDate(selectedGameInfo.date)}</Box>
+            <Box sx={{ textAlign: "center" }}>
+              <Typography
+                variant="caption"
+                sx={{ color: "text.secondary", display: "block", lineHeight: 1.2 }}
+              >
+                {getJPTeamName(selectedGameInfo.awayTeam)}
+              </Typography>
+              <Box>{selectedGameInfo.awayTeam}</Box>
+            </Box>
+            <Box>vs</Box>
+            <Box sx={{ textAlign: "center" }}>
+              <Typography
+                variant="caption"
+                sx={{ color: "text.secondary", display: "block", lineHeight: 1.2 }}
+              >
+                {getJPTeamName(selectedGameInfo.homeTeam)}
+              </Typography>
+              <Box>{selectedGameInfo.homeTeam}</Box>
+            </Box>
+          </Box>
+        ) : (
+          "Game Details"
+        )}
         <DialogActions>
           <IconButton onClick={handleClose} size="large">
             <CloseIcon />
